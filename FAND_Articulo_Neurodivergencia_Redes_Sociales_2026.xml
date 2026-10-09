@@ -1,0 +1,849 @@
+<?xml version='1.0' encoding='utf-8'?>
+<articulo id="neurodivergencia-redes-sociales-2026" slug="neurodivergencia-redes-sociales" idioma="es" version="1.0" fecha_actualizacion="2026-10-07" tipo="articulo-investigacion">
+  <metadatos>
+    <organizacion>FAND - Asociación Alianza para la Neurodivergencia</organizacion>
+    <titulo>Neurodivergencia y redes sociales</titulo>
+    <subtitulo>Información, desinformación, identidad, comunidad, amistad, accesibilidad, autopercepción, autodiagnóstico, bienestar, ciberacoso, uso problemático y vacíos de investigación</subtitulo>
+    <descripcion>Síntesis documental de FAND sobre los beneficios, riesgos, calidad de la información, accesibilidad y vacíos de investigación relacionados con neurodivergencia y redes sociales.</descripcion>
+    <categoria>Investigación y divulgación</categoria>
+    <estado>publicable</estado>
+    <uso_destino>Artículo web</uso_destino>
+    <fuente_original>redes.pdf</fuente_original>
+    <nota_editorial>Contenido estructurado a partir del PDF de FAND. Las cifras, cautelas metodológicas y referencias deben conservarse al publicarlo en la web.</nota_editorial>
+  </metadatos>
+  <cuerpo>
+    <seccion pagina_origen="1" orden="1">
+      <titulo>ALCANCE DE ESTA VERSIÓN</titulo>
+      <contenido>
+        <parrafo>NEURODIVERGENCIA Y REDES SOCIALES Estudio ampliado: información, desinformación, identidad, comunidad, amistad, accesibilidad, autopercepción, autodiagnóstico, bienestar, ciberacoso, uso problemático y vacíos de investigación</parrafo>
+        <parrafo>Actualización ampliada con búsqueda documental realizada hasta el 7 de octubre de 2026. Integra la versión anterior de FAND con revisiones sistemáticas, estudios longitudinales, experimentales, cualitativos y análisis de contenido. No se presenta como una revisión sistemática registrada: es una síntesis documental amplia y trazable orientada a divulgación y planificación de FAND.</parrafo>
+        <parrafo>27 21 32 44 estudios en la revisión 2026 reportes / 18 estudios sobre estudios / 3.026 personas estudios en jóvenes con sobre calidad y conexión social en autismo y autistas en revisión de dificultades de desinformación TDAH comunicación digital lenguaje/comunicación</parrafo>
+        <parrafo>CONCLUSIÓN EN UNA FRASE Las redes pueden ser simultáneamente espacio de comunidad y apoyo y canal de desinformación, sobrecarga o daño; el efecto depende de quién las usa, para qué, en qué plataforma, con qué apoyos y con qué calidad de información.</parrafo>
+      </contenido>
+      <texto_fuente> NEURODIVERGENCIA Y REDES SOCIALES
+ Estudio ampliado: información, desinformación, identidad, comunidad, amistad, accesibilidad,
+ autopercepción, autodiagnóstico, bienestar, ciberacoso, uso problemático y vacíos de investigación
+
+
+       ALCANCE DE ESTA VERSIÓN
+
+       Actualización ampliada con búsqueda documental realizada hasta el 7 de octubre de 2026. Integra la versión anterior de
+       FAND con revisiones sistemáticas, estudios longitudinales, experimentales, cualitativos y análisis de contenido. No se
+       presenta como una revisión sistemática registrada: es una síntesis documental amplia y trazable orientada a
+       divulgación y planificación de FAND.
+
+
+
+
+                  27                                 21                           32                           44
+      estudios en la revisión 2026        reportes / 18 estudios sobre   estudios / 3.026 personas     estudios en jóvenes con
+            sobre calidad y               conexión social en autismo y    autistas en revisión de           dificultades de
+            desinformación                            TDAH                  comunicación digital        lenguaje/comunicación
+
+
+
+
+ CONCLUSIÓN EN UNA FRASE
+        Las redes pueden ser simultáneamente espacio de comunidad y apoyo y canal de
+     desinformación, sobrecarga o daño; el efecto depende de quién las usa, para qué, en qué
+                 plataforma, con qué apoyos y con qué calidad de información.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="2" orden="2">
+      <titulo>1. CÓMO SE HA AMPLIADO LA BÚSQUEDA La ampliación se orientó a cinco bloques: (1) calidad y fiabilidad de la información; (2) conexión social, identidad y apoyo; (3) bienestar, autoestima, ciberacoso y uso problemático; (4) autopercepción, diagnóstico y efectos de la desinformación; y (5) accesibilidad y perfiles menos estudiados.</titulo>
+      <contenido>
+        <parrafo>Tipo de evidencia Qué aporta Precaución al interpretarla</parrafo>
+        <parrafo>Revisiones sistemáticas / Panorama global, consistencia y vacíos Heterogeneidad de definiciones, scoping reviews plataformas y medidas</parrafo>
+        <parrafo>Estudios longitudinales Orden temporal y cambios No eliminan todos los factores de confusión</parrafo>
+        <parrafo>Experimentos Efecto de una exposición controlada Contexto artificial y muestras concretas</parrafo>
+        <parrafo>Entrevistas / cualitativos Experiencia vivida, identidad y matices No estiman prevalencia</parrafo>
+        <parrafo>Análisis de contenido Qué información circula y con qué calidad No demuestra el efecto que produce en cada usuario</parrafo>
+        <parrafo>Minería de Reddit/X Temas y lenguaje a gran escala Usuarios no equivalen a población clínica representativa</parrafo>
+        <subtitulo>REGLA DE INTERPRETACIÓN</subtitulo>
+        <parrafo>En todo el informe se separan correlación, asociación, experiencia personal y causalidad. Un contenido puede ser popular sin ser correcto; una persona puede reconocerse legítimamente en experiencias online sin que eso constituya un diagnóstico; y una asociación estadística entre uso de redes y síntomas no demuestra por sí sola qué causa qué.</parrafo>
+      </contenido>
+      <texto_fuente> 1. CÓMO SE HA AMPLIADO LA BÚSQUEDA
+ La ampliación se orientó a cinco bloques: (1) calidad y fiabilidad de la información; (2) conexión social, identidad y apoyo; (3)
+ bienestar, autoestima, ciberacoso y uso problemático; (4) autopercepción, diagnóstico y efectos de la desinformación; y (5)
+ accesibilidad y perfiles menos estudiados.
+
+     Tipo de evidencia                       Qué aporta                                  Precaución al interpretarla
+
+     Revisiones sistemáticas /               Panorama global, consistencia y vacíos      Heterogeneidad de definiciones,
+     scoping reviews                                                                     plataformas y medidas
+
+     Estudios longitudinales                 Orden temporal y cambios                    No eliminan todos los factores de
+                                                                                         confusión
+
+     Experimentos                            Efecto de una exposición controlada         Contexto artificial y muestras concretas
+
+     Entrevistas / cualitativos              Experiencia vivida, identidad y matices     No estiman prevalencia
+
+     Análisis de contenido                   Qué información circula y con qué calidad   No demuestra el efecto que produce en
+                                                                                         cada usuario
+
+     Minería de Reddit/X                     Temas y lenguaje a gran escala              Usuarios no equivalen a población clínica
+                                                                                         representativa
+
+
+
+       REGLA DE INTERPRETACIÓN
+
+       En todo el informe se separan correlación, asociación, experiencia personal y causalidad. Un contenido puede ser
+       popular sin ser correcto; una persona puede reconocerse legítimamente en experiencias online sin que eso constituya un
+       diagnóstico; y una asociación estadística entre uso de redes y síntomas no demuestra por sí sola qué causa qué.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="3" orden="3">
+      <titulo>2. MAPA DE LA EVIDENCIA: NO TODAS LAS NEURODIVERGENCIAS ESTÁN IGUAL DE ESTUDIADAS Perfil Nivel relativo de Temas más frecuentes Vacíos principales evidencia</titulo>
+      <contenido>
+        <parrafo>Autismo Alto Comunidad, identidad, comunicación, Más causalidad, diversidad TikTok, ciberacoso, diseño cultural y edad avanzada</parrafo>
+        <parrafo>TDAH Alto TikTok, desinformación, uso Más estudios clínicos y problemático, autoestima, longitudinales mecanismos causales</parrafo>
+        <parrafo>Discapacidad Medio Inclusión, amistad, privacidad, seguridad, Intervenciones y seguimiento intelectual alfabetización, acceso longitudinal</parrafo>
+        <parrafo>Lenguaje / Medio-bajo Uso social, barreras comunicativas, Investigación codiseñada y comunicación apoyos longitudinal</parrafo>
+        <parrafo>Tourette / tics Medio-bajo Representación, comunidades, tics Diferenciar percepción online, funcionales Tourette y FTLB</parrafo>
+        <parrafo>DCD / disprasia Bajo Experiencias vitales, estrategias, trabajo, Plataformas, bienestar y estudios apoyo comparativos</parrafo>
+        <parrafo>Dislexia Bajo Accesibilidad, lectura/escritura digital Redes sociales actuales y efectos sociales</parrafo>
+        <parrafo>Discalculia / Muy bajo Evidencia específica escasa Prácticamente todas las disgrafía / otros dimensiones</parrafo>
+        <subtitulo>SESGO DEL CAMPO</subtitulo>
+        <parrafo>La ausencia de estudios no significa ausencia de necesidades. Significa que sabemos mucho menos. Por ello FAND no debe extrapolar automáticamente los hallazgos de autismo o TDAH a todas las neurodivergencias.</parrafo>
+      </contenido>
+      <texto_fuente> 2. MAPA DE LA EVIDENCIA: NO TODAS LAS
+ NEURODIVERGENCIAS ESTÁN IGUAL DE ESTUDIADAS
+     Perfil                     Nivel relativo de    Temas más frecuentes                          Vacíos principales
+                                evidencia
+
+     Autismo                    Alto                 Comunidad, identidad, comunicación,           Más causalidad, diversidad
+                                                     TikTok, ciberacoso, diseño                    cultural y edad avanzada
+
+     TDAH                       Alto                 TikTok, desinformación, uso                   Más estudios clínicos y
+                                                     problemático, autoestima, longitudinales      mecanismos causales
+
+     Discapacidad               Medio                Inclusión, amistad, privacidad, seguridad,    Intervenciones y seguimiento
+     intelectual                                     alfabetización, acceso                        longitudinal
+
+     Lenguaje /                 Medio-bajo           Uso social, barreras comunicativas,           Investigación codiseñada y
+     comunicación                                    apoyos                                        longitudinal
+
+     Tourette / tics            Medio-bajo           Representación, comunidades, tics             Diferenciar percepción online,
+                                                     funcionales                                   Tourette y FTLB
+
+     DCD / disprasia            Bajo                 Experiencias vitales, estrategias, trabajo,   Plataformas, bienestar y estudios
+                                                     apoyo                                         comparativos
+
+     Dislexia                   Bajo                 Accesibilidad, lectura/escritura digital      Redes sociales actuales y
+                                                                                                   efectos sociales
+
+     Discalculia /              Muy bajo             Evidencia específica escasa                   Prácticamente todas las
+     disgrafía / otros                                                                             dimensiones
+
+
+
+       SESGO DEL CAMPO
+
+       La ausencia de estudios no significa ausencia de necesidades. Significa que sabemos mucho menos. Por ello FAND no
+       debe extrapolar automáticamente los hallazgos de autismo o TDAH a todas las neurodivergencias.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="4" orden="4">
+      <titulo>PATRÓN GENERAL QUIÉN PRODUCE EL CONTENIDO</titulo>
+      <contenido>
+        <parrafo>3. CALIDAD DE LA INFORMACIÓN Y DESINFORMACIÓN La revisión sistemática de Carter et al. (2026) es especialmente útil porque compara estudios sobre salud mental y neurodivergencia en varias plataformas.</parrafo>
+        <parrafo>27 5.057 0-56,9 % 2026 estudios incluidos publicaciones analizadas rango de desinformación año de publicación entre estudios</parrafo>
+        <parrafo>La prevalencia de desinformación varió mucho según La calidad y fiabilidad fueron variables, pero tendieron tema, plataforma y método. En conjunto, fue mayor en a ser mejores cuando el contenido estaba creado por TikTok que en YouTube y mayor en contenidos de profesionales. neurodivergencia que en otros temas de salud mental.</parrafo>
+        <subtitulo>QUÉ NO SIGNIFICA EL 0-56,9 %</subtitulo>
+        <parrafo>No significa que 'hasta el 56,9 % de todas las redes sea falso'. Es el rango observado entre estudios distintos, con muestras, definiciones y plataformas diferentes. La heterogeneidad impide convertirlo en una prevalencia universal.</parrafo>
+      </contenido>
+      <texto_fuente> 3. CALIDAD DE LA INFORMACIÓN Y DESINFORMACIÓN
+ La revisión sistemática de Carter et al. (2026) es especialmente útil porque compara estudios sobre salud mental y
+ neurodivergencia en varias plataformas.
+
+
+
+                  27                                 5.057                 0-56,9 %                             2026
+            estudios incluidos              publicaciones analizadas    rango de desinformación             año de publicación
+                                                                             entre estudios
+
+
+
+
+        PATRÓN GENERAL                                                  QUIÉN PRODUCE EL CONTENIDO
+
+        La prevalencia de desinformación varió mucho según              La calidad y fiabilidad fueron variables, pero tendieron
+        tema, plataforma y método. En conjunto, fue mayor en            a ser mejores cuando el contenido estaba creado por
+        TikTok que en YouTube y mayor en contenidos de                  profesionales.
+        neurodivergencia que en otros temas de salud mental.
+
+
+
+
+       QUÉ NO SIGNIFICA EL 0-56,9 %
+
+       No significa que 'hasta el 56,9 % de todas las redes sea falso'. Es el rango observado entre estudios distintos, con
+       muestras, definiciones y plataformas diferentes. La heterogeneidad impide convertirlo en una prevalencia universal.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="5" orden="5">
+      <titulo>4. AUTISMO: INFORMACIÓN, REPRESENTACIÓN Y EXPERIENCIA</titulo>
+      <contenido>
+        <parrafo>133 27 % 41 % 32 % vídeos informativos #Autism correctos incorrectos sobregeneralizados</parrafo>
+        <parrafo>En Aragon-Guevara et al., los 133 vídeos informativos más vistos sumaban 198,7 millones de visualizaciones y 25,2 millones de 'me gusta'. No hubo diferencias significativas de engagement entre contenido correcto e incorrecto/sobregeneralizado, y los vídeos de profesionales sanitarios tenían más probabilidad de ser correctos.</parrafo>
+        <subtitulo>TIKTOK Y DIAGNÓSTICO EN ADULTOS</subtitulo>
+        <parrafo>Un estudio de 2025 analizó 150 vídeos asociados a #actuallyautistic, #latediagnosedautistic y #autism. Encontró una proporción importante de vídeos personales o engañosos, diferencias entre hashtags y mucho contenido centrado en identidad y diagnóstico. Su alcance muestra el potencial de TikTok para concienciación y autoexploración, pero también la necesidad de alfabetización digital.</parrafo>
+        <subtitulo>REPRESENTACIÓN TAMBIÉN ES CALIDAD</subtitulo>
+        <parrafo>Otro análisis de vídeos #autism mostró que gran parte del contenido muy visto presenta experiencias personales de personas autistas. Entre los vídeos con una persona autista, la representación racial estaba muy concentrada en personas percibidas como blancas. Esto puede limitar que ciertos grupos encuentren referentes que reflejen simultáneamente neurodivergencia y diversidad racial.</parrafo>
+      </contenido>
+      <texto_fuente> 4. AUTISMO: INFORMACIÓN, REPRESENTACIÓN Y
+ EXPERIENCIA
+
+                 133                                 27 %                    41 %                            32 %
+      vídeos informativos #Autism                    correctos                incorrectos                 sobregeneralizados
+
+
+
+ En Aragon-Guevara et al., los 133 vídeos informativos más vistos sumaban 198,7 millones de visualizaciones y 25,2 millones
+ de 'me gusta'. No hubo diferencias significativas de engagement entre contenido correcto e incorrecto/sobregeneralizado, y
+ los vídeos de profesionales sanitarios tenían más probabilidad de ser correctos.
+
+
+
+       TIKTOK Y DIAGNÓSTICO EN ADULTOS
+
+       Un estudio de 2025 analizó 150 vídeos asociados a #actuallyautistic, #latediagnosedautistic y #autism. Encontró una
+       proporción importante de vídeos personales o engañosos, diferencias entre hashtags y mucho contenido centrado en
+       identidad y diagnóstico. Su alcance muestra el potencial de TikTok para concienciación y autoexploración, pero también la
+       necesidad de alfabetización digital.
+
+
+
+       REPRESENTACIÓN TAMBIÉN ES CALIDAD
+
+       Otro análisis de vídeos #autism mostró que gran parte del contenido muy visto presenta experiencias personales de
+       personas autistas. Entre los vídeos con una persona autista, la representación racial estaba muy concentrada en personas
+       percibidas como blancas. Esto puede limitar que ciertos grupos encuentren referentes que reflejen simultáneamente
+       neurodivergencia y diversidad racial.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="6" orden="6">
+      <titulo>5. AUTISMO: CONEXIÓN, IDENTIDAD, COMUNIDAD Y RIESGOS</titulo>
+      <contenido>
+        <parrafo>32 3.026 15 78 estudios de comunicación personas autistas incluidas estudios en revisión adultos en estudio de digital específica de experiencia en ciberacoso redes</parrafo>
+        <subtitulo>BENEFICIOS DESCRITOS RIESGOS DESCRITOS</subtitulo>
+        <parrafo>Más control sobre cuándo y cómo responder; menor Ciberacoso, rechazo, sentirse ignorado, presión social para algunas personas; acceso a pares malentendidos, privacidad, engaño, vulnerabilidad, con experiencias similares; identidad y pertenencia; soledad en determinados contextos y sobrecarga. intercambio de estrategias; posibilidad de comunicación alrededor de intereses compartidos.</parrafo>
+        <subtitulo>CIBERACOSO Y PERTENENCIA</subtitulo>
+        <parrafo>En un estudio con 78 adultos autistas, mayor uso de redes se asoció con mayor riesgo de cibervictimización. A la vez, la autoestima se relacionó positivamente con el sentimiento de pertenecer a una comunidad online y negativamente con sentirse ignorado. Es un buen ejemplo de por qué la experiencia online no puede resumirse como 'buena' o 'mala'.</parrafo>
+        <subtitulo>INTERVENCIONES BASADAS EN REDES</subtitulo>
+        <parrafo>Una revisión de 2023 encontró solo 9 artículos sobre intervenciones mediante redes sociales en autismo: 8 estudios primarios y 1 revisión; los estudios primarios reunían 164 participantes autistas de 5 a 22 años. Los resultados fueron mayoritariamente positivos, pero la base de evidencia se consideró todavía pequeña y de calidad limitada.</parrafo>
+      </contenido>
+      <texto_fuente> 5. AUTISMO: CONEXIÓN, IDENTIDAD, COMUNIDAD Y RIESGOS
+
+                  32                                 3.026                          15                             78
+       estudios de comunicación            personas autistas incluidas       estudios en revisión          adultos en estudio de
+                 digital                                                 específica de experiencia en           ciberacoso
+                                                                                     redes
+
+
+
+
+        BENEFICIOS DESCRITOS                                              RIESGOS DESCRITOS
+
+        Más control sobre cuándo y cómo responder; menor                  Ciberacoso, rechazo, sentirse ignorado,
+        presión social para algunas personas; acceso a pares              malentendidos, privacidad, engaño, vulnerabilidad,
+        con experiencias similares; identidad y pertenencia;              soledad en determinados contextos y sobrecarga.
+        intercambio de estrategias; posibilidad de
+        comunicación alrededor de intereses compartidos.
+
+
+
+
+       CIBERACOSO Y PERTENENCIA
+
+       En un estudio con 78 adultos autistas, mayor uso de redes se asoció con mayor riesgo de cibervictimización. A la vez, la
+       autoestima se relacionó positivamente con el sentimiento de pertenecer a una comunidad online y negativamente con
+       sentirse ignorado. Es un buen ejemplo de por qué la experiencia online no puede resumirse como 'buena' o 'mala'.
+
+
+
+
+       INTERVENCIONES BASADAS EN REDES
+
+       Una revisión de 2023 encontró solo 9 artículos sobre intervenciones mediante redes sociales en autismo: 8 estudios
+       primarios y 1 revisión; los estudios primarios reunían 164 participantes autistas de 5 a 22 años. Los resultados fueron
+       mayoritariamente positivos, pero la base de evidencia se consideró todavía pequeña y de calidad limitada.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="7" orden="7">
+      <titulo>6. TDAH: QUÉ CIRCULA EN TIKTOK</titulo>
+      <contenido>
+        <parrafo>100 52 % 27 % 21 % vídeos populares analizados engañosos experiencia personal útiles</parrafo>
+        <parrafo>En Yeung et al., los vídeos de experiencia personal fueron los más comprensibles y los más populares. Entre los 52 vídeos engañosos, el problema más común fue presentar síntomas transdiagnósticos -por ejemplo ansiedad, depresión, ira o cambios de ánimo- como si fueran específicos de TDAH.</parrafo>
+        <parrafo>50 46 92 % 4% vídeos #ADHDtest clasificados como del total de los 'me gusta' fueron para engañosos vídeos útiles</parrafo>
+        <parrafo>En el estudio #ADHDtest, los vídeos útiles concentraron solo el 4 % de los 'me gusta', el 1 % de los comentarios y el 7 % de los favoritos. La muestra ilustra que la interacción no funciona como control de calidad.</parrafo>
+        <subtitulo>REVISIÓN SISTEMÁTICA 2026</subtitulo>
+        <parrafo>Branigan revisó cinco estudios considerados de alta calidad. En las muestras analizadas por esos trabajos, el contenido engañoso osciló aproximadamente entre 48,7 % y 92 %. La revisión destaca la patologización de comportamientos cotidianos, la fuerza de las narrativas personales y la posible interacción entre desinformación, validación entre pares y recomendación algorítmica.</parrafo>
+      </contenido>
+      <texto_fuente> 6. TDAH: QUÉ CIRCULA EN TIKTOK
+
+                 100                                 52 %                      27 %                             21 %
+      vídeos populares analizados                    engañosos             experiencia personal                    útiles
+
+
+
+ En Yeung et al., los vídeos de experiencia personal fueron los más comprensibles y los más populares. Entre los 52 vídeos
+ engañosos, el problema más común fue presentar síntomas transdiagnósticos -por ejemplo ansiedad, depresión, ira o
+ cambios de ánimo- como si fueran específicos de TDAH.
+
+
+
+
+                  50                                   46                      92 %                               4%
+           vídeos #ADHDtest                     clasificados como                del total              de los 'me gusta' fueron para
+                                                   engañosos                                                     vídeos útiles
+
+
+
+ En el estudio #ADHDtest, los vídeos útiles concentraron solo el 4 % de los 'me gusta', el 1 % de los comentarios y el 7 % de
+ los favoritos. La muestra ilustra que la interacción no funciona como control de calidad.
+
+
+
+       REVISIÓN SISTEMÁTICA 2026
+
+       Branigan revisó cinco estudios considerados de alta calidad. En las muestras analizadas por esos trabajos, el contenido
+       engañoso osciló aproximadamente entre 48,7 % y 92 %. La revisión destaca la patologización de comportamientos
+       cotidianos, la fuerza de las narrativas personales y la posible interacción entre desinformación, validación entre pares y
+       recomendación algorítmica.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="8" orden="8">
+      <titulo>7. TDAH: QUÉ PASA CUANDO UNA PERSONA VE DESINFORMACIÓN</titulo>
+      <contenido>
+        <subtitulo>EXPERIMENTO CON 490 UNIVERSITARIOS</subtitulo>
+        <parrafo>Participantes sin tratamiento previo fueron asignados aleatoriamente a tres condiciones: información correcta sobre TDAH, desinformación sobre TDAH o contenido de control. Se midió conocimiento antes y después, además de confianza, estigma e intención de buscar tratamiento.</parrafo>
+        <subtitulo>RESULTADO 1 RESULTADO 2</subtitulo>
+        <parrafo>Quienes vieron desinformación mostraron menos A pesar de ello, mostraron mayor confianza en su conocimiento correcto sobre TDAH después de la conocimiento. La combinación de menor exactitud y exposición. mayor seguridad es especialmente relevante para la alfabetización digital.</parrafo>
+        <subtitulo>LO QUE ESTE EXPERIMENTO NO DEMUESTRA</subtitulo>
+        <parrafo>No demuestra cuántas personas se autodiagnostican falsamente ni cuántas 'realmente tienen TDAH'. Tampoco demuestra que TikTok cause TDAH. Sí aporta evidencia experimental de que la exposición a información incorrecta puede modificar negativamente el conocimiento y la confianza sobre el trastorno.</parrafo>
+        <subtitulo>CADENA DE RIESGO POSIBLE</subtitulo>
+        <parrafo>Paso Proceso</parrafo>
+        <parrafo>1 Contenido simplificado, atractivo o incorrecto</parrafo>
+        <parrafo>2 Identificación con rasgos comunes o transdiagnósticos</parrafo>
+        <parrafo>3 Recomendación de contenido similar por la plataforma</parrafo>
+        <parrafo>4 Repetición y validación social</parrafo>
+        <parrafo>5 Mayor seguridad subjetiva en una explicación</parrafo>
+        <parrafo>6 Posible autodiagnóstico, búsqueda de evaluación o adopción de una identidad diagnóstica</parrafo>
+        <parrafo>Esta secuencia es un modelo de riesgo plausible, no una cadena causal demostrada en todas sus etapas.</parrafo>
+      </contenido>
+      <texto_fuente> 7. TDAH: QUÉ PASA CUANDO UNA PERSONA VE
+ DESINFORMACIÓN
+
+         EXPERIMENTO CON 490 UNIVERSITARIOS
+
+         Participantes sin tratamiento previo fueron asignados aleatoriamente a tres condiciones: información correcta sobre TDAH,
+         desinformación sobre TDAH o contenido de control. Se midió conocimiento antes y después, además de confianza, estigma
+         e intención de buscar tratamiento.
+
+
+
+
+         RESULTADO 1                                                      RESULTADO 2
+
+         Quienes vieron desinformación mostraron menos                    A pesar de ello, mostraron mayor confianza en su
+         conocimiento correcto sobre TDAH después de la                   conocimiento. La combinación de menor exactitud y
+         exposición.                                                      mayor seguridad es especialmente relevante para la
+                                                                          alfabetización digital.
+
+
+
+
+         LO QUE ESTE EXPERIMENTO NO DEMUESTRA
+
+         No demuestra cuántas personas se autodiagnostican falsamente ni cuántas 'realmente tienen TDAH'. Tampoco demuestra
+         que TikTok cause TDAH. Sí aporta evidencia experimental de que la exposición a información incorrecta puede modificar
+         negativamente el conocimiento y la confianza sobre el trastorno.
+
+
+
+
+ CADENA DE RIESGO POSIBLE
+
+     Paso            Proceso
+
+     1               Contenido simplificado, atractivo o incorrecto
+
+     2               Identificación con rasgos comunes o transdiagnósticos
+
+     3               Recomendación de contenido similar por la plataforma
+
+     4               Repetición y validación social
+
+     5               Mayor seguridad subjetiva en una explicación
+
+     6               Posible autodiagnóstico, búsqueda de evaluación o adopción de una identidad diagnóstica
+
+
+ Esta secuencia es un modelo de riesgo plausible, no una cadena causal demostrada en todas sus etapas.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="9" orden="9">
+      <titulo>8. TDAH Y USO PROBLEMÁTICO: QUÉ DICE LA EVIDENCIA</titulo>
+      <contenido>
+        <parrafo>15 35.223 r = 0,361 0,297-0,421 estudios en metaanálisis participantes correlación combinada IC 95 %</parrafo>
+        <parrafo>El metaanálisis de Ding et al. (2025) encontró una asociación positiva moderada entre sintomatología de TDAH y uso problemático de redes sociales. La intensidad de la asociación variaba según el momento de recogida de datos, las escalas empleadas y la edad media de las muestras.</parrafo>
+        <subtitulo>CORRELACIÓN NO ES CAUSALIDAD</subtitulo>
+        <parrafo>Este resultado no permite afirmar que las redes causen TDAH ni que el TDAH cause inevitablemente uso problemático. Factores como impulsividad, regulación emocional, sueño, estrés, apoyo social, diseño de plataforma y otros problemas de salud mental pueden intervenir.</parrafo>
+        <subtitulo>REVISIÓN DE ADOLESCENTES 2026</subtitulo>
+        <parrafo>Una revisión sistemática específica estudió la relación entre uso de redes e inatención/impulsividad en adolescentes de 10 a 19 años, incluyendo tanto población general como jóvenes con TDAH. Refuerza la necesidad de distinguir entre cantidad de uso, uso problemático y resultados atencionales.</parrafo>
+      </contenido>
+      <texto_fuente> 8. TDAH Y USO PROBLEMÁTICO: QUÉ DICE LA EVIDENCIA
+
+                  15                             35.223                   r = 0,361                    0,297-0,421
+        estudios en metaanálisis                     participantes      correlación combinada                  IC 95 %
+
+
+
+ El metaanálisis de Ding et al. (2025) encontró una asociación positiva moderada entre sintomatología de TDAH y uso
+ problemático de redes sociales. La intensidad de la asociación variaba según el momento de recogida de datos, las escalas
+ empleadas y la edad media de las muestras.
+
+
+       CORRELACIÓN NO ES CAUSALIDAD
+
+       Este resultado no permite afirmar que las redes causen TDAH ni que el TDAH cause inevitablemente uso problemático.
+       Factores como impulsividad, regulación emocional, sueño, estrés, apoyo social, diseño de plataforma y otros problemas de
+       salud mental pueden intervenir.
+
+
+
+
+       REVISIÓN DE ADOLESCENTES 2026
+
+       Una revisión sistemática específica estudió la relación entre uso de redes e inatención/impulsividad en adolescentes de 10
+       a 19 años, incluyendo tanto población general como jóvenes con TDAH. Refuerza la necesidad de distinguir entre cantidad
+       de uso, uso problemático y resultados atencionales.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="10" orden="10">
+      <titulo>9. CONEXIÓN SOCIAL Y AUTOESTIMA: AUTISMO Y TDAH NO SE HAN ESTUDIADO IGUAL</titulo>
+      <contenido>
+        <parrafo>21 18 16 11/5 reportes estudios de estudios sobre autoestima infantojuveniles / adultos en conexión/desconexión autoestima</parrafo>
+        <subtitulo>AUTISMO TDAH</subtitulo>
+        <parrafo>La revisión de conexión social sugiere una relación La literatura se ha centrado más en uso con mayor conexión online; los estudios de problemático/adictivo y ciberacoso. En la revisión de autoestima incluyen comunidad, pertenencia y autoestima, estos fenómenos se asociaron con menor también ciberacoso. La comunidad online se relaciona autoestima. con identidad, conexión y mayor autoestima en algunos estudios.</parrafo>
+        <subtitulo>IMPORTANTE: POSIBLE SESGO DE PREGUNTA</subtitulo>
+        <parrafo>Parte de la diferencia entre autismo y TDAH puede reflejar qué decidió estudiar cada literatura. Si los estudios sobre autismo preguntan más por comunidad y los de TDAH más por adicción o riesgo, los resultados no son comparables de forma neutral. Las revisiones de 2026 señalan problemas de medición y predominio de diseños transversales.</parrafo>
+      </contenido>
+      <texto_fuente> 9. CONEXIÓN SOCIAL Y AUTOESTIMA: AUTISMO Y TDAH NO SE
+ HAN ESTUDIADO IGUAL
+
+                  21                                 18                         16                            11/5
+                 reportes                         estudios de         estudios sobre autoestima      infantojuveniles / adultos en
+                                              conexión/desconexión                                            autoestima
+
+
+
+
+        AUTISMO                                                        TDAH
+
+        La revisión de conexión social sugiere una relación            La literatura se ha centrado más en uso
+        con mayor conexión online; los estudios de                     problemático/adictivo y ciberacoso. En la revisión de
+        autoestima incluyen comunidad, pertenencia y                   autoestima, estos fenómenos se asociaron con menor
+        también ciberacoso. La comunidad online se relaciona           autoestima.
+        con identidad, conexión y mayor autoestima en
+        algunos estudios.
+
+
+
+
+       IMPORTANTE: POSIBLE SESGO DE PREGUNTA
+
+       Parte de la diferencia entre autismo y TDAH puede reflejar qué decidió estudiar cada literatura. Si los estudios sobre
+       autismo preguntan más por comunidad y los de TDAH más por adicción o riesgo, los resultados no son comparables de
+       forma neutral. Las revisiones de 2026 señalan problemas de medición y predominio de diseños transversales.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="11" orden="11">
+      <titulo>10. DISCAPACIDAD INTELECTUAL Y DIFICULTADES DE LENGUAJE/COMUNICACIÓN</titulo>
+      <contenido>
+        <subtitulo>DISCAPACIDAD INTELECTUAL LENGUAJE Y COMUNICACIÓN</subtitulo>
+        <parrafo>Las revisiones describen amistad, inclusión, identidad, Una revisión de alcance de 2024 incluyó 44 estudios. disfrute y autonomía, junto con riesgos de explotación, Los jóvenes con trastornos del lenguaje usan redes bullying, privacidad, alfabetización, coste y diseño con fines sociales, aunque en conjunto menos que inaccesible. Una revisión sistemática cualitativa de sus pares; su perfil comunicativo influye en qué 2025 actualiza las razones y motivaciones para el uso plataformas y formatos pueden utilizar. social de internet.</parrafo>
+        <subtitulo>DISEÑO Y APOYOS</subtitulo>
+        <parrafo>Las dificultades no deben atribuirse únicamente a la persona. Lectura y escritura intensivas, lenguaje implícito, navegación compleja, configuraciones de privacidad y ausencia de apoyos pueden convertir una plataforma ordinaria en un entorno poco accesible.</parrafo>
+      </contenido>
+      <texto_fuente> 10. DISCAPACIDAD INTELECTUAL Y DIFICULTADES DE
+ LENGUAJE/COMUNICACIÓN
+
+        DISCAPACIDAD INTELECTUAL                                         LENGUAJE Y COMUNICACIÓN
+
+        Las revisiones describen amistad, inclusión, identidad,          Una revisión de alcance de 2024 incluyó 44 estudios.
+        disfrute y autonomía, junto con riesgos de explotación,          Los jóvenes con trastornos del lenguaje usan redes
+        bullying, privacidad, alfabetización, coste y diseño             con fines sociales, aunque en conjunto menos que
+        inaccesible. Una revisión sistemática cualitativa de             sus pares; su perfil comunicativo influye en qué
+        2025 actualiza las razones y motivaciones para el uso            plataformas y formatos pueden utilizar.
+        social de internet.
+
+
+
+
+       DISEÑO Y APOYOS
+
+       Las dificultades no deben atribuirse únicamente a la persona. Lectura y escritura intensivas, lenguaje implícito, navegación
+       compleja, configuraciones de privacidad y ausencia de apoyos pueden convertir una plataforma ordinaria en un entorno
+       poco accesible.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="12" orden="12">
+      <titulo>11. TOURETTE/TICS Y DCD-DISPRASIA</titulo>
+      <contenido>
+        <subtitulo>TOURETTE Y TICS FUNCIONALES</subtitulo>
+        <parrafo>Durante la pandemia se describieron adolescentes con inicio explosivo de conductas tipo tic y exposición previa a contenido de tics en redes. Estos cuadros se conceptualizaron como tics funcionales / conductas funcionales tipo tic, no como Tourette causado por TikTok. El fenómeno es multifactorial y requiere diagnóstico diferencial.</parrafo>
+        <subtitulo>CÓMO SE REPRESENTA TOURETTE EN TIKTOK</subtitulo>
+        <parrafo>Un análisis cualitativo publicado en 2025 encontró que los mensajes informativos eran en gran parte correctos, pero síntomas llamativos como coprolalia, agresión y tics complejos recibían una atención desproporcionada. El resultado puede ser una imagen pública desequilibrada aunque parte de la información sea correcta.</parrafo>
+        <subtitulo>DCD / DISPRASIA: 524 PUBLICACIONES</subtitulo>
+        <parrafo>Un análisis de 524 tuits de personas que se identificaban con DCD/disprasia mostró impacto a lo largo de la vida en habilidades motoras, trabajo, adaptaciones, dolor/fatiga, conducción, salud emocional y estrategias compensatorias. El 63,9 % de los tuits codificados incluía defensa, concienciación o apoyo a otras personas y el 39,1 % recursos, información o educación.</parrafo>
+      </contenido>
+      <texto_fuente> 11. TOURETTE/TICS Y DCD-DISPRASIA
+
+       TOURETTE Y TICS FUNCIONALES
+
+       Durante la pandemia se describieron adolescentes con inicio explosivo de conductas tipo tic y exposición previa a contenido
+       de tics en redes. Estos cuadros se conceptualizaron como tics funcionales / conductas funcionales tipo tic, no como
+       Tourette causado por TikTok. El fenómeno es multifactorial y requiere diagnóstico diferencial.
+
+
+
+       CÓMO SE REPRESENTA TOURETTE EN TIKTOK
+
+       Un análisis cualitativo publicado en 2025 encontró que los mensajes informativos eran en gran parte correctos, pero
+       síntomas llamativos como coprolalia, agresión y tics complejos recibían una atención desproporcionada. El resultado puede
+       ser una imagen pública desequilibrada aunque parte de la información sea correcta.
+
+
+
+       DCD / DISPRASIA: 524 PUBLICACIONES
+
+       Un análisis de 524 tuits de personas que se identificaban con DCD/disprasia mostró impacto a lo largo de la vida en
+       habilidades motoras, trabajo, adaptaciones, dolor/fatiga, conducción, salud emocional y estrategias compensatorias. El 63,9
+       % de los tuits codificados incluía defensa, concienciación o apoyo a otras personas y el 39,1 % recursos, información o
+       educación.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="13" orden="13">
+      <titulo>12. REDDIT Y GRANDES CONVERSACIONES ONLINE</titulo>
+      <contenido>
+        <parrafo>740.042 16 NLP NO publicaciones sobre autismo subreddits comparados en modelado de temas a gran equivale a muestra clínica analizadas en Reddit el estudio escala representativa</parrafo>
+        <parrafo>El análisis masivo de Reddit identifica temas que aparecen espontáneamente en las comunidades: relaciones sociales, sensibilidad sensorial, diagnóstico, intervenciones, vida cotidiana y experiencias personales. Este tipo de estudio permite escuchar conversaciones que no fueron provocadas por un cuestionario.</parrafo>
+        <subtitulo>QUÉ APORTA REDDIT</subtitulo>
+        <parrafo>Permite estudiar lenguaje, necesidades, barreras y preocupaciones a una escala difícil de alcanzar con entrevistas. También puede revelar cómo cambian los temas con el tiempo y cómo se acercan los discursos de autismo y TDAH.</parrafo>
+        <subtitulo>QUÉ NO APORTA</subtitulo>
+        <parrafo>No permite asumir que todos los autores tengan diagnóstico confirmado, que representen a toda la población neurodivergente ni que la frecuencia de un tema equivalga a su prevalencia clínica.</parrafo>
+      </contenido>
+      <texto_fuente> 12. REDDIT Y GRANDES CONVERSACIONES ONLINE
+
+           740.042                                   16                       NLP                              NO
+      publicaciones sobre autismo          subreddits comparados en   modelado de temas a gran        equivale a muestra clínica
+         analizadas en Reddit                      el estudio                 escala                       representativa
+
+
+
+ El análisis masivo de Reddit identifica temas que aparecen espontáneamente en las comunidades: relaciones sociales,
+ sensibilidad sensorial, diagnóstico, intervenciones, vida cotidiana y experiencias personales. Este tipo de estudio permite
+ escuchar conversaciones que no fueron provocadas por un cuestionario.
+
+
+       QUÉ APORTA REDDIT
+
+       Permite estudiar lenguaje, necesidades, barreras y preocupaciones a una escala difícil de alcanzar con entrevistas.
+       También puede revelar cómo cambian los temas con el tiempo y cómo se acercan los discursos de autismo y TDAH.
+
+
+
+       QUÉ NO APORTA
+
+       No permite asumir que todos los autores tengan diagnóstico confirmado, que representen a toda la población
+       neurodivergente ni que la frecuencia de un tema equivalga a su prevalencia clínica.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="14" orden="14">
+      <titulo>13. ACCESIBILIDAD DIGITAL: UNA PIEZA CENTRAL La literatura ampliada refuerza una idea que debería ocupar más espacio en FAND: la experiencia no depende solo del usuario. También depende de cómo está diseñada la plataforma.</titulo>
+      <contenido>
+        <parrafo>Barrera Posible impacto Qué debería favorecer un diseño inclusivo</parrafo>
+        <parrafo>Lectura/escritura intensiva Fatiga, exclusión, dificultad para Multimodalidad, lenguaje claro, ayudas de escritura participar</parrafo>
+        <parrafo>Normas sociales implícitas Malentendidos y ansiedad Reglas explícitas, controles comprensibles</parrafo>
+        <parrafo>Ambigüedad y rapidez Sobrecarga o respuestas impulsivas Más control del ritmo y posibilidad de revisar</parrafo>
+        <parrafo>Algoritmo opaco Repetición y burbujas de contenido Controles de recomendación y transparencia</parrafo>
+        <parrafo>Privacidad compleja Mayor vulnerabilidad Configuraciones simples y comprensibles</parrafo>
+        <parrafo>Moderación deficiente Acoso, estigma, explotación Moderación accesible y mecanismos de denuncia claros</parrafo>
+        <parrafo>Poca representación Sensación de no pertenecer Diversidad real de edades, géneros, culturas y necesidades</parrafo>
+      </contenido>
+      <texto_fuente> 13. ACCESIBILIDAD DIGITAL: UNA PIEZA CENTRAL
+ La literatura ampliada refuerza una idea que debería ocupar más espacio en FAND: la experiencia no depende solo del
+ usuario. También depende de cómo está diseñada la plataforma.
+
+     Barrera                             Posible impacto                      Qué debería favorecer un diseño inclusivo
+
+     Lectura/escritura intensiva         Fatiga, exclusión, dificultad para   Multimodalidad, lenguaje claro, ayudas de escritura
+                                         participar
+
+     Normas sociales implícitas          Malentendidos y ansiedad             Reglas explícitas, controles comprensibles
+
+     Ambigüedad y rapidez                Sobrecarga o respuestas impulsivas   Más control del ritmo y posibilidad de revisar
+
+     Algoritmo opaco                     Repetición y burbujas de contenido   Controles de recomendación y transparencia
+
+     Privacidad compleja                 Mayor vulnerabilidad                 Configuraciones simples y comprensibles
+
+     Moderación deficiente               Acoso, estigma, explotación          Moderación accesible y mecanismos de denuncia
+                                                                              claros
+
+     Poca representación                 Sensación de no pertenecer           Diversidad real de edades, géneros, culturas y
+                                                                              necesidades</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="15" orden="15">
+      <titulo>14. QUÉ SABEMOS SEGÚN LA PLATAFORMA Plataforma Fortaleza para investigar Riesgos / límites observados</titulo>
+      <contenido>
+        <parrafo>TikTok Vídeo breve, identidad, experiencia personal, Simplificación, contenido engañoso, tests virales, gran alcance sesgo algorítmico</parrafo>
+        <parrafo>Reddit Conversaciones extensas y comunidades Anonimato, autoselección, diagnóstico no temáticas verificable</parrafo>
+        <parrafo>X / Twitter Análisis longitudinal de discurso y experiencias Mensajes breves, polarización, cambios de públicas plataforma</parrafo>
+        <parrafo>Facebook Grupos, apoyo, vínculos y comunidades Privacidad, alfabetización, moderación, grupos cerrados difíciles de estudiar</parrafo>
+        <parrafo>YouTube Contenido largo y educativo Calidad muy variable; engagement no garantiza fiabilidad</parrafo>
+        <parrafo>Instagram Identidad, narrativas y divulgación visual Menos investigación específica que TikTok en este campo</parrafo>
+        <subtitulo>NO EXISTE UNA ÚNICA «RED SOCIAL»</subtitulo>
+        <parrafo>Agrupar todas las plataformas en una sola variable puede ocultar diferencias importantes: formato, algoritmo, duración, moderación, anonimato, comunidades y posibilidades de interacción cambian la experiencia.</parrafo>
+      </contenido>
+      <texto_fuente> 14. QUÉ SABEMOS SEGÚN LA PLATAFORMA
+     Plataforma                   Fortaleza para investigar                          Riesgos / límites observados
+
+     TikTok                       Vídeo breve, identidad, experiencia personal,      Simplificación, contenido engañoso, tests virales,
+                                  gran alcance                                       sesgo algorítmico
+
+     Reddit                       Conversaciones extensas y comunidades              Anonimato, autoselección, diagnóstico no
+                                  temáticas                                          verificable
+
+     X / Twitter                  Análisis longitudinal de discurso y experiencias   Mensajes breves, polarización, cambios de
+                                  públicas                                           plataforma
+
+     Facebook                     Grupos, apoyo, vínculos y comunidades              Privacidad, alfabetización, moderación, grupos
+                                                                                     cerrados difíciles de estudiar
+
+     YouTube                      Contenido largo y educativo                        Calidad muy variable; engagement no garantiza
+                                                                                     fiabilidad
+
+     Instagram                    Identidad, narrativas y divulgación visual         Menos investigación específica que TikTok en
+                                                                                     este campo
+
+
+
+       NO EXISTE UNA ÚNICA «RED SOCIAL»
+
+       Agrupar todas las plataformas en una sola variable puede ocultar diferencias importantes: formato, algoritmo, duración,
+       moderación, anonimato, comunidades y posibilidades de interacción cambian la experiencia.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="16" orden="16">
+      <titulo>15. AMPLIACIÓN DE LOS DATOS DE LA LÁMINA DE INSTAGRAM</titulo>
+      <contenido>
+        <subtitulo>AUTISMO · 133 VÍDEOS</subtitulo>
+        <parrafo>27 % correctos, 41 % incorrectos y 32 % sobregeneralizados. Interpretación: describe una muestra de vídeos informativos muy vistos, no todo TikTok. Popularidad y exactitud no se correspondieron de forma fiable.</parrafo>
+        <subtitulo>TDAH · 100 VÍDEOS</subtitulo>
+        <parrafo>52 % engañosos, 27 % experiencias personales y 21 % útiles. Interpretación: una experiencia personal no es automáticamente desinformación; el problema surge al presentarla como regla universal o criterio diagnóstico.</parrafo>
+        <subtitulo>#ADHDTEST · 50 VÍDEOS</subtitulo>
+        <parrafo>46 de 50 (92 %) fueron clasificados como engañosos frente al cribado ASRS-v1.1. Los vídeos útiles concentraron solo 4 % de los 'me gusta', 1 % de los comentarios y 7 % de los favoritos.</parrafo>
+        <subtitulo>REVISIÓN DE CALIDAD 2026</subtitulo>
+        <parrafo>27 estudios y 5.057 publicaciones. La desinformación osciló entre 0 y 56,9 % según estudio; fue mayor en TikTok que en YouTube y mayor en neurodivergencia que en otros temas de salud mental. No debe interpretarse como una tasa universal.</parrafo>
+        <subtitulo>EXPERIMENTO · 490 UNIVERSITARIOS</subtitulo>
+        <parrafo>La desinformación produjo menos conocimiento correcto y, al mismo tiempo, mayor confianza en lo que los participantes creían saber. No midió cuántos tenían realmente TDAH.</parrafo>
+        <subtitulo>USO PROBLEMÁTICO · 35.223 PARTICIPANTES</subtitulo>
+        <parrafo>Metaanálisis de 15 estudios: asociación moderada entre síntomas de TDAH y uso problemático de redes (r=0,361; IC95 % 0,297-0,421). Asociación no significa causalidad.</parrafo>
+      </contenido>
+      <texto_fuente> 15. AMPLIACIÓN DE LOS DATOS DE LA LÁMINA DE
+ INSTAGRAM
+
+       AUTISMO · 133 VÍDEOS
+
+       27 % correctos, 41 % incorrectos y 32 % sobregeneralizados. Interpretación: describe una muestra de vídeos informativos
+       muy vistos, no todo TikTok. Popularidad y exactitud no se correspondieron de forma fiable.
+
+
+
+       TDAH · 100 VÍDEOS
+
+       52 % engañosos, 27 % experiencias personales y 21 % útiles. Interpretación: una experiencia personal no es
+       automáticamente desinformación; el problema surge al presentarla como regla universal o criterio diagnóstico.
+
+
+
+       #ADHDTEST · 50 VÍDEOS
+
+       46 de 50 (92 %) fueron clasificados como engañosos frente al cribado ASRS-v1.1. Los vídeos útiles concentraron solo 4 %
+       de los 'me gusta', 1 % de los comentarios y 7 % de los favoritos.
+
+
+
+       REVISIÓN DE CALIDAD 2026
+
+       27 estudios y 5.057 publicaciones. La desinformación osciló entre 0 y 56,9 % según estudio; fue mayor en TikTok que en
+       YouTube y mayor en neurodivergencia que en otros temas de salud mental. No debe interpretarse como una tasa universal.
+
+
+
+       EXPERIMENTO · 490 UNIVERSITARIOS
+
+       La desinformación produjo menos conocimiento correcto y, al mismo tiempo, mayor confianza en lo que los participantes
+       creían saber. No midió cuántos tenían realmente TDAH.
+
+
+
+       USO PROBLEMÁTICO · 35.223 PARTICIPANTES
+
+       Metaanálisis de 15 estudios: asociación moderada entre síntomas de TDAH y uso problemático de redes (r=0,361; IC95 %
+       0,297-0,421). Asociación no significa causalidad.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="17" orden="17">
+      <titulo>16. LAS DOS CARAS DE LAS REDES</titulo>
+      <contenido>
+        <subtitulo>PUEDEN AYUDAR PUEDEN PERJUDICAR</subtitulo>
+        <parrafo>• Comunidad y pertenencia • Desinformación y sobregeneralización • Identidad y autoexpresión • Tests virales y autodiagnóstico impreciso • Apoyo entre iguales • Ciberacoso y estigma • Acceso a experiencias similares • Comparación social • Información y recursos • Privacidad y explotación • Menor presión comunicativa para algunas personas • Sobrecarga • Concienciación y visibilidad • Uso problemático • Estrategias y adaptaciones compartidas • Representación sesgada • Diseño poco accesible</parrafo>
+        <subtitulo>LO QUE TODAVÍA NO SABEMOS</subtitulo>
+        <parrafo>Faltan estudios causales; comparaciones directas entre plataformas; investigación en personas mayores; diversidad cultural, racial y socioeconómica; estudios en español; y evidencia específica sobre dislexia, DCD/disprasia, trastornos del lenguaje, Tourette, discalculia, disgrafía, altas capacidades y otros perfiles. También faltan más estudios codiseñados con personas neurodivergentes.</parrafo>
+        <parrafo>La ausencia de evidencia no debe confundirse con evidencia de ausencia.</parrafo>
+      </contenido>
+      <texto_fuente> 16. LAS DOS CARAS DE LAS REDES
+
+        PUEDEN AYUDAR                                                    PUEDEN PERJUDICAR
+
+        • Comunidad y pertenencia                                        • Desinformación y sobregeneralización
+        • Identidad y autoexpresión                                      • Tests virales y autodiagnóstico impreciso
+        • Apoyo entre iguales                                            • Ciberacoso y estigma
+        • Acceso a experiencias similares                                • Comparación social
+        • Información y recursos                                         • Privacidad y explotación
+        • Menor presión comunicativa para algunas personas               • Sobrecarga
+        • Concienciación y visibilidad                                   • Uso problemático
+        • Estrategias y adaptaciones compartidas                         • Representación sesgada
+                                                                         • Diseño poco accesible
+
+
+
+
+       LO QUE TODAVÍA NO SABEMOS
+
+       Faltan estudios causales; comparaciones directas entre plataformas; investigación en personas mayores; diversidad
+       cultural, racial y socioeconómica; estudios en español; y evidencia específica sobre dislexia, DCD/disprasia, trastornos del
+       lenguaje, Tourette, discalculia, disgrafía, altas capacidades y otros perfiles. También faltan más estudios codiseñados con
+       personas neurodivergentes.
+
+
+
+                 La ausencia de evidencia no debe confundirse con evidencia de ausencia.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="18" orden="18">
+      <titulo>17. QUÉ PUEDE HACER FAND CON ESTA EVIDENCIA Línea Aplicación práctica</titulo>
+      <contenido>
+        <parrafo>Directorio de información fiable Separar experiencia personal, divulgación profesional, guías clínicas y herramientas de cribado</parrafo>
+        <parrafo>Alfabetización digital Enseñar a identificar fuente, fecha, evidencia, conflicto de interés, límites y lenguaje absoluto</parrafo>
+        <parrafo>Directorio de comunidades Valorar seguridad, moderación, accesibilidad, edad, idioma y perfil al que se dirige</parrafo>
+        <parrafo>Escucha comunitaria Recoger qué buscan realmente las personas: diagnóstico, apoyo, amistad, empleo, educación, adaptaciones o pertenencia</parrafo>
+        <parrafo>Accesibilidad Evaluar lectura, escritura, carga sensorial, claridad, privacidad y control de interacción</parrafo>
+        <parrafo>Investigación propia Priorizar perfiles y edades infrarrepresentados y publicar metodología transparente</parrafo>
+        <parrafo>Colaboración con divulgadores No excluir la experiencia vivida: combinarla con referencias y límites claros</parrafo>
+        <subtitulo>MENSAJE CENTRAL PARA DIVULGACIÓN</subtitulo>
+        <parrafo>La experiencia vivida aporta conocimiento que la investigación clínica no siempre capta. La evidencia científica ayuda a saber qué puede generalizarse. Necesitamos ambas, sin confundir sus funciones.</parrafo>
+      </contenido>
+      <texto_fuente> 17. QUÉ PUEDE HACER FAND CON ESTA EVIDENCIA
+     Línea                                      Aplicación práctica
+
+     Directorio de información fiable           Separar experiencia personal, divulgación profesional, guías clínicas y herramientas de
+                                                cribado
+
+     Alfabetización digital                     Enseñar a identificar fuente, fecha, evidencia, conflicto de interés, límites y lenguaje
+                                                absoluto
+
+     Directorio de comunidades                  Valorar seguridad, moderación, accesibilidad, edad, idioma y perfil al que se dirige
+
+     Escucha comunitaria                        Recoger qué buscan realmente las personas: diagnóstico, apoyo, amistad, empleo,
+                                                educación, adaptaciones o pertenencia
+
+     Accesibilidad                              Evaluar lectura, escritura, carga sensorial, claridad, privacidad y control de interacción
+
+     Investigación propia                       Priorizar perfiles y edades infrarrepresentados y publicar metodología transparente
+
+     Colaboración con divulgadores              No excluir la experiencia vivida: combinarla con referencias y límites claros
+
+
+
+       MENSAJE CENTRAL PARA DIVULGACIÓN
+
+       La experiencia vivida aporta conocimiento que la investigación clínica no siempre capta. La evidencia científica
+       ayuda a saber qué puede generalizarse. Necesitamos ambas, sin confundir sus funciones.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="19" orden="19">
+      <titulo>SÍNTESIS FINAL</titulo>
+      <contenido>
+        <parrafo>18. CONCLUSIONES GENERALES • No existe un efecto único de las redes sociales sobre la neurodivergencia. • Autismo y TDAH dominan la literatura; otras neurodivergencias están claramente infrainvestigadas. • La comunidad online puede ser una fuente real de apoyo, identidad y pertenencia, especialmente documentada en autismo y también presente en otros grupos. • La desinformación es un problema medible. En TDAH y autismo, varios estudios de TikTok encuentran proporciones relevantes de contenido engañoso, incorrecto o sobregeneralizado. • La popularidad no es un indicador fiable de exactitud. • La exposición a desinformación puede afectar el conocimiento: el experimento con 490 universitarios encontró menos conocimiento correcto y mayor confianza tras ver desinformación sobre TDAH. • El uso problemático y el TDAH están asociados, pero la causalidad sigue abierta. • Accesibilidad, privacidad, moderación y diseño algorítmico son parte del problema y de la solución. • La experiencia personal no debe desacreditarse: puede ser una puerta de entrada a comprensión y apoyo, pero no sustituye una evaluación diagnóstica. • FAND puede ocupar un espacio útil entre comunidad, evidencia y accesibilidad, ayudando a que las personas sepan qué información están viendo y para qué sirve.</parrafo>
+        <parrafo>Las redes pueden ser el principio de una respuesta, un lugar donde encontrar palabras para explicar una experiencia y una vía hacia comunidad o ayuda. El objetivo no debe ser apartar a las personas neurodivergentes de las redes, sino conseguir que dispongan de información verificable, espacios seguros, diseño accesible y criterios claros para distinguir experiencia, orientación, cribado y diagnóstico.</parrafo>
+      </contenido>
+      <texto_fuente> 18. CONCLUSIONES GENERALES
+ • No existe un efecto único de las redes sociales sobre la neurodivergencia.
+ • Autismo y TDAH dominan la literatura; otras neurodivergencias están claramente infrainvestigadas.
+ • La comunidad online puede ser una fuente real de apoyo, identidad y pertenencia, especialmente documentada en
+ autismo y también presente en otros grupos.
+ • La desinformación es un problema medible. En TDAH y autismo, varios estudios de TikTok encuentran proporciones
+ relevantes de contenido engañoso, incorrecto o sobregeneralizado.
+ • La popularidad no es un indicador fiable de exactitud.
+ • La exposición a desinformación puede afectar el conocimiento: el experimento con 490 universitarios encontró menos
+ conocimiento correcto y mayor confianza tras ver desinformación sobre TDAH.
+ • El uso problemático y el TDAH están asociados, pero la causalidad sigue abierta.
+ • Accesibilidad, privacidad, moderación y diseño algorítmico son parte del problema y de la solución.
+ • La experiencia personal no debe desacreditarse: puede ser una puerta de entrada a comprensión y apoyo, pero no
+ sustituye una evaluación diagnóstica.
+ • FAND puede ocupar un espacio útil entre comunidad, evidencia y accesibilidad, ayudando a que las personas sepan
+ qué información están viendo y para qué sirve.
+
+
+
+       SÍNTESIS FINAL
+
+       Las redes pueden ser el principio de una respuesta, un lugar donde encontrar palabras para explicar una experiencia y una
+       vía hacia comunidad o ayuda. El objetivo no debe ser apartar a las personas neurodivergentes de las redes, sino conseguir
+       que dispongan de información verificable, espacios seguros, diseño accesible y criterios claros para distinguir
+       experiencia, orientación, cribado y diagnóstico.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="20" orden="20">
+      <titulo>19. REFERENCIAS CIENTÍFICAS SELECCIONADAS Y VERIFICADAS • Carter A, Gracey F, Moody J, Ovens A, Chatburn E. (2026). Quality, reliability and misinformation in mental health and neurodivergence content on social media: a systematic review. Journal of Social Media Research, 3(1), 30-47. DOI 10.29329/jsomer.84. • Potter AL, O'Leary A, Incecik E, Rose K, Pavlopoulou G, Tibber MS. (2026). Social Media and Social (Dis)Connectedness in Autism and ADHD: A Systematic Review. Autism in Adulthood. DOI 10.1177/25739581261435559. • O'Leary A et al. (2026). The Relationship Between Social Media Use and Self-Esteem in ADHD and Autism: A Scoping Review. Autism in Adulthood. DOI 10.1177/25739581261480482. • Aragon-Guevara D et al. (2023). The Reach and Accuracy of Information on Autism on TikTok. Journal of Autism and Developmental Disorders. DOI 10.1007/s10803-023-06084-6. • Yeung A, Ng E, Abi-Jaoude E. (2022). TikTok and Attention-Deficit/Hyperactivity Disorder: A Cross-Sectional Study of Social Media Content Quality. Canadian Journal of Psychiatry. DOI 10.1177/07067437221082854. • Verma S, Sinha SK. (2024/2025). How evidence-based is the hashtag ADHD test (#adhdtest): a cross-sectional content analysis. Australasian Psychiatry. DOI 10.1177/10398562241291956. • Branigan K. (2026). What is the quality of ADHD content on TikTok, and how might this affect self-diagnosis? A systematic literature review. Educational Psychology in Practice. DOI 10.1080/02667363.2026.2644889. • Misinformation mayhem: the effects of TikTok content on ADHD knowledge, stigma, and treatment-seeking intentions. Experimental study, N=490. DOI 10.1007/s00787-025-02769-8; PMID 40471415. • Ding J, Liu Z, Chao M. (2025). The association between problematic social media use and ADHD symptomatology: systematic review and meta-analysis. Journal of Psychiatric Research. DOI 10.1016/j.jpsychires.2025.07.009. • Hassrick EM et al. Benefits and Risks: A Systematic Review of Information and Communication Technology Use by Autistic People. Autism in Adulthood. PMID 36601264. • Autism and social media: a systematic review of the user experience. (2023). Advances in Autism. DOI 10.1108/AIA-01-2023-0001. • Gabarron E, Skafle I, Nordahl-Hansen A, Wynn R. (2023). Social media interventions for autistic individuals: systematic review. Frontiers in Psychiatry. DOI 10.3389/fpsyt.2023.1089452. • Triantafyllopoulou P, Clark-Hughes C, Langdon PE. (2022). Social Media and Cyber-Bullying in Autistic Adults. Journal of Autism and Developmental Disorders. DOI 10.1007/s10803-021-05361-6. • Brennan E et al. (2025). Deconstructing Information About Autism Diagnosis in Adults on TikTok. Journal of Autism and Developmental Disorders. DOI 10.1007/s10803-025-07123-0. • Building Community and Identity Online: A Content Analysis of Highly Viewed #Autism TikTok Videos. PMID 38435322. • Caton S, Chapman M. (2016). The use of social media and people with intellectual disability: a systematic review and thematic analysis. DOI 10.3109/13668250.2016.1153052. • van Alem JLL et al. (2025). Social Internet Use by People With Intellectual Disabilities: A Systematic Review and Thematic Synthesis. Journal of Intellectual Disability Research. DOI 10.1111/jir.13211. • Shelton N et al. (2024). Social media use by young people with language disorders: a scoping review. Disability and Rehabilitation. DOI 10.1080/09638288.2024.2325039. • Tics and TikTok: Functional Tics Spread Through Social Media. PMID 34765689. • Bartholomeus K, Steyaert JG. (2025). Portrayal of tics and Tourette's syndrome on TikTok: qualitative analysis. PMID 41288561. • #DCD/Dyspraxia in Real Life: Twitter Users' Unprompted Expression of Experiences With Motor Differences. PMCID PMC10810317; PMID 38274159. • Autism Spectrum Disorders Discourse on Social Media Platforms: A Topic Modeling Study of Reddit Posts. PMID 40470703. • The relationship between social media use and adolescent inattention and impulsivity: a systematic review. (2026). DOI 10.1016/j.ridd.2026.105237. • Karasavva V, Mikami AY. (2026). Autism and ADHD social media short-form video content: a systematic review protocol. PLoS One. DOI 10.1371/journal.pone.0357837. Protocolo: no contiene resultados finales.</titulo>
+      <contenido>
+        <parrafo>Fecha de actualización documental: 7 de octubre de 2026. La selección prioriza revisiones, artículos revisados por pares y registros biomédicos verificables. Este documento no sustituye una revisión sistemática formal ni asesoramiento clínico.</parrafo>
+      </contenido>
+      <texto_fuente> 19. REFERENCIAS CIENTÍFICAS SELECCIONADAS Y
+ VERIFICADAS
+ • Carter A, Gracey F, Moody J, Ovens A, Chatburn E. (2026). Quality, reliability and misinformation in mental health and neurodivergence content on social
+ media: a systematic review. Journal of Social Media Research, 3(1), 30-47. DOI 10.29329/jsomer.84.
+ • Potter AL, O'Leary A, Incecik E, Rose K, Pavlopoulou G, Tibber MS. (2026). Social Media and Social (Dis)Connectedness in Autism and ADHD: A Systematic
+ Review. Autism in Adulthood. DOI 10.1177/25739581261435559.
+ • O'Leary A et al. (2026). The Relationship Between Social Media Use and Self-Esteem in ADHD and Autism: A Scoping Review. Autism in Adulthood. DOI
+ 10.1177/25739581261480482.
+ • Aragon-Guevara D et al. (2023). The Reach and Accuracy of Information on Autism on TikTok. Journal of Autism and Developmental Disorders. DOI
+ 10.1007/s10803-023-06084-6.
+ • Yeung A, Ng E, Abi-Jaoude E. (2022). TikTok and Attention-Deficit/Hyperactivity Disorder: A Cross-Sectional Study of Social Media Content Quality. Canadian
+ Journal of Psychiatry. DOI 10.1177/07067437221082854.
+ • Verma S, Sinha SK. (2024/2025). How evidence-based is the hashtag ADHD test (#adhdtest): a cross-sectional content analysis. Australasian Psychiatry. DOI
+ 10.1177/10398562241291956.
+ • Branigan K. (2026). What is the quality of ADHD content on TikTok, and how might this affect self-diagnosis? A systematic literature review. Educational
+ Psychology in Practice. DOI 10.1080/02667363.2026.2644889.
+ • Misinformation mayhem: the effects of TikTok content on ADHD knowledge, stigma, and treatment-seeking intentions. Experimental study, N=490. DOI
+ 10.1007/s00787-025-02769-8; PMID 40471415.
+ • Ding J, Liu Z, Chao M. (2025). The association between problematic social media use and ADHD symptomatology: systematic review and meta-analysis.
+ Journal of Psychiatric Research. DOI 10.1016/j.jpsychires.2025.07.009.
+ • Hassrick EM et al. Benefits and Risks: A Systematic Review of Information and Communication Technology Use by Autistic People. Autism in Adulthood. PMID
+ 36601264.
+ • Autism and social media: a systematic review of the user experience. (2023). Advances in Autism. DOI 10.1108/AIA-01-2023-0001.
+ • Gabarron E, Skafle I, Nordahl-Hansen A, Wynn R. (2023). Social media interventions for autistic individuals: systematic review. Frontiers in Psychiatry. DOI
+ 10.3389/fpsyt.2023.1089452.
+ • Triantafyllopoulou P, Clark-Hughes C, Langdon PE. (2022). Social Media and Cyber-Bullying in Autistic Adults. Journal of Autism and Developmental
+ Disorders. DOI 10.1007/s10803-021-05361-6.
+ • Brennan E et al. (2025). Deconstructing Information About Autism Diagnosis in Adults on TikTok. Journal of Autism and Developmental Disorders. DOI
+ 10.1007/s10803-025-07123-0.
+ • Building Community and Identity Online: A Content Analysis of Highly Viewed #Autism TikTok Videos. PMID 38435322.
+ • Caton S, Chapman M. (2016). The use of social media and people with intellectual disability: a systematic review and thematic analysis. DOI
+ 10.3109/13668250.2016.1153052.
+ • van Alem JLL et al. (2025). Social Internet Use by People With Intellectual Disabilities: A Systematic Review and Thematic Synthesis. Journal of Intellectual
+ Disability Research. DOI 10.1111/jir.13211.
+ • Shelton N et al. (2024). Social media use by young people with language disorders: a scoping review. Disability and Rehabilitation. DOI
+ 10.1080/09638288.2024.2325039.
+ • Tics and TikTok: Functional Tics Spread Through Social Media. PMID 34765689.
+ • Bartholomeus K, Steyaert JG. (2025). Portrayal of tics and Tourette's syndrome on TikTok: qualitative analysis. PMID 41288561.
+ • #DCD/Dyspraxia in Real Life: Twitter Users' Unprompted Expression of Experiences With Motor Differences. PMCID PMC10810317; PMID 38274159.
+ • Autism Spectrum Disorders Discourse on Social Media Platforms: A Topic Modeling Study of Reddit Posts. PMID 40470703.
+ • The relationship between social media use and adolescent inattention and impulsivity: a systematic review. (2026). DOI 10.1016/j.ridd.2026.105237.
+ • Karasavva V, Mikami AY. (2026). Autism and ADHD social media short-form video content: a systematic review protocol. PLoS One. DOI
+ 10.1371/journal.pone.0357837. Protocolo: no contiene resultados finales.
+
+ Fecha de actualización documental: 7 de octubre de 2026. La selección prioriza revisiones, artículos revisados por pares y registros biomédicos
+ verificables. Este documento no sustituye una revisión sistemática formal ni asesoramiento clínico.</texto_fuente>
+    </seccion>
+  </cuerpo>
+</articulo>

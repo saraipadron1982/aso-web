@@ -1,0 +1,11 @@
+DirectoryIndex index.php
+
+<FilesMatch "(?i)\.(xml|xlsx)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(?:app|views)(?:/|$) - [F,L,NC]
+    RewriteRule ^(?:.+/)?[^/]+\.html?$ index.php [QSA,L,NC]
+</IfModule>

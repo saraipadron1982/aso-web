@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Presentación visual de FAND</title>
+  <desc id="description">Composición abstracta de colores cálidos y formas distintas que se encuentran alrededor del símbolo de reproducir.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f54"/>
+      <stop offset=".52" stop-color="#4d4d82"/>
+      <stop offset="1" stop-color="#985d83"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5bd79"/>
+      <stop offset="1" stop-color="#ed8d8c"/>
+    </linearGradient>
+    <linearGradient id="cool" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#94d5bd"/>
+      <stop offset="1" stop-color="#78b4d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <path d="M-45 446C76 372 113 276 257 290c106 10 148 136 257 148 122 13 158-113 264-103 128 12 155 156 280 142 66-8 112-42 190-21v219H-45Z" fill="url(#cool)" opacity=".82"/>
+  <path d="M34 57c118-83 270-57 318 44 48 102-51 200-163 180C78 262 1 199 34 57Z" fill="url(#warm)" opacity=".93"/>
+  <path d="M929-40c127 19 216 91 222 191 7 111-100 174-192 121-74-43-108-123-76-197 14-35 28-68 46-115Z" fill="#d8abdb" opacity=".72"/>
+  <path d="M392 501c59-73 130-112 208-83 68 25 88 107 35 166-56 62-172 83-236 37-37-27-39-80-7-120Z" fill="#f2cf83" opacity=".92"/>
+  <circle cx="598" cy="320" r="83" fill="#fff" opacity=".94"/>
+  <path d="m581 278 69 42-69 42Z" fill="#344e73"/>
+  <text x="600" y="583" fill="#fff" fill-opacity=".92" font-family="system-ui, sans-serif" font-size="23" font-weight="650" letter-spacing="2" text-anchor="middle">FAND · MUCHAS FORMAS, UNA COMUNIDAD</text>
+</svg>

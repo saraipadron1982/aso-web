@@ -1,0 +1,584 @@
+<?xml version='1.0' encoding='utf-8'?>
+<articulo id="poblacion-neurodivergente-2026" slug="poblacion-neurodivergente" idioma="es" version="1.0" fecha_actualizacion="2026-10-07" tipo="articulo-investigacion">
+  <metadatos>
+    <organizacion>FAND - Asociación Alianza para la Neurodivergencia</organizacion>
+    <titulo>Neurodivergencia: cuántas personas somos y qué falta por conocer</titulo>
+    <subtitulo>España, Europa y panorama internacional</subtitulo>
+    <descripcion>Revisión documental de FAND sobre población neurodivergente, prevalencia, infradiagnóstico, coexistencia, desigualdad geográfica y vacíos de investigación.</descripcion>
+    <categoria>Investigación y divulgación</categoria>
+    <estado>publicable</estado>
+    <uso_destino>Artículo web</uso_destino>
+    <fuente_original>poblacion.pdf</fuente_original>
+    <nota_editorial>Contenido estructurado a partir del PDF de FAND. Las cifras, cautelas metodológicas y referencias deben conservarse al publicarlo en la web.</nota_editorial>
+  </metadatos>
+  <cuerpo>
+    <seccion pagina_origen="1" orden="1">
+      <titulo>QUÉ AÑADE ESTA ACTUALIZACIÓN</titulo>
+      <contenido>
+        <parrafo>NEURODIVERGENCIA: CUÁNTAS PERSONAS SOMOS Y QUÉ FALTA POR CONOCER Versión ampliada del informe de población neurodivergente · España, Europa y panorama internacional · Actualización 7 de octubre de 2026</parrafo>
+        <parrafo>Mantiene las cifras y fuentes del informe anterior y añade una revisión más amplia sobre qué perfiles, países y edades están realmente representados en la investigación, infradiagnóstico, coexistencia entre neurodivergencias, desigualdad geográfica y grupos que siguen fuera de la evidencia.</parrafo>
+        <parrafo>100 18,3 % 22,6 % 38,5 % trabajos seleccionados en la escolares con ≥1 NDD en coexistencia de NDD en TDAH actual estimado en nueva síntesis estudio español estudio de Kenia autismo en metaanálisis</parrafo>
+        <subtitulo>MENSAJE CENTRAL</subtitulo>
+        <parrafo>Sí existen buenos datos para algunos perfiles y países, pero todavía no existe un mapa completo y comparable de toda la población neurodivergente mundial. Las cifras dependen de quién es evaluado, con qué criterios, a qué edad y dentro de qué sistema sanitario o educativo.</parrafo>
+      </contenido>
+      <texto_fuente> NEURODIVERGENCIA: CUÁNTAS PERSONAS
+ SOMOS Y QUÉ FALTA POR CONOCER
+ Versión ampliada del informe de población neurodivergente · España, Europa y panorama internacional ·
+ Actualización 7 de octubre de 2026
+
+
+       QUÉ AÑADE ESTA ACTUALIZACIÓN
+
+       Mantiene las cifras y fuentes del informe anterior y añade una revisión más amplia sobre qué perfiles, países y edades están
+       realmente representados en la investigación, infradiagnóstico, coexistencia entre neurodivergencias, desigualdad geográfica y
+       grupos que siguen fuera de la evidencia.
+
+
+
+
+                 100                               18,3 %                    22,6 %                           38,5 %
+       trabajos seleccionados en la           escolares con ≥1 NDD en    coexistencia de NDD en          TDAH actual estimado en
+              nueva síntesis                      estudio español           estudio de Kenia              autismo en metaanálisis
+
+
+
+
+       MENSAJE CENTRAL
+
+       Sí existen buenos datos para algunos perfiles y países, pero todavía no existe un mapa completo y comparable de toda la
+       población neurodivergente mundial. Las cifras dependen de quién es evaluado, con qué criterios, a qué edad y dentro de qué
+       sistema sanitario o educativo.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="2" orden="2">
+      <titulo>1. QUÉ CIFRAS TENEMOS PARA ALGUNOS PERFILES Perfil Estimación / hallazgo Qué significa</titulo>
+      <contenido>
+        <parrafo>Autismo ≈61,8 millones mundialmente; rango GBD 2021, todas las edades; estimación publicada en 52,1-72,7 M 2025</parrafo>
+        <parrafo>TDAH adulto con inicio ≈139,84 M; 2,58 % Revisión internacional; estimación para 2020 infantil</parrafo>
+        <parrafo>Síntomas de TDAH en ≈366,33 M; 6,76 % Definición más amplia; no equivale a diagnóstico adultos confirmado</parrafo>
+        <parrafo>Dislexia ≈7,10 % de escolares de primaria Metaanálisis internacional; población escolar</parrafo>
+        <parrafo>DCD / dispraxia ≈5 % de niños/as Revisión internacional; varía según método</parrafo>
+        <parrafo>Discapacidad intelectual ≈1,04 % Revisión internacional histórica; referencia antigua</parrafo>
+        <parrafo>TDL 7,58 % (5,33-10,66 %) Estudio poblacional escolar en Inglaterra</parrafo>
+        <parrafo>Tourette en adultos ≈0,05 % / 118 por millón Revisiones con pocos estudios y métodos distintos</parrafo>
+        <subtitulo>NO SE PUEDEN SUMAR ESTOS PORCENTAJES</subtitulo>
+        <parrafo>Una misma persona puede ser autista y tener TDAH, dislexia, DCD u otros perfiles. Sumar prevalencias como si fueran grupos independientes puede contar a una persona varias veces.</parrafo>
+      </contenido>
+      <texto_fuente> 1. QUÉ CIFRAS TENEMOS PARA ALGUNOS PERFILES
+     Perfil                              Estimación / hallazgo                 Qué significa
+
+     Autismo                             ≈61,8 millones mundialmente; rango    GBD 2021, todas las edades; estimación publicada en
+                                         52,1-72,7 M                           2025
+
+     TDAH adulto con inicio              ≈139,84 M; 2,58 %                     Revisión internacional; estimación para 2020
+     infantil
+
+     Síntomas de TDAH en                 ≈366,33 M; 6,76 %                     Definición más amplia; no equivale a diagnóstico
+     adultos                                                                   confirmado
+
+     Dislexia                            ≈7,10 % de escolares de primaria      Metaanálisis internacional; población escolar
+
+     DCD / dispraxia                     ≈5 % de niños/as                      Revisión internacional; varía según método
+
+     Discapacidad intelectual            ≈1,04 %                               Revisión internacional histórica; referencia antigua
+
+     TDL                                 7,58 % (5,33-10,66 %)                 Estudio poblacional escolar en Inglaterra
+
+     Tourette en adultos                 ≈0,05 % / 118 por millón              Revisiones con pocos estudios y métodos distintos
+
+
+
+       NO SE PUEDEN SUMAR ESTOS PORCENTAJES
+
+       Una misma persona puede ser autista y tener TDAH, dislexia, DCD u otros perfiles. Sumar prevalencias como si fueran grupos
+       independientes puede contar a una persona varias veces.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="3" orden="3">
+      <titulo>2. EL NUEVO HALLAZGO CLAVE: LA INFORMACIÓN POBLACIONAL ES DESIGUAL La nueva revisión confirma que el problema no es simplemente que «falten cifras». La investigación está distribuida de forma muy desigual por diagnóstico, edad, país y nivel de apoyo.</titulo>
+      <contenido>
+        <parrafo>Perfil Población más estudiada Situación de la evidencia</parrafo>
+        <parrafo>Autismo Niñez y adolescencia La condición más estudiada en varias revisiones de África y América Latina</parrafo>
+        <parrafo>TDAH Niñez escolar y adolescencia Más datos poblacionales, pero persisten sesgos de sexo/género y diagnóstico</parrafo>
+        <parrafo>Dislexia / SLD Estudiantes y universitarios Mucho estudio educativo; menos epidemiología de población general</parrafo>
+        <parrafo>Discapacidad intelectual Usuarios de servicios / muestras Menor cobertura y muestras frecuentemente pequeñas sociales</parrafo>
+        <parrafo>TDL Niñez y adultez joven Evidencia creciente, todavía heterogénea</parrafo>
+        <parrafo>DCD / dispraxia Niñez escolar Infrarreconocida pese a prevalencia no trivial</parrafo>
+        <parrafo>Tourette / tics Juventud clínica Base poblacional mucho menor que autismo o TDAH</parrafo>
+        <subtitulo>QUÉ SIGNIFICA</subtitulo>
+        <parrafo>No encontrar una buena cifra para un perfil no significa que sea raro ni poco importante. Puede significar que no se ha buscado con suficiente amplitud, que se estudia solo en determinados grupos o que no existen sistemas adecuados para identificarlo.</parrafo>
+      </contenido>
+      <texto_fuente> 2. EL NUEVO HALLAZGO CLAVE: LA INFORMACIÓN
+ POBLACIONAL ES DESIGUAL
+ La nueva revisión confirma que el problema no es simplemente que «falten cifras». La investigación está distribuida de forma
+ muy desigual por diagnóstico, edad, país y nivel de apoyo.
+
+     Perfil                            Población más estudiada                 Situación de la evidencia
+
+     Autismo                           Niñez y adolescencia                    La condición más estudiada en varias revisiones de
+                                                                               África y América Latina
+
+     TDAH                              Niñez escolar y adolescencia            Más datos poblacionales, pero persisten sesgos de
+                                                                               sexo/género y diagnóstico
+
+     Dislexia / SLD                    Estudiantes y universitarios            Mucho estudio educativo; menos epidemiología de
+                                                                               población general
+
+     Discapacidad intelectual          Usuarios de servicios / muestras        Menor cobertura y muestras frecuentemente pequeñas
+                                       sociales
+
+     TDL                               Niñez y adultez joven                   Evidencia creciente, todavía heterogénea
+
+     DCD / dispraxia                   Niñez escolar                           Infrarreconocida pese a prevalencia no trivial
+
+     Tourette / tics                   Juventud clínica                        Base poblacional mucho menor que autismo o TDAH
+
+
+
+       QUÉ SIGNIFICA
+
+       No encontrar una buena cifra para un perfil no significa que sea raro ni poco importante. Puede significar que no se ha buscado
+       con suficiente amplitud, que se estudia solo en determinados grupos o que no existen sistemas adecuados para
+       identificarlo.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="4" orden="4">
+      <titulo>3. PAÍSES: LA MISMA REALIDAD SE VE DE FORMA DISTINTA SEGÚN CÓMO SE MIDA País / región Población / diseño Hallazgo destacado</titulo>
+      <contenido>
+        <parrafo>España 6.834 escolares; múltiples NDD 18,3 % tuvo al menos un trastorno del neurodesarrollo; solo una minoría estaba previamente diagnosticada</parrafo>
+        <parrafo>Chile 3.056.306 alumnos; autismo Prevalencia proyectada 1,31 %, superior a la detectada solo por registros escolares</parrafo>
+        <parrafo>Kenia 11.223 niños cribados Prevalencia ajustada de NDD 9,1 %; coexistencia 22,6 %</parrafo>
+        <parrafo>Sudáfrica ≈1 millón de escolares Fuerte subidentificación en estudios escolares</parrafo>
+        <parrafo>América Latina Encuestas y estudios de varios países Barreras de acceso y demora diagnóstica; evidencia concentrada en pocos países</parrafo>
+        <parrafo>África subsahariana Revisión de 53 publicaciones La revisión histórica no encontró epidemiología robusta de autismo hasta 2015</parrafo>
+        <subtitulo>DESIGUALDAD GEOGRÁFICA</subtitulo>
+        <parrafo>Estados Unidos, Reino Unido, Australia y otros países de altos ingresos aportan una parte desproporcionada de la literatura. África, América Latina y países de ingresos bajos o medios están mucho menos representados. Esto limita cualquier intento de estimar una «prevalencia global» uniforme.</parrafo>
+      </contenido>
+      <texto_fuente> 3. PAÍSES: LA MISMA REALIDAD SE VE DE FORMA DISTINTA
+ SEGÚN CÓMO SE MIDA
+     País / región                  Población / diseño                      Hallazgo destacado
+
+     España                         6.834 escolares; múltiples NDD          18,3 % tuvo al menos un trastorno del neurodesarrollo; solo
+                                                                            una minoría estaba previamente diagnosticada
+
+     Chile                          3.056.306 alumnos; autismo              Prevalencia proyectada 1,31 %, superior a la detectada solo
+                                                                            por registros escolares
+
+     Kenia                          11.223 niños cribados                   Prevalencia ajustada de NDD 9,1 %; coexistencia 22,6 %
+
+     Sudáfrica                      ≈1 millón de escolares                  Fuerte subidentificación en estudios escolares
+
+     América Latina                 Encuestas y estudios de varios países   Barreras de acceso y demora diagnóstica; evidencia
+                                                                            concentrada en pocos países
+
+     África subsahariana            Revisión de 53 publicaciones            La revisión histórica no encontró epidemiología robusta de
+                                                                            autismo hasta 2015
+
+
+
+       DESIGUALDAD GEOGRÁFICA
+
+       Estados Unidos, Reino Unido, Australia y otros países de altos ingresos aportan una parte desproporcionada de la literatura.
+       África, América Latina y países de ingresos bajos o medios están mucho menos representados. Esto limita cualquier intento de
+       estimar una «prevalencia global» uniforme.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="5" orden="5">
+      <titulo>4. ESPAÑA: QUÉ SABEMOS Y QUÉ SIGUE FALTANDO AUTISMO</titulo>
+      <contenido>
+        <parrafo>Autismo España utiliza una estimación de alrededor de 500.000 personas autistas, basada en una referencia aproximada del 1 % de la población. Es una estimación asociativa, no un censo nacional completo.</parrafo>
+        <subtitulo>ESTUDIO ESCOLAR MULTIPERFIL</subtitulo>
+        <parrafo>El estudio de Bosch et al. con 6.834 escolares aporta una visión especialmente útil porque no estudia una sola condición: encontró que 18,3 % presentaba al menos un trastorno del neurodesarrollo, con un importante volumen de casos no identificados previamente.</parrafo>
+        <subtitulo>LO QUE TODAVÍA NO TENEMOS</subtitulo>
+        <parrafo>No se ha localizado una cifra nacional que reúna todos los perfiles, todas las edades, personas diagnosticadas, no diagnosticadas, sospechas y coexistencias. Por eso intervalos divulgativos como «10-20 % de la población es neurodivergente» no deben presentarse como un censo español.</parrafo>
+        <parrafo>Para FAND, una prioridad razonable es separar siempre: diagnóstico confirmado · valoración pendiente · sospecha/autorreconocimiento · necesidades de apoyo, sin asumir que estas categorías son equivalentes.</parrafo>
+      </contenido>
+      <texto_fuente> 4. ESPAÑA: QUÉ SABEMOS Y QUÉ SIGUE FALTANDO
+       AUTISMO
+
+       Autismo España utiliza una estimación de alrededor de 500.000 personas autistas, basada en una referencia aproximada del 1
+       % de la población. Es una estimación asociativa, no un censo nacional completo.
+
+
+
+       ESTUDIO ESCOLAR MULTIPERFIL
+
+       El estudio de Bosch et al. con 6.834 escolares aporta una visión especialmente útil porque no estudia una sola condición:
+       encontró que 18,3 % presentaba al menos un trastorno del neurodesarrollo, con un importante volumen de casos no identificados
+       previamente.
+
+
+
+       LO QUE TODAVÍA NO TENEMOS
+
+       No se ha localizado una cifra nacional que reúna todos los perfiles, todas las edades, personas diagnosticadas, no
+       diagnosticadas, sospechas y coexistencias. Por eso intervalos divulgativos como «10-20 % de la población es
+       neurodivergente» no deben presentarse como un censo español.
+
+
+
+ Para FAND, una prioridad razonable es separar siempre: diagnóstico confirmado · valoración pendiente ·
+ sospecha/autorreconocimiento · necesidades de apoyo, sin asumir que estas categorías son equivalentes.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="6" orden="6">
+      <titulo>5. INFRADIAGNÓSTICO Y DIAGNÓSTICO TARDÍO</titulo>
+      <contenido>
+        <parrafo>435.700-1.19 294.792 55,9 % 3,5-7,9 % 7.300 solicitudes de valoración de adultos de EE. UU. con TDAH estimación de diagnosticados autismo abiertas en NHS declarado que dijeron haber entre autistas ≥50 años en personas autistas England, junio 2026 sido diagnosticados en modelo inglés posiblemente no identificadas adultez en Inglaterra (2018)</parrafo>
+        <subtitulo>CUIDADO CON LAS CATEGORÍAS</subtitulo>
+        <parrafo>Una lista de espera no es un diagnóstico; una sospecha no es un diagnóstico; y una estimación estadística de infradiagnóstico no identifica individualmente a las personas. Son indicadores diferentes que sirven para detectar posibles huecos del sistema.</parrafo>
+      </contenido>
+      <texto_fuente> 5. INFRADIAGNÓSTICO Y DIAGNÓSTICO TARDÍO
+
+      435.700-1.19                               294.792                          55,9 %                      3,5-7,9 %
+         7.300
+                                             solicitudes de valoración de   adultos de EE. UU. con TDAH    estimación de diagnosticados
+                                              autismo abiertas en NHS        declarado que dijeron haber    entre autistas ≥50 años en
+            personas autistas                    England, junio 2026           sido diagnosticados en             modelo inglés
+      posiblemente no identificadas                                                    adultez
+           en Inglaterra (2018)
+
+
+
+
+       CUIDADO CON LAS CATEGORÍAS
+
+       Una lista de espera no es un diagnóstico; una sospecha no es un diagnóstico; y una estimación estadística de infradiagnóstico no
+       identifica individualmente a las personas. Son indicadores diferentes que sirven para detectar posibles huecos del sistema.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="7" orden="7">
+      <titulo>POR QUÉ IMPORTA</titulo>
+      <contenido>
+        <parrafo>6. COEXISTENCIA: UNA PERSONA PUEDE TENER VARIOS PERFILES La nueva información refuerza un problema metodológico importante: muchos estudios y sistemas administrativos siguen contando diagnósticos por separado, aunque la coexistencia es frecuente.</parrafo>
+        <parrafo>38,5 % 40,2 % 22,6 % &gt;8× TDAH coexistente actual TDAH a lo largo de la vida niños con NDD y coexistencia otros problemas del estimado en autismo estimado en autismo en estudio de Kenia neurodesarrollo en dislexia vs lectores típicos</parrafo>
+        <parrafo>Si contamos cada diagnóstico como si correspondiera a una persona distinta, inflamos el total. Si solo estudiamos un diagnóstico principal, ocultamos necesidades combinadas. Un mapa poblacional útil debe permitir estudiar perfiles múltiples sin duplicar personas.</parrafo>
+      </contenido>
+      <texto_fuente> 6. COEXISTENCIA: UNA PERSONA PUEDE TENER VARIOS
+ PERFILES
+ La nueva información refuerza un problema metodológico importante: muchos estudios y sistemas administrativos siguen
+ contando diagnósticos por separado, aunque la coexistencia es frecuente.
+
+
+
+              38,5 %                               40,2 %                       22,6 %                             &gt;8×
+         TDAH coexistente actual             TDAH a lo largo de la vida   niños con NDD y coexistencia       otros problemas del
+          estimado en autismo                  estimado en autismo             en estudio de Kenia       neurodesarrollo en dislexia vs
+                                                                                                                lectores típicos
+
+
+
+
+       POR QUÉ IMPORTA
+
+       Si contamos cada diagnóstico como si correspondiera a una persona distinta, inflamos el total. Si solo estudiamos un
+       diagnóstico principal, ocultamos necesidades combinadas. Un mapa poblacional útil debe permitir estudiar perfiles múltiples
+       sin duplicar personas.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="8" orden="8">
+      <titulo>7. QUIÉNES SIGUEN QUEDANDO FUERA DE LOS ESTUDIOS Grupo poco representado Problema</titulo>
+      <contenido>
+        <parrafo>Adultos y personas mayores Gran parte de la epidemiología nace en escuela o infancia; falta seguimiento de toda la vida</parrafo>
+        <parrafo>Personas no hablantes Frecuentemente excluidas por instrumentos y diseños que exigen comunicación verbal/escrita</parrafo>
+        <parrafo>Personas con discapacidad intelectual A veces excluidas de estudios de autismo u otros perfiles asociada</parrafo>
+        <parrafo>Mujeres y niñas Sesgos diagnósticos y presentaciones menos reconocidas en varios perfiles</parrafo>
+        <parrafo>Minorías étnicas / raciales Acceso desigual, muestras poco diversas y retrasos diagnósticos</parrafo>
+        <parrafo>Personas con menos recursos Barreras de acceso a valoración y menor representación investigadora</parrafo>
+        <parrafo>Global Sur Menos cohortes, registros y epidemiología comparable</parrafo>
+        <parrafo>Perfiles múltiples Los estudios suelen organizarse por diagnósticos aislados</parrafo>
+        <subtitulo>LA CELDA MÁS VACÍA</subtitulo>
+        <parrafo>La combinación adultez + Global Sur + coexistencia aparece como uno de los mayores vacíos. Precisamente ahí pueden concentrarse personas que nunca fueron identificadas en la infancia y sistemas con menos recursos diagnósticos.</parrafo>
+      </contenido>
+      <texto_fuente> 7. QUIÉNES SIGUEN QUEDANDO FUERA DE LOS ESTUDIOS
+     Grupo poco representado                            Problema
+
+     Adultos y personas mayores                         Gran parte de la epidemiología nace en escuela o infancia; falta seguimiento de toda
+                                                        la vida
+
+     Personas no hablantes                              Frecuentemente excluidas por instrumentos y diseños que exigen comunicación
+                                                        verbal/escrita
+
+     Personas con discapacidad intelectual              A veces excluidas de estudios de autismo u otros perfiles
+     asociada
+
+     Mujeres y niñas                                    Sesgos diagnósticos y presentaciones menos reconocidas en varios perfiles
+
+     Minorías étnicas / raciales                        Acceso desigual, muestras poco diversas y retrasos diagnósticos
+
+     Personas con menos recursos                        Barreras de acceso a valoración y menor representación investigadora
+
+     Global Sur                                         Menos cohortes, registros y epidemiología comparable
+
+     Perfiles múltiples                                 Los estudios suelen organizarse por diagnósticos aislados
+
+
+
+       LA CELDA MÁS VACÍA
+
+       La combinación adultez + Global Sur + coexistencia aparece como uno de los mayores vacíos. Precisamente ahí pueden
+       concentrarse personas que nunca fueron identificadas en la infancia y sistemas con menos recursos diagnósticos.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="9" orden="9">
+      <titulo>8. PERFILES CON CIFRAS TODAVÍA MUY INCOMPLETAS Perfil Qué sabemos Qué falta</titulo>
+      <contenido>
+        <parrafo>Discalculia Existen estudios escolares y educativos Estimaciones comparables entre países y edades</parrafo>
+        <parrafo>Disgrafía Revisión de 77 estudios mostró producción Definiciones homogéneas y epidemiología limitada y poca diversidad poblacional</parrafo>
+        <parrafo>Disortografía A menudo agrupada con lectura/escritura Recuento específico y criterios comparables</parrafo>
+        <parrafo>DCD / dispraxia ≈5 % infantil en revisión; investigación adulta Seguimiento adulto y envejecimiento creciente</parrafo>
+        <parrafo>TDL 7,58 % en estudio escolar inglés; evidencia Datos de vida adulta y países diversos adulta emergente</parrafo>
+        <parrafo>Tourette / otros tics Estimaciones adultas escasas y variables Datos separados por tipo de tic y edad</parrafo>
+        <parrafo>Altas capacidades Identificación depende mucho de criterios Cifras transparentes y doble/múltiple educativos excepcionalidad</parrafo>
+        <parrafo>Procesamiento sensorial / Investigación heterogénea Definir claramente qué se cuenta y con qué otros perfiles criterios</parrafo>
+      </contenido>
+      <texto_fuente> 8. PERFILES CON CIFRAS TODAVÍA MUY INCOMPLETAS
+     Perfil                                 Qué sabemos                                       Qué falta
+
+     Discalculia                            Existen estudios escolares y educativos           Estimaciones comparables entre países y
+                                                                                              edades
+
+     Disgrafía                              Revisión de 77 estudios mostró producción         Definiciones homogéneas y epidemiología
+                                            limitada y poca diversidad                        poblacional
+
+     Disortografía                          A menudo agrupada con lectura/escritura           Recuento específico y criterios comparables
+
+     DCD / dispraxia                        ≈5 % infantil en revisión; investigación adulta   Seguimiento adulto y envejecimiento
+                                            creciente
+
+     TDL                                    7,58 % en estudio escolar inglés; evidencia       Datos de vida adulta y países diversos
+                                            adulta emergente
+
+     Tourette / otros tics                  Estimaciones adultas escasas y variables          Datos separados por tipo de tic y edad
+
+     Altas capacidades                      Identificación depende mucho de criterios         Cifras transparentes y doble/múltiple
+                                            educativos                                        excepcionalidad
+
+     Procesamiento sensorial /              Investigación heterogénea                         Definir claramente qué se cuenta y con qué
+     otros perfiles                                                                           criterios</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="10" orden="10">
+      <titulo>9. LA TERCERA EDAD TAMBIÉN CUENTA AUTISMO</titulo>
+      <contenido>
+        <parrafo>Las revisiones recientes muestran un crecimiento de la investigación sobre envejecimiento, pero siguen siendo pocos los estudios longitudinales y las personas mayores de 65 años o con mayores necesidades de apoyo. No existe evidencia de que todas las personas autistas envejezcan de la misma manera.</parrafo>
+        <subtitulo>TDAH</subtitulo>
+        <parrafo>La investigación en mayores continúa siendo escasa. Una revisión encontró estimaciones muy distintas según el método: 2,18 % en evaluaciones de investigación, 0,23 % en diagnósticos clínicos y 0,09 % en datos de tratamiento. La forma de medir cambia radicalmente lo que vemos.</parrafo>
+        <subtitulo>OTROS PERFILES</subtitulo>
+        <parrafo>Dislexia, TDL, DCD/dispraxia, Tourette y otros perfiles tienen todavía menos información sobre envejecimiento, acceso a cuidados, autonomía, vivienda, duelo y cambios cognitivos.</parrafo>
+      </contenido>
+      <texto_fuente> 9. LA TERCERA EDAD TAMBIÉN CUENTA
+       AUTISMO
+
+       Las revisiones recientes muestran un crecimiento de la investigación sobre envejecimiento, pero siguen siendo pocos los
+       estudios longitudinales y las personas mayores de 65 años o con mayores necesidades de apoyo. No existe evidencia de que
+       todas las personas autistas envejezcan de la misma manera.
+
+
+
+       TDAH
+
+       La investigación en mayores continúa siendo escasa. Una revisión encontró estimaciones muy distintas según el método: 2,18 %
+       en evaluaciones de investigación, 0,23 % en diagnósticos clínicos y 0,09 % en datos de tratamiento. La forma de medir cambia
+       radicalmente lo que vemos.
+
+
+
+       OTROS PERFILES
+
+       Dislexia, TDL, DCD/dispraxia, Tourette y otros perfiles tienen todavía menos información sobre envejecimiento, acceso a
+       cuidados, autonomía, vivienda, duelo y cambios cognitivos.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="11" orden="11">
+      <titulo>10. POR QUÉ DOS ESTUDIOS PUEDEN DAR CIFRAS DIFERENTES Factor Cómo cambia la cifra</titulo>
+      <contenido>
+        <parrafo>Definición diagnóstica Criterios distintos incluyen o excluyen personas diferentes</parrafo>
+        <parrafo>Registro vs encuesta Un registro cuenta identificados; una encuesta puede captar autoinforme</parrafo>
+        <parrafo>Cribado vs diagnóstico Un cribado detecta señales, no confirma el diagnóstico</parrafo>
+        <parrafo>Edad Una cifra escolar no representa automáticamente a toda la población</parrafo>
+        <parrafo>Sexo/género Sesgos de reconocimiento pueden modificar quién llega al diagnóstico</parrafo>
+        <parrafo>Acceso sanitario/educativo Menos acceso puede producir menos diagnósticos registrados sin que haya menor prevalencia real</parrafo>
+        <parrafo>Año de los datos Un artículo reciente puede analizar datos de muchos años antes</parrafo>
+        <parrafo>Coexistencia Contar diagnósticos por separado puede duplicar personas</parrafo>
+        <subtitulo>POR ESO FAND NO DEBE PUBLICAR UNA ÚNICA CIFRA GLOBAL SIN CONTEXTO</subtitulo>
+        <parrafo>Una cifra útil necesita al menos: perfil, población, edad, país, año, método, definición y fuente. Sin esos datos, comparar porcentajes puede resultar engañoso.</parrafo>
+      </contenido>
+      <texto_fuente> 10. POR QUÉ DOS ESTUDIOS PUEDEN DAR CIFRAS DIFERENTES
+     Factor                                         Cómo cambia la cifra
+
+     Definición diagnóstica                         Criterios distintos incluyen o excluyen personas diferentes
+
+     Registro vs encuesta                           Un registro cuenta identificados; una encuesta puede captar autoinforme
+
+     Cribado vs diagnóstico                         Un cribado detecta señales, no confirma el diagnóstico
+
+     Edad                                           Una cifra escolar no representa automáticamente a toda la población
+
+     Sexo/género                                    Sesgos de reconocimiento pueden modificar quién llega al diagnóstico
+
+     Acceso sanitario/educativo                     Menos acceso puede producir menos diagnósticos registrados sin que haya menor
+                                                    prevalencia real
+
+     Año de los datos                               Un artículo reciente puede analizar datos de muchos años antes
+
+     Coexistencia                                   Contar diagnósticos por separado puede duplicar personas
+
+
+
+       POR ESO FAND NO DEBE PUBLICAR UNA ÚNICA CIFRA GLOBAL SIN CONTEXTO
+
+       Una cifra útil necesita al menos: perfil, población, edad, país, año, método, definición y fuente. Sin esos datos, comparar
+       porcentajes puede resultar engañoso.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="12" orden="12">
+      <titulo>11. QUÉ PREGUNTAS DE INVESTIGACIÓN SON PRIORITARIAS Pregunta Por qué importa</titulo>
+      <contenido>
+        <parrafo>¿Cuál es la prevalencia comparable de perfiles La coexistencia es frecuente, pero se sigue midiendo cada diagnóstico múltiples en países de ingresos bajos y medios? por separado</parrafo>
+        <parrafo>¿Qué grupos siguen sistemáticamente Mujeres, minorías, personas pobres y perfiles complejos aparecen con infradiagnosticados? retrasos repetidos</parrafo>
+        <parrafo>¿Qué ocurre en la adultez con TDL, DCD, Tourette, La evidencia se concentra en infancia y escuela dislexia y otros perfiles?</parrafo>
+        <parrafo>¿Cómo envejecen las personas con distintos perfiles y La tercera edad está poco representada necesidades de apoyo?</parrafo>
+        <parrafo>¿Cómo contar sin excluir a personas no hablantes o Muchos diseños tradicionales las dejan fuera con discapacidad intelectual?</parrafo>
+        <parrafo>¿Cómo medir necesidades además de diagnósticos? Dos personas con la misma etiqueta pueden requerir apoyos muy diferentes</parrafo>
+        <subtitulo>PRIORIDAD FAND</subtitulo>
+        <parrafo>Medir mejor, incluir mejor y comparar mejor. La investigación poblacional debería contar personas sin borrar las combinaciones entre perfiles ni las diferencias de apoyo.</parrafo>
+      </contenido>
+      <texto_fuente> 11. QUÉ PREGUNTAS DE INVESTIGACIÓN SON PRIORITARIAS
+     Pregunta                                                   Por qué importa
+
+     ¿Cuál es la prevalencia comparable de perfiles             La coexistencia es frecuente, pero se sigue midiendo cada diagnóstico
+     múltiples en países de ingresos bajos y medios?            por separado
+
+     ¿Qué grupos siguen sistemáticamente                        Mujeres, minorías, personas pobres y perfiles complejos aparecen con
+     infradiagnosticados?                                       retrasos repetidos
+
+     ¿Qué ocurre en la adultez con TDL, DCD, Tourette,          La evidencia se concentra en infancia y escuela
+     dislexia y otros perfiles?
+
+     ¿Cómo envejecen las personas con distintos perfiles y      La tercera edad está poco representada
+     necesidades de apoyo?
+
+     ¿Cómo contar sin excluir a personas no hablantes o         Muchos diseños tradicionales las dejan fuera
+     con discapacidad intelectual?
+
+     ¿Cómo medir necesidades además de diagnósticos?            Dos personas con la misma etiqueta pueden requerir apoyos muy
+                                                                diferentes
+
+
+
+       PRIORIDAD FAND
+
+       Medir mejor, incluir mejor y comparar mejor. La investigación poblacional debería contar personas sin borrar las combinaciones
+       entre perfiles ni las diferencias de apoyo.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="13" orden="13">
+      <titulo>12. QUÉ NOS DICEN TODOS LOS ESTUDIOS EN CONJUNTO 1 · HAY MUCHAS PERSONAS QUE TODAVÍA NO VEMOS</titulo>
+      <contenido>
+        <parrafo>Los registros diagnósticos no equivalen a prevalencia real. Infradiagnóstico, listas de espera, acceso desigual y diagnóstico tardío pueden ocultar una parte importante de la población.</parrafo>
+        <subtitulo>2 · AUTISMO Y TDAH NO REPRESENTAN TODA LA NEURODIVERGENCIA</subtitulo>
+        <parrafo>Son los perfiles con mayor visibilidad investigadora. DLD/TDL, DCD, Tourette, disgrafía, discalculia y perfiles combinados tienen mucha menos información.</parrafo>
+        <subtitulo>3 · EL MAPA MUNDIAL ESTÁ SESGADO</subtitulo>
+        <parrafo>Los países de altos ingresos concentran estudios y registros. El Global Sur sigue insuficientemente representado.</parrafo>
+        <subtitulo>4 · LA COEXISTENCIA ES CENTRAL</subtitulo>
+        <parrafo>Una persona puede reunir varios perfiles. Las políticas y estudios que tratan cada diagnóstico como un grupo aislado pueden describir mal la realidad.</parrafo>
+        <subtitulo>5 · FALTAN DATOS PARA PLANIFICAR APOYOS DURANTE TODA LA VIDA</subtitulo>
+        <parrafo>La investigación necesita pasar de contar diagnósticos infantiles a comprender necesidades, apoyos, participación y calidad de vida desde la infancia hasta la vejez.</parrafo>
+      </contenido>
+      <texto_fuente> 12. QUÉ NOS DICEN TODOS LOS ESTUDIOS EN CONJUNTO
+       1 · HAY MUCHAS PERSONAS QUE TODAVÍA NO VEMOS
+
+       Los registros diagnósticos no equivalen a prevalencia real. Infradiagnóstico, listas de espera, acceso desigual y diagnóstico tardío
+       pueden ocultar una parte importante de la población.
+
+
+
+       2 · AUTISMO Y TDAH NO REPRESENTAN TODA LA NEURODIVERGENCIA
+
+       Son los perfiles con mayor visibilidad investigadora. DLD/TDL, DCD, Tourette, disgrafía, discalculia y perfiles combinados tienen
+       mucha menos información.
+
+
+
+       3 · EL MAPA MUNDIAL ESTÁ SESGADO
+
+       Los países de altos ingresos concentran estudios y registros. El Global Sur sigue insuficientemente representado.
+
+
+
+       4 · LA COEXISTENCIA ES CENTRAL
+
+       Una persona puede reunir varios perfiles. Las políticas y estudios que tratan cada diagnóstico como un grupo aislado pueden
+       describir mal la realidad.
+
+
+
+       5 · FALTAN DATOS PARA PLANIFICAR APOYOS DURANTE TODA LA VIDA
+
+       La investigación necesita pasar de contar diagnósticos infantiles a comprender necesidades, apoyos, participación y calidad de
+       vida desde la infancia hasta la vejez.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="14" orden="14">
+      <titulo>ESCUCHAR</titulo>
+      <contenido>
+        <parrafo>13. POR QUÉ NECESITAMOS FAND Detrás de cada cifra hay una persona, una familia y una historia. Y detrás de los datos que faltan también hay personas: quienes todavía no tienen diagnóstico, quienes no encuentran respuestas, quienes tienen varios perfiles y quienes apenas aparecen en las investigaciones.</parrafo>
+        <parrafo>Recoger por separado experiencias de personas con diagnóstico, sospecha, valoración pendiente y distintas necesidades de apoyo.</parrafo>
+        <subtitulo>CONECTAR</subtitulo>
+        <parrafo>Acercar personas, familias, asociaciones, profesionales e investigadores para compartir recursos y detectar vacíos.</parrafo>
+        <subtitulo>INVESTIGAR MEJOR</subtitulo>
+        <parrafo>Promover estudios que incluyan perfiles menos visibles, coexistencias, adultos, mayores, diversidad territorial y diferentes necesidades de apoyo.</parrafo>
+        <subtitulo>TRANSFORMAR DATOS EN APOYOS</subtitulo>
+        <parrafo>No queremos quedarnos solo en contar personas. Queremos que el conocimiento contribuya a mejorar apoyos, defender derechos y construir entornos accesibles e inclusivos.</parrafo>
+        <parrafo>Tu experiencia cuenta. Tu voz hace falta.</parrafo>
+      </contenido>
+      <texto_fuente> 13. POR QUÉ NECESITAMOS FAND
+ Detrás de cada cifra hay una persona, una familia y una historia. Y detrás de los datos que faltan también hay personas:
+ quienes todavía no tienen diagnóstico, quienes no encuentran respuestas, quienes tienen varios perfiles y quienes apenas
+ aparecen en las investigaciones.
+
+
+       ESCUCHAR
+
+       Recoger por separado experiencias de personas con diagnóstico, sospecha, valoración pendiente y distintas necesidades de
+       apoyo.
+
+
+
+       CONECTAR
+
+       Acercar personas, familias, asociaciones, profesionales e investigadores para compartir recursos y detectar vacíos.
+
+
+
+       INVESTIGAR MEJOR
+
+       Promover estudios que incluyan perfiles menos visibles, coexistencias, adultos, mayores, diversidad territorial y diferentes
+       necesidades de apoyo.
+
+
+
+       TRANSFORMAR DATOS EN APOYOS
+
+       No queremos quedarnos solo en contar personas. Queremos que el conocimiento contribuya a mejorar apoyos, defender
+       derechos y construir entornos accesibles e inclusivos.
+
+
+
+ Tu experiencia cuenta. Tu voz hace falta.</texto_fuente>
+    </seccion>
+    <seccion pagina_origen="15" orden="15">
+      <titulo>ALCANCE</titulo>
+      <contenido>
+        <parrafo>14. FUENTES Y NOTA METODOLÓGICA Esta versión integra las 30 fuentes del informe FAND anterior con la nueva síntesis documental aportada para la actualización. Entre los trabajos que amplían la interpretación destacan estudios y revisiones de Francés (2022), Bosch (2021), Roman-Urrestarazu (2025), Kariuki (2025), Franz (2017), Rong (2021), Brimo (2021), Davies (2024), Clouder (2020), Dubois (2020), Petter (2025), De Roubaix (2024-2025), Adams (2024), De Jesús Garza Guerra (2026), Martin (2024), Glencross (2021) y otros trabajos del corpus.</parrafo>
+        <parrafo>La nueva búsqueda descrita en el material complementario recuperó un corpus amplio y seleccionó 100 trabajos para el análisis final. Esta versión de FAND utiliza sus resultados como ampliación documental. No debe presentarse como un censo realizado por FAND ni como una revisión sistemática registrada por la asociación.</parrafo>
+        <parrafo>Las referencias completas del informe original se mantienen como base documental. Antes de utilizar cifras para decisiones clínicas, legales o de política pública debe consultarse la publicación original correspondiente.</parrafo>
+      </contenido>
+      <texto_fuente> 14. FUENTES Y NOTA METODOLÓGICA
+ Esta versión integra las 30 fuentes del informe FAND anterior con la nueva síntesis documental aportada para la actualización.
+ Entre los trabajos que amplían la interpretación destacan estudios y revisiones de Francés (2022), Bosch (2021),
+ Roman-Urrestarazu (2025), Kariuki (2025), Franz (2017), Rong (2021), Brimo (2021), Davies (2024), Clouder (2020), Dubois
+ (2020), Petter (2025), De Roubaix (2024-2025), Adams (2024), De Jesús Garza Guerra (2026), Martin (2024), Glencross (2021)
+ y otros trabajos del corpus.
+
+
+       ALCANCE
+
+       La nueva búsqueda descrita en el material complementario recuperó un corpus amplio y seleccionó 100 trabajos para el análisis
+       final. Esta versión de FAND utiliza sus resultados como ampliación documental. No debe presentarse como un censo realizado
+       por FAND ni como una revisión sistemática registrada por la asociación.
+
+
+ Las referencias completas del informe original se mantienen como base documental. Antes de utilizar cifras para decisiones clínicas, legales o de política
+ pública debe consultarse la publicación original correspondiente.</texto_fuente>
+    </seccion>
+  </cuerpo>
+</articulo>

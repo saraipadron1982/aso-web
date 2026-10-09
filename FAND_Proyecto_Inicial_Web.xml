@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='utf-8'?>
+<documento id="fand-proyecto-inicial" tipo="presentacion-proyecto" version="2.0" fecha="2026-10-04" idioma="es">
+  <metadatos>
+    <organizacion>Asociación FAND - Alianza para la Neurodivergencia</organizacion>
+    <siglas>FAND</siglas>
+    <lema>Fomento del Apoyo a la Neurodivergencia y sus Derechos</lema>
+    <titulo>Presentación inicial del proyecto</titulo>
+    <subtitulo>Una sociedad que comprenda, incluya y apoye la neurodivergencia</subtitulo>
+    <estado>Borrador conceptual</estado>
+    <uso_destino>Contenido estructurado para integración web</uso_destino>
+  </metadatos>
+  <contenido>
+    <seccion id="que-es-fand">
+      <titulo>Qué es FAND</titulo>
+      <parrafo>FAND es un proyecto de asociación sin ánimo de lucro que nace para defender los derechos de las personas neurodivergentes y favorecer su inclusión social mediante la concienciación de la sociedad, la colaboración, el conocimiento compartido y el apoyo entre personas. Esta presentación expresa el proyecto que se quiere construir; no presupone una asociación ya constituida, financiación concedida ni acuerdos formalizados.</parrafo>
+      <parrafo>La finalidad es que las personas neurodivergentes puedan participar en la sociedad con reconocimiento, autonomía y los apoyos que necesiten. La inclusión requiere que los entornos comprendan la diversidad y adapten sus prácticas, además de ofrecer herramientas a las personas. Los derechos y la pertenencia no dependerán de ocultar diferencias, demostrar productividad o destacar por capacidades excepcionales.</parrafo>
+    </seccion>
+    <seccion id="origen-equipo">
+      <titulo>Origen y equipo promotor</titulo>
+      <parrafo>El proyecto es impulsado por Sarai Padrón Hernández desde su experiencia de diagnóstico tardío y búsqueda de apoyos. El equipo inicial reúne su experiencia laboral y de recursos humanos, una psicóloga especializada en neurodivergencia y un profesional autista especializado en prevención de riesgos laborales. La propuesta se enriquecerá con las voces de usuarios, familias y entidades.</parrafo>
+    </seccion>
+    <seccion id="primera-etapa">
+      <titulo>Primera etapa: empezar a pequeña escala</titulo>
+      <parrafo>La asociación iniciará cuatro líneas complementarias dentro de los tres pilares: captar pequeñas asociaciones y centros colaboradores que conserven su identidad y autonomía; crear una comunidad para usuarios y familias; involucrar a influencers y divulgadores para dar a conocer el proyecto y difundir los primeros cuestionarios; y desarrollar una app con recursos de orientación.</parrafo>
+      <parrafo>La app permitirá explorar señales y necesidades mediante cuestionarios adecuados y conocer cuándo conviene consultar a un profesional. Sus resultados no confirmarán ni descartarán un diagnóstico; una puntuación baja tampoco anulará la necesidad de evaluación ante dificultades persistentes. Comunidad y orientación podrán convivir en espacios separados, sin exigir pruebas ni publicar resultados para participar.</parrafo>
+      <parrafo>La aspiración futura es constituir una federación con otras asociaciones cuando exista una red y capacidad suficientes. Esta posibilidad no cambia la forma inicial de asociación ni supone una transformación automática. El funcionamiento de las líneas, la app y los órganos se concretará más adelante.</parrafo>
+    </seccion>
+    <seccion id="perfiles">
+      <titulo>Una asociación para todos los perfiles</titulo>
+      <parrafo>FAND quiere dar cabida a personas autistas (TEA), con TDAH en sus distintas presentaciones, dislexia, disgrafía, disortografía, discalculia, dispraxia o trastorno del desarrollo de la coordinación, trastorno del desarrollo del lenguaje (TDL), síndrome de Tourette y otros trastornos de tics, así como discapacidad intelectual y otros perfiles del neurodesarrollo.</parrafo>
+      <parrafo>El proyecto incluye expresamente las altas capacidades intelectuales y la doble o múltiple excepcionalidad: por ejemplo, personas con altas capacidades y autismo, TDAH o dificultades específicas de aprendizaje. También atenderá las diferencias de procesamiento sensorial y otras necesidades que pueden acompañar a distintos perfiles, sin presentarlas todas como diagnósticos independientes.</parrafo>
+      <parrafo>Esta enumeración es orientativa y abierta: el término neurodivergencia no corresponde a un catálogo clínico único y cerrado. FAND reconoce la diversidad de experiencias y las combinaciones entre perfiles.</parrafo>
+      <parrafo>Ninguna persona será menos importante por tener un perfil poco conocido, no verse reflejada en esta lista o estar pendiente de evaluación. Cada voz y cada necesidad de apoyo forman parte del proyecto.</parrafo>
+    </seccion>
+    <seccion id="alcance">
+      <titulo>A quién se dirige y cuál es su alcance</titulo>
+      <parrafo>FAND quiere abarcar los distintos perfiles neurodivergentes y sus combinaciones, evitando que una persona quede fuera por no encajar en una sola categoría. Tendrá en cuenta las diferentes necesidades de apoyo y todas las etapas de la vida: infancia, juventud, edad adulta y tercera edad.</parrafo>
+      <parrafo>El proyecto se dirige a personas neurodivergentes y familias, y busca colaborar con asociaciones, fundaciones, centros, profesionales, investigadores, pequeños proyectos, empresas que desarrollen soluciones útiles y divulgadores. Se atenderán los ámbitos personal, familiar, educativo, laboral, sanitario y social.</parrafo>
+      <parrafo>Su punto de partida será España, con vocación de cooperación europea e internacional. El objetivo es compartir aprendizajes entre países, contrastar recursos y promover mejores condiciones de inclusión, respetando las necesidades y los contextos de cada territorio.</parrafo>
+    </seccion>
+    <seccion id="base-tres-pilares">
+      <titulo>Una base común y tres pilares complementarios</titulo>
+      <parrafo>Los derechos de las personas neurodivergentes y su inclusión social constituyen la base de todo FAND. Sobre ella se desarrollan tres pilares: conocimiento y recursos; colaboración y defensa de derechos; y comunidad y apoyo entre iguales. Cada uno responde a una necesidad distinta y se conecta con los demás.</parrafo>
+    </seccion>
+    <pilares cantidad="3">
+      <pilar numero="1" id="conocimiento-recursos-investigacion">
+        <titulo>Conocimiento compartido, recursos e investigación</titulo>
+        <parrafo>Reunir, compartir, contrastar y actualizar conocimientos, documentos y herramientas que puedan ayudar a entidades, profesionales, usuarios y familias. Se plantea un archivo común que facilite aprovechar el trabajo existente, mejorar programas y detectar necesidades que todavía no están cubiertas.</parrafo>
+        <parrafo>Este pilar incluirá recursos para autonomía, comunicación, aprendizaje, adaptación de entornos e inclusión social. También promoverá la revisión de pruebas y criterios de evaluación, el aprendizaje de situaciones complejas y la investigación sobre aspectos poco explorados, como perfiles combinados y envejecimiento.</parrafo>
+        <parrafo>Se buscará mejorar la comprensión de fortalezas, intereses, límites y necesidades de apoyo, incluida la orientación educativa y profesional de jóvenes. Los materiales nuevos o experimentales se distinguirán de aquellos con evidencia suficiente; una revisión interna no equivaldrá a validación científica ni sustituirá la valoración individual de profesionales competentes.</parrafo>
+        <parrafo>El conocimiento de las carencias permitirá orientar los fondos que FAND consiga hacia las necesidades más relevantes: ayudar a personas y familias sin recursos, fortalecer entidades existentes, ampliar programas útiles y desarrollar herramientas o investigación cuando falten respuestas. Se priorizará el acceso gratuito a los recursos que puedan compartirse con autorización.</parrafo>
+        <subseccion id="armonizacion-procedimientos">
+          <titulo>Armonización de procedimientos y reconocimiento</titulo>
+          <parrafo>FAND buscará armonizar criterios, procedimientos y protocolos mediante el trabajo conjunto de profesionales, entidades e investigadores. Se promoverán su evaluación, mejora y, cuando exista una vía aplicable, su validación, homologación o reconocimiento oficial por los organismos competentes. El objetivo es una práctica más coherente y coordinada, sin perder la adaptación a cada persona.</parrafo>
+          <parrafo>También se impulsarán criterios transparentes para contrastar titulaciones, competencias, experiencia y respaldo de las intervenciones. Esto permitirá identificar afirmaciones engañosas de especialización y prácticas sin fundamento, orientar mejor a usuarios y familias y reducir el daño que pueden causar quienes se presentan como expertos sin acreditar la cualificación pertinente.</parrafo>
+          <parrafo>FAND podrá revisar aportaciones, documentar dudas y trasladar posibles irregularidades por los cauces adecuados. Su revisión no sustituirá la acreditación profesional ni la decisión de los organismos competentes. La evaluación se basará en evidencias y procedimientos claros, evitando señalamientos sin fundamento.</parrafo>
+          <parrafo>Compartir procedimientos contrastados facilitará la coordinación entre entidades, reducirá duplicidades y permitirá aprovechar mejor los recursos. La armonización se orientará a estándares de calidad y mejora continua, no a imponer una única herramienta a todos los perfiles.</parrafo>
+        </subseccion>
+      </pilar>
+      <pilar numero="2" id="colaboracion-derechos">
+        <titulo>Colaboración, concienciación y defensa de derechos</titulo>
+        <parrafo>Conectar entidades, personas neurodivergentes, familias, profesionales y divulgadores para trabajar conjuntamente por la inclusión social. Esta colaboración permitirá dar a conocer apoyos existentes y recoger barreras que las personas encuentran en su vida cotidiana para transformarlas en propuestas de mejora.</parrafo>
+        <parrafo>La concienciación social será central: combatir estigmas y favorecer que escuelas, empresas, servicios públicos y otros espacios comprendan la neurodivergencia y adopten prácticas inclusivas. Los usuarios aportarán sus experiencias y prioridades; influencers y divulgadores podrán ampliar el alcance de las causas con mensajes responsables y accesibles.</parrafo>
+        <parrafo>FAND buscará interlocución con instituciones nacionales y europeas, incluida la Comisión Europea por las vías pertinentes, y cooperación internacional para impulsar derechos, apoyos y medidas concretas. Se promoverán protocolos y cambios adaptados a cada ámbito, con atención a su aplicación real. Este pilar se centra en la acción compartida y la incidencia social e institucional.</parrafo>
+      </pilar>
+      <pilar numero="3" id="comunidad-apoyo">
+        <titulo>Comunidad neurodivergente y apoyo entre iguales</titulo>
+        <parrafo>Crear una comunidad dirigida principalmente a usuarios y familias para compartir experiencias, dificultades personales e inquietudes y encontrar comprensión, compañía y apoyo más allá de las instituciones.</parrafo>
+        <parrafo>Las personas podrán conectar por intereses, aficiones, edades, experiencias, perfiles neurodivergentes, fortalezas y necesidades de apoyo. Se favorecerán relaciones voluntarias donde cada persona pueda participar a su ritmo. Las familias también encontrarán espacios de intercambio que respeten la voz y la intimidad de sus familiares.</parrafo>
+        <parrafo>Los jóvenes podrán construir amistades con personas de edades próximas y compartir intereses, estudios e inquietudes en espacios adecuados y moderados. La comunidad se orientará a los vínculos personales y al apoyo cotidiano, con accesibilidad y protección de participantes. El apoyo entre iguales complementará los servicios profesionales.</parrafo>
+      </pilar>
+    </pilares>
+    <principios>
+      <principio id="participacion-diversidad">
+        <titulo>Participación y diversidad</titulo>
+        <parrafo>Las personas neurodivergentes deben tener una participación real en las prioridades y decisiones de FAND, junto con entidades, profesionales y familias. Se procurará incluir diferentes perfiles, edades, territorios y necesidades de apoyo, también a quienes tienen menos visibilidad o encuentran mayores dificultades para participar.</parrafo>
+      </principio>
+      <principio id="accesibilidad-respeto">
+        <titulo>Accesibilidad y respeto</titulo>
+        <parrafo>Los recursos, actividades y formas de participación se plantearán con opciones accesibles y comprensibles. Se respetarán los ritmos, preferencias y límites personales. La inclusión no exigirá exponer públicamente un diagnóstico, contar experiencias íntimas ni participar en campañas.</parrafo>
+      </principio>
+      <principio id="rigor-mejora">
+        <titulo>Rigor y mejora continua</titulo>
+        <parrafo>Se distinguirán la experiencia personal, el conocimiento profesional y la evidencia científica, reconociendo el valor y los límites de cada aportación. Compartir recursos permitirá contrastar información, reconocer errores y promover mejoras. Se buscará armonizar criterios cuando resulte útil sin imponer una respuesta única para todas las personas.</parrafo>
+      </principio>
+      <principio id="transparencia-fondos">
+        <titulo>Transparencia y orientación de los fondos</titulo>
+        <parrafo>Los fondos que se obtengan se orientarán a necesidades contrastadas y criterios claros. Se promoverá transparencia en las prioridades, decisiones y resultados, así como la gestión de posibles conflictos de interés. La pertenencia a FAND no supondrá una promesa automática de financiación.</parrafo>
+      </principio>
+      <principio id="privacidad-proteccion">
+        <titulo>Privacidad, autonomía y protección</titulo>
+        <parrafo>Se protegerán la información personal y las experiencias compartidas. La participación en la comunidad no autorizará por sí sola el uso de conversaciones o datos en investigación, campañas o archivos. El intercambio de conocimiento sobre casos deberá preservar la confidencialidad y contar con procedimientos adecuados. Los espacios para menores requerirán medidas específicas de protección.</parrafo>
+      </principio>
+      <principio id="complementariedad">
+        <titulo>Complementariedad y colaboración</titulo>
+        <parrafo>FAND busca fortalecer el trabajo de las entidades existentes y conectar sus aportaciones. Cuando haya programas útiles, se estudiará facilitar su acceso y expansión; cuando falten respuestas, se impulsará su desarrollo de forma colaborativa. Se respetarán la autonomía, la autoría y las condiciones de uso de los recursos de cada entidad.</parrafo>
+      </principio>
+    </principios>
+    <seccion id="resultado">
+      <titulo>El resultado que queremos construir</titulo>
+      <parrafo>Una red en la que el conocimiento mejore los apoyos, la colaboración impulse cambios sociales y la comunidad permita encontrar vínculos y acompañamiento. Los tres pilares contribuirán a una sociedad más consciente de la neurodivergencia, con menos barreras y mayores posibilidades de participación para las personas y sus familias.</parrafo>
+      <parrafo>Este borrador define la identidad, la finalidad y el contenido general de FAND. El funcionamiento de los pilares, los órganos de decisión, la participación, la financiación y el calendario se concretarán en una fase posterior. La estructura propuesta queda formada por tres pilares.</parrafo>
+    </seccion>
+  </contenido>
+</documento>
