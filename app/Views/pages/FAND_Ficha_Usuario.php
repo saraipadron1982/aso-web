@@ -83,7 +83,7 @@ $games = [
 
     <div class="actions">
       <button type="button" id="print">Imprimir / guardar como PDF</button>
-      <button type="button" class="secondary" id="download">Descargar datos (JSON)</button>
+      <button type="button" class="secondary" id="download">Descargar ficha (PDF)</button>
       <button type="button" class="secondary" id="clear">Borrar mis datos</button>
     </div>
 
@@ -100,6 +100,7 @@ $games = [
     <p>FAND · Alianza para la Neurodivergencia. Herramienta de orientación: no diagnostica ni sustituye la evaluación profesional.</p>
   </footer>
 
+  <script src="assets/js/jspdf.umd.min.js"></script>
   <script src="assets/js/fand-perfil.js"></script>
   <script>
     (function () {
@@ -314,9 +315,47 @@ $games = [
       });
       document.getElementById("print").addEventListener("click", function () { window.print(); });
       document.getElementById("download").addEventListener("click", function () {
-        var blob = new Blob([JSON.stringify(exportData(), null, 2)], { type: "application/json" });
-        var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "ficha-fand.json"; a.click();
-        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+        if (!window.jspdf) { window.print(); return; }
+        var doc = new window.jspdf.jsPDF({ unit: "mm", format: "a4" });
+        var W = 210, M = 15, maxW = W - 2 * M, y = M;
+        function clean(t) {
+          return String(t).replace(/[≥]/g, ">=").replace(/[≤]/g, "<=").replace(/[—–]/g, "-").replace(/[↔]/g, "<->").replace(/[→]/g, "->").replace(/[←]/g, "<-").replace(/[•]/g, "-").replace(/[“”]/g, '"').replace(/[‘’]/g, "'").replace(/[^\u0000-\u00FF]/g, "").replace(/\s+/g, " ").trim();
+        }
+        function line(text, size, bold, gap) {
+          if (!text) return;
+          doc.setFont("helvetica", bold ? "bold" : "normal"); doc.setFontSize(size);
+          doc.splitTextToSize(clean(text), maxW).forEach(function (l) {
+            if (y > 282) { doc.addPage(); y = M; }
+            doc.text(l, M, y); y += size * 0.45;
+          });
+          y += gap || 1.5;
+        }
+        var u = FANDProfile.evaluate().user || {};
+        line("FAND - Ficha de orientacion", 16, true, 2);
+        line("Fecha: " + new Date().toISOString().slice(0, 10) + (u.name ? " · Persona: " + u.name : "") + (u.ageYears ? " · Edad: " + u.ageYears + " años" : ""), 10, false, 2);
+        line("AVISO: herramienta de orientacion de investigacion, no validada. No es un diagnostico ni lo sustituye; un resultado normal no descarta ninguna condicion.", 9, true, 4);
+        report.querySelectorAll("section").forEach(function (s) {
+          Array.prototype.forEach.call(s.querySelectorAll("h2,h3,p,li,tr,.index"), function (n) {
+            if (n.closest("pre") || (n.closest("details") && n.closest("details").id === "raw-json")) return;
+            var tag = n.tagName;
+            if (tag === "H2") { y += 3; line(n.textContent, 13, true, 2); }
+            else if (tag === "H3") line(n.textContent, 11, true, 1.5);
+            else if (tag === "TR") line(Array.prototype.map.call(n.children, function (c) { return c.textContent.trim(); }).join(" | "), 8.5, n.firstElementChild && n.firstElementChild.tagName === "TH", 1);
+            else if (tag === "LI") line("- " + n.textContent, 9.5, false, 1);
+            else if (n.classList.contains("index")) line("Indice de orientacion: " + n.textContent, 11, true, 1.5);
+            else line(n.textContent, 9.5, false, 1.5);
+          });
+        });
+        doc.addPage(); y = M;
+        line("Anexo: datos completos (JSON)", 13, true, 2);
+        doc.setFont("courier", "normal"); doc.setFontSize(7);
+        JSON.stringify(exportData(), null, 1).split("\n").forEach(function (l) {
+          doc.splitTextToSize(clean(l) || " ", maxW).forEach(function (w) {
+            if (y > 285) { doc.addPage(); y = M; }
+            doc.text(w, M, y); y += 3;
+          });
+        });
+        doc.save("ficha-fand.pdf");
       });
       document.getElementById("clear").addEventListener("click", function () {
         if (window.confirm("¿Borrar todos los resultados y datos guardados en este navegador?")) { FANDProfile.clear(); loadUser(); render(); }
