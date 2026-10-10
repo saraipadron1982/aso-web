@@ -1,12 +1,19 @@
 <?php
 declare(strict_types=1);
 
+/** Banco FAND v5 (no validado): bloques con escala F (frecuencia 0–3), I (intensidad 0–3) o H (respuesta abierta, sin puntuar). */
 final class CuestionarioCatalog
 {
-    private const FILE = __DIR__ . '/../Data/bateria_v3.xml';
+    private const FILE = __DIR__ . '/../Data/bateria_v5.xml';
+    /** Bloques que forman el recorrido guiado; el resto son opcionales. */
+    private const FLOW = ['I01', 'F01', 'D01', 'A01', 'A02', 'A03', 'S01', 'S02', 'R01', 'R02'];
+    public const SCALES = [
+        'F' => [0 => 'Nunca o casi nunca', 1 => 'Algunas veces', 2 => 'A menudo', 3 => 'Muy a menudo'],
+        'I' => [0 => 'Sin dificultad', 1 => 'Leve', 2 => 'Moderada', 3 => 'Intensa'],
+    ];
 
     /**
-     * @return array<string, array{codigo:string,nombre:string,opcional:bool,puntua:bool,dimensiones:list<array{nombre:string,items:list<array{codigo:string,texto:string,puntua:bool}>}>}>
+     * @return array<string, array{codigo:string,nombre:string,escala:string,objetivo:string,flujo:bool,puntua:bool,items:list<array{codigo:string,texto:string}>}>
      */
     public static function all(): array
     {
@@ -22,31 +29,27 @@ final class CuestionarioCatalog
         }
 
         $result = [];
-        foreach ($xml->cuestionario as $c) {
-            $dimensions = [];
-            $scored = false;
-            foreach ($c->dimension as $d) {
-                $items = [];
-                foreach ($d->item as $item) {
-                    $puntua = (string) $item['formato'] === 'frecuencia_provisional';
-                    $scored = $scored || $puntua;
-                    $items[] = ['codigo' => (string) $item['codigo'], 'texto' => trim((string) $item), 'puntua' => $puntua];
-                }
-                $dimensions[] = ['nombre' => (string) $d['nombre'], 'items' => $items];
+        foreach ($xml->bloque as $b) {
+            [$code, $name] = array_pad(explode(' ', (string) $b['nombre'], 2), 2, '');
+            $items = [];
+            foreach ($b->item as $item) {
+                $items[] = ['codigo' => (string) $item['id'], 'texto' => trim((string) $item)];
             }
-            $code = (string) $c['codigo'];
+            $scale = (string) $b['escala'];
             $result[$code] = [
                 'codigo' => $code,
-                'nombre' => (string) $c['nombre'],
-                'opcional' => (string) $c['administracion'] !== '',
-                'puntua' => $scored,
-                'dimensiones' => $dimensions,
+                'nombre' => $name,
+                'escala' => $scale,
+                'objetivo' => trim((string) $b->objetivo),
+                'flujo' => in_array($code, self::FLOW, true),
+                'puntua' => isset(self::SCALES[$scale]),
+                'items' => $items,
             ];
         }
         return $result;
     }
 
-    /** Estructura mínima para puntuar en el navegador. */
+    /** Estructura mínima para puntuar en el navegador (solo bloques con escala). */
     public static function definition(): array
     {
         $out = [];
@@ -54,12 +57,18 @@ final class CuestionarioCatalog
             if (!$q['puntua']) {
                 continue;
             }
-            $out[$code] = ['nombre' => $q['nombre'], 'dimensiones' => array_map(static fn (array $d): array => [
-                'nombre' => $d['nombre'],
-                'scored' => array_values(array_column(array_filter($d['items'], static fn (array $i): bool => $i['puntua']), 'codigo')),
-                'extra' => array_values(array_column(array_filter($d['items'], static fn (array $i): bool => !$i['puntua']), 'codigo')),
-            ], $q['dimensiones'])];
+            $out[$code] = [
+                'nombre' => $q['nombre'],
+                'max' => 3,
+                'dimensiones' => [['nombre' => $q['nombre'], 'scored' => array_column($q['items'], 'codigo'), 'extra' => []]],
+            ];
         }
         return $out;
+    }
+
+    /** Códigos del recorrido guiado, en orden. */
+    public static function flow(): array
+    {
+        return self::FLOW;
     }
 }

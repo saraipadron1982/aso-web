@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8'?>
+<fand_bateria version="5.0" estado="banco_original_no_validado" fecha="2026-10-10">
+  <seccion titulo="Principios del diseño">Se reorganiza la batería en cinco áreas: motivo e impacto; historia del desarrollo; características actuales relacionadas con TDAH; características relacionadas con autismo; y factores diferenciales. Los ítems son originales, conductuales, de una sola idea y ligados a un periodo o contexto. Se registran informantes separados, adaptaciones y fortalezas. El objetivo es producir información útil para una derivación profesional, no estimar una probabilidad clínica antes de validar FAND.</seccion>
+  <seccion titulo="Instrucciones y respuestas">Para preguntas actuales, responder sobre los últimos seis meses salvo indicación distinta. Escala F: 0 nunca o casi nunca; 1 algunas veces; 2 a menudo; 3 muy a menudo; N/O no observado o no aplicable. Escala I: 0 sin dificultad; 1 leve; 2 moderada; 3 intensa; N/O. Las preguntas de historia usan respuestas descriptivas o sí/no/no sabe, y no se suman. En menores, completar versiones separadas por cuidador y docente cuando sea viable. No trasladar literalmente preguntas adultas a preescolares.</seccion>
+  <bloque nombre="I01 Registro y motivo" escala="H">
+    <objetivo>Campos de registro; respuestas abiertas, no puntuables.</objetivo>
+    <item id="I01-01">¿Cuál es la edad exacta y fecha de nacimiento de la persona evaluada?</item>
+    <item id="I01-02">¿Quién responde y cuál es su relación con la persona evaluada?</item>
+    <item id="I01-03">¿Cuál es el género de la persona, si desea indicarlo?</item>
+    <item id="I01-04">¿En qué idioma se comunica habitualmente y en cuál prefiere responder?</item>
+    <item id="I01-05">¿Cuál es el principal motivo para solicitar orientación ahora?</item>
+    <item id="I01-06">¿Qué situaciones concretas preocupan y desde cuándo?</item>
+    <item id="I01-07">¿Qué espera obtener de una evaluación profesional?</item>
+    <item id="I01-08">¿Ha recibido evaluaciones previas? Indique año, profesional y resultado comunicado.</item>
+    <item id="I01-09">¿Se le ha comunicado algún diagnóstico anterior? Indique cuál y quién lo estableció.</item>
+    <item id="I01-10">¿Qué apoyos, tratamientos o adaptaciones utiliza actualmente?</item>
+    <item id="I01-11">¿Existen dificultades de visión, audición, movimiento o comprensión que requieran adaptar las tareas?</item>
+    <item id="I01-12">¿Hay alguien que pueda aportar observaciones de otro contexto (familia, escuela, trabajo)?</item>
+  </bloque>
+  <bloque nombre="F01 Impacto y contexto" escala="I">
+    <objetivo>Registrar por separado frecuencia y repercusión; estas preguntas no son síntomas específicos de TEA o TDAH.</objetivo>
+    <item id="F01-01">¿Las dificultades descritas impiden terminar actividades que son importantes para usted o para el menor?</item>
+    <item id="F01-02">¿Las dificultades afectan al aprendizaje o al rendimiento académico?</item>
+    <item id="F01-03">¿Las dificultades afectan al trabajo o a las responsabilidades cotidianas?</item>
+    <item id="F01-04">¿Las dificultades afectan a las relaciones con otras personas?</item>
+    <item id="F01-05">¿Las dificultades dificultan cuidar de sí mismo o mantener rutinas básicas?</item>
+    <item id="F01-06">¿Se presentan las dificultades en casa?</item>
+    <item id="F01-07">¿Se presentan en la escuela, formación o trabajo?</item>
+    <item id="F01-08">¿Se presentan en actividades sociales o comunitarias?</item>
+    <item id="F01-09">¿Cambian claramente las dificultades según el ruido, las exigencias o la estructura del entorno?</item>
+    <item id="F01-10">¿La persona necesita más recordatorios, supervisión o ayuda que otras de edad y contexto semejantes?</item>
+    <item id="F01-11">¿Ha dejado de participar en alguna actividad por estas dificultades?</item>
+    <item id="F01-12">¿Qué apoyos o ajustes reducen de manera observable estas dificultades?</item>
+  </bloque>
+  <bloque nombre="D01 Desarrollo y trayectoria" escala="H">
+    <objetivo>Entrevista retrospectiva; debe permitir respuestas «no recuerdo/no sé» y recoger ejemplos y fuentes.</objetivo>
+    <item id="D01-01">¿Qué preocupaciones surgieron primero y a qué edad aproximada?</item>
+    <item id="D01-02">¿Cómo fue el desarrollo temprano del lenguaje y la comprensión?</item>
+    <item id="D01-03">¿Cómo se comunicaba para pedir ayuda o compartir intereses durante la infancia?</item>
+    <item id="D01-04">¿Cómo participaba en juegos de imaginación o de representación con otras personas?</item>
+    <item id="D01-05">¿Cómo respondía cuando otra persona intentaba jugar o conversar?</item>
+    <item id="D01-06">¿Cómo se relacionaba con niños o niñas de su edad?</item>
+    <item id="D01-07">¿Existían actividades o temas de interés especialmente intensos o absorbentes?</item>
+    <item id="D01-08">¿Cómo reaccionaba a cambios inesperados de rutinas en la infancia?</item>
+    <item id="D01-09">¿Había movimientos o acciones repetitivas que se observaran de forma persistente?</item>
+    <item id="D01-10">¿Se observaron reacciones intensas o búsqueda frecuente de sonidos, texturas, luces o movimientos?</item>
+    <item id="D01-11">¿Desde qué etapa se observaban dificultades de atención, actividad motora o impulsividad?</item>
+    <item id="D01-12">¿Qué dificultades comunicaban docentes o cuidadores durante la escolarización?</item>
+    <item id="D01-13">¿Las características continuaron en la adolescencia? ¿Cómo cambiaron?</item>
+    <item id="D01-14">¿Qué estrategias aprendió la persona para compensar o disimular sus dificultades?</item>
+    <item id="D01-15">¿Existen informes, boletines o recuerdos de terceros que ayuden a reconstruir la trayectoria?</item>
+    <item id="D01-16">¿Ha habido pérdida de capacidades previamente adquiridas? Indique cuándo y en qué área.</item>
+  </bloque>
+  <bloque nombre="A01 Atención sostenida y finalización" escala="F">
+    <objetivo>Preguntas de frecuencia sobre los últimos seis meses; evitar confundir dificultad con desinterés.</objetivo>
+    <item id="A01-01">Cuando una tarea requiere atención durante varios minutos, ¿pierde el hilo antes de terminar?</item>
+    <item id="A01-02">¿Necesita releer o volver a escuchar información porque no retuvo partes de la explicación?</item>
+    <item id="A01-03">¿Deja sin completar una actividad después de haber empezado sus pasos principales?</item>
+    <item id="A01-04">¿Comete omisiones en tareas que conoce, aunque haya entendido lo que debe hacer?</item>
+    <item id="A01-05">¿Necesita pausas adicionales para sostener la atención en actividades rutinarias?</item>
+    <item id="A01-06">¿Se distrae con conversaciones, sonidos o movimiento mientras realiza una tarea?</item>
+    <item id="A01-07">¿Le cuesta retomar una actividad después de una interrupción?</item>
+    <item id="A01-08">¿Pierde el objetivo de la actividad cuando debe alternar entre varias instrucciones?</item>
+    <item id="A01-09">¿Le cuesta escuchar una explicación completa sin desviarse hacia otros estímulos?</item>
+    <item id="A01-10">¿La atención varía notablemente entre tareas igualmente importantes para la persona?</item>
+  </bloque>
+  <bloque nombre="A02 Organización y memoria cotidiana" escala="F">
+    <objetivo>Frecuencia de conductas observables; separar de resultados de juegos cognitivos.</objetivo>
+    <item id="A02-01">¿Empieza una tarea sin preparar los materiales que necesitará?</item>
+    <item id="A02-02">¿Tiene dificultades para decidir el orden de los pasos de una tarea habitual?</item>
+    <item id="A02-03">¿Olvida compromisos si no utiliza recordatorios externos?</item>
+    <item id="A02-04">¿Pierde objetos necesarios para actividades frecuentes?</item>
+    <item id="A02-05">¿Calcula de forma poco precisa el tiempo necesario para una tarea?</item>
+    <item id="A02-06">¿Le cuesta priorizar entre varias obligaciones que deben completarse?</item>
+    <item id="A02-07">¿Olvida instrucciones de varios pasos antes de ejecutarlas?</item>
+    <item id="A02-08">¿Deja tareas a medias cuando surge otra obligación?</item>
+    <item id="A02-09">¿Necesita ayuda externa para iniciar actividades que sabe realizar?</item>
+    <item id="A02-10">¿Le cuesta mantener organizados materiales, documentos o pertenencias?</item>
+  </bloque>
+  <bloque nombre="A03 Hiperactividad, inquietud e impulsividad" escala="F">
+    <objetivo>Incluye manifestaciones internas y externas; interpretar según edad y contexto.</objetivo>
+    <item id="A03-01">¿Mueve manos, pies o cuerpo de forma frecuente cuando se espera que permanezca quieto?</item>
+    <item id="A03-02">¿Siente inquietud interna aunque externamente parezca estar en calma?</item>
+    <item id="A03-03">¿Se levanta o cambia de posición en situaciones en que se espera permanecer sentado?</item>
+    <item id="A03-04">¿Le cuesta realizar actividades tranquilas sin buscar movimiento adicional?</item>
+    <item id="A03-05">¿Habla antes de que la otra persona haya terminado su intervención?</item>
+    <item id="A03-06">¿Interrumpe actividades o conversaciones sin haberlo previsto?</item>
+    <item id="A03-07">¿Responde antes de disponer de toda la información necesaria?</item>
+    <item id="A03-08">¿Le cuesta esperar su turno en actividades compartidas?</item>
+    <item id="A03-09">¿Realiza acciones que luego debe corregir por haber actuado demasiado rápido?</item>
+    <item id="A03-10">¿Le cuesta frenar una actividad que ya ha empezado cuando cambian las instrucciones?</item>
+  </bloque>
+  <bloque nombre="S01 Reciprocidad e interacción social" escala="F">
+    <objetivo>Preguntas de experiencias y observaciones; no convertir preferencias sociales en síntomas automáticamente.</objetivo>
+    <item id="S01-01">¿Le cuesta reconocer cuándo otra persona quiere participar en una conversación?</item>
+    <item id="S01-02">¿Le cuesta ajustar la cantidad de información que comparte según la reacción del interlocutor?</item>
+    <item id="S01-03">¿Con frecuencia necesita que se le explique de forma explícita una expectativa social implícita?</item>
+    <item id="S01-04">¿Le resulta difícil mantener intercambios de ida y vuelta cuando el tema no está definido?</item>
+    <item id="S01-05">¿Las personas cercanas señalan malentendidos frecuentes sobre intenciones sociales?</item>
+    <item id="S01-06">¿Le cuesta reconocer cuándo una conversación ha terminado?</item>
+    <item id="S01-07">¿Le resulta difícil iniciar interacciones cuando desea participar?</item>
+    <item id="S01-08">¿Le cuesta sostener amistades o vínculos que desea mantener, incluso cuando existe interés mutuo?</item>
+    <item id="S01-09">¿Necesita preparar con detalle interacciones sociales cotidianas para poder realizarlas?</item>
+    <item id="S01-10">¿Después de interacciones sociales habituales necesita recuperarse de un esfuerzo intenso?</item>
+  </bloque>
+  <bloque nombre="S02 Comunicación verbal y no verbal" escala="F">
+    <objetivo>Explorar modalidad comunicativa y contexto; no exigir contacto visual como indicador aislado.</objetivo>
+    <item id="S02-01">¿Le cuesta comprender mensajes cuando la intención no se expresa directamente?</item>
+    <item id="S02-02">¿Le cuesta identificar si una expresión se utiliza literalmente o con otro significado?</item>
+    <item id="S02-03">¿Otras personas malinterpretan con frecuencia el tono o la intención de sus mensajes?</item>
+    <item id="S02-04">¿Le resulta difícil coordinar gestos, expresión facial y palabras cuando se comunica?</item>
+    <item id="S02-05">¿Le cuesta interpretar señales gestuales o expresiones de otras personas sin contexto adicional?</item>
+    <item id="S02-06">¿Necesita instrucciones más explícitas que las ofrecidas habitualmente en su entorno?</item>
+    <item id="S02-07">¿Le cuesta adaptar su forma de explicar algo cuando la otra persona no lo comprende?</item>
+    <item id="S02-08">¿En conversaciones grupales pierde el turno o no sabe cuándo intervenir?</item>
+    <item id="S02-09">¿Prefiere sistemas alternativos o complementarios de comunicación en determinadas situaciones?</item>
+    <item id="S02-10">¿Las diferencias de comunicación generan dificultades concretas en actividades cotidianas?</item>
+  </bloque>
+  <bloque nombre="R01 Repetición, intereses y predictibilidad" escala="F">
+    <objetivo>Separar intereses intensos, movimientos repetitivos y necesidad de invariancia.</objetivo>
+    <item id="R01-01">¿Repite movimientos o acciones que cumplen una función de regulación o expresión?</item>
+    <item id="R01-02">¿Repite palabras, sonidos o fragmentos de lenguaje en determinados contextos?</item>
+    <item id="R01-03">¿Le resulta especialmente difícil interrumpir una actividad de gran interés?</item>
+    <item id="R01-04">¿Dedica tiempo muy prolongado a temas específicos, hasta desplazar otras necesidades o tareas?</item>
+    <item id="R01-05">¿Necesita mantener determinados pasos o secuencias para realizar actividades cotidianas?</item>
+    <item id="R01-06">¿Los cambios inesperados de planes le producen malestar o desorganización intensa?</item>
+    <item id="R01-07">¿Necesita anticipar con detalle las transiciones entre actividades?</item>
+    <item id="R01-08">¿Se altera cuando cambian elementos de una rutina que otras personas consideran menores?</item>
+    <item id="R01-09">¿Organiza objetos o información siguiendo patrones que le resultan importantes?</item>
+    <item id="R01-10">¿Las rutinas o intereses descritos limitan la participación o, por el contrario, funcionan como apoyo?</item>
+  </bloque>
+  <bloque nombre="R02 Perfil sensorial" escala="F">
+    <objetivo>Preguntas sobre impacto, búsqueda y evitación sensorial; no son diagnósticas por sí mismas.</objetivo>
+    <item id="R02-01">¿Los sonidos habituales de ciertos entornos le resultan difíciles de tolerar?</item>
+    <item id="R02-02">¿Las luces o cambios de iluminación dificultan actividades habituales?</item>
+    <item id="R02-03">¿Determinadas texturas de ropa, alimentos o materiales provocan malestar significativo?</item>
+    <item id="R02-04">¿Los olores habituales de algunos lugares afectan a su participación?</item>
+    <item id="R02-05">¿Busca de forma repetida movimiento, presión o sensaciones físicas para regularse?</item>
+    <item id="R02-06">¿Le cuesta identificar señales corporales como hambre, sed o cansancio?</item>
+    <item id="R02-07">¿Las sensaciones sensoriales le obligan a abandonar o modificar actividades?</item>
+    <item id="R02-08">¿Las adaptaciones sensoriales reducen claramente las dificultades?</item>
+  </bloque>
+  <bloque nombre="X01 Regulación emocional y bienestar" escala="F">
+    <objetivo>Exploración contextual y diferencial, no atribución automática a TEA/TDAH.</objetivo>
+    <item id="X01-01">¿Le cuesta recuperar la calma después de una situación frustrante?</item>
+    <item id="X01-02">¿Experimenta sobrecarga intensa cuando coinciden varias demandas?</item>
+    <item id="X01-03">¿La ansiedad interfiere con la concentración o la interacción social?</item>
+    <item id="X01-04">¿El estado de ánimo bajo reduce su motivación o energía para las actividades?</item>
+    <item id="X01-05">¿Evita actividades por temor a equivocarse o recibir una evaluación negativa?</item>
+    <item id="X01-06">¿Las dificultades aumentan después de dormir mal?</item>
+    <item id="X01-07">¿Ha experimentado situaciones de acoso, estrés sostenido o acontecimientos adversos que coincidan con el inicio de las dificultades?</item>
+    <item id="X01-08">¿Las dificultades cambian notablemente con el nivel de cansancio o sobrecarga?</item>
+  </bloque>
+  <bloque nombre="X02 Aprendizaje, lenguaje, salud y accesibilidad" escala="F">
+    <objetivo>Detectar razones alternativas o adicionales para derivación especializada.</objetivo>
+    <item id="X02-01">¿Presenta dificultades persistentes para comprender textos adecuados a su nivel de enseñanza?</item>
+    <item id="X02-02">¿Presenta dificultades persistentes para escribir o expresar ideas por escrito?</item>
+    <item id="X02-03">¿Presenta dificultades persistentes con cálculo o razonamiento matemático?</item>
+    <item id="X02-04">¿Le cuesta comprender instrucciones orales incluso en ambientes tranquilos?</item>
+    <item id="X02-05">¿Se han observado dificultades importantes de coordinación motora o escritura manual?</item>
+    <item id="X02-06">¿Tiene dificultades de audición o visión que podrían influir en la comunicación o los juegos?</item>
+    <item id="X02-07">¿El dolor, los problemas de sueño u otras condiciones de salud afectan al rendimiento cotidiano?</item>
+    <item id="X02-08">¿Alguna medicación o sustancia modifica claramente la atención, el sueño o la actividad?</item>
+    <item id="X02-09">¿El idioma de evaluación difiere del idioma de mayor dominio de la persona?</item>
+    <item id="X02-10">¿Existen barreras tecnológicas, motoras o sensoriales que hagan poco representativo el resultado de los juegos?</item>
+  </bloque>
+  <bloque nombre="P01 Fortalezas y apoyos" escala="H">
+    <objetivo>Preguntas descriptivas que no se suman a un índice de síntomas.</objetivo>
+    <item id="P01-01">¿En qué actividades destaca o disfruta especialmente la persona?</item>
+    <item id="P01-02">¿En qué entornos funciona mejor y qué características tienen?</item>
+    <item id="P01-03">¿Qué estrategias utiliza para organizarse o concentrarse?</item>
+    <item id="P01-04">¿Qué apoyos facilitan la comunicación o las relaciones?</item>
+    <item id="P01-05">¿Qué ajustes sensoriales o de rutina resultan útiles?</item>
+    <item id="P01-06">¿Qué dificultades desea priorizar la persona en una futura evaluación?</item>
+  </bloque>
+  <seccion titulo="Versiones por edad e informante">3–5 años: entrevista a cuidadores, lenguaje evolutivo, juego, interacción, autorregulación y observación; no usar los ítems de adultos tal cual. 6–11 años: cuidadores y docentes por separado; ejemplos de aula y hogar. 12–16 años: autoinforme adaptado más familiares y centro educativo. 17 años en adelante: autoinforme y, con consentimiento, informante de apoyo; trayectoria infantil, camuflaje, estudios, trabajo y relaciones. La adecuación lingüística y los intervalos de edad requieren pruebas cognitivas y validación específica.</seccion>
+  <seccion titulo="Puntuación provisional y control de calidad">Cada dimensión de frecuencia puede describirse mediante número de respuestas válidas, distribución 0–3 y media de ítems respondidos; NO utilizarla como puntuación diagnóstica ni establecer umbrales clínicos. No sumar historia evolutiva, impacto, comunicación social y atención en una única escala. Registrar ítems N/O, discrepancias entre informantes y apoyos utilizados. La selección de módulos puede basarse en motivo de consulta, dominios pendientes y validez de datos; las decisiones por umbrales de rendimiento deberán esperar a la validación.</seccion>
+  <seccion titulo="Vinculación con los ocho juegos">J01 Encuentra al Robot: atención selectiva. J02 Que no te engañen: interferencia tipo Stroop. J03 Pulsa o Espera: inhibición Go/No-Go. J04 El Vigilante: atención sostenida tipo CPT. J05 La Torre: planificación. J06 La Lista: aprendizaje y recuerdo verbal. J07 Recuerda la Secuencia: memoria visoespacial secuencial. J08 El círculo mayor: discriminación de tamaño y selección visual dinámica. Ningún juego evalúa directamente los criterios nucleares de TEA. El rendimiento en juegos no confirma ni descarta TEA/TDAH.</seccion>
+  <seccion titulo="Algoritmo operativo no clínico">1) Registrar edad, informante, antecedentes y motivo. 2) Aplicar módulos breves pertinentes y recoger impacto y trayectoria; en sospecha mixta explorar ambos grupos de dominios. 3) Seleccionar uno o dos juegos por dominios cognitivos pendientes. 4) Tras cada juego verificar comprensión, calidad y accesibilidad; si no es interpretable, no utilizarlo para conclusiones. 5) Añadir un juego complementario solo cuando responda una pregunta distinta y no se haya agotado el presupuesto de carga. 6) Finalizar al disponer de información descriptiva suficiente o por fatiga/decisión del usuario. 7) Recomendar evaluación profesional si la historia, el impacto, las preocupaciones o los resultados de instrumentos validados lo justifican; nunca descartar por juegos normales. Registrar qué regla activó cada prueba.</seccion>
+  <seccion titulo="Validación imprescindible">Fase cualitativa: revisión de expertos y personas con experiencia vivida, entrevistas cognitivas, adecuación cultural y accesibilidad. Fase psicométrica: estructura dimensional, fiabilidad, funcionamiento diferencial por edad/género/idioma, convergencia y discriminación. Fase clínica: comparación prospectiva y ciega con evaluación profesional, sensibilidad, especificidad, calibración, consecuencias de falsos negativos y utilidad incremental de juegos. Comparar rutas adaptativas con batería completa para detectar sesgo de selección. Registrar versión del algoritmo y cambios.</seccion>
+  <seccion titulo="Base científica y alcance de referencias">Guías de referencia: NICE NG87 (TDAH), CG128 (autismo en menores), CG142 (autismo en adultos); estándares COSMIN de desarrollo y evaluación de instrumentos; DSM-5-TR e ICD-11 como marcos clínicos consultables por profesionales. Instrumentos de referencia conceptual: ASRS (TDAH adulto), escalas multiinformante de TDAH infantil, SCQ, ADI-R y ADOS-2 (autismo). No se han copiado sus ítems. Las citas autor-año aportadas por la usuaria (p. ej., Fulceri 2025, Teplin/Izzo 2019, Uljarević 2021) no se han verificado bibliográficamente en este documento; no se atribuyen a ellas cifras concretas ni puntos de corte.</seccion>
+  <seccion titulo="Limitaciones y seguridad">Este banco original NO está validado. Su extensión no implica sensibilidad ni especificidad demostradas. Una respuesta alta puede reflejar otras condiciones, contextos o barreras. No presentar «riesgo alto», «TEA probable», «TDAH descartado» ni probabilidades numéricas hasta contar con evidencia. Las preocupaciones persistentes de la persona o familiares justifican recomendar consulta aunque los juegos no muestren dificultades. Recoger solo datos necesarios, con consentimiento y especial protección de información de menores.</seccion>
+</fand_bateria>

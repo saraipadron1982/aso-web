@@ -2,7 +2,7 @@
 $all = CuestionarioCatalog::all();
 $req = strtoupper((string) ($_GET['q'] ?? ''));
 $sel = $all[$req] ?? null;
-$scale = [0 => 'Nada conforme', 1 => 'Poco conforme', 2 => 'Ni conforme ni disconforme', 3 => 'Bastante conforme', 4 => 'Muy conforme'];
+$scales = CuestionarioCatalog::SCALES;
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,48 +45,47 @@ $scale = [0 => 'Nada conforme', 1 => 'Poco conforme', 2 => 'Ni conforme ni disco
       <p>Sigue este orden: al terminar cada cuestionario pasarás automáticamente al siguiente y, después, a los juegos del Test orientativo. Puedes omitir cualquier módulo con «Guardar y continuar». Los resultados de cuestionarios y juegos se mantienen separados.</p>
       <p><button type="button" class="btn" id="start-flow" style="border:0;cursor:pointer">Empezar / continuar el recorrido</button></p>
       <?php
-        $order = ['C05', 'C01', 'C02', 'C03', 'C04'];
-        $main = array_intersect_key(array_replace(array_flip($order), $all), array_flip($order));
-        $optional = array_diff_key($all, array_flip($order));
-        $groups = [['Recorrido ordenado', $main], ['Módulos opcionales de contexto (sin puntuación)', $optional]];
+        $main = array_filter($all, static fn (array $q): bool => $q['flujo']);
+        $optional = array_filter($all, static fn (array $q): bool => !$q['flujo']);
+        $groups = [['Recorrido ordenado', $main], ['Módulos opcionales (diferenciales y fortalezas)', $optional]];
         $step = 0;
+        $kind = ['F' => 'Frecuencia 0–3', 'I' => 'Intensidad 0–3', 'H' => 'Respuesta abierta, sin puntuar'];
       ?>
       <?php foreach ($groups as [$title, $list]): ?>
         <h2><?= $title ?></h2>
         <ul class="grid">
           <?php foreach ($list as $code => $q): $step++; ?>
             <li><a href="FAND_Cuestionarios.html?q=<?= $code ?>"><strong><?= $title === 'Recorrido ordenado' ? $step . '. ' : '' ?><?= $code ?> · <?= htmlspecialchars($q['nombre']) ?></strong>
-              <small><span class="tag"><?= $q['opcional'] ? 'Opcional · contexto' : ($code === 'C04' ? 'Si indicas organización o memoria' : 'Escala de conformidad 0–4') ?></span> · <span data-progress="<?= $code ?>"></span> <span data-done="<?= $code ?>"></span></small></a></li>
+              <small><span class="tag"><?= $kind[$q['escala']] ?? '' ?></span> · <span data-progress="<?= $code ?>"></span> <span data-done="<?= $code ?>"></span></small></a></li>
           <?php endforeach; ?>
         </ul>
       <?php endforeach; ?>
     <?php else: ?>
       <?php if ($sel['puntua']): ?>
-        <p>Indica en qué grado estás conforme con cada afirmación. Elige «No lo sé / No aplicable» si no puedes responder: se registra como dato ausente y no cuenta como cero.</p>
+        <p><?= $sel['escala'] === 'I' ? 'Indica cuánta dificultad supone cada situación.' : 'Indica con qué frecuencia ocurre cada situación.' ?> Salvo que se indique otra cosa, piensa en los últimos seis meses. Elige «No observado / No aplicable» si no puedes responder: se registra como dato ausente y no cuenta como cero. Si responde otra persona, indícalo en el registro I01.</p>
       <?php else: ?>
-        <p>Responde con tus palabras. Estas respuestas dan contexto al informe y no se puntúan.</p>
+        <p>Responde con tus palabras; puedes dejar en blanco lo que no sepas. Estas respuestas dan contexto al informe y no se puntúan.</p>
       <?php endif; ?>
+      <?php if ($sel['objetivo'] !== ''): ?><p class="notice"><?= htmlspecialchars($sel['objetivo']) ?></p><?php endif; ?>
       <form id="qform" data-q="<?= $sel['codigo'] ?>" onsubmit="return false">
-        <?php foreach ($sel['dimensiones'] as $di => $dim): ?>
-          <fieldset>
-            <legend><?= htmlspecialchars($dim['nombre']) ?></legend>
-            <?php foreach ($dim['items'] as $item): $n = htmlspecialchars($item['codigo']); ?>
-              <div class="item">
-                <p id="t-<?= $n ?>"><?= htmlspecialchars($item['texto']) ?></p>
-                <?php if ($sel['puntua']): ?>
-                  <div class="opts" role="radiogroup" aria-labelledby="t-<?= $n ?>">
-                    <?php foreach ($scale as $v => $label): ?>
-                      <label><input type="radio" name="<?= $n ?>" value="<?= $v ?>"> <?= $label ?></label>
-                    <?php endforeach; ?>
-                    <label><input type="radio" name="<?= $n ?>" value="na"> No lo sé / No aplicable</label>
-                  </div>
-                <?php else: ?>
-                  <textarea name="<?= $n ?>" aria-labelledby="t-<?= $n ?>" maxlength="500"></textarea>
-                <?php endif; ?>
-              </div>
-            <?php endforeach; ?>
-          </fieldset>
-        <?php endforeach; ?>
+        <fieldset>
+          <legend><?= htmlspecialchars($sel['nombre']) ?></legend>
+          <?php foreach ($sel['items'] as $item): $n = htmlspecialchars($item['codigo']); ?>
+            <div class="item">
+              <p id="t-<?= $n ?>"><?= htmlspecialchars($item['texto']) ?></p>
+              <?php if ($sel['puntua']): ?>
+                <div class="opts" role="radiogroup" aria-labelledby="t-<?= $n ?>">
+                  <?php foreach ($scales[$sel['escala']] as $v => $label): ?>
+                    <label><input type="radio" name="<?= $n ?>" value="<?= $v ?>"> <?= $label ?></label>
+                  <?php endforeach; ?>
+                  <label><input type="radio" name="<?= $n ?>" value="na"> No observado / No aplicable</label>
+                </div>
+              <?php else: ?>
+                <textarea name="<?= $n ?>" aria-labelledby="t-<?= $n ?>" maxlength="500"></textarea>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
+        </fieldset>
       </form>
       <p id="saved" aria-live="polite">Las respuestas se guardan automáticamente.</p>
       <p><button type="button" class="btn" id="next-step" style="border:0;cursor:pointer">Guardar y continuar</button> <a href="FAND_Cuestionarios.html">Ver todos los módulos</a></p>
@@ -118,7 +117,7 @@ $scale = [0 => 'Nada conforme', 1 => 'Poco conforme', 2 => 'Ni conforme ni disco
           clearTimeout(timer); timer = setTimeout(function () { persist(e.target); }, 400);
         });
       }
-      var totals = <?= json_encode(array_map(static fn (array $q): int => array_sum(array_map(static fn (array $d): int => count($d['items']), $q['dimensiones'])), $all)) ?>;
+      var totals = <?= json_encode(array_map(static fn (array $q): int => count($q['items']), $all)) ?>;
       function goNext() { var f = F.flow(); location.href = f.url || "FAND_Ficha_Usuario.html"; }
       var sf = document.getElementById("start-flow"); if (sf) sf.addEventListener("click", goNext);
       var nb = document.getElementById("next-step");

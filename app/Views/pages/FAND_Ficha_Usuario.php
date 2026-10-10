@@ -155,16 +155,16 @@ $games = [
 
         var qs = FANDProfile.scoreQuestionnaires(QDEF);
         if (qs.length) {
-          var qsec = section("Cuestionarios (C01–C05) · resumen descriptivo");
-          qsec.append(el("p", "meta", "Grado de conformidad por dimensión (0 = nada conforme, 4 = muy conforme) sobre las respuestas válidas; el índice (0–100) es la puntuación obtenida entre la máxima posible de esas respuestas. No es una probabilidad ni un porcentaje de ningún diagnóstico. «No sé / no aplica» es dato ausente, no cero. Banco no validado, sin cortes clínicos; no se suma con los juegos."));
+          var qsec = section("Cuestionarios (banco v5) · resumen descriptivo");
+          qsec.append(el("p", "meta", "Por módulo: respuestas válidas, distribución 0–3 y media de los ítems respondidos (frecuencia: 0 nunca o casi nunca … 3 muy a menudo; intensidad: 0 sin dificultad … 3 intensa). «No observado / No aplicable» es dato ausente, no cero. Sin umbrales clínicos, sin índices ni probabilidades; los módulos no se suman entre sí ni con los juegos. Los módulos abiertos (I01, D01, P01) no se puntúan. «No sé / no aplica» es dato ausente, no cero. Banco no validado, sin cortes clínicos; no se suma con los juegos."));
           qs.forEach(function (q) {
-            qsec.append(el("h3", "", q.code + " · " + q.nombre));
+            
             var qt = el("table"), qh = el("tr");
-            ["Dimensión", "Media (0–4)", "Índice (0–100)", "Válidas", "No lo sé / n.a.", "Ítems ampliados respondidos"].forEach(function (h) { qh.append(el("th", "", h)); });
+            ["Módulo", "Media (0–3)", "Distribución 0 / 1 / 2 / 3", "Válidas", "N/O"].forEach(function (h) { qh.append(el("th", "", h)); });
             qt.append(qh);
             q.dimensiones.forEach(function (d) {
               var r = el("tr");
-              r.append(el("td", "", d.nombre), el("td", "", d.mean === null ? "—" : d.mean.toFixed(2)), el("td", "", !d.reliable ? "no calculado (faltan respuestas)" : d.index + " (" + d.sum + "/" + d.valid * 4 + ")"), el("td", "", d.valid + " de " + d.total), el("td", "", String(d.na)), el("td", "", d.extraAnswered + " de " + d.extraTotal));
+              r.append(el("td", "", q.code + " " + d.nombre), el("td", "", d.mean === null ? "no calculada (faltan respuestas)" : d.mean.toFixed(2)), el("td", "", d.dist.join(" / ")), el("td", "", d.valid + " de " + d.total), el("td", "", String(d.na)));
               qt.append(r);
             });
             qsec.append(qt);
@@ -176,11 +176,11 @@ $games = [
             var isec = section("Cuestionarios y juegos: contraste por objetivo");
             isec.append(el("p", "meta", "Cada fila compara una dimensión de cuestionario con el juego que explora un objetivo equivalente (hipótesis de contraste, no relación diagnóstica). Las dos fuentes se mantienen separadas: no se suman. Un dato contradictorio no invalida ninguna fuente; indica que conviene valorarlo con un profesional."));
             var it = el("table"), ih = el("tr");
-            ["Cuestionario · dimensión", "Media (0–4)", "Juego", "Lectura"].forEach(function (h) { ih.append(el("th", "", h)); });
+            ["Módulo", "Media (0–3)", "Juego", "Lectura"].forEach(function (h) { ih.append(el("th", "", h)); });
             it.append(ih);
             inter.forEach(function (x) {
               var r = el("tr");
-              r.append(el("td", "", x.code + " · " + x.dim), el("td", "", x.mean.toFixed(2) + (x.qLevel === "alta" ? " (conformidad alta)" : "")), el("td", "", x.game + " " + x.gameName), el("td", "", x.relation));
+              r.append(el("td", "", x.code + " · " + x.dim), el("td", "", x.mean.toFixed(2) + (x.qLevel === "alta" ? " (a menudo o más)" : "")), el("td", "", x.game + " " + x.gameName), el("td", "", x.relation));
               it.append(r);
             });
             isec.append(it);
@@ -285,7 +285,7 @@ $games = [
         var cu = exportData().cuest;
         var cuKeys = Object.keys(cu).filter(function (k) { return Object.keys(cu[k]).length; });
         if (cuKeys.length) {
-          raw.append(el("h3", "", "Respuestas de cuestionarios (0–4; na = no lo sé / no aplicable)"));
+          raw.append(el("h3", "", "Respuestas de cuestionarios (escala 0–3; na = no observado / no aplicable)"));
           cuKeys.forEach(function (k) {
             raw.append(el("p", "", k + ": " + Object.keys(cu[k]).sort().map(function (i) { return i + "=" + cu[k][i]; }).join(", ")));
           });

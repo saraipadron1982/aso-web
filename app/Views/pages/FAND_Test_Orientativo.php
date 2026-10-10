@@ -161,9 +161,9 @@ $tests = [
         }
         if (r.excluded.length) body.append(el("p", "hint", "Juegos no recomendados por tus datos de accesibilidad o edad: " + r.excluded.map(function (x) { return names[x.code] + " (" + x.why + ")"; }).join("; ") + "."));
         var qsig = F.integrate();
-        if (!qsig.length) body.append(el("p", "hint", "Si completas los cuestionarios C01 y C04, la ruta se ajustará a tus respuestas. "));
+        if (!qsig.length) body.append(el("p", "hint", "Si completas los módulos A01–A03, la ruta se ajustará a tus respuestas. "));
         else {
-          body.append(el("p", "hint", "La ruta también usa tus cuestionarios (media ≥ 2 con 3 o más respuestas válidas prioriza ese juego; es solo un criterio provisional para ordenar, no una puntuación clínica)."));
+          body.append(el("p", "hint", "La ruta también usa tus cuestionarios (media ≥ 2 «a menudo» con 3 o más respuestas válidas prioriza ese juego; es solo un criterio provisional para ordenar, no una puntuación clínica)."));
         }
         body.append(state);
         $("stop").hidden = !!q.stopped; $("resume").hidden = !q.stopped;
