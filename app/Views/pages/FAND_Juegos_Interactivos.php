@@ -732,6 +732,12 @@
         if (id === "stop") return goNoGoGame();
       }
 
+      window.addEventListener("load", () => {
+        const requested = new URLSearchParams(location.search).get("jugar");
+        const entry = Object.entries(sheetByGame).find(([, code]) => code === (requested || "").toUpperCase());
+        if (entry) launchGame(entry[0]);
+      });
+
       function bubbleProfileGame() {
         const target = "🐼";
         const distractors = ["🐸", "🦊", "🐻", "🐵", "🐯"];

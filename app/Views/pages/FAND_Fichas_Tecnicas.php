@@ -33,6 +33,9 @@ $selected = isset($fichas[$requested]) ? $requested : null;
     .tile img, .hero { width: 100%; height: auto; border-radius: 10px; display: block; }
     .tile span { font-size: .9rem; color: #475569; }
     .hero { max-width: 520px; margin: 8px 0 12px; border: 1px solid var(--line); }
+    .actions-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 12px 0; }
+    .btn { background: var(--teal); color: #fff; padding: 10px 18px; border-radius: 10px; text-decoration: none; font-weight: 700; }
+    .btn:hover, .btn:focus-visible { background: #115e59; }
     nav.index a[aria-current] { background: var(--teal); color: #fff; }
     .meta { font-size: .9rem; color: #475569; }
     footer { padding: 24px 0 40px; font-size: .9rem; }
@@ -71,7 +74,7 @@ $selected = isset($fichas[$requested]) ? $requested : null;
         <p class="meta">Área principal: <?= htmlspecialchars((string) $ficha->area_principal) ?> · Versión: <?= htmlspecialchars((string) $ficha['version']) ?> · Estado: <?= htmlspecialchars(str_replace('_', ' ', (string) $ficha['estado'])) ?></p>
         <p><strong>Fundamento:</strong> <?= htmlspecialchars((string) $ficha->fundamento) ?></p>
         <p><strong>Mecánica:</strong> <?= htmlspecialchars((string) $ficha->mecanica) ?></p>
-        <p class="noprint"><a href="FAND_Juegos_Interactivos.html#juegos">Ir a jugar</a> · <a href="FAND_Fichas_Tecnicas.html">Ver todas las fichas</a></p>
+        <p class="noprint actions-row"><a class="btn" href="FAND_Juegos_Interactivos.html?jugar=<?= htmlspecialchars($code) ?>">Empezar a jugar</a> <a href="FAND_Juegos_Interactivos.html#juegos">Otros juegos</a> · <a href="FAND_Fichas_Tecnicas.html">Ver otras fichas de juegos</a></p>
         <details open>
           <summary>Ficha completa</summary>
           <?= FichaCatalog::render($ficha) ?>
