@@ -2,7 +2,7 @@
 $all = CuestionarioCatalog::all();
 $req = strtoupper((string) ($_GET['q'] ?? ''));
 $sel = $all[$req] ?? null;
-$scale = [0 => 'Nunca', 1 => 'Rara vez', 2 => 'A veces', 3 => 'Con frecuencia', 4 => 'Casi siempre'];
+$scale = [0 => 'Nada conforme', 1 => 'Poco conforme', 2 => 'Ni conforme ni disconforme', 3 => 'Bastante conforme', 4 => 'Muy conforme'];
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,13 +56,13 @@ $scale = [0 => 'Nunca', 1 => 'Rara vez', 2 => 'A veces', 3 => 'Con frecuencia', 
         <ul class="grid">
           <?php foreach ($list as $code => $q): $step++; ?>
             <li><a href="FAND_Cuestionarios.html?q=<?= $code ?>"><strong><?= $title === 'Recorrido ordenado' ? $step . '. ' : '' ?><?= $code ?> · <?= htmlspecialchars($q['nombre']) ?></strong>
-              <small><span class="tag"><?= $q['opcional'] ? 'Opcional · contexto' : ($code === 'C04' ? 'Si indicas organización o memoria' : 'Escala de frecuencia') ?></span> · <span data-progress="<?= $code ?>"></span> <span data-done="<?= $code ?>"></span></small></a></li>
+              <small><span class="tag"><?= $q['opcional'] ? 'Opcional · contexto' : ($code === 'C04' ? 'Si indicas organización o memoria' : 'Escala de conformidad 0–4') ?></span> · <span data-progress="<?= $code ?>"></span> <span data-done="<?= $code ?>"></span></small></a></li>
           <?php endforeach; ?>
         </ul>
       <?php endforeach; ?>
     <?php else: ?>
       <?php if ($sel['puntua']): ?>
-        <p>¿Con qué frecuencia te ocurre o describe tu caso cada frase? Elige «No sé / no aplica» si no puedes responder: no cuenta como cero.</p>
+        <p>Indica en qué grado estás conforme con cada afirmación. Elige «No lo sé / No aplicable» si no puedes responder: se registra como dato ausente y no cuenta como cero.</p>
       <?php else: ?>
         <p>Responde con tus palabras. Estas respuestas dan contexto al informe y no se puntúan.</p>
       <?php endif; ?>
@@ -78,7 +78,7 @@ $scale = [0 => 'Nunca', 1 => 'Rara vez', 2 => 'A veces', 3 => 'Con frecuencia', 
                     <?php foreach ($scale as $v => $label): ?>
                       <label><input type="radio" name="<?= $n ?>" value="<?= $v ?>"> <?= $label ?></label>
                     <?php endforeach; ?>
-                    <label><input type="radio" name="<?= $n ?>" value="na"> No sé / no aplica</label>
+                    <label><input type="radio" name="<?= $n ?>" value="na"> No lo sé / No aplicable</label>
                   </div>
                 <?php else: ?>
                   <textarea name="<?= $n ?>" aria-labelledby="t-<?= $n ?>" maxlength="500"></textarea>

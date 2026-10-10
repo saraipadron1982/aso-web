@@ -247,7 +247,7 @@
       if (verdict === "pendiente") rel = s.level === "alta" ? "Prioridad: aún falta jugar " + s.game + " para contrastar." : "Sin prioridad en cuestionarios; " + s.game + " opcional.";
       else if (verdict === "sin_datos") rel = "El juego no aportó indicadores evaluables.";
       else if (s.level === "alta" && verdict === "dificultad") rel = "Coinciden: cuestionario y juego señalan diferencias en este objetivo.";
-      else if (s.level === "alta") rel = "Dato contradictorio: el cuestionario indica frecuencia alta y el juego queda dentro de lo orientativo (puede deberse al contexto, a compensación o a que la tarea no refleja la vida diaria).";
+      else if (s.level === "alta") rel = "Dato contradictorio: el cuestionario muestra conformidad alta con las afirmaciones y el juego queda dentro de lo orientativo (puede deberse al contexto, a compensación o a que la tarea no refleja la vida diaria).";
       else if (verdict === "dificultad") rel = "Dato contradictorio: el juego muestra diferencias y el cuestionario no (revisa fatiga, comprensión de la práctica o condiciones de la tarea).";
       else rel = "Coinciden: sin señales en cuestionario ni en juego.";
       rows.push({ code: s.code, dim: s.dim, mean: s.mean, qLevel: s.level, game: s.game, gameName: GAMES[s.game], objective: s.objective, verdict: verdict, relation: rel });
@@ -327,7 +327,7 @@
     var qs2 = QDEF ? scoreQuestionnaires(QDEF) : [];
     var freq = [];
     qs2.forEach(function (c) { if (c.code === "C02" || c.code === "C03") c.dimensiones.forEach(function (d) { if (d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY) freq.push(d.nombre.toLowerCase()); }); });
-    if (freq.length) reasons.push("respuestas frecuentes en los cuestionarios sobre " + freq.join(", "));
+    if (freq.length) reasons.push("conformidad alta con afirmaciones de los cuestionarios sobre " + freq.join(", "));
     var diffs = [];
     ev.domains.forEach(function (d) { if (d.flagged) diffs.push(d.label.toLowerCase()); });
     var cog = diffs.length ? "con diferencias descriptivas en " + diffs.join(" y ") + " (provisionales, sin normas)" : validCount ? "sin patrones destacados" : "sin pruebas interpretables";
@@ -361,7 +361,8 @@
           else if (v !== undefined && isFinite(Number(v))) { sum += Number(v); valid += 1; answeredAny = true; }
         });
         var extraAnswered = d.extra.filter(function (it) { return ans[it] !== undefined && ans[it] !== "na"; }).length;
-        return { nombre: d.nombre, sum: sum, valid: valid, na: na, total: d.scored.length, mean: valid ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
+        var reliable = valid >= Math.ceil(d.scored.length * 0.6);
+        return { nombre: d.nombre, reliable: reliable, index: reliable ? Math.round(sum / (valid * 4) * 100) : null, sum: sum, valid: valid, na: na, total: d.scored.length, mean: reliable ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
       });
       if (answeredAny) out.push({ code: code, nombre: def[code].nombre, dimensiones: dims });
     });
