@@ -1125,6 +1125,17 @@
     .resource-bar a:hover { background: var(--teal-dark); color: #fff; }
     #contenido:focus { outline: none; }
     html { scroll-padding-top: 150px; }
+    .about-content { margin-top: 8px; gap: 16px; }
+    .about-panel p, .pillar-card p, .principle-list li { font-size: 16px; line-height: 1.65; }
+    .pillar-card p { color: var(--muted); }
+    .pillar-card h4 { font-size: 17px; }
+    .projects-panel { padding: 20px; border: 1px solid #dce4df; border-radius: 15px; background: #f4f9f7; }
+    .projects-panel h3 { margin: 0 0 12px; font-size: 20px; }
+    .project-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .project-list li { display: grid; gap: 4px; padding: 14px; background: #fff; border: 1px solid #dce7e2; border-radius: 12px; }
+    .project-list span { color: var(--muted); font-size: 15px; line-height: 1.5; }
+    .card-banner { min-height: 48px; padding-block: 6px; }
+    .card-icon { width: 30px; height: 30px; font-size: 14px; border-radius: 8px; }
     .presentation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 28px; align-items: center; margin-bottom: 16px; }
     .presentation-text h2 { margin: 6px 0 12px; font-size: clamp(26px, 3vw, 36px); line-height: 1.2; }
     .presentation-text p { margin: 0 0 18px; max-width: 60ch; font-size: 18px; line-height: 1.65; }
@@ -1199,9 +1210,7 @@
         </figure>
       </div>
 
-      <details class="info-disclosure" id="sobre-fand">
-        <summary>Qué es FAND y cómo quiere trabajar</summary>
-      <div class="about-content">
+      <div class="about-content" id="sobre-fand">
         <div class="about-intro">
           <article class="about-panel">
             <h3>¿Qué es FAND?</h3>
@@ -1272,10 +1281,20 @@
           </ul>
         </section>
 
+        <section class="projects-panel" aria-labelledby="projects-title">
+          <h3 id="projects-title">Nuestros proyectos</h3>
+          <ul class="project-list">
+            <li><strong>Centro de recursos online</strong><span>Esta web: artículos, diccionario, directorio, herramientas y formaciones.</span></li>
+            <li><strong>Juegos interactivos</strong><span>Minijuegos de práctica de atención, memoria, lectura y planificación. No son diagnósticos.</span></li>
+            <li><strong>Estudios e informes</strong><span>Población neurodivergente, redes sociales e inclusión laboral.</span></li>
+            <li><strong>Cuestionarios</strong><span>Para conocer experiencias y necesidades de personas, familias, profesionales y entidades.</span></li>
+            <li><strong>App de orientación</strong><span>Propuesta para orientar hacia recursos de la comunidad.</span></li>
+            <li><strong>Iniciativa ciudadana europea</strong><span>Propuesta para impulsar los derechos a escala europea.</span></li>
+          </ul>
+        </section>
+
         <p class="project-status"><strong>Estado de la información:</strong> este resumen adapta el borrador conceptual del proyecto (versión 2.0, 4 de octubre de 2026). Describe objetivos y líneas propuestas; no es una confirmación de servicios activos ni sustituye la información oficial de la asociación.</p>
       </div>
-
-      </details>
 
       <details class="info-disclosure media-disclosure">
         <summary>Ver la presentación en PDF aquí mismo</summary>
