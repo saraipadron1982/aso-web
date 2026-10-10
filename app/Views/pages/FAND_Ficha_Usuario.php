@@ -268,8 +268,42 @@ $games = [
         pro.append(el("h3", "", "Sesiones registradas")); pro.append(table);
         if (p.warnings.length) { pro.append(el("h3", "", "Avisos de validez")); p.warnings.slice(-10).forEach(function (w) { pro.append(el("p", "difficulty", w)); }); }
         report.append(pro);
-      }
 
+        var raw = section("Anexo: datos en bruto (equivalente al JSON)");
+        raw.append(el("p", "meta", "Valores exactos de cada juego y respuestas de cuestionarios, para que el profesional pueda revisarlos. Se incluye al imprimir o guardar como PDF."));
+        var mt = el("table"), mh = el("tr");
+        ["Juego", "Fecha", "Válida", "Métricas"].forEach(function (h) { mh.append(el("th", "", h)); });
+        mt.append(mh);
+        p.sessions.slice(-20).forEach(function (s) {
+          var r = el("tr"), m = s.metrics || {};
+          var txt = Object.keys(m).map(function (k) { return k + ": " + (typeof m[k] === "number" ? Math.round(m[k] * 1000) / 1000 : m[k]); }).join("; ") || "—";
+          r.append(el("td", "", s.code + " " + p.games[s.code]), el("td", "", s.at.slice(0, 16).replace("T", " ")), el("td", "", s.valid ? "Sí" : "No"), el("td", "", txt));
+          mt.append(r);
+        });
+        if (p.sessions.length) raw.append(el("h3", "", "Métricas por sesión"), mt);
+        var cu = exportData().cuest;
+        var cuKeys = Object.keys(cu).filter(function (k) { return Object.keys(cu[k]).length; });
+        if (cuKeys.length) {
+          raw.append(el("h3", "", "Respuestas de cuestionarios (0–4; na = no sé / no aplica)"));
+          cuKeys.forEach(function (k) {
+            raw.append(el("p", "", k + ": " + Object.keys(cu[k]).sort().map(function (i) { return i + "=" + cu[k][i]; }).join(", ")));
+          });
+        }
+        var det = el("details"); det.id = "raw-json"; det.append(el("summary", "", "Datos completos en formato JSON"));
+        var pre = el("pre", "", JSON.stringify(exportData(), null, 2)); pre.style.cssText = "white-space:pre-wrap;word-break:break-all;font-size:.75rem";
+        det.append(pre); raw.append(det);
+        report.append(raw);
+      }
+      function exportData() {
+        var d = FANDProfile.evaluate();
+        d.cuest = JSON.parse(localStorage.getItem("fand.perfil.v1") || "{}").cuest || {};
+        d.cuestionarios = FANDProfile.scoreQuestionnaires(QDEF);
+        d.contraste = FANDProfile.integrate();
+        d.ruta = FANDProfile.route();
+        d.estado = FANDProfile.status();
+        return d;
+      }
+      window.addEventListener("beforeprint", function () { var d = document.getElementById("raw-json"); if (d) d.open = true; });
       document.getElementById("save-user").addEventListener("click", function () {
         FANDProfile.setUser({
           name: document.getElementById("u-name").value.trim(), ageYears: (FANDProfile.setAge(document.getElementById("u-age").value), FANDProfile.ageYears() || undefined),
@@ -280,7 +314,7 @@ $games = [
       });
       document.getElementById("print").addEventListener("click", function () { window.print(); });
       document.getElementById("download").addEventListener("click", function () {
-        var blob = new Blob([JSON.stringify(FANDProfile.evaluate(), null, 2)], { type: "application/json" });
+        var blob = new Blob([JSON.stringify(exportData(), null, 2)], { type: "application/json" });
         var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "ficha-fand.json"; a.click();
         setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
       });
