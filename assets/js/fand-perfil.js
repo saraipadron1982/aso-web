@@ -169,7 +169,21 @@
     return isFinite(n) && n > 0 ? n : null;
   }
   function band() { return bandOf(ageYears()); }
-  function ageConfig() { var b = band(); return b ? Object.assign({ band: b, label: BAND_LABELS[b], under6: ageYears() < 6 }, AGE_CONFIG[b]) : null; }
+  // Nivel de J03/J04 según la edad exacta (coincide con los 6 niveles de sus fichas técnicas).
+  function levelOf(years) {
+    if (years <= 5) return 1;
+    if (years <= 8) return 2;
+    if (years <= 12) return 3;
+    if (years <= 17) return 4;
+    if (years <= 59) return 5;
+    return 6;
+  }
+  function ageConfig() {
+    var b = band();
+    if (!b) return null;
+    var lv = levelOf(ageYears());
+    return Object.assign({ band: b, label: BAND_LABELS[b], under6: ageYears() < 6 }, AGE_CONFIG[b], { gng: lv, watcher: lv });
+  }
   function setAge(years) {
     var data = read();
     data.user = data.user || {};
@@ -391,10 +405,15 @@
     data.cuestDone[code] = true;
     return write(data);
   }
+  // Los juegos se asignan al terminar los cuestionarios, salvo que la persona decida saltárselos.
+  function gate() {
+    var q = getQ(), pend = qList().filter(function (c) { return !qDone(c); });
+    return { locked: !!pend.length && !q.skipQ && !q.stopped, pending: pend, skipped: !!q.skipQ };
+  }
   function flow() {
     if (getQ().stopped) return { type: "fin" };
     var pending = qList().filter(function (c) { return !qDone(c); })[0];
-    if (pending) return { type: "cuestionario", code: pending, url: "FAND_Cuestionarios.html?q=" + pending };
+    if (pending && !getQ().skipQ) return { type: "cuestionario", code: pending, url: "FAND_Cuestionarios.html?q=" + pending };
     var r = route();
     if (r.next) return { type: "juego", code: r.next.code, why: r.next.why, url: "FAND_Juegos_Interactivos.html?jugar=" + r.next.code };
     return { type: "fin", url: "FAND_Ficha_Usuario.html" };
@@ -417,7 +436,7 @@
   }
 
   window.FANDProfile = {
-    flow: flow, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
+    flow: flow, gate: gate, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,

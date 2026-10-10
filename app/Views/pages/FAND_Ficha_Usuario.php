@@ -41,7 +41,11 @@ $games = [
     .strength { color: #166534; font-weight: 600; } .difficulty { color: var(--warn); font-weight: 600; }
     .meta { font-size: .9rem; color: #475569; }
     footer { padding: 24px 0 40px; font-size: .9rem; }
-    @media print { .actions, .noprint, header a { display: none; } .card { break-inside: avoid; } }
+    .tabs { display: flex; gap: 8px; margin: 14px 0 0; flex-wrap: wrap; }
+    .tabs a { padding: 10px 16px; border: 1px solid var(--teal); border-radius: 8px; text-decoration: none; font-weight: 600; }
+    .tabs a[aria-current="page"] { background: var(--teal); color: #fff; }
+    body[data-vista="persona"] [data-vista="juegos"], body[data-vista="juegos"] [data-vista="persona"] { display: none; }
+    @media print { body[data-vista] [data-vista] { display: block !important; } .actions, .noprint, header a { display: none; } .card { break-inside: avoid; } }
   </style>
 </head>
 <body>
@@ -57,7 +61,13 @@ $games = [
       Tus datos se guardan únicamente en este navegador; no se envían a ningún servidor.
     </div>
 
-    <section class="card noprint" aria-labelledby="datos-title">
+    <nav class="tabs noprint" aria-label="Apartados de la ficha">
+      <a href="FAND_Ficha_Usuario.html?vista=persona" id="tab-persona">Ficha de la persona</a>
+      <a href="FAND_Ficha_Usuario.html?vista=juegos" id="tab-juegos">Resultados de los juegos</a>
+    </nav>
+    <p class="meta noprint">La ficha de la persona recoge sus datos y cuestionarios; los resultados de los juegos se consultan aparte. El PDF incluye ambos apartados.</p>
+
+    <section class="card noprint" data-vista="persona" aria-labelledby="datos-title">
       <h2 id="datos-title" style="margin-top:0">Datos de la persona (opcionales)</h2>
       <div class="grid">
         <div><label for="u-name">Nombre o alias</label><input id="u-name" autocomplete="off"></div>
@@ -87,7 +97,7 @@ $games = [
       <button type="button" class="secondary" id="clear">Borrar mis datos</button>
     </div>
 
-    <section class="card">
+    <section class="card" data-vista="juegos">
       <h2 style="margin-top:0">Juegos incluidos y sus fichas técnicas</h2>
       <ul>
         <?php foreach ($games as $code => [$name, $area]): ?>
@@ -104,6 +114,9 @@ $games = [
   <script src="assets/js/fand-perfil.js"></script>
   <script>
     (function () {
+      var vista = /vista=juegos/.test(location.search) ? "juegos" : "persona";
+      document.body.dataset.vista = vista;
+      document.getElementById("tab-" + vista).setAttribute("aria-current", "page");
       var report = document.getElementById("report");
       var QDEF = <?= json_encode(CuestionarioCatalog::definition()) ?>;
       FANDProfile.setQuestionnaireDef(QDEF);
@@ -131,7 +144,8 @@ $games = [
           i.checked = (u.factors || []).indexOf(i.value) !== -1;
         });
       }
-      function section(title) { var s = el("section", "card"); s.append(el("h2", "", title)); s.firstChild.style.marginTop = "0"; return s; }
+      var curView = "persona";
+      function section(title) { var s = el("section", "card"); s.dataset.vista = curView; s.append(el("h2", "", title)); s.firstChild.style.marginTop = "0"; return s; }
 
       function render() {
         var p = FANDProfile.evaluate();
@@ -173,7 +187,7 @@ $games = [
           report.append(qsec);
           var inter = FANDProfile.integrate();
           if (inter.length) {
-            var isec = section("Cuestionarios y juegos: contraste por objetivo");
+            curView = "juegos"; var isec = section("Cuestionarios y juegos: contraste por objetivo");
             isec.append(el("p", "meta", "Cada fila compara una dimensión de cuestionario con el juego que explora un objetivo equivalente (hipótesis de contraste, no relación diagnóstica). Las dos fuentes se mantienen separadas: no se suman. Un dato contradictorio no invalida ninguna fuente; indica que conviene valorarlo con un profesional."));
             var it = el("table"), ih = el("tr");
             ["Módulo", "Media (0–3)", "Juego", "Lectura"].forEach(function (h) { ih.append(el("th", "", h)); });
@@ -188,6 +202,7 @@ $games = [
           }
         }
 
+        curView = "juegos";
         if (!played.length) {
           var empty = section("Aún no hay resultados");
           empty.append(el("p", "", "Juega a los juegos de la página de juegos interactivos (J01–J08) y vuelve aquí. Cuantos más juegos completes, más útil será la ficha."));

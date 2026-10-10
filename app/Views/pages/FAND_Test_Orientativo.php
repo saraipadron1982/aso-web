@@ -91,7 +91,7 @@ $tests = [
     </form>
 
     <section class="route" id="route" aria-labelledby="route-title">
-      <h2 id="route-title">2. Tu ruta recomendada</h2>
+      <h2 id="route-title">2. Cuestionarios y juegos asignados</h2>
       <div id="route-body"></div>
       <p><button type="button" class="btn secondary" id="stop">Prefiero parar aquí (cansancio u otro motivo)</button> <button type="button" class="btn secondary" id="resume" hidden>Reanudar</button></p>
     </section>
@@ -138,6 +138,19 @@ $tests = [
         body.replaceChildren();
         var c = F.ageConfig();
         $("age-status").textContent = c ? "Los juegos se abrirán configurados para la franja " + c.label + ". Podrás cambiar cualquier opción." : "Sin edad indicada: los juegos usan su configuración general.";
+        var g = F.gate();
+        document.querySelectorAll("[data-card]").forEach(function (card) { card.style.opacity = g.locked ? ".6" : ""; });
+        if (g.locked) {
+          var lk = el("div", "next"); lk.append(el("strong", "", "Paso 2: responde primero a los cuestionarios (" + g.pending.join(" → ") + "). "), document.createTextNode("Según tus respuestas, FAND te asignará unos juegos u otros. Puedes parar cuando quieras."), document.createElement("br"));
+          var go = el("a", "btn", "Empezar los cuestionarios"); go.href = "FAND_Cuestionarios.html?q=" + g.pending[0];
+          var sk = el("button", "btn secondary", "Saltar los cuestionarios y usar juegos generales"); sk.type = "button";
+          sk.addEventListener("click", function () { F.setQuestionnaire({ skipQ: true }); renderRoute(); });
+          lk.append(go, document.createTextNode(" "), sk);
+          body.append(lk);
+          $("stop").hidden = true; $("resume").hidden = true;
+          document.querySelectorAll("[data-card] .badge").forEach(function (b) { b.textContent = "Se asigna tras los cuestionarios"; b.hidden = false; });
+          return;
+        }
         var state = el("div", "state state-" + s.id); state.append(el("strong", "", s.title + ". "), document.createTextNode(s.text)); 
         var list = el("ol", "route-list");
         r.starters.forEach(function (code, i) {
@@ -147,7 +160,7 @@ $tests = [
         r.played.filter(function (c) { return r.starters.indexOf(c) === -1; }).forEach(function (code) { list.append(el("li", "done", "Adicional: " + names[code] + " · hecho")); });
         body.append(list);
         var pendQ = F.questionnaireOrder().filter(function (c) { return !F.questionnaireDone(c); });
-        if (pendQ.length && !q.stopped) {
+        if (pendQ.length && !q.stopped && !q.skipQ) {
           var pq = el("p", "next"); pq.append(el("strong", "", "Antes de jugar: cuestionarios pendientes (" + pendQ.join(" → ") + "). "), document.createElement("br"));
           var pl = el("a", "btn", "Continuar con los cuestionarios"); pl.href = "FAND_Cuestionarios.html?q=" + pendQ[0]; pq.append(pl);
           body.append(pq);
@@ -179,7 +192,7 @@ $tests = [
         F.setQuestionnaire({
           concerns: Array.prototype.map.call(document.querySelectorAll("input[name=concern]:checked"), function (i) { return i.value; }),
           access: Array.prototype.map.call(document.querySelectorAll("input[name=access]:checked"), function (i) { return i.value; }),
-          persistent: $("persistent").checked, impact: $("impact").value, screening: $("screening").value, stopped: false
+          persistent: $("persistent").checked, impact: $("impact").value, screening: $("screening").value, stopped: false, skipQ: false
         });
         renderRoute();
         var nf = F.flow();
