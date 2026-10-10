@@ -137,7 +137,7 @@
   function setUser(user) { var data = read(); data.user = user || {}; return write(data); }
   function clear() { try { localStorage.removeItem(KEY); } catch (e) { /* sin acceso */ } }
 
-  window.FANDProfile = { save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS };
+  window.FANDProfile = { save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES };
   window.saveProfile = function (code, session) {
     try { return save(code, session); } catch (e) { return false; }
   };

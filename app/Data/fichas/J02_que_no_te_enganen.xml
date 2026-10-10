@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ficha_tecnica codigo="J02" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+<ficha_tecnica codigo="J02" version="ampliada-3.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos" actualizacion="2026-10-10">
   <nombre>Que no te engañen</nombre>
   <area_principal>Control de interferencias y atención selectiva</area_principal>
   <fundamento>Paradigma Stroop y tarea Double Trouble (Creyos/Cambridge Brain Sciences).</fundamento>
@@ -124,4 +124,77 @@
       <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
     </referencias_verificadas>
   </anexo_cientifico_y_operativo>
+  <actualizacion_cientifica_2026_10_10>
+    <nota_de_preservacion>Se conserva la estructura de la ficha 2.0; esta ampliación precisa y corrige las afirmaciones que dependían de supuestos. Las tablas nuevas son propuestas de pilotaje, no normas clínicas.</nota_de_preservacion>
+    <seccion titulo="1. Identidad, alcance y cambio confirmado">
+      <parrafo>CONFIRMADO POR FAND: el juego utiliza CUATRO colores. Mecánica confirmada: identificar el color de la tinta de la palabra superior y elegir abajo la PALABRA que nombra ese color, ignorando tanto el significado superior como la tinta de las opciones. Los cuatro nombres exactos no se han confirmado; rojo, azul, verde y amarillo se incluyen como conjunto de referencia PROPUESTO, no como dato de la implementación.</parrafo>
+      <parrafo>El original Double Trouble de Creyos fundamenta el formato de tres palabras. El uso de cuatro colores es compatible con variantes Stroop informatizadas publicadas, pero no autoriza trasladar puntuaciones ni baremos de Creyos a FAND.</parrafo>
+    </seccion>
+    <seccion titulo="2. Mecánica exacta del ensayo">
+      <parrafo>1) Se muestra una palabra superior cuyo TEXTO pertenece al conjunto de cuatro colores. 2) La palabra superior se dibuja con una TINTA elegida entre los mismos cuatro colores. 3) Abajo aparecen dos etiquetas escritas: una nombra la tinta superior (correcta) y la otra un color diferente (distractor). 4) Ambas etiquetas inferiores pueden estar coloreadas; su tinta NO determina la respuesta. 5) La persona pulsa la etiqueta correcta. 6) Se registra exactitud, latencia y todas las características del ensayo; se continúa sin retroalimentación en evaluación.</parrafo>
+      <parrafo>Ejemplo ilustrativo: ROJO escrito en verde; abajo VERDE escrito en amarillo y AZUL escrito en verde. Debe pulsarse VERDE, aunque AZUL tenga tinta verde. Este ejemplo no confirma los colores concretos de FAND.</parrafo>
+      <parrafo>Reglas de generación: las dos opciones inferiores deben contener textos diferentes; exactamente una debe nombrar la tinta superior; balancear posición izquierda/derecha, color correcto, palabra superior y distractor. Evitar secuencias predecibles. No mostrar pistas no deseadas por tamaño, brillo o contraste.</parrafo>
+    </seccion>
+    <seccion titulo="3. Cuatro colores: matriz experimental y aumento de dificultad">
+      <tabla>
+        <columnas>Factor | Con cuatro colores | Relevancia</columnas>
+        <fila>Palabra superior | 4 posibilidades | Lectura y conflicto semántico</fila>
+        <fila>Tinta superior | 4 posibilidades | Identificación del objetivo</fila>
+        <fila>Pares palabra-tinta | 16 combinaciones: 4 congruentes y 12 incongruentes | Diseño factorial 4 × 4</fila>
+        <fila>Distractor textual inferior | 3 opciones alternativas por tinta correcta | Competencia de respuesta</fila>
+        <fila>Tinta de opciones inferiores | Hasta 4 colores por etiqueta | Interferencia adicional</fila>
+        <fila>Posición de respuesta | Izquierda o derecha | Evitar sesgo motor</fila>
+      </tabla>
+      <parrafo>Con muestreo uniforme de las 16 combinaciones palabra-tinta, el 25 % sería congruente y el 75 % incongruente. Esta proporción NO debe surgir accidentalmente: para estimar el coste de interferencia es preferible programar condiciones equilibradas o una proporción explícita y documentada. Cuatro colores no implican automáticamente más dificultad para todas las personas: debe verificarse empíricamente.</parrafo>
+      <parrafo>No atribuir toda diferencia a inhibición: cuatro opciones cromáticas pueden aumentar la carga de identificación, denominación, discriminación perceptiva y selección de respuesta. Para separar factores, usar un bloque basal de identificación de color y otro de interferencia.</parrafo>
+    </seccion>
+    <seccion titulo="4. Niveles conservados y especificación con cuatro colores">
+      <tabla>
+        <columnas>Nivel | Mecánica propuesta | Duración piloto | Condición de validez</columnas>
+        <fila>0 · Tutorial | Explicar regla; practicar cuatro colores y etiquetas | Sin límite | Verificar lectura y color</fila>
+        <fila>1 · Congruencia | Palabra superior y tinta coinciden; opciones inferiores neutras o fáciles | 30 s | Medida basal, no interferencia</fila>
+        <fila>2 · Interferencia superior | Mezcla balanceada de congruentes e incongruentes | 45 s | Registrar condición</fila>
+        <fila>3 · Interferencia inferior | Tinta de opciones puede contradecir su texto | 60 s | Registrar interferencia de respuesta</fila>
+        <fila>4 · Doble interferencia | Conflicto superior e inferior cruzados | 90 s | Equilibrar factores</fila>
+        <fila>5 · Bloque estandarizado | Cuatro colores, posiciones balanceadas, todas las condiciones | 90 s | Bloque principal comparable</fila>
+      </tabla>
+      <parrafo>Los tiempos de 30, 45, 60 y 90 segundos se CONSERVAN de la ficha FAND 2.0: no son tiempos normativos de un Stroop de cuatro colores. Si se comparan niveles, el efecto de duración y el de dificultad deben separarse. No comparar tasas brutas de aciertos entre bloques con distinto número de ensayos sin controlar exposición.</parrafo>
+    </seccion>
+    <seccion titulo="5. Edades y protocolo de aplicación">
+      <tabla>
+        <columnas>Edad | Entrada FAND previa | Tiempo piloto | Control obligatorio</columnas>
+        <fila>6–8 | Tutorial, 1–2 si lectura automatizada | 45–60 s | Lectura y color</fila>
+        <fila>9–11 | Tutorial, 2–4 | 60–90 s | Comprensión y precisión basal</fila>
+        <fila>12–17 | Tutorial, 3–5 | 90 s | Calibración de respuesta</fila>
+        <fila>18–59 | Tutorial, 3–5 | 90 s | Dispositivo y velocidad</fila>
+        <fila>60+ | Tutorial, 3–5 accesibles | 90 s inicial | Visión, lectura, motricidad, fatiga</fila>
+      </tabla>
+      <parrafo>Los rangos son PROPUESTAS previas de FAND. Las versiones con duraciones distintas no deben considerarse directamente equivalentes. Si una persona no discrimina los cuatro colores o no lee automáticamente las etiquetas, la prueba de interferencia verbal se marca no interpretable; no se asigna un déficit ejecutivo.</parrafo>
+    </seccion>
+    <seccion titulo="6. Registro mínimo y puntuación">
+      <tabla>
+        <columnas>Campo | Registro / fórmula | Uso</columnas>
+        <fila>ensayo | ID, nivel, semilla, posición, palabra y tinta superior | Reproducibilidad</fila>
+        <fila>opciones | Texto, tinta y lado de ambas etiquetas | Doble interferencia</fila>
+        <fila>exactitud | Correcta/incorrecta/no respuesta | Precisión</fila>
+        <fila>RT | Milisegundos desde aparición hasta respuesta | Velocidad</fila>
+        <fila>coste temporal | Mediana RT incongruente − mediana RT congruente | Interferencia semántica</fila>
+        <fila>coste de error | % error incongruente − % error congruente | Interferencia en precisión</fila>
+        <fila>efecto inferior | Diferencia entre opciones inferiores congruentes/incongruentes | Interferencia de respuesta</fila>
+        <fila>variabilidad | Desviación típica o MAD de RT correctos | Consistencia</fila>
+        <fila>puntuación neta | Aciertos − errores (secundaria) | Comparación interna, no clínica</fila>
+      </tabla>
+      <parrafo>Analizar interacción entre conflicto superior e inferior, además de efectos principales. Reportar cantidad de ensayos por celda y marcar estimaciones inestables cuando haya pocos ensayos. Los tiempos de respuesta se analizan en ensayos correctos y con criterios de exclusión preregistrados; guardar también respuestas prematuras y ausencias.</parrafo>
+    </seccion>
+    <seccion titulo="7. Integración con batería y cuestionarios">
+      <parrafo>Cruzar con Pulsa o Espera (inhibición motora), Encuentra al Robot (selección visual) y El Vigilante (variabilidad/atención sostenida). Un coste de interferencia elevado aislado NO permite inferir TDAH o autismo. La orientación de derivación requiere quejas, impacto funcional, historia evolutiva, condiciones de aplicación y cuestionarios validados; no existe un umbral FAND clínico validado.</parrafo>
+    </seccion>
+    <seccion titulo="8. Evidencia, procedencia y pendientes">
+      <parrafo>Creyos, “Double Trouble”: tres palabras y selección de etiqueta según tinta superior, ignorando distractores. https://creyos.com/online-cognitive-tasks/double-trouble-test</parrafo>
+      <parrafo>Creyos, Science Overview: descripción técnica de Double Trouble y condiciones de incongruencia. https://creyos.com/hubfs/PDFs/creyos-health-science-overview.pdf</parrafo>
+      <parrafo>Estudio de Stroop informatizado con cuatro colores (rojo, azul, verde y amarillo) y líneas basales de lectura y denominación. https://pmc.ncbi.nlm.nih.gov/articles/PMC3775051/</parrafo>
+      <parrafo>Estudio de Stroop informatizado y desarrollo lector con cuatro colores y entrenamiento. https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2012.00594/full</parrafo>
+      <parrafo>PENDIENTE DE CONFIRMAR POR FAND: nombres exactos de los cuatro colores; si las opciones inferiores son siempre dos; parámetros de pantalla y límite por ensayo. No introducir esos datos como hechos hasta confirmación.</parrafo>
+    </seccion>
+  </actualizacion_cientifica_2026_10_10>
 </ficha_tecnica>

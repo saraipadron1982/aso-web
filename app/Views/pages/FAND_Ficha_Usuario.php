@@ -190,9 +190,23 @@ $games = [
           "Los umbrales usados son orientativos y genéricos, sin ajuste por edad, dispositivo ni nivel educativo.",
           "Las medidas de los juegos (J01–J07) se describen en sus fichas técnicas, con indicadores, protocolo, limitaciones y referencias.",
           "Se recomienda confirmar con entrevista clínica e historia del desarrollo, y con pruebas estandarizadas del área (por ejemplo, test de atención continuada, tareas de funciones ejecutivas, memoria verbal y cuestionarios validados por edad).",
-          "J02: las instrucciones de la ficha prevén rojo/azul y la implementación usa cuatro colores; pendiente de confirmar. Verificar lectura y visión de color.",
-          "J05: las reglas del tablero están pendientes de confirmación. J06: no aplicar baremos de RAVLT; la retención solo se calcula si R5 > 0."
+          "J02: la ficha actualizada confirma CUATRO colores; los nombres exactos y si siempre hay dos opciones inferiores siguen pendientes de confirmar. Verificar lectura y discriminación de color.",
+          "J05: las reglas del tablero (varillas/capacidades, deshacer, modelo visible) siguen pendientes de confirmar en la ficha; se usa Tower of London solo como referencia.",
+          "J06: no aplicar baremos de RAVLT; la retención solo se calcula si R5 > 0."
         ].forEach(function (t) { pro.append(el("p", "", "• " + t)); });
+        var guide = el("details"); guide.append(el("summary", "", "Guía de rangos piloto utilizada (punto de partida, pendiente de calibración)"));
+        guide.append(el("p", "meta", "Rangos provisionales, sin ajuste por edad, que se calibrarán con muestras piloto supervisadas por profesionales. «Posible dificultad» = fuera del primer umbral; «habilidad destacada» = mejor que el segundo."));
+        var gt = el("table"); var gh = el("tr");
+        ["Juego", "Indicador", "Posible dificultad", "Habilidad destacada"].forEach(function (h) { gh.append(el("th", "", h)); });
+        gt.append(gh);
+        Object.keys(FANDProfile.rules).sort().forEach(function (code) {
+          FANDProfile.rules[code].forEach(function (r) {
+            var row = el("tr"), low = r[2] === "low";
+            row.append(el("td", "", code + " " + FANDProfile.games[code]), el("td", "", r[1]), el("td", "", (low ? "< " : "> ") + r[3]), el("td", "", (low ? "≥ " : "≤ ") + r[4]));
+            gt.append(row);
+          });
+        });
+        guide.append(gt); pro.append(guide);
         var table = el("table"); var hrow = el("tr");
         ["Juego", "Fecha", "Nivel", "Válida", "Completa"].forEach(function (h) { hrow.append(el("th", "", h)); });
         table.append(hrow);

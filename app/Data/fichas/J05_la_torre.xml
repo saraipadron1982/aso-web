@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ficha_tecnica codigo="J05" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+<ficha_tecnica codigo="J05" version="ampliada-3.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos" actualizacion="2026-10-10">
   <nombre>La Torre</nombre>
   <area_principal>Planificación y resolución de problemas</area_principal>
   <fundamento>Tower of London / Tower of London–Freiburg; estudios de profundidad de búsqueda y movimientos mínimos.</fundamento>
@@ -124,4 +124,80 @@
       <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
     </referencias_verificadas>
   </anexo_cientifico_y_operativo>
+  <actualizacion_cientifica_2026_10_10>
+    <nota_de_preservacion>Se conserva la estructura de la ficha 2.0; esta ampliación precisa y corrige las afirmaciones que dependían de supuestos. Las tablas nuevas son propuestas de pilotaje, no normas clínicas.</nota_de_preservacion>
+    <seccion titulo="1. Mecánica: qué debe hacer exactamente la persona">
+      <parrafo>Se muestra un TABLERO INICIAL y un MODELO OBJETIVO. La persona mueve las piezas entre soportes hasta reproducir exactamente el modelo. Debe respetar las reglas y tratar de resolver cada problema con el menor número posible de movimientos. El modelo objetivo permanece visible en el formato básico; ocultarlo convertiría la tarea en una variante con mayor carga de memoria.</parrafo>
+      <parrafo>IMPORTANTE: la ficha FAND previa no confirma geometría, tipo de piezas ni reglas definitivas. A continuación se documenta la MECÁNICA DE REFERENCIA CIENTÍFICA Tower of London clásica, NO se afirma que la implementación FAND ya la use. La Tower of Hanoi utiliza reglas distintas y no debe confundirse con ella.</parrafo>
+    </seccion>
+    <seccion titulo="2. Referencia reproducible: Tower of London clásica">
+      <tabla>
+        <columnas>Elemento | Regla del paradigma publicado</columnas>
+        <fila>Tablero | Tres varillas de distinta capacidad</fila>
+        <fila>Piezas | Tres bolas de distinto color</fila>
+        <fila>Capacidades | Una varilla admite 3 bolas, otra 2 y otra 1</fila>
+        <fila>Movimiento válido | Mover una sola bola libre de la parte superior de una varilla</fila>
+        <fila>Restricción | No dejar bolas fuera del tablero ni superar capacidad</fila>
+        <fila>Objetivo | Reproducir la configuración objetivo</fila>
+        <fila>Eficiencia | Intentar el número mínimo de movimientos</fila>
+      </tabla>
+      <parrafo>Una bola cubierta por otra no puede extraerse sin mover antes la superior. Un movimiento se cuenta cuando la bola se deposita válidamente en otra varilla. Si la interfaz permite arrastrar una pieza y soltarla fuera, esa acción se registra como intento inválido, no como movimiento válido. Estas convenciones de software deben documentarse.</parrafo>
+      <parrafo>Diferencia con Tower of Hanoi: en Hanoi se mueven discos de distintos tamaños y no puede colocarse uno grande sobre uno pequeño. Esa regla NO corresponde a Tower of London clásica. Si FAND usa discos apilables y regla de tamaños, la referencia principal debe revisarse.</parrafo>
+    </seccion>
+    <seccion titulo="3. Secuencia de un problema FAND">
+      <parrafo>Paso 1: mostrar objetivo e inicio sin comenzar a medir movimientos. Paso 2: explicar las reglas y verificar comprensión con ejercicios de práctica. Paso 3: presentar problema evaluativo y activar el cronómetro de preparación. Paso 4: registrar tiempo hasta primer movimiento válido. Paso 5: registrar cada movimiento con origen, destino, estado antes y después. Paso 6: comprobar automáticamente legalidad y coincidencia con objetivo. Paso 7: terminar al resolver, al agotar tiempo o tras un criterio de abandono definido. Paso 8: guardar secuencia, tiempo, movimientos mínimos y resultado.</parrafo>
+      <parrafo>Para la programación: cada estado es una lista ordenada de bolas por varilla. Un generador de problemas puede calcular la ruta óptima mediante búsqueda en anchura sobre estados legales; debe almacenar el mínimo real y otras propiedades de complejidad. No usar solo la cantidad de movimientos como dificultad.</parrafo>
+    </seccion>
+    <seccion titulo="4. Ejemplo didáctico de tablero clásico">
+      <parrafo>Ejemplo de posiciones válidas: varilla A (capacidad 3) con bola roja y bola azul, varilla B (capacidad 2) con bola verde y varilla C (capacidad 1) vacía. Un movimiento válido sería trasladar la bola superior de A a C. No sería válido trasladar la bola inferior de A mientras la superior permanezca encima. El objetivo exacto y su número mínimo de movimientos deben calcularse para cada problema; este ejemplo solo ilustra reglas.</parrafo>
+    </seccion>
+    <seccion titulo="5. Niveles de la ficha previa, ahora con exigencia operativa">
+      <tabla>
+        <columnas>Nivel | Problemas | Exigencia cognitiva | Tiempo FAND previo</columnas>
+        <fila>0 | 2–3 guiados | Aprender reglas y arrastre | Sin límite</fila>
+        <fila>1–2 | Óptimo 2–3 movimientos | Familiarización y organización básica | 1–2 min/problema</fila>
+        <fila>3–4 | Óptimo 4 movimientos | Planificar pasos intermedios | 1–2 min/problema</fila>
+        <fila>5–6 | Óptimo 5 movimientos | Anticipar alternativas y metas parciales | 1–2 min/problema</fila>
+        <fila>7–8 | Óptimo 6 movimientos y alta profundidad | Mayor búsqueda y anticipación | 1–2 min/problema</fila>
+        <fila>9–10 | Por construir y pilotar | Solo si añaden dificultad validada | Por validar</fila>
+      </tabla>
+      <parrafo>Los tiempos se conservan del documento FAND 2.0 y NO son límites de un test clínico homologado. El nivel debe especificar un banco de problemas concretos, cantidad de ensayos y regla de interrupción; sin ello no se puede construir una puntuación comparable. Problemas con igual mínimo de movimientos pueden variar mucho en profundidad de búsqueda, ambigüedad de metas y necesidad de movimientos aparentemente contraproducentes.</parrafo>
+    </seccion>
+    <seccion titulo="6. Adaptación por edad previamente acordada">
+      <tabla>
+        <columnas>Edad | Inicio | Niveles FAND piloto | Duración global piloto</columnas>
+        <fila>6–8 | 0–1 | 1–4 | 5–7 min</fila>
+        <fila>9–11 | 0–2 | 3–6 | 6–9 min</fila>
+        <fila>12–17 | 0–2 | 3–8 | 8–12 min</fila>
+        <fila>18–59 | 0–2 | 3–8 | 8–12 min</fila>
+        <fila>60+ | 0–1 | Adaptativo tras práctica | 8–12 min</fila>
+      </tabla>
+      <parrafo>Las edades y duraciones son propuestas previas, no baremos. Mantener versiones de prueba comparables por edad; registrar escolaridad, experiencia digital, visión, motricidad y pausas. La duración global puede no coincidir con sumar máximos por ensayo: diseñar una ruta abreviada con número fijo de problemas por grupo.</parrafo>
+    </seccion>
+    <seccion titulo="7. Medición por problema y puntuación">
+      <tabla>
+        <columnas>Indicador | Registro / fórmula | Qué aporta</columnas>
+        <fila>Solución | Resuelto / no resuelto | Éxito</fila>
+        <fila>Óptimo | Resuelto con mínimo de movimientos | Planificación eficiente</fila>
+        <fila>Exceso | Movimientos válidos − mínimo, solo resueltos | Desviación de ruta</fila>
+        <fila>Eficiencia | Mínimo / movimientos válidos × 100, solo resueltos | Economía de acciones</fila>
+        <fila>Latencia inicial | ms hasta primer movimiento válido | Preparación</fila>
+        <fila>Ejecución | ms del primer movimiento al final | Implementación</fila>
+        <fila>Tiempo total | ms desde inicio evaluativo hasta fin | Carga global</fila>
+        <fila>Reglas | Intentos de movimientos inválidos | Control de restricciones</fila>
+        <fila>Deshacer | Conteo y momento | Revisión de estrategia</fila>
+        <fila>Trayectoria | Estados y movimientos ordenados | Análisis de estrategia</fila>
+      </tabla>
+      <parrafo>Un problema no resuelto no debe recibir eficiencia calculada con movimientos mínimos/reales: podría producir valores engañosos. No interpretar una latencia inicial larga como mala planificación sin examinar precisión y ejecución. Guardar separado el tiempo de lectura de instrucciones.</parrafo>
+    </seccion>
+    <seccion titulo="8. Integración con otras pruebas y orientación">
+      <parrafo>Comparar con Recuerda la Secuencia para distinguir amplitud espacial de planificación; con Pulsa o Espera para inhibición motora; con Que no te engañen para control de interferencia. La Torre mide solución de problemas multietapa, no el núcleo social-comunicativo del autismo ni síntomas diagnósticos de TDAH. Solo apoya una recomendación de valoración cuando hay dificultades funcionales e información convergente en entrevistas y cuestionarios.</parrafo>
+    </seccion>
+    <seccion titulo="9. Fuentes y elementos no confirmados">
+      <parrafo>Shallice, 1982, Tower of London; descripción clásica de tres varillas, tres bolas y capacidades 3/2/1. Revisión del paradigma: https://pmc.ncbi.nlm.nih.gov/articles/PMC6867129/</parrafo>
+      <parrafo>Estudio sobre estructura de problemas y planificación: https://doi.org/10.1016/j.cogbrainres.2004.04.002</parrafo>
+      <parrafo>Estudio sobre Tower of London y envejecimiento: https://pmc.ncbi.nlm.nih.gov/articles/PMC7937624/</parrafo>
+      <parrafo>PENDIENTE DE CONFIRMACIÓN: ¿FAND usa tres varillas con capacidades 3/2/1 y tres bolas, o discos y otras reglas? ¿Se permite deshacer? ¿El modelo permanece visible? Hasta resolverlo, las reglas de Tower of London clásica se presentan como REFERENCIA y no como especificación confirmada del juego FAND.</parrafo>
+    </seccion>
+  </actualizacion_cientifica_2026_10_10>
 </ficha_tecnica>

@@ -33,14 +33,44 @@ final class FichaCatalog
         return mb_strtoupper(mb_substr($text, 0, 1)) . mb_substr($text, 1);
     }
 
+    private static function renderTable(SimpleXMLElement $table): string
+    {
+        $cell = static fn (string $tag, string $text): string => '<' . $tag . '>' . htmlspecialchars(trim($text), ENT_QUOTES, 'UTF-8') . '</' . $tag . '>';
+        $html = '<table class="ficha-table">';
+        if (isset($table->columnas)) {
+            $html .= '<thead><tr>';
+            foreach (explode('|', (string) $table->columnas) as $c) {
+                $html .= $cell('th', $c);
+            }
+            $html .= '</tr></thead>';
+        }
+        $html .= '<tbody>';
+        foreach ($table->fila as $fila) {
+            $html .= '<tr>';
+            foreach (explode('|', (string) $fila) as $c) {
+                $html .= $cell('td', $c);
+            }
+            $html .= '</tr>';
+        }
+        return $html . '</tbody></table>';
+    }
+
     public static function render(SimpleXMLElement $node, int $depth = 3): string
     {
         $html = '';
         foreach ($node->children() as $name => $child) {
             $name = (string) $name;
-            $title = htmlspecialchars(self::label($name), ENT_QUOTES, 'UTF-8');
+            if ($name === 'tabla') {
+                $html .= self::renderTable($child);
+                continue;
+            }
+            $heading = $name === 'seccion' && (string) $child['titulo'] !== '' ? (string) $child['titulo'] : self::label($name);
+            $title = htmlspecialchars($heading, ENT_QUOTES, 'UTF-8');
             $attributes = [];
             foreach ($child->attributes() as $key => $value) {
+                if ($name === 'seccion' && (string) $key === 'titulo') {
+                    continue;
+                }
                 $attributes[] = htmlspecialchars((string) $key . ': ' . (string) $value, ENT_QUOTES, 'UTF-8');
             }
             $suffix = $attributes ? ' <small>(' . implode(', ', $attributes) . ')</small>' : '';

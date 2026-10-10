@@ -22,6 +22,9 @@ $fichas = FichaCatalog::all();
     .sub { margin-left: 14px; border-left: 3px solid var(--soft); padding-left: 14px; }
     h3, h4, h5, h6 { margin: 14px 0 4px; }
     p { margin: 4px 0; }
+    .ficha-table { width: 100%; border-collapse: collapse; font-size: .92rem; margin: 8px 0; }
+    .ficha-table th, .ficha-table td { border: 1px solid var(--line); padding: 5px 8px; text-align: left; vertical-align: top; }
+    .ficha-table th { background: var(--soft); }
     .meta { font-size: .9rem; color: #475569; }
     footer { padding: 24px 0 40px; font-size: .9rem; }
     @media print { nav.index, details > summary { display: none; } details { display: block; } }
