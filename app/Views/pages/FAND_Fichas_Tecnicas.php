@@ -61,7 +61,7 @@ $selected = isset($fichas[$requested]) ? $requested : null;
           <a class="tile" href="FAND_Fichas_Tecnicas.html?juego=<?= htmlspecialchars($code) ?>">
             <img src="assets/img/juegos/<?= htmlspecialchars($code) ?>.svg" alt="Ilustración del juego <?= htmlspecialchars((string) $ficha->nombre) ?>" loading="lazy">
             <strong><?= htmlspecialchars($code) ?> · <?= htmlspecialchars((string) $ficha->nombre) ?></strong>
-            <span><?= htmlspecialchars((string) $ficha->area_principal) ?></span>
+            <span><?= htmlspecialchars((string) ($ficha->area_principal ?: 'Discriminación visual y atención')) ?></span>
           </a>
         <?php endforeach; ?>
       </div>
@@ -71,9 +71,9 @@ $selected = isset($fichas[$requested]) ? $requested : null;
       <article id="<?= htmlspecialchars($code) ?>">
         <h2><?= htmlspecialchars($code) ?> · <?= htmlspecialchars((string) $ficha->nombre) ?></h2>
         <img class="hero" src="assets/img/juegos/<?= htmlspecialchars($code) ?>.svg" alt="Ilustración del juego <?= htmlspecialchars((string) $ficha->nombre) ?>">
-        <p class="meta">Área principal: <?= htmlspecialchars((string) $ficha->area_principal) ?> · Versión: <?= htmlspecialchars((string) $ficha['version']) ?> · Estado: <?= htmlspecialchars(str_replace('_', ' ', (string) $ficha['estado'])) ?></p>
-        <p><strong>Fundamento:</strong> <?= htmlspecialchars((string) $ficha->fundamento) ?></p>
-        <p><strong>Mecánica:</strong> <?= htmlspecialchars((string) $ficha->mecanica) ?></p>
+        <p class="meta">Área principal: <?= htmlspecialchars((string) ($ficha->area_principal ?: 'Discriminación visual y atención')) ?> · Versión: <?= htmlspecialchars((string) $ficha['version']) ?> · Estado: <?= htmlspecialchars(str_replace('_', ' ', (string) $ficha['estado'])) ?></p>
+        <?php if ((string) $ficha->fundamento !== ''): ?><p><strong>Fundamento:</strong> <?= htmlspecialchars((string) $ficha->fundamento) ?></p><?php elseif ((string) $ficha->objetivo !== ''): ?><p><strong>Objetivo:</strong> <?= htmlspecialchars((string) $ficha->objetivo) ?></p><?php endif; ?>
+        <?php if ((string) $ficha->mecanica !== ''): ?><p><strong>Mecánica:</strong> <?= htmlspecialchars((string) $ficha->mecanica) ?></p><?php endif; ?>
         <p class="noprint actions-row"><a class="btn" href="FAND_Juegos_Interactivos.html?jugar=<?= htmlspecialchars($code) ?>">Empezar a jugar</a> <a href="FAND_Juegos_Interactivos.html#juegos">Otros juegos</a> · <a href="FAND_Fichas_Tecnicas.html">Ver otras fichas de juegos</a></p>
         <details open>
           <summary>Ficha completa</summary>

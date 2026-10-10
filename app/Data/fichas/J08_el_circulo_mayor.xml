@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<fand_ficha codigo="J08" version="1.0" estado="protocolo_preliminar_no_validado">
+  <nombre>El círculo mayor</nombre>
+  <objetivo>Seleccionar el círculo de mayor tamaño entre distractores estáticos o dinámicos.</objetivo>
+  <seccion orden="1" titulo="Identificación, objetivo y estado">
+    <parrafo>Código J08 · «El círculo mayor» (también descrito como explotar burbujas). FAND · ficha técnica ampliada, versión preliminar 1.0, octubre de 2026.</parrafo>
+    <parrafo>Finalidad: explorar discriminación de tamaño relativo, atención selectiva ante distractores cromáticos, selección de objetivos móviles y ejecución visomotora. Es una herramienta de investigación y orientación, NO un test diagnóstico validado.</parrafo>
+    <parrafo>Regla confirmada por la descripción del juego: seleccionar/explotar el círculo de mayor tamaño; la dificultad incorpora cambios de color y movimiento. Las especificaciones numéricas y reglas complementarias de esta ficha son PROPUESTAS DE DISEÑO para pilotaje, no características previamente verificadas.</parrafo>
+  </seccion>
+  <seccion orden="2" titulo="Justificación científica y aportación específica">
+    <parrafo>La investigación sobre búsqueda visual, integración de características y captura atencional respalda estudiar cómo tamaño, color y movimiento compiten por la selección de un objetivo. La literatura citada fundamenta los procesos cognitivos, NO valida el juego FAND ni permite deducir un diagnóstico a partir de su puntuación.</parrafo>
+    <parrafo>Su posible valor incremental frente a «Encuentra al Robot» consiste en medir el cambio de rendimiento entre escenas estáticas y dinámicas con un criterio único de tamaño. Frente a «El Vigilante» añade localización espacial de un objetivo; frente a «Pulsa o Espera» no exige una regla Go/No-Go; frente a «Que no te engañen» emplea distractores perceptivos y no conflicto semántico.</parrafo>
+    <parrafo>Hipótesis contrastable: el coste por movimiento o cambios cromáticos podría añadir información sobre selección visual dinámica después de controlar precisión y velocidad en el resto de pruebas. No se presupone que la hipótesis se confirme.</parrafo>
+  </seccion>
+  <seccion orden="3" titulo="Mecánica y reglas que deben fijarse antes del piloto">
+    <parrafo>En cada ensayo aparecen varios círculos simultáneos, con UN círculo inequívocamente mayor. La persona debe tocar o pulsar ese círculo. Tras responder se registra el resultado y comienza otro ensayo. La instrucción «elige siempre el más grande» permanece constante en todos los niveles.</parrafo>
+    <parrafo>Controlar diferencias mínimas de diámetro, separación entre círculos, número de elementos, solapamientos, velocidad, trayectorias, duración de exposición, tamaño del objetivo en píxeles y relación con el tamaño de pantalla. No permitir que un cambio de color altere cuál es el círculo mayor.</parrafo>
+    <parrafo>Registrar si la respuesta se realiza con ratón, dedo o dispositivo adaptado. Distinguir pulsación sobre un círculo incorrecto de pulsación en fondo; fijar si hay reintentos y si el objetivo se mueve durante la pulsación. La respuesta debe evaluarse respecto a la posición del círculo en el instante de la pulsación.</parrafo>
+  </seccion>
+  <seccion orden="4" titulo="Niveles de dificultad: propuesta de protocolo">
+    <parrafo>Nivel 0 — Tutorial, sin puntuación: pocos círculos estáticos, diferencia de tamaños amplia; practicar y verificar comprensión.</parrafo>
+    <parrafo>Nivel 1 — Tamaño estático: círculos inmóviles y de un mismo color. Estimar discriminación de tamaño y velocidad de respuesta basal.</parrafo>
+    <parrafo>Nivel 2 — Distracción cromática estática: círculos inmóviles de colores diferentes; el color NO predice el objetivo. Comparar con nivel 1 mediante estímulos equivalentes.</parrafo>
+    <parrafo>Nivel 3 — Movimiento: círculos de tamaño estable con trayectorias controladas, inicialmente sin cambios de color. Comparar con condición estática equiparada.</parrafo>
+    <parrafo>Nivel 4 — Movimiento y cambios de color: los círculos se desplazan y cambian de color sin que cambie la regla de tamaño. Separar el efecto del movimiento del efecto cromático mediante condiciones contrabalanceadas.</parrafo>
+    <parrafo>Nivel 5 — Opcional y solo tras piloto: mayor densidad o velocidad con cambios controlados de UNA variable cada vez; no aumentar simultáneamente todos los parámetros si se desea interpretar qué causa el error.</parrafo>
+    <parrafo>Duración y ensayos: no hay tiempos científicamente validados para FAND J08. Propuesta inicial de investigación: tutorial de 4–8 ensayos y 20–30 ensayos válidos por condición, con descansos; ajustar mediante pilotos de fiabilidad, fatiga y efecto suelo/techo. No presentar esos números como baremos.</parrafo>
+  </seccion>
+  <seccion orden="5" titulo="Edades, accesibilidad y selección de niveles">
+    <parrafo>3–6 años: valorar primero comprensión de «más grande», motricidad y atención; tamaños muy diferenciados, pocos elementos, ritmo lento y tutorial ampliado. Las condiciones dinámicas solo si son comprensibles y tolerables. La comparación clínica requiere validación específica de esta franja.</parrafo>
+    <parrafo>7–12 años: ampliar gradualmente distractores y movimiento; conservar versiones ancla de igual dificultad para poder estudiar diferencias por edad.</parrafo>
+    <parrafo>13–17 años: evaluar todas las condiciones si se comprenden, con estímulos calibrados y sin convertir la velocidad de clic en único indicador.</parrafo>
+    <parrafo>18–59 años: batería completa bajo condiciones estandarizadas; controlar familiaridad digital y modalidad de respuesta.</parrafo>
+    <parrafo>60 años o más: controlar visión, sensibilidad al contraste, lentitud motora, fatiga y familiaridad tecnológica; ampliar tamaño de objetivos y ofrecer descansos sin comparar directamente una versión adaptada con otra no equivalente.</parrafo>
+    <parrafo>Los tramos son grupos de planificación del piloto, NO edades normativas demostradas. Las decisiones de dificultad deben basarse en datos de comprensión y calibración; no establecer percentiles ni cortes por edad sin muestras representativas.</parrafo>
+  </seccion>
+  <seccion orden="6" titulo="Variables registradas y cálculo de puntuaciones">
+    <parrafo>Por ensayo: identificador de condición y ensayo, edad/grupo, número de círculos, tamaños reales y relativos, separación, color, cambios de color, velocidad y trayectoria, objetivo, posición y tiempo de pulsación, acierto/error, clic fuera, latencia, dispositivo, incidencias.</parrafo>
+    <parrafo>Exactitud por condición = aciertos / ensayos válidos × 100. Error de selección = elecciones de círculos no objetivo / ensayos válidos × 100. Pulsaciones fuera se informan aparte. Latencia: mediana de milisegundos en ensayos correctos, acompañada de dispersión (IQR); no excluir errores silenciosamente.</parrafo>
+    <parrafo>Coste cromático estático = rendimiento del nivel 2 menos nivel 1, con estímulos equiparados. Coste de movimiento = nivel 3 menos condición estática equiparada. Coste combinado = nivel 4 menos nivel 3; interpretar con cautela porque puede existir interacción color × movimiento. Para exactitud, una diferencia negativa indica descenso; para latencia, positiva indica enlentecimiento.</parrafo>
+    <parrafo>No crear un índice global arbitrario sumando aciertos, tiempo y errores. En la fase piloto pueden explorarse indicadores estandarizados, modelos de velocidad-precisión y fiabilidad por condición, pero sus pesos solo se fijarán con datos externos.</parrafo>
+  </seccion>
+  <seccion orden="7" titulo="Interpretación y reglas de calidad">
+    <parrafo>Un error en niveles dinámicos puede reflejar atención, discriminación visual, coordinación motora, seguimiento de objetos, velocidad del dispositivo o dificultad de la tarea. No equivale a «impulsividad», «TDAH» ni «TEA».</parrafo>
+    <parrafo>Separar: (a) errores ya presentes en nivel 1, (b) descenso al introducir color, (c) descenso al introducir movimiento, (d) descenso adicional al combinar ambos. La interpretación es descriptiva, no clínica, hasta disponer de normas.</parrafo>
+    <parrafo>Marcar sesión no interpretable cuando falte comprensión, haya fallos técnicos, estímulos solapados que impidan identificar el mayor, problemas visuales no compensados, abandono o precisión próxima al azar. Informar adaptación, ayudas, pausas y fatiga.</parrafo>
+    <parrafo>Efectos de práctica: aleatorizar posiciones y contrabalancear bloques; si siempre se administra de fácil a difícil, parte del cambio puede ser fatiga u orden. Usar versiones equivalentes y evaluar retest.</parrafo>
+  </seccion>
+  <seccion orden="8" titulo="Integración con los siete juegos y otros instrumentos">
+    <parrafo>J01 Encuentra al Robot: comparar selección visual estática y discriminación perceptiva con el coste dinámico J08. Si ambos fallan, explorar dificultad perceptiva general antes de atribuirla a distractibilidad.</parrafo>
+    <parrafo>J02 Que no te engañen: contrastar interferencia semántico-cromática con interferencia perceptiva por colores; no son medidas intercambiables.</parrafo>
+    <parrafo>J03 Pulsa o Espera: contrastar errores de comisión ante prohibición de respuesta con selecciones erróneas en J08; un clic incorrecto no prueba déficit de inhibición.</parrafo>
+    <parrafo>J04 El Vigilante: contrastar lapsos y variabilidad temporal sostenida con variabilidad en selección dinámica; controlar diferencias de duración.</parrafo>
+    <parrafo>J05 La Torre: planificación multietapa, dominio distinto; J08 no debe cargar artificialmente sobre planificación.</parrafo>
+    <parrafo>J06 La Lista: aprendizaje y memoria verbal; dominio distinto, útil para describir fortalezas y dificultades relativas.</parrafo>
+    <parrafo>J07 Recuerda la Secuencia: memoria secuencial visoespacial; separar dificultad de recordar posiciones de dificultad para seleccionar objetos en movimiento.</parrafo>
+    <parrafo>Cuestionarios e entrevistas: recoger síntomas, inicio y curso, repercusión funcional, observaciones en distintos contextos, antecedentes del desarrollo, aspectos sensoriales y motores. Para TEA son imprescindibles fuentes que exploren comunicación social y patrones restrictivos/repetitivos; estos juegos no los miden adecuadamente.</parrafo>
+  </seccion>
+  <seccion orden="9" titulo="Cómo influye en el informe conjunto: algoritmo prudente">
+    <parrafo>Paso 1. Comprobar validez de J08 y del resto de sesiones; consignar edad, adaptación, visión, motricidad, dispositivo y comprensión.</parrafo>
+    <parrafo>Paso 2. Elaborar perfiles POR DOMINIO (búsqueda visual, selección dinámica, interferencia, vigilancia, inhibición, planificación, memoria verbal y visoespacial). No sumar porcentajes brutos entre juegos ni construir una puntuación de «neurodivergencia».</parrafo>
+    <parrafo>Paso 3. Comparar patrones convergentes y discrepantes: J08 bajo + J01 adecuado puede sugerir dificultad específica de seguimiento/selección dinámica; J08 bajo + J01 bajo exige revisar discriminación/percepción; J08 bajo + J03 adecuado no autoriza inferir impulsividad. Son hipótesis para evaluación adicional, no diagnósticos.</parrafo>
+    <parrafo>Paso 4. Integrar con entrevistas y escalas validadas pertinentes a la edad y al motivo de consulta. Si existen dificultades persistentes o impacto funcional, recomendar valoración profesional incluso con J08 y otros juegos dentro del rango esperado.</parrafo>
+    <parrafo>Paso 5. Durante investigación, estimar validez incremental: comparar modelos predictivos con siete juegos frente a siete + J08, mediante validación cruzada externa, ajuste por edad, dispositivo y confusores, e informar intervalos de confianza y sesgos. Si J08 no mejora fiabilidad o utilidad, mantenerlo opcional o retirarlo.</parrafo>
+    <parrafo>Ponderación: peso clínico numérico de J08 = NO ESTABLECIDO. No asignar 5 %, 10 % o 20 % por criterio subjetivo. Su «puntuación» es descriptiva por condición; solo tras validación se podrán fijar pesos y reglas de decisión.</parrafo>
+  </seccion>
+  <seccion orden="10" titulo="Plan mínimo de validación científica">
+    <parrafo>1. Revisión por especialistas en psicometría, neuropsicología, desarrollo y accesibilidad; 2. estudio cognitivo de comprensión por edades; 3. piloto para calibrar tamaños, movimiento, color y dificultad; 4. fiabilidad test–retest y consistencia por condición; 5. normas estratificadas y evaluación de equivalencia por dispositivo; 6. comparación con medidas validadas de atención visual y coordinación visomotora; 7. análisis incremental sobre J01–J07; 8. estudio ciego de validez y sesgos en grupos clínicos y no clínicos, sin inferir especificidad diagnóstica a priori.</parrafo>
+  </seccion>
+  <seccion orden="11" titulo="Bibliografía y alcance de la evidencia">
+    <parrafo>Treisman, A. M., y Gelade, G. (1980). A feature-integration theory of attention. Cognitive Psychology, 12(1), 97–136. DOI: 10.1016/0010-0285(80)90005-5. Fundamento de selección de características y búsqueda visual.</parrafo>
+    <parrafo>Wolfe, J. M., y Horowitz, T. S. (2017). Five factors that guide attention in visual search. Nature Human Behaviour, 1, 0058. DOI: 10.1038/s41562-017-0058. Fundamento de factores que guían búsqueda visual.</parrafo>
+    <parrafo>Theeuwes, J. (2025). Attentional Capture and Control. Annual Review of Psychology, 76, 251–273. DOI: 10.1146/annurev-psych-011624-025340. Revisión sobre captura atencional y control.</parrafo>
+    <parrafo>NICE. NG87. Attention deficit hyperactivity disorder: diagnosis and management, recomendaciones 1.3.1–1.3.4. La evaluación de TDAH requiere valoración clínica y fuentes múltiples.</parrafo>
+    <parrafo>NICE. CG128. Autism spectrum disorder in under 19s: recognition, referral and diagnosis, recomendaciones 1.5.5–1.5.10. La evaluación del autismo incluye historia evolutiva y comunicación/comportamiento social.</parrafo>
+    <parrafo>NICE. HTG729. Digital technologies for assessing ADHD, sección 2. Las tecnologías estudiadas son específicas y sus datos de validez no se transfieren a FAND.</parrafo>
+    <parrafo>Advertencia bibliográfica: estas fuentes justifican el paradigma y las limitaciones clínicas; ninguna demuestra sensibilidad, especificidad, puntos de corte o baremos de «El círculo mayor».</parrafo>
+  </seccion>
+</fand_ficha>

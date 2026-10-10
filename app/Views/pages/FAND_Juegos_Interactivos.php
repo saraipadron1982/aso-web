@@ -101,6 +101,7 @@
     .circle-game-info { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin: 14px 0; }
     .circle-game-info strong { color: var(--teal-dark); }
     .circle-game-setup { max-width: 700px; margin: 16px auto 0; padding: 20px; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
+    .age-config-note { margin: 0 0 12px; padding: 8px 12px; border-left: 4px solid #0f766e; background: #f0fdfa; border-radius: 8px; font-weight: 600; }
     .circle-game-setup h4 { margin: 16px 0 8px; }
     .circle-game-setup select { min-height: 44px; padding: 8px 10px; border: 1px solid #aabcb8; border-radius: 9px; background: #fff; color: var(--ink); }
     .circle-mode-options { display: grid; gap: 9px; margin: 10px 0; }
@@ -374,6 +375,7 @@
           <a href="index.html">Inicio</a>
           <a href="#juegos">Juegos</a>
           <a href="#directorio">Directorio informativo</a>
+          <a href="FAND_Test_Orientativo.html"><strong>Test orientativo</strong></a>
           <a href="FAND_Fichas_Tecnicas.html">Fichas técnicas</a>
           <a href="FAND_Ficha_Usuario.html">Mi ficha</a>
         </nav>
@@ -466,7 +468,7 @@
         { id: "simon", icon: "↔", title: "La Dirección Equivocada", skills: "Interferencia espacial", description: "Responde según el color, aunque la posición del estímulo sugiera el lado contrario." },
         { id: "stop", icon: "✦", title: "Que no te engañen", skills: "Atención selectiva · control de interferencias", description: "Lee el color de la tinta de una palabra y elige la etiqueta correspondiente, aunque la palabra o las opciones intenten distraerte." }
       ];
-      const sheetByGame = { robots: "J01", stop: "J02", "go-no-go": "J03", watcher: "J04", hanoi: "J05", shopping: "J06", memory: "J07" };
+      const sheetByGame = { robots: "J01", stop: "J02", "go-no-go": "J03", watcher: "J04", hanoi: "J05", shopping: "J06", memory: "J07", size: "J08" };
       const directory = [
         ["ADOS-2", "Autismo", "Clínico estandarizado", "Observación clínica con actividades de juego, interacción y conversación según el módulo.", "Comunicación, reciprocidad social, juego y conductas repetitivas.", "Requiere formación profesional; no basta por sí solo."],
         ["BOSA", "Autismo", "Complementario", "Observación breve mediante interacción y actividades; algunos módulos pueden usar juegos como Jenga.", "Comunicación social y conductas relacionadas con autismo.", "No sustituye una evaluación completa."],
@@ -2086,6 +2088,15 @@
         });
 
         panel.append(levelLabel, levelSelect, modeTitle, modes, totalControls, autoControls, summary, note, start);
+        const circleAge = window.FANDProfile && window.FANDProfile.ageConfig();
+        if (circleAge) {
+          levelSelect.value = String(circleAge.circle.levels);
+          autoRadio.checked = true;
+          perLevelSelect.value = String(circleAge.circle.seconds);
+          totalControls.classList.add("hidden");
+          autoControls.classList.remove("hidden");
+          panel.prepend(element("p", "age-config-note", `Configurado para tu edad (${circleAge.label}): ${circleAge.circle.levels} niveles de ${circleAge.circle.seconds} s. Puedes cambiarlo.`));
+        }
         refreshTotalOptions();
         board.append(panel);
       }
@@ -2373,6 +2384,31 @@
           const responseMean = average(validResponseTimes);
           const responseCv = responseMean && deviation(validResponseTimes) !== null ? deviation(validResponseTimes) / responseMean : null;
           const centerErrorMean = average(validCenterErrors);
+          if (window.saveProfile) {
+            const firstLevel = attemptedLevels[0];
+            const laterLevels = attemptedLevels.slice(1);
+            const laterAnswered = laterLevels.reduce((sum, item) => sum + item.answered, 0);
+            const laterCorrect = laterLevels.reduce((sum, item) => sum + item.correct, 0);
+            const staticAccuracy = firstLevel && firstLevel.answered ? firstLevel.correct / firstLevel.answered * 100 : null;
+            const dynamicAccuracy = laterAnswered ? laterCorrect / laterAnswered * 100 : null;
+            const cfg = window.FANDProfile && window.FANDProfile.ageConfig();
+            saveProfile("J08", {
+              ageGroup: cfg ? cfg.label : "unspecified",
+              level: attemptedLevels.length,
+              valid: answeredScreens >= 8,
+              completed: completedAllLevels,
+              metrics: {
+                accuracy: answeredScreens ? score / answeredScreens * 100 : null,
+                errorRate: answeredScreens ? mistakes / answeredScreens * 100 : null,
+                dynamicAccuracy,
+                movementCost: staticAccuracy !== null && dynamicAccuracy !== null ? staticAccuracy - dynamicAccuracy : null,
+                rtMedianMs: responseMedian,
+                rtCv: responseCv,
+                centerErrorMean,
+                answered: answeredScreens
+              }
+            });
+          }
           const aptitudeScores = [
             {
               name: "Discriminación visual",
@@ -2599,6 +2635,11 @@
         setup.append(modeLabel, modeSelect, practiceRow, list, element("p", "bubble-score-note", "La puntuación es provisional. Las modalidades de modelo oculto, cambio de objetivo y restricciones se interpretan por separado; no se comparan como si midieran exactamente lo mismo."), start);
         board.append(setup);
         status.textContent = "Los datos se usan solo para mostrar el informe de esta partida; no se guardan ni se envían automáticamente.";
+        const towerAge = window.FANDProfile && window.FANDProfile.ageConfig();
+        if (towerAge) {
+          modeSelect.value = "guided";
+          setup.prepend(element("p", "age-config-note", `Configurado para tu edad (${towerAge.label}): se recomienda recorrer los niveles 1 a ${towerAge.towerLevels}. Puedes parar cuando quieras.`));
+        }
         start.addEventListener("click", () => startRun(modeSelect.value, Number(practiceSelect.value)));
 
         function encode(state) { return state.join(""); }
@@ -4097,6 +4138,13 @@
           stage.classList.toggle("attention-child", ageValue() === "child");
         };
         ageSelect.addEventListener("change", updateInstructions);
+        const attentionAge = window.FANDProfile && window.FANDProfile.ageConfig();
+        if (attentionAge) {
+          ageSelect.value = attentionAge.group;
+          if (kind === "go-no-go") levelSelect.value = String(attentionAge.gng);
+          else if (kind === "watcher") levelSelect.value = String(attentionAge.watcher);
+          setup.prepend(element("p", "age-config-note", `Configurado para tu edad (${attentionAge.label}). Puedes cambiarlo.`));
+        }
         updateInstructions();
         const randomItem = list => list[Math.floor(Math.random() * list.length)];
         const robotModels = [

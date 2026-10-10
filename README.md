@@ -9,7 +9,8 @@ El proyecto usa PHP nativo y Apache. En XAMPP, coloca la carpeta en `htdocs` y a
 - `index.php`: punto de entrada y despachador de peticiones.
 - `app/Controllers/PageController.php`: resuelve la ruta solicitada y carga la vista.
 - `app/Models/PageCatalog.php`: lista las páginas públicas permitidas y su vista asociada.
-- `app/Models/FichaCatalog.php` y `app/Data/fichas/J01–J07*.xml`: fichas técnicas de los juegos (no accesibles por web), mostradas en `FAND_Fichas_Tecnicas.html`.
+- `app/Models/FichaCatalog.php` y `app/Data/fichas/J01–J08*.xml`: fichas técnicas de los juegos (no accesibles por web), mostradas en `FAND_Fichas_Tecnicas.html`.
+- `FAND_Test_Orientativo.html`: sección principal que agrupa los 8 juegos (J01–J08). La edad introducida (en esa página o en «Mi ficha») se guarda en el navegador y preconfigura los juegos según franjas de planificación del piloto (`FANDProfile.ageConfig()` en `assets/js/fand-perfil.js`); no son baremos.
 - `assets/js/fand-perfil.js`: guarda los resultados de los juegos en el navegador (localStorage) y calcula el índice de orientación de `FAND_Ficha_Usuario.html`. No es un diagnóstico.
 - `app/Views/pages/`: vistas de las páginas y artículos.
 - `app/Views/errors/`: vistas de error.

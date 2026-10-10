@@ -1123,6 +1123,13 @@
     .resource-bar a { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; white-space: nowrap; font-weight: 600; text-decoration: none; color: var(--teal-dark); background: #fff; border: 1px solid #c8dcd8; border-radius: 999px; }
     .resource-bar a span { font-size: 17px; }
     .resource-bar a:hover { background: var(--teal-dark); color: #fff; }
+    .resource-bar a.featured-link { background: #f59e0b; border-color: #b45309; color: #1f2937; }
+    .resource-bar a.featured-link:hover { background: #b45309; color: #fff; }
+    .test-banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 24px; padding: 22px 26px; border-radius: 20px; background: linear-gradient(135deg, #0f5158, #126d72); color: #fff; }
+    .test-banner h2 { margin: 0 0 6px; font-size: 1.6rem; }
+    .test-banner p { margin: 0; max-width: 62ch; }
+    .test-banner .test-cta { background: #f59e0b; color: #1f2937; font-weight: 800; padding: 14px 24px; border-radius: 12px; text-decoration: none; }
+    .test-banner .test-cta:hover, .test-banner .test-cta:focus-visible { background: #fff; }
     #contenido:focus { outline: none; }
     html { scroll-padding-top: 150px; }
     .about-content { margin-top: 8px; gap: 16px; }
@@ -1175,6 +1182,7 @@
     </div>
     <nav class="resource-bar" aria-label="Recursos">
       <ul>
+        <li><a class="featured-link" href="FAND_Test_Orientativo.html"><span aria-hidden="true">★</span>Test orientativo</a></li>
         <li><a href="#articulos"><span aria-hidden="true">▤</span>Artículos</a></li>
         <li><a href="FAND_Diccionario_Neurodivergencia.html"><span aria-hidden="true">Aa</span>Diccionario</a></li>
         <li><a href="FAND_Directorio.html"><span aria-hidden="true">⌖</span>Directorio</a></li>
@@ -1189,6 +1197,13 @@
   <main id="contenido" tabindex="-1">
     <div class="home-layout">
       <div class="main-column">
+      <section class="test-banner" id="test-orientativo" aria-labelledby="test-title">
+        <div>
+          <h2 id="test-title">Test orientativo</h2>
+          <p>Ocho juegos breves que se adaptan a tu edad y reúnen sus resultados en una ficha para compartir con un profesional. Es una guía, no un diagnóstico.</p>
+        </div>
+        <a class="test-cta" href="FAND_Test_Orientativo.html">Empezar el test</a>
+      </section>
       <section class="welcome-media" id="sobre" aria-labelledby="welcome-title">
       <div class="presentation">
         <div class="presentation-text">

@@ -7,6 +7,7 @@ $games = [
     'J05' => ['La Torre', 'Planificación'],
     'J06' => ['La lista', 'Memoria verbal y aprendizaje'],
     'J07' => ['Recuerda la secuencia', 'Memoria de trabajo visoespacial'],
+    'J08' => ['El círculo mayor', 'Discriminación visual y atención'],
 ];
 ?><!DOCTYPE html>
 <html lang="es">
@@ -60,8 +61,8 @@ $games = [
       <h2 id="datos-title" style="margin-top:0">Datos de la persona (opcionales)</h2>
       <div class="grid">
         <div><label for="u-name">Nombre o alias</label><input id="u-name" autocomplete="off"></div>
-        <div><label for="u-age">Grupo de edad</label>
-          <select id="u-age"><option value="">Sin indicar</option><option>6–8 años</option><option>9–12 años</option><option>13–17 años</option><option>Adulto</option></select></div>
+        <div><label for="u-age">Edad (años) · los juegos se configuran con ella</label>
+          <input id="u-age" type="number" min="3" max="110" inputmode="numeric" placeholder="Por ejemplo, 10"><small id="u-age-note" aria-live="polite"></small></div>
       </div>
       <label for="u-notes">Notas (motivo de consulta, observaciones)</label>
       <textarea id="u-notes" rows="3"></textarea>
@@ -110,13 +111,18 @@ $games = [
         return n;
       }
       function fmt(v) { return typeof v === "number" ? (Math.abs(v) < 10 && v % 1 ? v.toFixed(2) : String(Math.round(v * 10) / 10)) : "—"; }
+      function ageNote() {
+        var c = FANDProfile.ageConfig();
+        document.getElementById("u-age-note").textContent = c ? "Los juegos se configurarán para la franja " + c.label + " (franja de planificación del piloto, no una norma)." : "Sin edad indicada: los juegos usan su configuración general.";
+      }
       function checkedFactors() {
         return Array.prototype.map.call(document.querySelectorAll("input[name=conf]:checked"), function (i) { return i.value; });
       }
       function loadUser() {
         var u = FANDProfile.evaluate().user || {};
         document.getElementById("u-name").value = u.name || "";
-        document.getElementById("u-age").value = u.age || "";
+        document.getElementById("u-age").value = u.ageYears || "";
+        ageNote();
         document.getElementById("u-notes").value = u.notes || "";
         Array.prototype.forEach.call(document.querySelectorAll("input[name=conf]"), function (i) {
           i.checked = (u.factors || []).indexOf(i.value) !== -1;
@@ -131,7 +137,7 @@ $games = [
 
         var head = section("Resumen del perfil");
         var u = p.user || {};
-        head.append(el("p", "", "Persona: " + (u.name || "sin indicar") + " · Edad: " + (u.age || "sin indicar") + " · Fecha del informe: " + p.generatedAt.slice(0, 10)));
+        head.append(el("p", "", "Persona: " + (u.name || "sin indicar") + " · Edad: " + (u.ageYears ? u.ageYears + " años" : "sin indicar") + " · Fecha del informe: " + p.generatedAt.slice(0, 10)));
         if (u.notes) head.append(el("p", "", "Notas: " + u.notes));
         if (u.factors && u.factors.length) head.append(el("p", "difficulty", "Factores que pueden alterar los resultados: " + u.factors.join("; ") + "."));
         head.append(el("p", "", "Juegos con resultados válidos: " + (played.length ? played.map(function (c) { return c + " " + p.games[c]; }).join(", ") : "ninguno todavía") + "."));
@@ -139,7 +145,7 @@ $games = [
 
         if (!played.length) {
           var empty = section("Aún no hay resultados");
-          empty.append(el("p", "", "Juega a los juegos de la página de juegos interactivos (J01–J07) y vuelve aquí. Cuantos más juegos completes, más útil será la ficha."));
+          empty.append(el("p", "", "Juega a los juegos de la página de juegos interactivos (J01–J08) y vuelve aquí. Cuantos más juegos completes, más útil será la ficha."));
           var link = el("a", "btn", "Ir a los juegos"); link.href = "FAND_Juegos_Interactivos.html#juegos"; empty.append(link);
           report.append(empty);
           return;
@@ -188,7 +194,7 @@ $games = [
         [
           "Estos datos proceden de juegos digitales en protocolo de investigación, sin baremos propios ni validación clínica. Las puntuaciones brutas no se suman entre juegos; el índice es solo un resumen descriptivo.",
           "Los umbrales usados son orientativos y genéricos, sin ajuste por edad, dispositivo ni nivel educativo.",
-          "Las medidas de los juegos (J01–J07) se describen en sus fichas técnicas, con indicadores, protocolo, limitaciones y referencias.",
+          "Las medidas de los juegos (J01–J08) se describen en sus fichas técnicas, con indicadores, protocolo, limitaciones y referencias.",
           "Se recomienda confirmar con entrevista clínica e historia del desarrollo, y con pruebas estandarizadas del área (por ejemplo, test de atención continuada, tareas de funciones ejecutivas, memoria verbal y cuestionarios validados por edad).",
           "J02: la ficha actualizada confirma CUATRO colores; los nombres exactos y si siempre hay dos opciones inferiores siguen pendientes de confirmar. Verificar lectura y discriminación de color.",
           "J05: las reglas del tablero (varillas/capacidades, deshacer, modelo visible) siguen pendientes de confirmar en la ficha; se usa Tower of London solo como referencia.",
@@ -222,10 +228,11 @@ $games = [
 
       document.getElementById("save-user").addEventListener("click", function () {
         FANDProfile.setUser({
-          name: document.getElementById("u-name").value.trim(), age: document.getElementById("u-age").value,
+          name: document.getElementById("u-name").value.trim(), ageYears: (FANDProfile.setAge(document.getElementById("u-age").value), FANDProfile.ageYears() || undefined),
           notes: document.getElementById("u-notes").value.trim(), factors: checkedFactors()
         });
         render();
+        ageNote();
       });
       document.getElementById("print").addEventListener("click", function () { window.print(); });
       document.getElementById("download").addEventListener("click", function () {

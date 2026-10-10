@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-labelledby="t"><title id="t">Discriminación visual: elegir el círculo de mayor tamaño entre varios</title>
+<rect width="400" height="240" rx="16" fill="#f0fdfa"/>
+<circle cx="90" cy="100" r="30" fill="#5eead4"/>
+<circle cx="170" cy="130" r="38" fill="#2dd4bf"/>
+<circle cx="260" cy="95" r="62" fill="#0f766e" stroke="#f59e0b" stroke-width="6"/>
+<circle cx="340" cy="140" r="34" fill="#99f6e4"/>
+<path d="M232 95l20 20 36-40" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<g font-family="system-ui,Segoe UI,sans-serif" text-anchor="middle" font-weight="700">
+<text x="200" y="196" font-size="22" fill="#115e59">¿Cuál es el mayor?</text></g>
+<text x="200" y="228" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="13" fill="#115e59">Discriminación visual y atención</text></svg>

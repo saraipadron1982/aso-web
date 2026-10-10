@@ -25,6 +25,9 @@ final class PageCatalog
         'FAND_Historia_Neurodivergencia_Orden_Cronologico.html' => [
             'view' => 'FAND_Historia_Neurodivergencia_Orden_Cronologico.php',
         ],
+        'FAND_Test_Orientativo.html' => [
+            'view' => 'FAND_Test_Orientativo.php',
+        ],
         'FAND_Fichas_Tecnicas.html' => [
             'view' => 'FAND_Fichas_Tecnicas.php',
         ],
@@ -51,7 +54,8 @@ final class PageCatalog
         ['Directorio de recursos', 'FAND_Directorio.html', 'Apoyos', 'asociaciones centros profesionales terapia diagnóstico territorio comunidad'],
         ['Herramientas digitales', 'FAND_Herramientas_Digitales.html', 'Apoyos', 'aplicaciones organización bienestar aprendizaje comunicación'],
         ['Juegos interactivos', 'FAND_Juegos_Interactivos.html', 'Apoyos', 'atención memoria lectura dislexia planificación práctica minijuegos'],
-        ['Fichas técnicas de los juegos (profesionales)', 'FAND_Fichas_Tecnicas.html', 'Apoyos', 'fichas técnicas J01 J02 J03 J04 J05 J06 J07 profesionales indicadores protocolo'],
+        ['Test orientativo (8 juegos)', 'FAND_Test_Orientativo.html', 'Apoyos', 'test orientativo juegos evaluación orientación edad cribado atención memoria planificación'],
+        ['Fichas técnicas de los juegos (profesionales)', 'FAND_Fichas_Tecnicas.html', 'Apoyos', 'fichas técnicas J01 J02 J03 J04 J05 J06 J07 J08 profesionales indicadores protocolo'],
         ['Mi ficha de orientación', 'FAND_Ficha_Usuario.html', 'Apoyos', 'ficha usuario perfil resultados orientación informe profesional neurodivergencia'],
         ['Formaciones oficiales', 'FAND_Formaciones_Oficiales.html', 'Formación', 'estudios máster universidades idiomas becas europa'],
         ['Cuestionarios por edades y perfiles', 'FAND_Cuestionarios_Edades_Perfiles.html', 'Experiencias', 'cuestionarios edades perfiles experiencias'],

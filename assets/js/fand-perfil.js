@@ -4,10 +4,10 @@
   var KEY = "fand.perfil.v1";
   var GAMES = {
     J01: "Encuentra al Robot", J02: "Que no te engañen", J03: "Pulsa o Espera", J04: "El Vigilante",
-    J05: "La Torre", J06: "La lista", J07: "Recuerda la secuencia"
+    J05: "La Torre", J06: "La lista", J07: "Recuerda la secuencia", J08: "El círculo mayor"
   };
   var DOMAINS = [
-    { id: "atencion", label: "Atención y control inhibitorio", games: ["J01", "J02", "J03", "J04"],
+    { id: "atencion", label: "Atención y control inhibitorio", games: ["J01", "J02", "J03", "J04", "J08"],
       families: "Perfiles atencionales/ejecutivos (por ejemplo, rasgos compatibles con TDAH)" },
     { id: "ejecutiva", label: "Planificación y funciones ejecutivas", games: ["J05"],
       families: "Perfiles ejecutivos y de organización (TDAH, TEA, otros)" },
@@ -64,6 +64,12 @@
       ["orderAccuracy", "Precisión del orden (%)", "low", 60, 85],
       ["locationAccuracy", "Precisión de localización (%)", "low", 70, 90],
       ["consistency", "Consistencia (%)", "low", 50, 80]
+    ],
+    J08: [
+      ["accuracy", "Aciertos al elegir el círculo mayor (%)", "low", 70, 90],
+      ["dynamicAccuracy", "Aciertos con movimiento (%)", "low", 65, 85],
+      ["movementCost", "Coste del movimiento en aciertos (puntos %)", "high", 25, 10],
+      ["rtCv", "Variabilidad del tiempo de respuesta (CV)", "high", 0.5, 0.3]
     ]
   };
 
@@ -77,8 +83,10 @@
   function save(code, session) {
     if (!GAMES[code]) return false;
     var data = read();
+    var given = session.ageGroup && session.ageGroup !== "unspecified" ? session.ageGroup : null;
+    var userBand = bandOf(Number((data.user || {}).ageYears));
     data.sessions.push({
-      code: code, at: new Date().toISOString(), ageGroup: session.ageGroup || "unspecified",
+      code: code, at: new Date().toISOString(), ageGroup: given || (userBand ? BAND_LABELS[userBand] : "unspecified"),
       level: session.level || "", valid: !!session.valid, completed: !!session.completed,
       interruptions: session.interruptions || 0, selfReport: session.selfReport || null, metrics: session.metrics || {}
     });
@@ -137,7 +145,43 @@
   function setUser(user) { var data = read(); data.user = user || {}; return write(data); }
   function clear() { try { localStorage.removeItem(KEY); } catch (e) { /* sin acceso */ } }
 
-  window.FANDProfile = { save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES };
+  // Franjas de edad de las fichas técnicas (grupos de planificación del piloto, no normas).
+  function bandOf(years) {
+    if (!isFinite(years) || years === null || years <= 0) return null;
+    if (years <= 8) return "6-8";
+    if (years <= 11) return "9-11";
+    if (years <= 17) return "12-17";
+    if (years <= 59) return "18-59";
+    return "60+";
+  }
+  var BAND_LABELS = { "6-8": "3–8 años", "9-11": "9–11 años", "12-17": "12–17 años", "18-59": "18–59 años", "60+": "60 años o más" };
+  // Valores iniciales de cada juego según la franja (inicio del rango «niveles FAND piloto» de cada ficha).
+  var AGE_CONFIG = {
+    "6-8":   { group: "child", gng: 1, watcher: 1, circle: { levels: 2, seconds: 45 }, towerLevels: 4 },
+    "9-11":  { group: "child", gng: 2, watcher: 3, circle: { levels: 3, seconds: 30 }, towerLevels: 6 },
+    "12-17": { group: "teen", gng: 3, watcher: 4, circle: { levels: 4, seconds: 30 }, towerLevels: 8 },
+    "18-59": { group: "adult", gng: 3, watcher: 4, circle: { levels: 4, seconds: 30 }, towerLevels: 8 },
+    "60+":   { group: "adult", gng: 1, watcher: 1, circle: { levels: 3, seconds: 45 }, towerLevels: 8, untimed: true }
+  };
+  function ageYears() {
+    var u = read().user || {};
+    var n = Number(u.ageYears);
+    return isFinite(n) && n > 0 ? n : null;
+  }
+  function band() { return bandOf(ageYears()); }
+  function ageConfig() { var b = band(); return b ? Object.assign({ band: b, label: BAND_LABELS[b], under6: ageYears() < 6 }, AGE_CONFIG[b]) : null; }
+  function setAge(years) {
+    var data = read();
+    data.user = data.user || {};
+    var n = Number(years);
+    if (isFinite(n) && n >= 3 && n <= 110) data.user.ageYears = Math.round(n); else delete data.user.ageYears;
+    return write(data);
+  }
+
+  window.FANDProfile = {
+    save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
+    ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS
+  };
   window.saveProfile = function (code, session) {
     try { return save(code, session); } catch (e) { return false; }
   };
