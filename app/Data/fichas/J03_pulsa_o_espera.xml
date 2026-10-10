@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ficha_tecnica codigo="J03" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+  <nombre>Pulsa o Espera</nombre>
+  <area_principal>Inhibición de respuesta</area_principal>
+  <fundamento>Paradigma Go/No-Go; estudios de inhibición y rendimiento ejecutivo.</fundamento>
+  <mecanica>Ante señales Go se pulsa; ante No-Go no se pulsa. Las señales Go suelen ser más frecuentes para establecer una tendencia a responder. Se presentan automáticamente, con intervalos y ventanas de respuesta controlados.</mecanica>
+  <niveles>
+    <nivel id="0">
+      <nombre>Tutorial</nombre>
+      <funcionamiento>Diferenciar señales y practicar</funcionamiento>
+      <duracion_o_ensayos>8–12 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="1">
+      <nombre>Básico</nombre>
+      <funcionamiento>Go/No-Go muy distinguibles</funcionamiento>
+      <duracion_o_ensayos>1 min</duracion_o_ensayos>
+    </nivel>
+    <nivel id="2">
+      <nombre>Go frecuente</nombre>
+      <funcionamiento>Aumentar proporción Go; registrar comisiones</funcionamiento>
+      <duracion_o_ensayos>2 min</duracion_o_ensayos>
+    </nivel>
+    <nivel id="3">
+      <nombre>Ritmo variable</nombre>
+      <funcionamiento>Intervalos imprevisibles sin cambiar regla</funcionamiento>
+      <duracion_o_ensayos>2–3 min</duracion_o_ensayos>
+    </nivel>
+    <nivel id="4">
+      <nombre>Mayor demanda</nombre>
+      <funcionamiento>Bloque de inhibición con señales similares controladas</funcionamiento>
+      <duracion_o_ensayos>3–4 min</duracion_o_ensayos>
+    </nivel>
+    <nivel id="5">
+      <nombre>Medición</nombre>
+      <funcionamiento>Frecuencias, tiempos y ensayos fijos</funcionamiento>
+      <duracion_o_ensayos>4–6 min</duracion_o_ensayos>
+    </nivel>
+  </niveles>
+  <adaptaciones_por_edad>
+    <grupo edad="6–8 años">
+      <inicio>0–1</inicio>
+      <niveles>1–2</niveles>
+      <duracion_piloto>2–3 min</duracion_piloto>
+    </grupo>
+    <grupo edad="9–11 años">
+      <inicio>0–1</inicio>
+      <niveles>2–3</niveles>
+      <duracion_piloto>3–4 min</duracion_piloto>
+    </grupo>
+    <grupo edad="12–17 años">
+      <inicio>0–2</inicio>
+      <niveles>3–5</niveles>
+      <duracion_piloto>4–5 min</duracion_piloto>
+    </grupo>
+    <grupo edad="18–59 años">
+      <inicio>0–2</inicio>
+      <niveles>3–5</niveles>
+      <duracion_piloto>4–6 min</duracion_piloto>
+    </grupo>
+    <grupo edad="60+ años">
+      <inicio>0–1</inicio>
+      <niveles>Según comprensión</niveles>
+      <duracion_piloto>3–5 min</duracion_piloto>
+    </grupo>
+  </adaptaciones_por_edad>
+  <indicadores>
+    <indicador>
+      <nombre>Aciertos Go</nombre>
+      <formula_o_registro>Go respondidos correctamente</formula_o_registro>
+      <dimension>Ejecución</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Omisiones Go</nombre>
+      <formula_o_registro>Go sin respuesta</formula_o_registro>
+      <dimension>Detección/respuesta</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Comisiones No-Go</nombre>
+      <formula_o_registro>Pulsaciones No-Go</formula_o_registro>
+      <dimension>Fallo de inhibición</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Tasa de comisión</nombre>
+      <formula_o_registro>Comisiones / total No-Go × 100</formula_o_registro>
+      <dimension>Inhibición</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Precisión Go</nombre>
+      <formula_o_registro>Aciertos Go / total Go × 100</formula_o_registro>
+      <dimension>Control contra no responder</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Mediana y variabilidad Go</nombre>
+      <formula_o_registro>ms y dispersión</formula_o_registro>
+      <dimension>Velocidad/consistencia</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Anticipaciones</nombre>
+      <formula_o_registro>Pulsaciones fuera de ventana</formula_o_registro>
+      <dimension>Calidad de respuesta</dimension>
+    </indicador>
+  </indicadores>
+  <complementariedad>Con El Vigilante: omisiones y consistencia; distinguir falta de detección de respuesta inapropiada. Con Que no te engañen: inhibición motora frente a conflicto semántico. Con La Torre: evitar respuestas frente a organizar planes.</complementariedad>
+  <integracion_con_cuestionarios>La batería FAND describe rendimientos, no diagnostica TDAH, autismo u otras condiciones. Integrar con historia evolutiva, síntomas y dificultades funcionales en varios contextos, cuestionarios adecuados a edad y profesional, y factores de confusión (sueño, ansiedad, estado de ánimo, visión, audición, motricidad, medicación, comprensión y dispositivo). No sumar puntos de juegos heterogéneos ni establecer umbrales clínicos sin estudios de fiabilidad, normas por edad y validación clínica. Una ejecución normal no descarta dificultades; la recomendación profesional puede justificarse por la historia y el impacto cotidiano.</integracion_con_cuestionarios>
+  <limitaciones>Una persona que nunca pulsa puede obtener 100 % de inhibiciones No-Go; nunca interpretar sin precisión Go. La frecuencia de señales, el dispositivo y la ventana de respuesta deben fijarse antes de baremar.</limitaciones>
+  <anexo_cientifico_y_operativo fecha="2026-10-10" naturaleza="ampliacion_sin_modificar_contenido_previo">
+    <objetivo_operativo>Cuantificar la capacidad de responder a estímulos Go frecuentes y retener la respuesta ante No-Go.</objetivo_operativo>
+    <constructo_y_limites>Inhibición motora prepotente; requiere vigilancia, discriminación perceptiva y respuesta motora.</constructo_y_limites>
+    <protocolo_detallado>Fijar por versión proporción Go/No-Go, duración del estímulo, intervalo entre estímulos, ventana de respuesta y número de ensayos. Practicar hasta demostrar comprensión. Registrar respuesta tardía y anticipada por separado.</protocolo_detallado>
+    <controles_y_sesgos>No cambiar probabilidad Go o intervalo entre estímulos dentro de un bloque normativo sin modelarlo; evitar No-Go excesivamente infrecuentes con pocas oportunidades. Calibrar latencia motora y entradas táctiles.</controles_y_sesgos>
+    <medidas_y_formulas>Aciertos Go/Go; omisiones Go/Go; comisiones No-Go/No-Go; inhibiciones No-Go/No-Go; mediana RT Go; dispersión RT; respuestas anticipadas. Inhibición 100% sin respuestas Go = no interpretable.</medidas_y_formulas>
+    <esquema_de_datos_por_ensayo>trial_id, go_nogo, stimulus_id, onset_ms, offset_ms, response_window_ms, response_timestamp_ms, correct, anticipatory, late, device_latency_ms.</esquema_de_datos_por_ensayo>
+    <integracion_con_otras_pruebas>El Vigilante comparte omisiones y variabilidad, pero enfatiza mantenimiento temporal; Que no te engañen mide conflicto de elección en lugar de supresión de una pulsación.</integracion_con_otras_pruebas>
+    <regla_de_interpretacion>Comisiones elevadas no equivalen a impulsividad clínica; interpretar junto con precisión Go, patrón temporal, cuestionarios y condiciones de administración.</regla_de_interpretacion>
+    <fundamento_especifico>Paradigma Go/No-Go, ampliamente investigado; los parámetros concretos de FAND deben validarse.</fundamento_especifico>
+    <estado_de_baremos>No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez incremental.</estado_de_baremos>
+    <itinerario_de_validacion>1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.</itinerario_de_validacion>
+    <protocolo_de_orientacion>Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni probabilidades clínicas sin validación.</protocolo_de_orientacion>
+    <referencias_verificadas>
+      <referencia nombre="NICE NG87" url="https://www.nice.org.uk/guidance/ng87/chapter/recommendations">Guía clínica: la evaluación requiere historia evolutiva, contextos y juicio profesional.</referencia>
+      <referencia nombre="Arrondo et al., 2024" url="https://pubmed.ncbi.nlm.nih.gov/37004919/">Metaanálisis: la utilidad diagnóstica aislada de los CPT es modesta a moderada.</referencia>
+      <referencia nombre="Van Mourik et al., 2005" url="https://pubmed.ncbi.nlm.nih.gov/15679524/">Metaanálisis: el Stroop clásico no demuestra una alteración específica robusta en TDAH.</referencia>
+      <referencia nombre="Revisión CPT adultos, 2024" url="https://pubmed.ncbi.nlm.nih.gov/38424025/">Revisión sistemática: utilidad diagnóstica limitada de CPT aislados en adultos.</referencia>
+      <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
+    </referencias_verificadas>
+  </anexo_cientifico_y_operativo>
+</ficha_tecnica>

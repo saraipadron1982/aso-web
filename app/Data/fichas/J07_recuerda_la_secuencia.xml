@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ficha_tecnica codigo="J07" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+  <nombre>Recuerda la Secuencia</nombre>
+  <area_principal>Memoria visoespacial secuencial</area_principal>
+  <fundamento>Corsi Block-Tapping y tareas de amplitud espacial directa.</fundamento>
+  <mecanica>Una cuadrícula ilumina casillas una tras otra. Al terminar, la persona debe pulsarlas exactamente en el orden presentado. Se incrementa la longitud de secuencia; cada longitud requiere varios intentos y secuencias no previsibles.</mecanica>
+  <niveles>
+    <nivel id="0">
+      <nombre>Tutorial</nombre>
+      <funcionamiento>2 casillas con ayuda</funcionamiento>
+      <duracion_o_ensayos>Sin límite</duracion_o_ensayos>
+    </nivel>
+    <nivel id="1">
+      <nombre>2 posiciones</nombre>
+      <funcionamiento>Secuencia de 2</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="2">
+      <nombre>3 posiciones</nombre>
+      <funcionamiento>Secuencia de 3</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="3">
+      <nombre>4 posiciones</nombre>
+      <funcionamiento>Secuencia de 4</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="4">
+      <nombre>5 posiciones</nombre>
+      <funcionamiento>Secuencia de 5</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="5">
+      <nombre>6 posiciones</nombre>
+      <funcionamiento>Secuencia de 6</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="6">
+      <nombre>7 posiciones</nombre>
+      <funcionamiento>Secuencia de 7</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="7">
+      <nombre>8 posiciones</nombre>
+      <funcionamiento>Secuencia de 8</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="8">
+      <nombre>9 posiciones</nombre>
+      <funcionamiento>Secuencia de 9</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="9">
+      <nombre>10 posiciones</nombre>
+      <funcionamiento>Secuencia de 10</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="10">
+      <nombre>11 posiciones</nombre>
+      <funcionamiento>Secuencia de 11</funcionamiento>
+      <duracion_o_ensayos>2–3 ensayos</duracion_o_ensayos>
+    </nivel>
+  </niveles>
+  <adaptaciones_por_edad>
+    <grupo edad="6–8 años">
+      <inicio>0–1</inicio>
+      <niveles>1 en adelante</niveles>
+      <duracion_piloto>4–6 min</duracion_piloto>
+    </grupo>
+    <grupo edad="9–11 años">
+      <inicio>0–2</inicio>
+      <niveles>2 en adelante</niveles>
+      <duracion_piloto>4–7 min</duracion_piloto>
+    </grupo>
+    <grupo edad="12–17 años">
+      <inicio>0–2</inicio>
+      <niveles>2 en adelante</niveles>
+      <duracion_piloto>5–8 min</duracion_piloto>
+    </grupo>
+    <grupo edad="18–59 años">
+      <inicio>0–2</inicio>
+      <niveles>2 en adelante</niveles>
+      <duracion_piloto>5–8 min</duracion_piloto>
+    </grupo>
+    <grupo edad="60+ años">
+      <inicio>0–1</inicio>
+      <niveles>Según comprensión</niveles>
+      <duracion_piloto>5–8 min</duracion_piloto>
+    </grupo>
+  </adaptaciones_por_edad>
+  <indicadores>
+    <indicador>
+      <nombre>Amplitud máxima</nombre>
+      <formula_o_registro>Longitud más larga correcta bajo regla fija</formula_o_registro>
+      <dimension>Retención espacial</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Aciertos por longitud</nombre>
+      <formula_o_registro>Correctos / ensayos por longitud</formula_o_registro>
+      <dimension>Consistencia</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Errores de posición</nombre>
+      <formula_o_registro>Casillas incorrectas</formula_o_registro>
+      <dimension>Memoria de ubicaciones</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Errores de orden</nombre>
+      <formula_o_registro>Posiciones correctas en orden incorrecto</formula_o_registro>
+      <dimension>Secuenciación</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Omisiones/repeticiones</nombre>
+      <formula_o_registro>Conteos</formula_o_registro>
+      <dimension>Errores de reproducción</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Criterio de parada</nombre>
+      <formula_o_registro>Fallos consecutivos según protocolo</formula_o_registro>
+      <dimension>Control de dificultad</dimension>
+    </indicador>
+  </indicadores>
+  <complementariedad>Con La Lista: modalidad visoespacial frente a verbal. Con La Torre: retención espacial frente a planificación. Con Encuentra al Robot: recuerdo secuencial frente a discriminación visual.</complementariedad>
+  <integracion_con_cuestionarios>La batería FAND describe rendimientos, no diagnostica TDAH, autismo u otras condiciones. Integrar con historia evolutiva, síntomas y dificultades funcionales en varios contextos, cuestionarios adecuados a edad y profesional, y factores de confusión (sueño, ansiedad, estado de ánimo, visión, audición, motricidad, medicación, comprensión y dispositivo). No sumar puntos de juegos heterogéneos ni establecer umbrales clínicos sin estudios de fiabilidad, normas por edad y validación clínica. Una ejecución normal no descarta dificultades; la recomendación profesional puede justificarse por la historia y el impacto cotidiano.</integracion_con_cuestionarios>
+  <limitaciones>No equiparar amplitud directa con manipulación completa de memoria de trabajo. La disposición, velocidad de iluminación, número de ensayos y criterio de parada afectan los resultados; deben fijarse antes de crear baremos.</limitaciones>
+  <anexo_cientifico_y_operativo fecha="2026-10-10" naturaleza="ampliacion_sin_modificar_contenido_previo">
+    <objetivo_operativo>Estimar amplitud de recuerdo inmediato de posiciones visuales en el mismo orden de presentación.</objetivo_operativo>
+    <constructo_y_limites>Amplitud espacial directa tipo Corsi; la versión directa no mide por sí sola manipulación compleja de memoria de trabajo.</constructo_y_limites>
+    <protocolo_detallado>Casillas iluminadas secuencialmente; tras terminar, pulsar las mismas posiciones en el mismo orden. Mantener tamaño y geometría de cuadrícula, duración de encendido y pausas constantes en cada versión. Repetir varios ensayos por longitud.</protocolo_detallado>
+    <controles_y_sesgos>Aleatorizar evitando secuencias triviales y sesgos geométricos. Definir si se permite repetir casilla; mantener regla constante. La longitud máxima 11 es propuesta, no norma de ninguna edad.</controles_y_sesgos>
+    <medidas_y_formulas>Amplitud máxima con criterio de éxito predefinido; aciertos por longitud; error de posición, transposición de orden, omisión y repetición; número de intentos. Velocidad secundaria.</medidas_y_formulas>
+    <esquema_de_datos_por_ensayo>trial_id, grid_version, sequence_length, positions_ordered, illumination_ms, interflash_ms, response_order, exact_match, position_errors, order_errors, latency_ms, device.</esquema_de_datos_por_ensayo>
+    <integracion_con_otras_pruebas>La Lista compara memoria verbal; La Torre requiere planificación espacial; Encuentra al Robot mide discriminación visual simultánea.</integracion_con_otras_pruebas>
+    <regla_de_interpretacion>Fallos de secuencia pueden depender de percepción, atención al estímulo y memoria de orden. No convertir amplitud en un diagnóstico ni usar baremos de Corsi sin equivalencia.</regla_de_interpretacion>
+    <fundamento_especifico>Paradigma Corsi Block-Tapping, con estudios normativos propios de cada versión.</fundamento_especifico>
+    <estado_de_baremos>No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez incremental.</estado_de_baremos>
+    <itinerario_de_validacion>1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.</itinerario_de_validacion>
+    <protocolo_de_orientacion>Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni probabilidades clínicas sin validación.</protocolo_de_orientacion>
+    <referencias_verificadas>
+      <referencia nombre="NICE NG87" url="https://www.nice.org.uk/guidance/ng87/chapter/recommendations">Guía clínica: la evaluación requiere historia evolutiva, contextos y juicio profesional.</referencia>
+      <referencia nombre="Arrondo et al., 2024" url="https://pubmed.ncbi.nlm.nih.gov/37004919/">Metaanálisis: la utilidad diagnóstica aislada de los CPT es modesta a moderada.</referencia>
+      <referencia nombre="Van Mourik et al., 2005" url="https://pubmed.ncbi.nlm.nih.gov/15679524/">Metaanálisis: el Stroop clásico no demuestra una alteración específica robusta en TDAH.</referencia>
+      <referencia nombre="Revisión CPT adultos, 2024" url="https://pubmed.ncbi.nlm.nih.gov/38424025/">Revisión sistemática: utilidad diagnóstica limitada de CPT aislados en adultos.</referencia>
+      <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
+    </referencias_verificadas>
+  </anexo_cientifico_y_operativo>
+</ficha_tecnica>

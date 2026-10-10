@@ -373,6 +373,8 @@
           <a href="index.html">Inicio</a>
           <a href="#juegos">Juegos</a>
           <a href="#directorio">Directorio informativo</a>
+          <a href="FAND_Fichas_Tecnicas.html">Fichas técnicas</a>
+          <a href="FAND_Ficha_Usuario.html">Mi ficha</a>
         </nav>
       </div>
       <p class="eyebrow">ACTIVIDADES DE PRÁCTICA Y RECURSOS</p>
@@ -445,6 +447,7 @@
     <p>Estos recursos no sustituyen diagnóstico, evaluación, terapia o asesoramiento profesional.</p>
   </footer>
 
+  <script src="assets/js/fand-perfil.js"></script>
   <script>
     (() => {
       const games = [
@@ -462,6 +465,7 @@
         { id: "simon", icon: "↔", title: "La Dirección Equivocada", skills: "Interferencia espacial", description: "Responde según el color, aunque la posición del estímulo sugiera el lado contrario." },
         { id: "stop", icon: "✦", title: "Que no te engañen", skills: "Atención selectiva · control de interferencias", description: "Lee el color de la tinta de una palabra y elige la etiqueta correspondiente, aunque la palabra o las opciones intenten distraerte." }
       ];
+      const sheetByGame = { robots: "J01", stop: "J02", "go-no-go": "J03", watcher: "J04", hanoi: "J05", shopping: "J06", memory: "J07" };
       const directory = [
         ["ADOS-2", "Autismo", "Clínico estandarizado", "Observación clínica con actividades de juego, interacción y conversación según el módulo.", "Comunicación, reciprocidad social, juego y conductas repetitivas.", "Requiere formación profesional; no basta por sí solo."],
         ["BOSA", "Autismo", "Complementario", "Observación breve mediante interacción y actividades; algunos módulos pueden usar juegos como Jenga.", "Comunicación social y conductas relacionadas con autismo.", "No sustituye una evaluación completa."],
@@ -690,6 +694,16 @@
         button.type = "button";
         button.addEventListener("click", () => launchGame(game.id));
         card.append(button);
+        const sheetCode = sheetByGame[game.id];
+        if (sheetCode) {
+          const links = element("p", "meta");
+          const sheetLink = element("a", "", `Ficha técnica ${sheetCode}`);
+          sheetLink.href = `FAND_Fichas_Tecnicas.html#${sheetCode}`;
+          const profileLink = element("a", "", "Mi ficha");
+          profileLink.href = "FAND_Ficha_Usuario.html";
+          links.append(sheetLink, " · ", profileLink);
+          card.append(links);
+        }
         gameGrid.append(card);
       });
 
@@ -1819,6 +1833,16 @@
             { name: "Recuerdo de posiciones", value: scoreFromRate(spatialAccuracy), explanation: "Proporción de tus respuestas que correspondían a una posición que sí había aparecido, aunque el orden pudiera ser distinto.", raw: `${locationsCorrect} posiciones reconocidas de ${expectedResponses} esperadas (${expectedResponses ? (spatialAccuracy * 100).toFixed(1) : "0.0"} %); ${locationErrors} error(es) de ubicación identificados como primera diferencia; respuestas introducidas: ${totalResponses}; omisiones: ${attempts.reduce((sum, attempt) => sum + attempt.omissions, 0)}.` },
             { name: "Consistencia entre intentos", value: scoreFromRate(consistency), explanation: "Estabilidad de aciertos y errores cuando la prueba repitió longitudes de secuencia equivalentes. Se muestra solo si hubo longitudes repetidas.", raw: consistency === null ? "No hubo al menos dos intentos con la misma longitud; no hay datos suficientes para valorar la consistencia." : `Se compararon ${repeatGroups.length} longitud(es) repetida(s); consistencia media: ${(consistency * 100).toFixed(1)} %.` }
           ];
+          saveProfile("J07", {
+            ageGroup: "unspecified", level: "Adaptativo 2–11", valid: attempts.length >= 3, completed: errors >= 3 || maxCorrectLength >= 11,
+            metrics: {
+              attempts: attempts.length, maxSpan: maxCorrectLength || 0,
+              orderAccuracy: orderAccuracy === null ? null : orderAccuracy * 100,
+              locationAccuracy: spatialAccuracy === null ? null : spatialAccuracy * 100,
+              locationErrors, orderErrors, omissions: attempts.reduce((sum, attempt) => sum + attempt.omissions, 0),
+              consistency: consistency === null ? null : consistency * 100
+            }
+          });
           const result = element("section", "bubble-result");
           result.append(element("h4", "", "Recuerda la secuencia · resultados"));
           result.append(element("p", "bubble-score-note", "Este resumen describe únicamente cómo se resolvieron las secuencias de esta partida. Es una actividad experimental sin baremos validados: no identifica ni descarta TDAH, autismo u otra neurodivergencia."));
@@ -3092,6 +3116,20 @@
             const records = run.records;
             const mean = values => values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
             const toScore = value => value === null || !Number.isFinite(value) ? null : Math.max(1, Math.min(10, Math.round(1 + 9 * value)));
+            const solvedRecords = records.filter(record => record.solved);
+            const extraMoves = solvedRecords.map(record => Math.max(0, record.moveActions - record.optimal));
+            const efficiencies = solvedRecords.filter(record => record.efficiency !== null).map(record => record.efficiency * 100);
+            const firstMoves = records.filter(record => record.firstMoveMs !== null).map(record => record.firstMoveMs);
+            const towerSolved = solvedRecords.length;
+            saveProfile("J05", {
+              ageGroup: "unspecified", level: run.mode, valid: records.length >= 2 && solvedRecords.some(record => record.hints === 0), completed,
+              metrics: {
+                problems: records.length, solvedRate: records.length ? towerSolved / records.length * 100 : null,
+                extraMovesMean: mean(extraMoves), efficiencyMean: mean(efficiencies),
+                initialLatencyMs: mean(firstMoves), ruleErrors: records.reduce((sum, record) => sum + (record.ruleErrors || 0), 0),
+                resets: records.reduce((sum, record) => sum + (record.undos || 0), 0), hints: records.reduce((sum, record) => sum + (record.hints || 0), 0)
+              }
+            });
             const independentRecords = records.filter(record => record.solved && record.hints === 0 && record.efficiency !== null);
             const planningRecords = run.mode === "guided" ? independentRecords.filter(record => record.levelIndex >= 2) : [];
             const solvedEfficiency = planningRecords.map(record => record.efficiency);
@@ -3751,6 +3789,17 @@
             ? `Se registraron ${recordedRounds.length} de 5 respuestas de voz, con ${learningTotal} palabra(s) correcta(s) sumadas en las rondas con datos${recordedRounds.length === 5 ? " (máximo 75)" : ""}.`
             : "No se registraron respuestas de voz en las cinco escuchas.";
           const conclusion = `${learningInterpretation} ${learningSummary} ${recordedRounds.some(record => record.round === 1) ? `${acquiredWords.length} palabra(s) aparecieron por primera vez después del primer ensayo.` : ""} ${retentionInterpretation} ${recordedRounds.length === 5 ? `De las 15 palabras, ${stableWords.length} aparecieron en las cinco rondas, ${intermittentWords.length} de forma intermitente y ${neverRecalledWords.length} no se identificaron en ninguna ronda.` : "La estabilidad por palabra requiere respuestas de voz registradas en las cinco rondas."}`;
+          const roundRecords = recallRecords.filter(record => record.round !== "Final" && record.voiceCaptured);
+          saveProfile("J06", {
+            ageGroup: "unspecified", level: "15 palabras · R1–R6", valid: recordedRounds.length >= 4, completed: finalCount !== null,
+            metrics: {
+              recordedRounds: recordedRounds.length, r1: firstCount, r2: roundCounts[1], r3: roundCounts[2], r4: roundCounts[3], r5: fifthCount, r6: finalCount,
+              learningTotal: recordedRounds.length === 5 ? learningTotal : null, gain,
+              retention: retention === null ? null : retention * 100,
+              intrusions: roundRecords.reduce((sum, record) => sum + (record.intrusions ? record.intrusions.length : 0), 0),
+              perseverations: roundRecords.reduce((sum, record) => sum + (record.perseverations ? record.perseverations.length : 0), 0)
+            }
+          });
           result.append(element("h5", "", "Conclusión descriptiva de esta partida"));
           result.append(element("p", "bubble-score-summary", conclusion));
           result.append(element("p", "bubble-score-note", `Tema de distracción elegido: ${selectedTopic}. La actividad no tiene límite de tiempo para responder. No hay baremos FAND validados: el recuento no permite clasificar el rendimiento como bajo, normal o alto, ni identificar una neurodivergencia. Una respuesta sin palabras detectadas por el reconocimiento de voz figura como «sin datos», no como cero palabras recordadas. El reconocimiento puede cometer errores; la transcripción temporal se elimina de la pantalla al aceptar la respuesta y no se incluye en el informe.`));
@@ -4354,7 +4403,17 @@
               ["Percentil por edad", "No disponible: sin baremos FAND validados"]
             );
             summary = `${all.hits} de ${all.targets} objetivos detectados, ${all.omissions} omisión(es) y ${all.falseAlarms} respuesta(s) incorrecta(s) ante ${all.distractors} distractores${all.median === null ? "" : `; tiempo mediano de respuesta correcta ${Math.round(all.median)} ms`}. Estos datos describen el rendimiento en esta sesión; no permiten saber si es inferior a lo esperado para la edad ni identificar su causa sin baremos y evaluación complementaria.`;
-          } else if (kind === "robots") {
+                        saveProfile("J04", {
+                          ageGroup: ageValue(), level, valid: records.length >= planned && gngInterruptions === 0,
+                          completed: records.length >= planned, interruptions: gngInterruptions,
+                          metrics: {
+                            trials: records.length, targets: all.targets, detectionRate: pct(all.hits, all.targets),
+                            omissionRate: pct(all.omissions, all.targets), falseAlarmRate: pct(all.falseAlarms, all.distractors),
+                            rtMedianMs: all.median, rtCv: cv, anticipatory,
+                            vigilanceDecrement: firstHalf.targets && secondHalf.targets ? detectionOf(firstHalf) - detectionOf(secondHalf) : null
+                          }
+                        });
+                      } else if (kind === "robots") {
             const phaseA = robotLevelResults.filter(result => result.phase === "A");
             const phaseB = robotLevelResults.filter(result => result.phase === "B");
             const phaseC = robotLevelResults.filter(result => result.phase === "C");
@@ -4454,6 +4513,17 @@
             summary = `${protocolComplete ? "Protocolo completado" : "Protocolo interrumpido"}: ${observed}. Estos datos describen únicamente esta sesión; no indican por sí solos una dificultad ni un diagnóstico.`;
             robotScoringNote = "Puntuación descriptiva provisional, no normativa: detección = sensibilidad en B–C × 30; control de distractores = especificidad en B–C × 25; discriminación = exactitud equilibrada en C, calculada con objetivos y distractores de similitud alta (3 de 4 rasgos) × 20. El informe muestra el número real de distractores de alta similitud disponibles. La similitud se define por color, forma, antena y expresión; no es una medida perceptual validada. La suma parcial disponible es sobre 75 puntos. La eficiencia se informa con el tiempo mediano hasta el primer objetivo correcto en D; no recibe puntos. No se asignan puntos a estabilidad ni existen baremos por edad validados.";
             robotInterpretationNote = "Conclusión descriptiva: la fase A comprueba reconocimiento y comprensión; B y C describen detección, omisiones, falsas alarmas y efecto de la similitud; D describe tiempos con distintos tamaños de cuadrícula. La prueba aporta información de búsqueda visual y atención selectiva, distinta de la memoria secuencial visoespacial de «Recuerda la Secuencia».";
+            saveProfile("J01", {
+              ageGroup: ageValue(), level: "A–D", valid: protocolComplete, completed: protocolComplete,
+              timed: robotTimedMode,
+              metrics: {
+                completedRounds, detectionRate: detectionRate === null ? null : detectionRate * 100,
+                omissions: coreStats.omissions, falseAlarms: coreStats.falseAlarms,
+                falseAlarmRate: specificity(coreStats) === null ? null : (1 - specificity(coreStats)) * 100,
+                highSimilarityBalancedAccuracy: highBalancedAccuracy === null ? null : highBalancedAccuracy * 100,
+                similarityEffect: highVsLowChange, searchMedianMs: medianSearchMs
+              }
+            });
           } else if (kind === "go-no-go") {
             const go = records.filter(item => item.condition === "Go");
             const noGo = records.filter(item => item.condition === "No-Go");
@@ -4531,7 +4601,15 @@
               ["Flexibilidad cognitiva (cambio de regla)", "No incluida en esta versión; se informaría por separado de la inhibición"]
             );
             summary = `${goHits} respuesta(s) Go correcta(s) de ${go.length} (${fmtPct(goAccuracy)}) y ${inhibitions} inhibición(es) correcta(s) de ${noGo.length} (${fmtPct(inhibitionRate)}). Una inhibición alta solo es informativa junto con una precisión Go adecuada. Estos datos describen únicamente esta sesión.`;
-            goNoGoNote = "La puntuación de 100 puntos de la ficha no se calcula: solo atención (20) e inhibición (35) tienen fórmula directa; consistencia, velocidad ajustada, mantenimiento y autorregulación requieren distribuciones de referencia. Los resultados son directos (lo que hizo la persona); no hay resultado normativo ni percentiles hasta disponer de baremos FAND por edad. No se interpreta automáticamente como diagnóstico ni como rendimiento bajo o alto. Una respuesta lenta no se interpreta como dificultad inhibitoria sin comprobar la precisión y la capacidad motora. Los efectos de práctica pueden influir en repeticiones.";
+                        saveProfile("J03", {
+                          ageGroup: ageValue(), level, valid: records.length >= gngLevels[level - 1].go + gngLevels[level - 1].noGo && gngInterruptions === 0 && goHits > 0,
+                          completed: records.length >= gngLevels[level - 1].go + gngLevels[level - 1].noGo, interruptions: gngInterruptions,
+                          metrics: {
+                            goTrials: go.length, noGoTrials: noGo.length, goAccuracy, omissionRate: pct(omissions, go.length),
+                            commissionRate: pct(commissions, noGo.length), rtMedianMs: rtMedian, rtCv: cv, anticipatory
+                          }
+                        });
+                        goNoGoNote = "La puntuación de 100 puntos de la ficha no se calcula: solo atención (20) e inhibición (35) tienen fórmula directa; consistencia, velocidad ajustada, mantenimiento y autorregulación requieren distribuciones de referencia. Los resultados son directos (lo que hizo la persona); no hay resultado normativo ni percentiles hasta disponer de baremos FAND por edad. No se interpreta automáticamente como diagnóstico ni como rendimiento bajo o alto. Una respuesta lenta no se interpreta como dificultad inhibitoria sin comprobar la precisión y la capacidad motora. Los efectos de práctica pueden influir en repeticiones.";
           } else {
             const congruent = records.filter(item => item.condition === "Congruente");
             const incongruent = records.filter(item => item.condition === "Incongruente");
@@ -5604,6 +5682,30 @@
             distractors: "Módulo experimental independiente · distractores visuales"
           };
           const modeName = modes[modeSelect.value];
+          const medianOf = values => {
+            if (!values.length) return null;
+            const sorted = [...values].sort((a, b) => a - b);
+            const middle = Math.floor(sorted.length / 2);
+            return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+          };
+          const rtOf = group => medianOf(group.filter(trial => trial.correct && !trial.omission).map(trial => trial.responseMs));
+          const rtCongruent = rtOf(allCongruent);
+          const rtConflict = rtOf(allConflict);
+          const correctRts = correctTrials.filter(trial => !trial.omission).map(trial => trial.responseMs);
+          const rtMeanAll = mean(correctRts);
+          if (modeSelect.value === "standard") {
+            saveProfile("J02", {
+              ageGroup: "unspecified", level: "Prueba principal", valid: trials.length >= 20 && readingCheck.value !== "difficulty" && colorCheck.value !== "difficulty",
+              completed: elapsedMs >= durationMs, selfReport: { reading: readingCheck.value, colors: colorCheck.value },
+              metrics: {
+                trials: trials.length, accuracy: trials.length ? accuracy(trials) * 100 : null,
+                omissionRate: trials.length ? trials.filter(trial => trial.omission).length / trials.length * 100 : null,
+                rtMedianMs: rtOf(trials), rtCv: correctRts.length >= 10 ? deviation(correctRts) / rtMeanAll : null,
+                interferenceTimeCostMs: rtCongruent !== null && rtConflict !== null ? rtConflict - rtCongruent : null,
+                interferenceErrorCost: interferenceCost
+              }
+            });
+          }
           const scores = [
             { name: "Atención selectiva", value: accuracyScore(accuracy(trials), trials.length), note: "Aciertos sobre todos los estímulos respondidos o presentados.", raw: `${correctTrials.length} aciertos de ${trials.length} estímulos; precisión total ${trials.length ? (accuracy(trials) * 100).toFixed(1) : "0.0"} %.` },
             { name: "Control de interferencias", value: controlScore(interferenceCost), note: "Compara la precisión en la condición completamente congruente con la condición de doble conflicto. Se expresa el coste en puntos porcentuales, no como diagnóstico.", raw: interferenceCost === null ? "Sin suficientes estímulos en ambas condiciones para calcular el coste de interferencia." : `Condición congruente: ${(congruentAccuracy * 100).toFixed(1)} % (${allCongruent.length} ensayos); doble conflicto: ${(conflictAccuracy * 100).toFixed(1)} % (${allConflict.length} ensayos); coste observado: ${interferenceCost.toFixed(1)} puntos porcentuales.` },

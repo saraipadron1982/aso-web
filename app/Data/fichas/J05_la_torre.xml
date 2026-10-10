@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ficha_tecnica codigo="J05" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+  <nombre>La Torre</nombre>
+  <area_principal>Planificación y resolución de problemas</area_principal>
+  <fundamento>Tower of London / Tower of London–Freiburg; estudios de profundidad de búsqueda y movimientos mínimos.</fundamento>
+  <mecanica>Se presenta una configuración inicial de piezas y un objetivo. La persona mueve piezas respetando reglas hasta reproducir el modelo con el menor número razonable de movimientos. La dificultad depende de movimientos mínimos, profundidad de búsqueda y alternativas engañosas.</mecanica>
+  <niveles>
+    <nivel id="0">
+      <nombre>Tutorial</nombre>
+      <funcionamiento>2–3 ejercicios guiados</funcionamiento>
+      <duracion_o_ensayos>Sin límite</duracion_o_ensayos>
+    </nivel>
+    <nivel id="1–2">
+      <nombre>Entrada</nombre>
+      <funcionamiento>Problemas de 2–3 movimientos</funcionamiento>
+      <duracion_o_ensayos>1–2 min/problema</duracion_o_ensayos>
+    </nivel>
+    <nivel id="3–4">
+      <nombre>Planificación</nombre>
+      <funcionamiento>Problemas de 4 movimientos</funcionamiento>
+      <duracion_o_ensayos>1–2 min/problema</duracion_o_ensayos>
+    </nivel>
+    <nivel id="5–6">
+      <nombre>Intermedio</nombre>
+      <funcionamiento>Problemas de 5 movimientos</funcionamiento>
+      <duracion_o_ensayos>1–2 min/problema</duracion_o_ensayos>
+    </nivel>
+    <nivel id="7–8">
+      <nombre>Complejo</nombre>
+      <funcionamiento>Problemas de 6 movimientos y profundidad alta</funcionamiento>
+      <duracion_o_ensayos>1–2 min/problema</duracion_o_ensayos>
+    </nivel>
+    <nivel id="9–10">
+      <nombre>Experimental</nombre>
+      <funcionamiento>Complejidad superior solo tras pilotaje</funcionamiento>
+      <duracion_o_ensayos>Por validar</duracion_o_ensayos>
+    </nivel>
+  </niveles>
+  <adaptaciones_por_edad>
+    <grupo edad="6–8 años">
+      <inicio>0–1</inicio>
+      <niveles>1–4</niveles>
+      <duracion_piloto>5–7 min</duracion_piloto>
+    </grupo>
+    <grupo edad="9–11 años">
+      <inicio>0–2</inicio>
+      <niveles>3–6</niveles>
+      <duracion_piloto>6–9 min</duracion_piloto>
+    </grupo>
+    <grupo edad="12–17 años">
+      <inicio>0–2</inicio>
+      <niveles>3–8</niveles>
+      <duracion_piloto>8–12 min</duracion_piloto>
+    </grupo>
+    <grupo edad="18–59 años">
+      <inicio>0–2</inicio>
+      <niveles>3–8</niveles>
+      <duracion_piloto>8–12 min</duracion_piloto>
+    </grupo>
+    <grupo edad="60+ años">
+      <inicio>0–1</inicio>
+      <niveles>Adaptativo tras práctica</niveles>
+      <duracion_piloto>8–12 min</duracion_piloto>
+    </grupo>
+  </adaptaciones_por_edad>
+  <indicadores>
+    <indicador>
+      <nombre>Problemas resueltos</nombre>
+      <formula_o_registro>Conteo / problemas presentados</formula_o_registro>
+      <dimension>Éxito</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Movimientos adicionales</nombre>
+      <formula_o_registro>Realizados − mínimos</formula_o_registro>
+      <dimension>Ineficiencia</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Eficiencia</nombre>
+      <formula_o_registro>Mínimos / realizados × 100 (solo resueltos)</formula_o_registro>
+      <dimension>Planificación eficiente</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Latencia inicial</nombre>
+      <formula_o_registro>Tiempo antes del primer movimiento</formula_o_registro>
+      <dimension>Preparación</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Tiempo de solución</nombre>
+      <formula_o_registro>Segundos por problema</formula_o_registro>
+      <dimension>Ejecución</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Violaciones de reglas</nombre>
+      <formula_o_registro>Conteo</formula_o_registro>
+      <dimension>Seguimiento de instrucciones</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Reinicios</nombre>
+      <formula_o_registro>Conteo</formula_o_registro>
+      <dimension>Correcciones/estrategia</dimension>
+    </indicador>
+  </indicadores>
+  <complementariedad>Con Recuerda la Secuencia: planificación frente a memoria espacial inmediata. Con Pulsa o Espera: organización de acciones frente a inhibición simple. Con El Vigilante: ejecución compleja frente a consistencia atencional.</complementariedad>
+  <integracion_con_cuestionarios>La batería FAND describe rendimientos, no diagnostica TDAH, autismo u otras condiciones. Integrar con historia evolutiva, síntomas y dificultades funcionales en varios contextos, cuestionarios adecuados a edad y profesional, y factores de confusión (sueño, ansiedad, estado de ánimo, visión, audición, motricidad, medicación, comprensión y dispositivo). No sumar puntos de juegos heterogéneos ni establecer umbrales clínicos sin estudios de fiabilidad, normas por edad y validación clínica. Una ejecución normal no descarta dificultades; la recomendación profesional puede justificarse por la historia y el impacto cotidiano.</integracion_con_cuestionarios>
+  <limitaciones>Las reglas definitivas del tablero FAND están pendientes de confirmación. No transferir normas de Tower of London a una variante distinta. Problemas de 2–3 movimientos sirven sobre todo de entrada; los más complejos informan mejor sobre planificación.</limitaciones>
+  <anexo_cientifico_y_operativo fecha="2026-10-10" naturaleza="ampliacion_sin_modificar_contenido_previo">
+    <objetivo_operativo>Describir planificación de varios pasos, eficiencia y cumplimiento de reglas en problemas graduados.</objetivo_operativo>
+    <constructo_y_limites>Planificación tipo Tower of London; no asumir equivalencia con Tower of Hanoi si las reglas son distintas.</constructo_y_limites>
+    <protocolo_detallado>Presentar estado inicial y objetivo, explicar reglas, permitir práctica. Para cada problema documentar algoritmo de solución óptima, profundidad de búsqueda, ambigüedad de meta y movimientos subóptimos tentadores. Cronometrar planificación previa y ejecución por separado.</protocolo_detallado>
+    <controles_y_sesgos>Las reglas definitivas del tablero FAND deben confirmarse. No asignar un baremo de Tower of London a otra geometría, número de piezas o reglas. Registrar uso de deshacer y ayudas.</controles_y_sesgos>
+    <medidas_y_formulas>Resolución correcta; movimientos extra=movimientos reales−mínimo; eficiencia=mínimo/reales para resueltos; tiempo inicial; tiempo de ejecución; violaciones; reinicios; porcentaje óptimos por dificultad.</medidas_y_formulas>
+    <esquema_de_datos_por_ensayo>problem_id, board_version, initial_state, target_state, min_moves, search_depth, goal_ambiguity, move_log, planning_latency_ms, execution_ms, rule_violations, solved.</esquema_de_datos_por_ensayo>
+    <integracion_con_otras_pruebas>Recuerda la Secuencia ofrece memoria espacial de orden sin planificación; Pulsa o Espera ofrece inhibición elemental; cuestionarios de organización cotidiana aportan validez ecológica.</integracion_con_otras_pruebas>
+    <regla_de_interpretacion>Un mayor tiempo inicial puede reflejar planificación cuidadosa, no necesariamente déficit. Interpretar eficiencia, latencia y errores conjuntamente.</regla_de_interpretacion>
+    <fundamento_especifico>Tower of London y literatura de planificación ejecutiva; equivalencia psicométrica depende del diseño exacto.</fundamento_especifico>
+    <estado_de_baremos>No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez incremental.</estado_de_baremos>
+    <itinerario_de_validacion>1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.</itinerario_de_validacion>
+    <protocolo_de_orientacion>Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni probabilidades clínicas sin validación.</protocolo_de_orientacion>
+    <referencias_verificadas>
+      <referencia nombre="NICE NG87" url="https://www.nice.org.uk/guidance/ng87/chapter/recommendations">Guía clínica: la evaluación requiere historia evolutiva, contextos y juicio profesional.</referencia>
+      <referencia nombre="Arrondo et al., 2024" url="https://pubmed.ncbi.nlm.nih.gov/37004919/">Metaanálisis: la utilidad diagnóstica aislada de los CPT es modesta a moderada.</referencia>
+      <referencia nombre="Van Mourik et al., 2005" url="https://pubmed.ncbi.nlm.nih.gov/15679524/">Metaanálisis: el Stroop clásico no demuestra una alteración específica robusta en TDAH.</referencia>
+      <referencia nombre="Revisión CPT adultos, 2024" url="https://pubmed.ncbi.nlm.nih.gov/38424025/">Revisión sistemática: utilidad diagnóstica limitada de CPT aislados en adultos.</referencia>
+      <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
+    </referencias_verificadas>
+  </anexo_cientifico_y_operativo>
+</ficha_tecnica>

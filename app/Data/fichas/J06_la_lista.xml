@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ficha_tecnica codigo="J06" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+  <nombre>La Lista</nombre>
+  <area_principal>Aprendizaje y recuerdo verbal</area_principal>
+  <fundamento>Rey Auditory Verbal Learning Test (RAVLT); adaptación FAND no equivalente al instrumento estandarizado.</fundamento>
+  <mecanica>Se escuchan 15 palabras familiares. Después de cada presentación se recuerdan oralmente tantas como sea posible, en cualquier orden. Se realizan cinco rondas R1–R5. Sigue un vídeo distractor de unos tres minutos y una sexta recuperación R6 sin nueva presentación.</mecanica>
+  <niveles>
+    <nivel id="R1">
+      <nombre>Aprendizaje inicial</nombre>
+      <funcionamiento>Primera presentación y recuerdo</funcionamiento>
+      <duracion_o_ensayos>Según respuesta</duracion_o_ensayos>
+    </nivel>
+    <nivel id="R2">
+      <nombre>Segunda exposición</nombre>
+      <funcionamiento>Misma lista y recuerdo</funcionamiento>
+      <duracion_o_ensayos>Según respuesta</duracion_o_ensayos>
+    </nivel>
+    <nivel id="R3">
+      <nombre>Tercera exposición</nombre>
+      <funcionamiento>Misma lista y recuerdo</funcionamiento>
+      <duracion_o_ensayos>Según respuesta</duracion_o_ensayos>
+    </nivel>
+    <nivel id="R4">
+      <nombre>Cuarta exposición</nombre>
+      <funcionamiento>Misma lista y recuerdo</funcionamiento>
+      <duracion_o_ensayos>Según respuesta</duracion_o_ensayos>
+    </nivel>
+    <nivel id="R5">
+      <nombre>Quinta exposición</nombre>
+      <funcionamiento>Misma lista y recuerdo</funcionamiento>
+      <duracion_o_ensayos>Según respuesta</duracion_o_ensayos>
+    </nivel>
+    <nivel id="D">
+      <nombre>Distracción</nombre>
+      <funcionamiento>Vídeo sin palabras objetivo</funcionamiento>
+      <duracion_o_ensayos>~3 min</duracion_o_ensayos>
+    </nivel>
+    <nivel id="R6">
+      <nombre>Recuerdo diferido</nombre>
+      <funcionamiento>Evocar lista sin oírla de nuevo</funcionamiento>
+      <duracion_o_ensayos>Según respuesta</duracion_o_ensayos>
+    </nivel>
+  </niveles>
+  <adaptaciones_por_edad>
+    <grupo edad="6–8 años">
+      <inicio>Mismo protocolo; vocabulario validado</inicio>
+      <niveles>R1–R6</niveles>
+      <duracion_piloto>10–14 min</duracion_piloto>
+    </grupo>
+    <grupo edad="9–11 años">
+      <inicio>Mismo protocolo; vocabulario validado</inicio>
+      <niveles>R1–R6</niveles>
+      <duracion_piloto>10–14 min</duracion_piloto>
+    </grupo>
+    <grupo edad="12–17 años">
+      <inicio>Mismo protocolo</inicio>
+      <niveles>R1–R6</niveles>
+      <duracion_piloto>10–14 min</duracion_piloto>
+    </grupo>
+    <grupo edad="18–59 años">
+      <inicio>Mismo protocolo</inicio>
+      <niveles>R1–R6</niveles>
+      <duracion_piloto>10–14 min</duracion_piloto>
+    </grupo>
+    <grupo edad="60+ años">
+      <inicio>Audición y lenguaje comprobados</inicio>
+      <niveles>R1–R6</niveles>
+      <duracion_piloto>10–15 min</duracion_piloto>
+    </grupo>
+  </adaptaciones_por_edad>
+  <indicadores>
+    <indicador>
+      <nombre>R1–R6</nombre>
+      <formula_o_registro>0–15 aciertos por ronda</formula_o_registro>
+      <dimension>Aprendizaje y recuerdo</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Total de aprendizaje</nombre>
+      <formula_o_registro>R1+R2+R3+R4+R5 (0–75)</formula_o_registro>
+      <dimension>Adquisición acumulada</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Ganancia</nombre>
+      <formula_o_registro>R5 − R1</formula_o_registro>
+      <dimension>Progresión</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Retención relativa</nombre>
+      <formula_o_registro>R6 / R5 × 100 si R5 &gt; 0</formula_o_registro>
+      <dimension>Recuerdo tras distracción</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Intrusiones</nombre>
+      <formula_o_registro>Palabras no presentadas</formula_o_registro>
+      <dimension>Errores de recuerdo</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Repeticiones</nombre>
+      <formula_o_registro>Palabras reiteradas por ronda</formula_o_registro>
+      <dimension>Control del recuerdo</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Curva</nombre>
+      <formula_o_registro>Puntuaciones por ronda</formula_o_registro>
+      <dimension>Consistencia de adquisición</dimension>
+    </indicador>
+  </indicadores>
+  <complementariedad>Con Recuerda la Secuencia: memoria verbal frente a memoria visoespacial. Con El Vigilante: atención sostenida como dato paralelo. Con La Torre: aprendizaje frente a planificación.</complementariedad>
+  <integracion_con_cuestionarios>La batería FAND describe rendimientos, no diagnostica TDAH, autismo u otras condiciones. Integrar con historia evolutiva, síntomas y dificultades funcionales en varios contextos, cuestionarios adecuados a edad y profesional, y factores de confusión (sueño, ansiedad, estado de ánimo, visión, audición, motricidad, medicación, comprensión y dispositivo). No sumar puntos de juegos heterogéneos ni establecer umbrales clínicos sin estudios de fiabilidad, normas por edad y validación clínica. Una ejecución normal no descarta dificultades; la recomendación profesional puede justificarse por la historia y el impacto cotidiano.</integracion_con_cuestionarios>
+  <limitaciones>No asignar niveles de dificultad crecientes a las rondas: deben ser la misma lista. Las listas por edad, la grabación/trascripción de voz y el contenido del vídeo requieren validación. La distracción de 3 min difiere de protocolos RAVLT y no hereda sus baremos.</limitaciones>
+  <anexo_cientifico_y_operativo fecha="2026-10-10" naturaleza="ampliacion_sin_modificar_contenido_previo">
+    <objetivo_operativo>Caracterizar aprendizaje verbal en cinco exposiciones y recuerdo tras un intervalo con distractor.</objetivo_operativo>
+    <constructo_y_limites>Aprendizaje verbal auditivo y recuerdo diferido inspirado en RAVLT; no es RAVLT por cambios de protocolo.</constructo_y_limites>
+    <protocolo_detallado>Presentar exactamente 15 palabras habladas en cada una de cinco rondas; recuerdo libre oral tras cada exposición. Vídeo distractor de aproximadamente 3 minutos y recuerdo R6 sin nueva presentación. Registrar palabra por palabra y orden espontáneo si se desea.</protocolo_detallado>
+    <controles_y_sesgos>Las palabras, pronunciación, velocidad de presentación, grabación, transcripción y distractor deben estandarizarse. Vídeo personalizado puede alterar comparabilidad; fijar una versión estándar o estudiar su equivalencia. Controlar audición, idioma, vocabulario y fatiga.</controles_y_sesgos>
+    <medidas_y_formulas>R1...R6 entre 0 y 15; aprendizaje total=sum(R1..R5), máximo 75; ganancia R5−R1; retención R6/R5 si R5&gt;0; intrusiones y perseveraciones por ronda. No calcular retención cuando R5=0.</medidas_y_formulas>
+    <esquema_de_datos_por_ensayo>list_version, audio_version, word_ids, presentation_times, round_id, recall_transcript, correct_unique_words, intrusions, repetitions, distractor_id, distractor_duration_ms, hearing_check.</esquema_de_datos_por_ensayo>
+    <integracion_con_otras_pruebas>Recuerda la Secuencia compara modalidad verbal y visoespacial; El Vigilante aporta datos de consistencia atencional sin atribuir automáticamente fallos de recuerdo a inatención.</integracion_con_otras_pruebas>
+    <regla_de_interpretacion>Curva de aprendizaje y recuerdo diferido se interpretan separadamente. No diagnostica dislexia, TDAH, autismo ni deterioro cognitivo.</regla_de_interpretacion>
+    <fundamento_especifico>Rey Auditory Verbal Learning Test como paradigma de referencia; FAND requiere normas y listas propias.</fundamento_especifico>
+    <estado_de_baremos>No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez incremental.</estado_de_baremos>
+    <itinerario_de_validacion>1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.</itinerario_de_validacion>
+    <protocolo_de_orientacion>Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni probabilidades clínicas sin validación.</protocolo_de_orientacion>
+    <referencias_verificadas>
+      <referencia nombre="NICE NG87" url="https://www.nice.org.uk/guidance/ng87/chapter/recommendations">Guía clínica: la evaluación requiere historia evolutiva, contextos y juicio profesional.</referencia>
+      <referencia nombre="Arrondo et al., 2024" url="https://pubmed.ncbi.nlm.nih.gov/37004919/">Metaanálisis: la utilidad diagnóstica aislada de los CPT es modesta a moderada.</referencia>
+      <referencia nombre="Van Mourik et al., 2005" url="https://pubmed.ncbi.nlm.nih.gov/15679524/">Metaanálisis: el Stroop clásico no demuestra una alteración específica robusta en TDAH.</referencia>
+      <referencia nombre="Revisión CPT adultos, 2024" url="https://pubmed.ncbi.nlm.nih.gov/38424025/">Revisión sistemática: utilidad diagnóstica limitada de CPT aislados en adultos.</referencia>
+      <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
+    </referencias_verificadas>
+  </anexo_cientifico_y_operativo>
+</ficha_tecnica>

@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ficha_tecnica codigo="J01" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+  <nombre>Encuentra al Robot</nombre>
+  <area_principal>Atención selectiva y búsqueda visual</area_principal>
+  <fundamento>Tareas de búsqueda visual y discriminación de objetivos/distractores; protocolo FAND Encuentra al Robot (octubre de 2026).</fundamento>
+  <mecanica>Se muestra un robot modelo y una cuadrícula. La persona marca todos los robots idénticos al modelo; puede corregir selecciones antes de finalizar. Los distractores comparten color, antena, ojos o símbolos en distinta medida. La práctica proporciona retroalimentación; los bloques de medición, no.</mecanica>
+  <niveles>
+    <nivel id="0">
+      <nombre>Tutorial</nombre>
+      <funcionamiento>4–6 figuras; explicación de atributos y corrección libre</funcionamiento>
+      <duracion_o_ensayos>Sin límite clínico</duracion_o_ensayos>
+    </nivel>
+    <nivel id="1">
+      <nombre>Búsqueda sencilla</nombre>
+      <funcionamiento>6 robots, distractores muy distintos</funcionamiento>
+      <duracion_o_ensayos>60 s/ronda</duracion_o_ensayos>
+    </nivel>
+    <nivel id="2">
+      <nombre>Discriminación básica</nombre>
+      <funcionamiento>9 robots; un rasgo similar</funcionamiento>
+      <duracion_o_ensayos>75 s/ronda</duracion_o_ensayos>
+    </nivel>
+    <nivel id="3">
+      <nombre>Discriminación intermedia</nombre>
+      <funcionamiento>12 robots; dos rasgos compartidos</funcionamiento>
+      <duracion_o_ensayos>90 s/ronda</duracion_o_ensayos>
+    </nivel>
+    <nivel id="4">
+      <nombre>Distractores próximos</nombre>
+      <funcionamiento>16 robots; alta similitud</funcionamiento>
+      <duracion_o_ensayos>100 s/ronda</duracion_o_ensayos>
+    </nivel>
+    <nivel id="5">
+      <nombre>Alta densidad</nombre>
+      <funcionamiento>20 robots; mayor carga visual</funcionamiento>
+      <duracion_o_ensayos>120 s/ronda</duracion_o_ensayos>
+    </nivel>
+    <nivel id="6">
+      <nombre>Búsqueda compleja</nombre>
+      <funcionamiento>25 robots; distractores casi idénticos</funcionamiento>
+      <duracion_o_ensayos>150 s/ronda</duracion_o_ensayos>
+    </nivel>
+  </niveles>
+  <adaptaciones_por_edad>
+    <grupo edad="6–8 años">
+      <inicio>0–1</inicio>
+      <niveles>1–3</niveles>
+      <duracion_piloto>4–6 min</duracion_piloto>
+    </grupo>
+    <grupo edad="9–11 años">
+      <inicio>0–2</inicio>
+      <niveles>2–4</niveles>
+      <duracion_piloto>5–7 min</duracion_piloto>
+    </grupo>
+    <grupo edad="12–17 años">
+      <inicio>0–2</inicio>
+      <niveles>2–6</niveles>
+      <duracion_piloto>6–9 min</duracion_piloto>
+    </grupo>
+    <grupo edad="18–59 años">
+      <inicio>0–2</inicio>
+      <niveles>2–6</niveles>
+      <duracion_piloto>6–9 min</duracion_piloto>
+    </grupo>
+    <grupo edad="60+ años">
+      <inicio>0–1</inicio>
+      <niveles>Según comprensión</niveles>
+      <duracion_piloto>6–9 min</duracion_piloto>
+    </grupo>
+  </adaptaciones_por_edad>
+  <indicadores>
+    <indicador>
+      <nombre>TP: objetivos acertados</nombre>
+      <formula_o_registro>Conteo</formula_o_registro>
+      <dimension>Detección visual</dimension>
+    </indicador>
+    <indicador>
+      <nombre>FN: objetivos omitidos</nombre>
+      <formula_o_registro>Objetivos − TP</formula_o_registro>
+      <dimension>Omisiones</dimension>
+    </indicador>
+    <indicador>
+      <nombre>FP: distractores seleccionados</nombre>
+      <formula_o_registro>Conteo</formula_o_registro>
+      <dimension>Discriminación</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Tasa de detección</nombre>
+      <formula_o_registro>TP / total objetivos × 100</formula_o_registro>
+      <dimension>Precisión de búsqueda</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Tasa de falsas selecciones</nombre>
+      <formula_o_registro>FP / total distractores × 100</formula_o_registro>
+      <dimension>Errores por oportunidad</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Tiempo y revisiones</nombre>
+      <formula_o_registro>Segundos; cambios de selección</formula_o_registro>
+      <dimension>Eficiencia y estrategia</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Efecto de similitud</nombre>
+      <formula_o_registro>Diferencia entre condiciones comparables</formula_o_registro>
+      <dimension>Interferencia por distractores</dimension>
+    </indicador>
+  </indicadores>
+  <complementariedad>Con El Vigilante: búsqueda simultánea frente a vigilancia secuencial. Con Que no te engañen: selección visual frente a interferencia semántica. Con Recuerda la Secuencia: percepción/discriminación frente a memoria espacial.</complementariedad>
+  <integracion_con_cuestionarios>La batería FAND describe rendimientos, no diagnostica TDAH, autismo u otras condiciones. Integrar con historia evolutiva, síntomas y dificultades funcionales en varios contextos, cuestionarios adecuados a edad y profesional, y factores de confusión (sueño, ansiedad, estado de ánimo, visión, audición, motricidad, medicación, comprensión y dispositivo). No sumar puntos de juegos heterogéneos ni establecer umbrales clínicos sin estudios de fiabilidad, normas por edad y validación clínica. Una ejecución normal no descarta dificultades; la recomendación profesional puede justificarse por la historia y el impacto cotidiano.</integracion_con_cuestionarios>
+  <limitaciones>La complejidad gráfica, la visión, el dispositivo y la destreza motora influyen. Los números de robots y tiempos son propuestas piloto; la ficha original exige estandarizar contraste, tamaño, posición y similitud.</limitaciones>
+  <anexo_cientifico_y_operativo fecha="2026-10-10" naturaleza="ampliacion_sin_modificar_contenido_previo">
+    <objetivo_operativo>Distinguir búsqueda selectiva, discriminación perceptiva y respuesta bajo distractores visuales.</objetivo_operativo>
+    <constructo_y_limites>Búsqueda visual y atención selectiva; el rendimiento también depende de percepción, exploración ocular, motricidad y familiaridad digital.</constructo_y_limites>
+    <protocolo_detallado>Presentar robot objetivo estable y matriz; definir previamente número de objetivos, posición, similitud de distractores y tamaño. Permitir correcciones antes de confirmar, registrar cada selección y el momento de cierre. Aleatorizar sin generar configuraciones no equivalentes.</protocolo_detallado>
+    <controles_y_sesgos>Controlar visión cromática, tamaño de pantalla, densidad, contraste, familiaridad con ratón/táctil, objetivos por matriz y posiciones. No comparar matrices con proporciones de objetivo distintas sin calibración.</controles_y_sesgos>
+    <medidas_y_formulas>TP, FN, FP, TN; sensibilidad TP/(TP+FN); falsas selecciones FP/(FP+TN); precisión positiva TP/(TP+FP) si denominador &gt;0; duración; efecto de similitud comparando matrices equivalentes.</medidas_y_formulas>
+    <esquema_de_datos_por_ensayo>trial_id, target_robot_id, target_count, distractor_count, similarity_class, layout_seed, selections_timestamped, corrections, TP, FP, FN, duration_ms, device, screen_size.</esquema_de_datos_por_ensayo>
+    <integracion_con_otras_pruebas>El Vigilante contrasta búsqueda simultánea con vigilancia temporal; Que no te engañen introduce conflicto semántico; Recuerda la Secuencia distingue selección perceptiva y memoria de orden.</integracion_con_otras_pruebas>
+    <regla_de_interpretacion>Errores solo en matrices de alta similitud sugieren mayor coste perceptivo de distractores, no un perfil clínico específico.</regla_de_interpretacion>
+    <fundamento_especifico>Paradigma de búsqueda visual (no existe equivalencia automática con d2 u otra prueba normada).</fundamento_especifico>
+    <estado_de_baremos>No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez incremental.</estado_de_baremos>
+    <itinerario_de_validacion>1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.</itinerario_de_validacion>
+    <protocolo_de_orientacion>Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni probabilidades clínicas sin validación.</protocolo_de_orientacion>
+    <referencias_verificadas>
+      <referencia nombre="NICE NG87" url="https://www.nice.org.uk/guidance/ng87/chapter/recommendations">Guía clínica: la evaluación requiere historia evolutiva, contextos y juicio profesional.</referencia>
+      <referencia nombre="Arrondo et al., 2024" url="https://pubmed.ncbi.nlm.nih.gov/37004919/">Metaanálisis: la utilidad diagnóstica aislada de los CPT es modesta a moderada.</referencia>
+      <referencia nombre="Van Mourik et al., 2005" url="https://pubmed.ncbi.nlm.nih.gov/15679524/">Metaanálisis: el Stroop clásico no demuestra una alteración específica robusta en TDAH.</referencia>
+      <referencia nombre="Revisión CPT adultos, 2024" url="https://pubmed.ncbi.nlm.nih.gov/38424025/">Revisión sistemática: utilidad diagnóstica limitada de CPT aislados en adultos.</referencia>
+      <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
+    </referencias_verificadas>
+  </anexo_cientifico_y_operativo>
+</ficha_tecnica>

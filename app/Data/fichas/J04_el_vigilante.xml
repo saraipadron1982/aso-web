@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ficha_tecnica codigo="J04" version="ampliada-2.0" idioma="es" estado="protocolo_investigacion_no_validado" origen="version_preliminar_conservada_mas_anexos">
+  <nombre>El Vigilante</nombre>
+  <area_principal>Atención sostenida y vigilancia</area_principal>
+  <fundamento>Continuous Performance Test (CPT) y estudios de omisiones, falsas alarmas y variabilidad de respuesta.</fundamento>
+  <mecanica>Aparecen estímulos uno tras otro. La persona pulsa cuando aparece el objetivo y espera ante distractores. La regla permanece constante durante cada bloque; se observa la evolución del rendimiento en el tiempo.</mecanica>
+  <niveles>
+    <nivel id="0">
+      <nombre>Práctica</nombre>
+      <funcionamiento>Objetivo claramente diferente</funcionamiento>
+      <duracion_o_ensayos>8–12 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="1">
+      <nombre>Detección</nombre>
+      <funcionamiento>Objetivo frecuente</funcionamiento>
+      <duracion_o_ensayos>15–20 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="2">
+      <nombre>Selección</nombre>
+      <funcionamiento>Más distractores</funcionamiento>
+      <duracion_o_ensayos>20–30 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="3">
+      <nombre>Similitud</nombre>
+      <funcionamiento>Distractores visualmente cercanos</funcionamiento>
+      <duracion_o_ensayos>25–35 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="4">
+      <nombre>Vigilancia</nombre>
+      <funcionamiento>Objetivo ~20 %; regla constante</funcionamiento>
+      <duracion_o_ensayos>30–45 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="5">
+      <nombre>Prolongación</nombre>
+      <funcionamiento>Bloque más largo, sin nuevas reglas</funcionamiento>
+      <duracion_o_ensayos>45–75 ensayos</duracion_o_ensayos>
+    </nivel>
+    <nivel id="6">
+      <nombre>Avanzado</nombre>
+      <funcionamiento>Objetivos 15–20 %, intervalos variables</funcionamiento>
+      <duracion_o_ensayos>60–100 ensayos</duracion_o_ensayos>
+    </nivel>
+  </niveles>
+  <adaptaciones_por_edad>
+    <grupo edad="6–8 años">
+      <inicio>0–1</inicio>
+      <niveles>1–4</niveles>
+      <duracion_piloto>4–5 min</duracion_piloto>
+    </grupo>
+    <grupo edad="9–11 años">
+      <inicio>0–2</inicio>
+      <niveles>3–5</niveles>
+      <duracion_piloto>6–8 min</duracion_piloto>
+    </grupo>
+    <grupo edad="12–17 años">
+      <inicio>0–2</inicio>
+      <niveles>4–6</niveles>
+      <duracion_piloto>8–10 min</duracion_piloto>
+    </grupo>
+    <grupo edad="18–59 años">
+      <inicio>0–2</inicio>
+      <niveles>4–6</niveles>
+      <duracion_piloto>8–12 min</duracion_piloto>
+    </grupo>
+    <grupo edad="60+ años">
+      <inicio>0–1</inicio>
+      <niveles>Adaptación de bloques</niveles>
+      <duracion_piloto>6–10 min</duracion_piloto>
+    </grupo>
+  </adaptaciones_por_edad>
+  <indicadores>
+    <indicador>
+      <nombre>Detecciones</nombre>
+      <formula_o_registro>Objetivos respondidos / objetivos × 100</formula_o_registro>
+      <dimension>Atención a objetivos</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Omisiones</nombre>
+      <formula_o_registro>Objetivos sin respuesta / objetivos × 100</formula_o_registro>
+      <dimension>Fallos de detección</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Falsas alarmas</nombre>
+      <formula_o_registro>Distractores respondidos / distractores × 100</formula_o_registro>
+      <dimension>Respuestas erróneas</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Latencia mediana</nombre>
+      <formula_o_registro>ms en objetivos correctos</formula_o_registro>
+      <dimension>Velocidad</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Variabilidad de latencia</nombre>
+      <formula_o_registro>Desviación/medida robusta</formula_o_registro>
+      <dimension>Consistencia</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Decremento de vigilancia</nombre>
+      <formula_o_registro>Diferencia entre bloques comparables</formula_o_registro>
+      <dimension>Evolución temporal</dimension>
+    </indicador>
+    <indicador>
+      <nombre>Calidad del registro</nombre>
+      <formula_o_registro>Interrupciones y eventos inválidos</formula_o_registro>
+      <dimension>Interpretabilidad</dimension>
+    </indicador>
+  </indicadores>
+  <complementariedad>Con Encuentra al Robot: atención sostenida frente a búsqueda visual. Con Pulsa o Espera: falsas alarmas frente a inhibición en condiciones Go/No-Go. Con La Lista: explorar coexistencia de dificultades de atención y aprendizaje sin atribuir causalidad.</complementariedad>
+  <integracion_con_cuestionarios>La batería FAND describe rendimientos, no diagnostica TDAH, autismo u otras condiciones. Integrar con historia evolutiva, síntomas y dificultades funcionales en varios contextos, cuestionarios adecuados a edad y profesional, y factores de confusión (sueño, ansiedad, estado de ánimo, visión, audición, motricidad, medicación, comprensión y dispositivo). No sumar puntos de juegos heterogéneos ni establecer umbrales clínicos sin estudios de fiabilidad, normas por edad y validación clínica. Una ejecución normal no descarta dificultades; la recomendación profesional puede justificarse por la historia y el impacto cotidiano.</integracion_con_cuestionarios>
+  <limitaciones>Los bloques no deben sumarse mecánicamente hasta exceder la duración prevista. Para medir decremento hacen falta segmentos equivalentes y suficientes ensayos. Las latencias web dependen del hardware.</limitaciones>
+  <anexo_cientifico_y_operativo fecha="2026-10-10" naturaleza="ampliacion_sin_modificar_contenido_previo">
+    <objetivo_operativo>Observar la estabilidad de detección de objetivos a lo largo del tiempo en una tarea repetitiva.</objetivo_operativo>
+    <constructo_y_limites>Atención sostenida/vigilancia tipo CPT, junto con criterio de respuesta, percepción y velocidad.</constructo_y_limites>
+    <protocolo_detallado>Presentar estímulos en sucesión; fijar objetivo, frecuencia, ISI, ventana de respuesta, duración y número de bloques. El cambio de bloque se registra para analizar decremento sin cambiar inadvertidamente la dificultad.</protocolo_detallado>
+    <controles_y_sesgos>Separar fatiga de decremento vigilante; registrar interrupciones y latencia del dispositivo. Distintos tiempos por edad constituyen versiones distintas y no admiten comparación directa sin equiparación.</controles_y_sesgos>
+    <medidas_y_formulas>Omisiones/objetivos; falsas alarmas/no objetivos; mediana RT correcto; coeficiente de variación RT si es estable; diferencia por bloque; d-prima opcional con corrección para tasas 0/1 y suficientes ensayos.</medidas_y_formulas>
+    <esquema_de_datos_por_ensayo>trial_id, block_id, stimulus, is_target, target_frequency, ISI_ms, response_window_ms, hit, omission, false_alarm, rt_ms, interruption_flag, device.</esquema_de_datos_por_ensayo>
+    <integracion_con_otras_pruebas>Pulsa o Espera permite comparar atención a la regla con supresión de respuesta; Encuentra al Robot compara vigilancia temporal con búsqueda espacial; La Lista puede contextualizar fluctuaciones, sin establecer causalidad.</integracion_con_otras_pruebas>
+    <regla_de_interpretacion>La evidencia apoya utilidad complementaria para TDAH, pero el CPT aislado tiene sensibilidad y especificidad insuficientes para diagnóstico.</regla_de_interpretacion>
+    <fundamento_especifico>Arrondo et al. 2024, revisión sistemática y metaanálisis de CPT; revisión de CPT en adultos (2024).</fundamento_especifico>
+    <estado_de_baremos>No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez incremental.</estado_de_baremos>
+    <itinerario_de_validacion>1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.</itinerario_de_validacion>
+    <protocolo_de_orientacion>Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni probabilidades clínicas sin validación.</protocolo_de_orientacion>
+    <referencias_verificadas>
+      <referencia nombre="NICE NG87" url="https://www.nice.org.uk/guidance/ng87/chapter/recommendations">Guía clínica: la evaluación requiere historia evolutiva, contextos y juicio profesional.</referencia>
+      <referencia nombre="Arrondo et al., 2024" url="https://pubmed.ncbi.nlm.nih.gov/37004919/">Metaanálisis: la utilidad diagnóstica aislada de los CPT es modesta a moderada.</referencia>
+      <referencia nombre="Van Mourik et al., 2005" url="https://pubmed.ncbi.nlm.nih.gov/15679524/">Metaanálisis: el Stroop clásico no demuestra una alteración específica robusta en TDAH.</referencia>
+      <referencia nombre="Revisión CPT adultos, 2024" url="https://pubmed.ncbi.nlm.nih.gov/38424025/">Revisión sistemática: utilidad diagnóstica limitada de CPT aislados en adultos.</referencia>
+      <referencia nombre="NICE HTG729" url="https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests">Describe tecnologías concretas y sus normas; no transfiere sus baremos a FAND.</referencia>
+    </referencias_verificadas>
+  </anexo_cientifico_y_operativo>
+</ficha_tecnica>
