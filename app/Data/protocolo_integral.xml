@@ -1,0 +1,1562 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FAND_Protocolo_Integral version="2.0-investigacion" fecha="2026-10-10" estado="no_validado" uso="orientacion_no_diagnostico">
+  <metadatos>
+    <titulo>FAND — Informe integral de cuestionarios, ocho juegos y algoritmo adaptativo</titulo>
+  </metadatos>
+  <seccion numero="1" titulo="01. Finalidad y alcance">
+    <parrafo orden="1">FAND es una herramienta de orientación inicial y apoyo a la decisión de recomendar valoración profesional, NO una prueba diagnóstica ni un procedimiento de exclusión de TEA, TDAH u otras neurodivergencias.</parrafo>
+    <parrafo orden="2">Este documento consolida el material de las fichas ampliadas J01–J07, la ficha J08 y los protocolos de cuestionarios y selección adaptativa existentes en el proyecto. Las configuraciones de niveles, tiempos y edades proceden de propuestas piloto: NO son baremos ni reglas clínicas validadas.</parrafo>
+    <parrafo orden="3">Se diferencian tres tipos de afirmaciones: (a) mecánica acordada del juego, (b) hipótesis técnica de diseño FAND, (c) fundamento general de la literatura. La semejanza con una tarea neuropsicológica no confiere automáticamente validez diagnóstica.</parrafo>
+  </seccion>
+  <seccion numero="2" titulo="02. Arquitectura simplificada">
+    <parrafo orden="1">ACTIVIDAD A — Registro y cuestionarios propios: edad exacta, informante, consentimiento, idioma, accesibilidad, motivo de consulta, evaluaciones previas y diagnósticos referidos, desarrollo, contextos e impacto. Cuestionarios originales por dominios: atención/autorregulación; comunicación e interacción; flexibilidad/repetición/sensorialidad; planificación/memoria; historia e impacto funcional.</parrafo>
+    <parrafo orden="2">ACTIVIDAD B — Juegos adaptativos: comprobar comprensión y calidad, administrar juegos pertinentes, registrar métricas sin convertirlas en diagnósticos, seleccionar siguiente juego por incertidumbre o complementariedad. Meta operativa inicial: 2 juegos iniciales más 1–3 adicionales, revisable por edad y piloto.</parrafo>
+    <parrafo orden="3">SALIDA — Informe descriptivo: datos aportados, dominios explorados, fortalezas, dificultades observadas, calidad y límites, motivos concretos de recomendación y especialidad profesional pertinente. Una derivación puede recomendarse desde la actividad A; los juegos no son requisito para acceder a ella.</parrafo>
+  </seccion>
+  <seccion numero="3" titulo="03. Instrumentos propios FAND y puntuación">
+    <parrafo orden="1">I01 Registro: edad, género opcional, quién responde, antecedentes de valoración (fecha, centro y profesional si se conoce), diagnóstico comunicado, motivo de consulta, idioma y accesibilidad. No asigna puntuación de riesgo.</parrafo>
+    <parrafo orden="2">C01 Atención y autorregulación: inatención, distractibilidad, impulsividad, regulación y dificultades en contextos cotidianos. C02 Comunicación e interacción social: reciprocidad, pragmática y experiencias sociales. C03 Flexibilidad, repetición y sensorialidad: adaptación a cambios, intereses, acciones repetitivas y experiencias sensoriales. C04 Organización y memoria: planificación, secuencias y memoria cotidiana. C05 Desarrollo e impacto: inicio, persistencia, diferentes contextos, interferencia funcional y fortalezas.</parrafo>
+    <parrafo orden="3">Puntuación provisional de respuestas de frecuencia 0–4 y opción no sé/no aplica (dato ausente, no cero). Por cada dimensión: suma, número de ítems respondidos y promedio = suma/número respondido; mostrar también patrón de respuestas e informante. Son indicadores descriptivos de prioridad, sin umbrales clínicos ni probabilidades de TEA/TDAH. No sumar indiscriminadamente dominios ni combinar directamente con puntuaciones de juegos.</parrafo>
+    <parrafo orden="4">Los ítems se desarrollarán desde definiciones públicas de constructos y revisión experta; no copiar ni parafrasear sistemáticamente cuestionarios protegidos. Versiones y comprensión deben validarse por edad e informante. Escalas propias no heredan la sensibilidad, especificidad ni los puntos de corte de herramientas conocidas.</parrafo>
+  </seccion>
+  <seccion numero="4" titulo="04. Grupos de edad y adaptaciones">
+    <parrafo orden="1">3–5 años: cuestionario de cuidador; juegos solo cuando la comprensión, accesibilidad y viabilidad estén demostradas; no autoinforme autónomo. 6–7: cuidador y posible docente, tutorial breve y reglas sencillas. 8–11: cuidador/docente y autoinforme exploratorio adaptado. 12–16: autoinforme y observador cuando sea posible, respetando privacidad. 17+: autoinforme y observador opcional; considerar historia del desarrollo.</parrafo>
+    <parrafo orden="2">Las bandas son de ingeniería, no normas psicométricas. La dificultad, número de ensayos, ritmo, accesibilidad, fatiga, lectura y dispositivos deberán probarse por separado. No asumir que una puntuación de un niño y un adulto es comparable.</parrafo>
+  </seccion>
+  <seccion numero="5" titulo="05. Los ocho juegos: función principal y límites">
+    <parrafo orden="1">J01 ENCUENTRA AL ROBOT — Localizar robots idénticos a un modelo entre distractores. Atención selectiva, búsqueda y discriminación visual. No identifica por sí solo TDAH ni TEA.</parrafo>
+    <parrafo orden="2">J02 QUE NO TE ENGAÑEN — Stroop/Double Trouble de cuatro colores: identificar el color de tinta de la palabra superior eligiendo la PALABRA escrita abajo que nombra ese color, ignorando la palabra superior y la tinta de las opciones inferiores. Control de interferencia. Paleta exacta por confirmar.</parrafo>
+    <parrafo orden="3">J03 PULSA O ESPERA — Go/No-Go: responder ante señal Go y no responder ante No-Go. Inhibición de respuesta, comisiones, omisiones y tiempo. Errores pueden tener causas diversas.</parrafo>
+    <parrafo orden="4">J04 EL VIGILANTE — Tarea de vigilancia/CPT: identificar objetivos durante un periodo sostenido. Omisiones, comisiones, variabilidad y cambio temporal. El rendimiento no confirma ni excluye TDAH.</parrafo>
+    <parrafo orden="5">J05 LA TORRE — Planificación tipo Tower of London, no Tower of Hanoi: organizar movimientos bajo reglas para llegar a una configuración objetivo. Planificación, eficiencia, anticipación y respeto de reglas.</parrafo>
+    <parrafo orden="6">J06 LA LISTA — 15 palabras familiares presentadas oralmente; cinco ensayos de recuerdo inmediato R1–R5, vídeo distractor de tres minutos y recuerdo diferido oral R6. Aprendizaje y recuerdo verbal; inspirada en tareas de listas, no equivalente a RAVLT.</parrafo>
+    <parrafo orden="7">J07 RECUERDA LA SECUENCIA — Reproducir secuencias visoespaciales presentadas por el sistema (familia Corsi/Simon). Longitud y precisión de secuencia, errores de orden; no prueba aislada de capacidad intelectual.</parrafo>
+    <parrafo orden="8">J08 EL CÍRCULO MAYOR — Seleccionar el círculo de mayor tamaño. Condiciones: estático monocromático; estático multicolor; círculos en movimiento; movimiento con cambios de color. Comparación de tamaño y selección visual dinámica; módulo complementario experimental.</parrafo>
+  </seccion>
+  <seccion numero="6" titulo="06. Métricas y principios de cálculo">
+    <parrafo orden="1">J01: verdaderos positivos TP, omisiones FN, falsas selecciones FP, tiempo, precisión TP/(TP+FP) cuando el denominador sea &gt;0, sensibilidad de detección TP/(TP+FN), efecto de similitud y densidad. Informar por nivel; no confundir velocidad con exactitud.</parrafo>
+    <parrafo orden="2">J02: acierto por condición congruente/incongruente, latencia mediana por condición, variabilidad y coste de interferencia = mediana incongruente − mediana congruente cuando el diseño disponga de ambas condiciones comparables. No calcular costes sobre pocos ensayos o respuestas inválidas.</parrafo>
+    <parrafo orden="3">J03: comisiones No-Go / ensayos No-Go, omisiones Go / ensayos Go, mediana y variabilidad del tiempo Go, balance velocidad-precisión; registrar proporción Go/No-Go y anticipaciones.</parrafo>
+    <parrafo orden="4">J04: omisiones/objetivos, comisiones/no objetivos, tiempo de respuesta, variabilidad, efecto del transcurso de la tarea y calidad de sesión. Requiere suficientes ensayos y control de dispositivo.</parrafo>
+    <parrafo orden="5">J05: movimientos reales, exceso de movimientos sobre solución mínima cuando esté definida, latencia antes del primer movimiento, tiempo total, violaciones de reglas y finalización; comparar problemas de complejidad equivalente.</parrafo>
+    <parrafo orden="6">J06: R1–R5 (0–15 cada ronda), total de aprendizaje R1+…+R5 (0–75), ganancia R5−R1, R6 (0–15), retención R6/R5 solo si R5&gt;0 y con interpretación cautelosa; intrusiones, repeticiones y calidad de audio. Los cálculos no constituyen baremos.</parrafo>
+    <parrafo orden="7">J07: máxima longitud correctamente reproducida, proporción correcta por longitud, errores de orden, omisiones y, si aplica, tiempo. Registrar tipo de presentación y número de intentos.</parrafo>
+    <parrafo orden="8">J08: precisión y tiempo por cada una de cuatro condiciones, errores por selección de tamaño, efecto de color y movimiento; registrar tamaño relativo, trayectorias, densidad, velocidad y latencia del dispositivo. Evitar inferir inhibición o diagnóstico solo a partir de diferencias de condición.</parrafo>
+    <parrafo orden="9">Todos los indicadores se interpretan con denominadores, ensayos válidos, condiciones, accesibilidad y datos faltantes. Las transformaciones estandarizadas (z, percentiles, puntuaciones T) solo serán admisibles con normas FAND validadas para población, edad y modalidad.</parrafo>
+  </seccion>
+  <seccion numero="7" titulo="07. Complementariedad y rutas entre juegos">
+    <parrafo orden="1">ATENCIÓN: J04 (mantener vigilancia) → J01 (seleccionar objetivos entre distractores) → J08 (selección visual con movimiento y color). Una dificultad en J04 no implica dificultad en J01; la comparación identifica contextos que requieren mayor exploración.</parrafo>
+    <parrafo orden="2">INHIBICIÓN E INTERFERENCIA: J03 (detener una respuesta motora) ↔ J02 (resolver conflicto entre estímulos y reglas). No miden exactamente el mismo mecanismo; sus resultados se muestran separados.</parrafo>
+    <parrafo orden="3">PLANIFICACIÓN Y MEMORIA: J05 (anticipación y secuenciación de movimientos) ↔ J07 (orden visoespacial) ↔ J06 (aprendizaje verbal y recuerdo diferido). La comparación puede describir si las dificultades aparecen en varias modalidades, sin establecer causalidad.</parrafo>
+    <parrafo orden="4">COMPARACIONES TRANSVERSALES: J01 ↔ J08 permite examinar distractores estáticos frente a dinámicos; J04 ↔ J03 contrasta vigilancia sostenida con control Go/No-Go; J02 ↔ J05 contrasta conflicto de reglas con planificación; J06 ↔ J07 contrasta modalidades verbal y visoespacial.</parrafo>
+    <parrafo orden="5">TEA: ningún juego J01–J08 mide directamente los criterios nucleares de comunicación social y patrones restrictivos/repetitivos. La ruta de posible autismo se apoya sobre todo en C02, C03, C05 e historia del desarrollo. Los juegos solo describen procesos cognitivos asociados, no son filtro de acceso a derivación.</parrafo>
+  </seccion>
+  <seccion numero="8" titulo="08. Motor adaptativo: variables y decisiones">
+    <parrafo orden="1">ENTRADAS: edad, informante, consentimiento, modalidad, barreras de accesibilidad, prioridades por dominios C01–C05, historial y preferencias; tras cada juego, validez de sesión, indicadores por condición, dominios ya explorados, incertidumbre y fatiga.</parrafo>
+    <parrafo orden="2">ESTADOS: INICIO → REGISTRO → CUESTIONARIOS → PLAN_INICIAL → TUTORIAL → JUEGO → CONTROL_CALIDAD → ACTUALIZAR_PERFIL → DECIDIR_SIGUIENTE → INFORME. Salidas posibles: SIGUIENTE_JUEGO, COMPLEMENTAR_CUESTIONARIO, REPETIR_TUTORIAL, PAUSA, FINALIZAR, DERIVACION_DIRECTA.</parrafo>
+    <parrafo orden="3">REGLA 1: si existe preocupación persistente, impacto funcional relevante, petición de evaluación o antecedentes que la justifican, registrar recomendación profesional independientemente del desempeño en juegos.</parrafo>
+    <parrafo orden="4">REGLA 2: si no se comprende la tarea, hay barreras de acceso o datos inválidos, no etiquetar el rendimiento como bajo; ofrecer adaptación, tutorial, pausa o prueba alternativa.</parrafo>
+    <parrafo orden="5">REGLA 3: seleccionar el siguiente juego para cubrir un dominio aún no explorado o contrastar un patrón ambiguo con una tarea complementaria; no repetir automáticamente un juego solo por obtener menos aciertos.</parrafo>
+    <parrafo orden="6">REGLA 4: impedir ciclos J01↔J08, J02↔J03 y J06↔J07 mediante registro de juegos realizados y presupuesto de sesión. Permitir ampliación excepcional documentada.</parrafo>
+    <parrafo orden="7">REGLA 5: finalizar cuando se hayan cubierto los objetivos de la sesión, no queden preguntas operativas prioritarias y exista información suficiente para un informe limitado; también ante fatiga o decisión de la persona. Finalizar NO equivale a descartar TEA/TDAH.</parrafo>
+    <parrafo orden="8">REGLA 6: si el cuestionario apunta a TEA, TDAH o ambos, la recomendación se decide desde historia, características y repercusión funcional; los juegos aportan contexto y no pueden anular esa recomendación.</parrafo>
+  </seccion>
+  <seccion numero="9" titulo="09. Tabla de decisiones del motor">
+    <parrafo orden="1">C01 atención sostenida → iniciar J04; si interesa distinguir búsqueda selectiva, añadir J01; si importa efecto de movimiento/distracción visual, J08. Si se exploran suficientes dominios, finalizar.</parrafo>
+    <parrafo orden="2">C01 inhibición → J03; si se precisa comparar interferencia cognitiva, J02. Si hay fallos de comprensión, priorizar tutorial y control de calidad.</parrafo>
+    <parrafo orden="3">C04 planificación → J05; si se precisa contrastar secuenciación visual, J07; si se comunica olvido verbal, J06. No derivar de un único resultado una explicación causal.</parrafo>
+    <parrafo orden="4">C02/C03 comunicación, flexibilidad o sensorialidad → recoger C05 e historia evolutiva; ofrecer juegos pertinentes solo para dificultades cognitivas concretas. No seleccionar un supuesto juego diagnóstico de autismo.</parrafo>
+    <parrafo orden="5">Múltiples dominios → escoger primero el de mayor necesidad funcional y viabilidad, cubrir un segundo dominio distinto y utilizar un tercero solo si reduce una incertidumbre concreta. Si la persona ya cuenta con evaluación clínica, ajustar el objetivo a necesidades actuales.</parrafo>
+  </seccion>
+  <seccion numero="10" titulo="10. Pseudocódigo verificable">
+    <parrafo orden="1">perfil = registrar_I01_y_C01_a_C05(); registrar_fuentes_y_datos_faltantes(perfil)</parrafo>
+    <parrafo orden="2">recomendacion = evaluar_motivos_de_consulta_impacto_y_antecedentes(perfil)  # no diagnóstico</parrafo>
+    <parrafo orden="3">plan = seleccionar_dominios_y_juegos_elegibles(perfil.edad, perfil.accesibilidad, perfil.prioridades)</parrafo>
+    <parrafo orden="4">realizados = conjunto_vacio(); mientras objetivos_pendientes(plan) y sesion_viable():</parrafo>
+    <parrafo orden="5">    juego = seleccionar_sin_repeticiones(plan, realizados); si juego es ninguno: romper</parrafo>
+    <parrafo orden="6">    si no supera_tutorial(juego): adaptar_o_omitir_y_registrar(); continuar</parrafo>
+    <parrafo orden="7">    resultado = ejecutar_y_registrar(juego); realizados.agregar(juego)</parrafo>
+    <parrafo orden="8">    si no resultado.interpretable: registrar_motivo(); considerar_alternativa(); continuar</parrafo>
+    <parrafo orden="9">    actualizar_perfil_descriptivo(resultado); plan = recalcular_prioridades_y_complementariedad(plan, resultado)</parrafo>
+    <parrafo orden="10">    si fatiga_o_retiro(): romper</parrafo>
+    <parrafo orden="11">informe = explicar_fuentes_resultados_limitaciones_y_recomendacion(perfil, realizados, recomendacion)</parrafo>
+    <parrafo orden="12">No existe una condición «TEA confirmado», «TDAH confirmado» ni «ausencia de neurodivergencia» en este motor.</parrafo>
+  </seccion>
+  <seccion numero="11" titulo="11. Informe final y orientación">
+    <parrafo orden="1">El informe debe indicar: identificación mínima, quién respondió, edad y modalidad, motivo, antecedentes referidos, dominios del cuestionario, juegos efectivamente realizados, condiciones y métricas, validez, fortalezas, observaciones, limitaciones y motivos explícitos de orientación.</parrafo>
+    <parrafo orden="2">Categorías de salida: (a) se recomienda valoración profesional para explorar dificultades de atención/autorregulación y posible TDAH; (b) se recomienda explorar comunicación social, patrones y desarrollo para posible TEA; (c) conviene explorar ambos; (d) conviene evaluación más amplia por otras dificultades; (e) datos insuficientes o sin motivos adicionales identificados en este cribado limitado. Ninguna categoría excluye condiciones.</parrafo>
+    <parrafo orden="3">En menores considerar cuidadores y, con consentimiento, escuela; en adultos incorporar trayectoria vital y estrategias compensatorias. Las discrepancias entre informantes se documentan, no se promedian de manera automática.</parrafo>
+  </seccion>
+  <seccion numero="12" titulo="12. Diseño de investigación y validación">
+    <parrafo orden="1">Fase de contenido: definición de constructos, expertos en neurodesarrollo y psicometría, entrevistas cognitivas, revisión de sesgos y accesibilidad. Fase piloto: comprensión, fatiga, duración, calidad de datos y tasa de abandono por edad.</parrafo>
+    <parrafo orden="2">Fase psicométrica: consistencia y estructura dimensional cuando proceda, estabilidad temporal, equivalencia entre informantes y modos, funcionamiento diferencial por edad/género/lengua/discapacidad y convergencia/divergencia con instrumentos autorizados cuando exista permiso.</parrafo>
+    <parrafo orden="3">Fase de precisión y derivación: comparación prospectiva y ciega con valoración clínica de referencia; sensibilidad, especificidad, valores predictivos según prevalencia, calibración e intervalos de confianza; evaluar rutas TEA, TDAH, dual y otras dificultades.</parrafo>
+    <parrafo orden="4">Validación del algoritmo: comparar ruta adaptativa frente a batería fija, cuantificar información perdida, tiempo, abandonos, equidad y seguridad de recomendaciones. Predefinir reglas antes de estudiar resultados; no optimizar y validar en la misma muestra sin control.</parrafo>
+    <parrafo orden="5">Requisitos de implantación: protección de datos RGPD, minimización de datos sensibles, seguridad, accesibilidad, transparencia, revisión profesional, documentación de versiones y supervisión ética para menores.</parrafo>
+  </seccion>
+  <seccion numero="13" titulo="13. Fuentes del proyecto y cautelas bibliográficas">
+    <parrafo orden="1">Fuentes documentales efectivamente consolidadas: FAND_7_Fichas_Ampliadas_Unificadas.pdf; fichas individuales J01–J07 en FAND_Fichas_Ampliadas_2026; FAND_J08_El_Circulo_Mayor_Ficha_Ampliada.pdf; FAND_Protocolo_Adaptativo_Orientacion_J01_J08.pdf; FAND_Cuestionarios_Algoritmo_Investigacion_v1.pdf y su XML.</parrafo>
+    <parrafo orden="2">Referentes conceptuales: paradigmas de búsqueda visual, Stroop, Go/No-Go, CPT, Tower of London, aprendizaje de listas y amplitud visoespacial. Guías NICE NG87 (TDAH), CG128 (autismo en menores) y CG142 (autismo en adultos); marcos de calidad de medidas como COSMIN. Su mención fundamenta constructos generales, NO valida los juegos concretos de FAND.</parrafo>
+    <parrafo orden="3">Las referencias abreviadas de investigaciones facilitadas previamente (p. ej., Fulceri 2025, Peterson 2024, Blanco 2025) requieren verificación bibliográfica individual antes de atribuirles hallazgos o cifras. No se importan puntos de corte ajenos ni se presentan cifras de precisión no contrastadas.</parrafo>
+  </seccion>
+  <anexos_fichas_originales nota="Transcripcion textual de las fichas piloto de origen; tablas preservadas como texto, sin valor normativo">
+    <ficha juego="J01" formato="texto_extraido">
+ Encuentra al Robot
+ Versión 2.0 · Protocolo de investigación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación y fundamento original
+ Tareas de búsqueda visual y discriminación de objetivos/distractores; protocolo FAND Encuentra al Robot (octubre
+ de 2026).
+
+
+ Funcionamiento del juego
+ Se muestra un robot modelo y una cuadrícula. La persona marca todos los robots idénticos al modelo; puede
+ corregir selecciones antes de finalizar. Los distractores comparten color, antena, ojos o símbolos en distinta medida.
+ La práctica proporciona retroalimentación; los bloques de medición, no.
+
+
+ Niveles conservados de la ficha anterior
+
+  Nivel       Mecánica                                                                        Tiempo / ensayos
+
+  0           Tutorial: 4–6 figuras; explicación de atributos y corrección libre              Sin límite clínico
+
+  1           Búsqueda sencilla: 6 robots, distractores muy distintos                         60 s/ronda
+
+  2           Discriminación básica: 9 robots; un rasgo similar                               75 s/ronda
+
+  3           Discriminación intermedia: 12 robots; dos rasgos compartidos                    90 s/ronda
+
+  4           Distractores próximos: 16 robots; alta similitud                                100 s/ronda
+
+  5           Alta densidad: 20 robots; mayor carga visual                                    120 s/ronda
+
+  6           Búsqueda compleja: 25 robots; distractores casi idénticos                       150 s/ronda
+
+
+
+ Adaptación por edad conservada
+
+  Edad                        Inicio                     Niveles                    Tiempo piloto
+
+  6–8 años                    0–1                        1–3                        4–6 min
+
+  9–11 años                   0–2                        2–4                        5–7 min
+
+  12–17 años                  0–2                        2–6                        6–9 min
+
+  18–59 años                  0–2                        2–6                        6–9 min
+
+  60+ años                    0–1                        Según comprensión          6–9 min
+
+ ATENCIÓN: estas edades, niveles y duraciones son decisiones piloto de FAND; no equivalen a baremos de los
+ instrumentos publicados.
+
+
+ Tabla de medición original
+
+  Variable                                   Cálculo o registro                           Dimensión
+
+  TP: objetivos acertados                    Conteo                                       Detección visual
+
+  FN: objetivos omitidos                     Objetivos − TP                               Omisiones
+
+  FP: distractores seleccionados             Conteo                                       Discriminación
+
+  Tasa de detección                          TP / total objetivos × 100                   Precisión de búsqueda
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                                1
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Tasa de falsas selecciones                 FP / total distractores × 100                 Errores por oportunidad
+
+  Tiempo y revisiones                        Segundos; cambios de selección                Eficiencia y estrategia
+
+  Efecto de similitud                        Diferencia entre condiciones comparables      Interferencia por distractores
+
+
+
+ Limitaciones originales
+ La complejidad gráfica, la visión, el dispositivo y la destreza motora influyen. Los números de robots y tiempos son
+ propuestas piloto; la ficha original exige estandarizar contraste, tamaño, posición y similitud.
+
+
+ Objetivo y alcance
+ Distinguir búsqueda selectiva, discriminación perceptiva y respuesta bajo distractores visuales.
+
+
+ Constructo y factores de confusión
+ Búsqueda visual y atención selectiva; el rendimiento también depende de percepción, exploración ocular,
+ motricidad y familiaridad digital.
+
+
+ Procedimiento técnico ampliado
+ Presentar robot objetivo estable y matriz; definir previamente número de objetivos, posición, similitud de
+ distractores y tamaño. Permitir correcciones antes de confirmar, registrar cada selección y el momento de cierre.
+ Aleatorizar sin generar configuraciones no equivalentes.
+
+
+ Controles de calidad y sesgos
+ Controlar visión cromática, tamaño de pantalla, densidad, contraste, familiaridad con ratón/táctil, objetivos por
+ matriz y posiciones. No comparar matrices con proporciones de objetivo distintas sin calibración.
+
+
+ Indicadores y fórmulas ampliadas
+ TP, FN, FP, TN; sensibilidad TP/(TP+FN); falsas selecciones FP/(FP+TN); precisión positiva TP/(TP+FP) si denominador
+ &gt;0; duración; efecto de similitud comparando matrices equivalentes.
+
+
+ Registro estructurado por ensayo (XML)
+ trial_id, target_robot_id, target_count, distractor_count, similarity_class, layout_seed, selections_timestamped,
+ corrections, TP, FP, FN, duration_ms, device, screen_size.
+
+
+ Integración con el resto de FAND
+ El Vigilante contrasta búsqueda simultánea con vigilancia temporal; Que no te engañen introduce conflicto
+ semántico; Recuerda la Secuencia distingue selección perceptiva y memoria de orden.
+
+
+ Interpretación permitida
+ Errores solo en matrices de alta similitud sugieren mayor coste perceptivo de distractores, no un perfil clínico
+ específico.
+
+
+ Base científica específica
+ Paradigma de búsqueda visual (no existe equivalencia automática con d2 u otra prueba normada).
+
+
+ Baremos por edad: estado real
+ No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros
+ piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez
+ incremental.
+
+
+
+FAND · documento técnico preliminar · 2026                                                                                  2
+
+ Validación requerida
+ 1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con
+ ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas
+ por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación
+ externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.
+
+
+ Orientación y recomendación, no diagnóstico
+ Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con
+ síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay
+ dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni
+ probabilidades clínicas sin validación.
+
+
+ Fuentes científicas verificadas
+ NICE NG87: https://www.nice.org.uk/guidance/ng87/chapter/recommendations — Guía clínica: la evaluación
+ requiere historia evolutiva, contextos y juicio profesional.
+
+ Arrondo et al., 2024: https://pubmed.ncbi.nlm.nih.gov/37004919/ — Metaanálisis: la utilidad diagnóstica aislada de
+ los CPT es modesta a moderada.
+
+ Van Mourik et al., 2005: https://pubmed.ncbi.nlm.nih.gov/15679524/ — Metaanálisis: el Stroop clásico no demuestra
+ una alteración específica robusta en TDAH.
+
+ Revisión CPT adultos, 2024: https://pubmed.ncbi.nlm.nih.gov/38424025/ — Revisión sistemática: utilidad
+ diagnóstica limitada de CPT aislados en adultos.
+
+ NICE HTG729: https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests — Describe tecnologías
+ concretas y sus normas; no transfiere sus baremos a FAND.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                              3
+
+</ficha>
+    <ficha juego="J02" formato="texto_extraido">
+ Que no te engañen
+ Versión 2.0 · Protocolo de investigación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación y fundamento original
+ Paradigma Stroop y tarea Double Trouble (Creyos/Cambridge Brain Sciences).
+
+
+ Funcionamiento del juego
+ Se presenta una palabra de color escrita con tinta congruente o incongruente. Debe elegirse abajo la PALABRA que
+ nombra el color de la tinta superior, ignorando el significado de la palabra superior y el color de las opciones
+ inferiores. Ejemplo: ROJO en azul → elegir la opción que dice AZUL.
+
+
+ Niveles conservados de la ficha anterior
+
+  Nivel       Mecánica                                                                                Tiempo / ensayos
+
+  0           Tutorial: Ensayos guiados con explicación                                               Sin límite
+
+  1           Congruencia: Palabra y tinta coinciden; opciones fáciles                                30 s
+
+  2           Interferencia superior: Mezcla de palabra/tinta congruente e incongruente               45 s
+
+  3           Interferencia de opciones: Opciones inferiores con tinta engañosa                       60 s
+
+  4           Doble interferencia: Interferencia en estímulo y opciones                               90 s
+
+  5           Bloque estandarizado: Condiciones equilibradas, aleatorizadas y registradas             90 s
+
+
+
+ Adaptación por edad conservada
+
+  Edad                       Inicio                     Niveles                             Tiempo piloto
+
+  6–8 años                   0–1                        1–2 si lectura automatizada         45–60 s
+
+  9–11 años                  0–2                        2–4                                 60–90 s
+
+  12–17 años                 0–2                        3–5                                 90 s
+
+  18–59 años                 0–2                        3–5                                 90 s
+
+  60+ años                   0–2                        3–5 accesibles                      90 s inicial
+
+ ATENCIÓN: estas edades, niveles y duraciones son decisiones piloto de FAND; no equivalen a baremos de los
+ instrumentos publicados.
+
+
+ Tabla de medición original
+
+  Variable                                   Cálculo o registro                                    Dimensión
+
+  Aciertos y errores                         Conteos                                               Precisión
+
+  Puntuación neta                            Aciertos − errores                                    Rendimiento bruto de tarea
+
+  Precisión                                  Aciertos / respuestas × 100                           Exactitud
+
+  Latencia mediana                           ms de respuestas correctas                            Velocidad
+
+  Coste temporal de interferencia            Mediana incongruente − mediana congruente             Interferencia
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                                      1
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Coste de errores                           % errores incongruentes − % congruentes       Interferencia sobre precisión
+
+  Variabilidad temporal                      Dispersión de latencias correctas             Consistencia
+
+
+
+ Limitaciones originales
+ Es imprescindible comprobar lectura de palabras y percepción de colores. El número de colores de la versión FAND
+ está pendiente de confirmar: NO se presupone más de rojo/azul. Los 90 s proceden de una versión investigada de
+ Double Trouble; el resto de duraciones son propuestas.
+
+
+ Objetivo y alcance
+ Separar el rendimiento basal de denominación de color del coste provocado por incongruencia semántica y por el
+ color de las respuestas.
+
+
+ Constructo y factores de confusión
+ Interferencia tipo Stroop/Double Trouble; lectura automatizada y velocidad perceptivo-motora son factores de
+ confusión.
+
+
+ Procedimiento técnico ampliado
+ Palabra superior: responder por tinta, no por significado. Opciones inferiores: elegir el texto que nombra la tinta
+ superior, ignorando el color de las opciones. Equilibrar congruencia de estímulo superior y congruencia de opciones;
+ guardar condición de cada ensayo.
+
+
+ Controles de calidad y sesgos
+ Verificar lectura automatizada y discriminación cromática. Mantener proporciones y secuencia de ensayos
+ constantes en el bloque comparable. Rojo/azul es referencia del paradigma; ampliar colores crea otra versión que
+ requiere validación.
+
+
+ Indicadores y fórmulas ampliadas
+ Exactitud por condición; mediana RT de respuestas correctas por condición; coste RT=incongruente−congruente;
+ coste de error=%error incongruente−%error congruente; RT variable; aciertos−errores como indicador secundario,
+ no diagnóstico.
+
+
+ Registro estructurado por ensayo (XML)
+ trial_id, top_word, top_ink, option_words, option_inks, top_congruence, response_congruence, correct_option,
+ chosen_option, correct, rt_ms, reading_check, color_vision_check.
+
+
+ Integración con el resto de FAND
+ Pulsa o Espera contrasta inhibición de respuesta con resolución de conflicto; Encuentra al Robot contrasta selección
+ visual; La Torre aporta organización de pasos.
+
+
+ Interpretación permitida
+ Un coste de interferencia alto necesita control de velocidad basal y lectura; la literatura no respalda usarlo como
+ marcador específico de TDAH.
+
+
+ Base científica específica
+ Van Mourik et al. (2005), metaanálisis de Stroop y TDAH; Double Trouble es un paradigma emparentado, no un
+ baremo transferible.
+
+
+ Baremos por edad: estado real
+
+
+FAND · documento técnico preliminar · 2026                                                                                 2
+
+ No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros
+ piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez
+ incremental.
+
+
+ Validación requerida
+ 1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con
+ ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas
+ por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación
+ externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.
+
+
+ Orientación y recomendación, no diagnóstico
+ Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con
+ síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay
+ dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni
+ probabilidades clínicas sin validación.
+
+
+ Fuentes científicas verificadas
+ NICE NG87: https://www.nice.org.uk/guidance/ng87/chapter/recommendations — Guía clínica: la evaluación
+ requiere historia evolutiva, contextos y juicio profesional.
+
+ Arrondo et al., 2024: https://pubmed.ncbi.nlm.nih.gov/37004919/ — Metaanálisis: la utilidad diagnóstica aislada de
+ los CPT es modesta a moderada.
+
+ Van Mourik et al., 2005: https://pubmed.ncbi.nlm.nih.gov/15679524/ — Metaanálisis: el Stroop clásico no demuestra
+ una alteración específica robusta en TDAH.
+
+ Revisión CPT adultos, 2024: https://pubmed.ncbi.nlm.nih.gov/38424025/ — Revisión sistemática: utilidad
+ diagnóstica limitada de CPT aislados en adultos.
+
+ NICE HTG729: https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests — Describe tecnologías
+ concretas y sus normas; no transfiere sus baremos a FAND.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                              3
+
+</ficha>
+    <ficha juego="J03" formato="texto_extraido">
+ Pulsa o Espera
+ Versión 2.0 · Protocolo de investigación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación y fundamento original
+ Paradigma Go/No-Go; estudios de inhibición y rendimiento ejecutivo.
+
+
+ Funcionamiento del juego
+ Ante señales Go se pulsa; ante No-Go no se pulsa. Las señales Go suelen ser más frecuentes para establecer una
+ tendencia a responder. Se presentan automáticamente, con intervalos y ventanas de respuesta controlados.
+
+
+ Niveles conservados de la ficha anterior
+
+  Nivel       Mecánica                                                                          Tiempo / ensayos
+
+  0           Tutorial: Diferenciar señales y practicar                                         8–12 ensayos
+
+  1           Básico: Go/No-Go muy distinguibles                                                1 min
+
+  2           Go frecuente: Aumentar proporción Go; registrar comisiones                        2 min
+
+  3           Ritmo variable: Intervalos imprevisibles sin cambiar regla                        2–3 min
+
+  4           Mayor demanda: Bloque de inhibición con señales similares controladas             3–4 min
+
+  5           Medición: Frecuencias, tiempos y ensayos fijos                                    4–6 min
+
+
+
+ Adaptación por edad conservada
+
+  Edad                        Inicio                      Niveles                     Tiempo piloto
+
+  6–8 años                    0–1                         1–2                         2–3 min
+
+  9–11 años                   0–1                         2–3                         3–4 min
+
+  12–17 años                  0–2                         3–5                         4–5 min
+
+  18–59 años                  0–2                         3–5                         4–6 min
+
+  60+ años                    0–1                         Según comprensión           3–5 min
+
+ ATENCIÓN: estas edades, niveles y duraciones son decisiones piloto de FAND; no equivalen a baremos de los
+ instrumentos publicados.
+
+
+ Tabla de medición original
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Aciertos Go                                Go respondidos correctamente                  Ejecución
+
+  Omisiones Go                               Go sin respuesta                              Detección/respuesta
+
+  Comisiones No-Go                           Pulsaciones No-Go                             Fallo de inhibición
+
+  Tasa de comisión                           Comisiones / total No-Go × 100                Inhibición
+
+  Precisión Go                               Aciertos Go / total Go × 100                  Control contra no responder
+
+  Mediana y variabilidad Go                  ms y dispersión                               Velocidad/consistencia
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                               1
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Anticipaciones                             Pulsaciones fuera de ventana                  Calidad de respuesta
+
+
+
+ Limitaciones originales
+ Una persona que nunca pulsa puede obtener 100 % de inhibiciones No-Go; nunca interpretar sin precisión Go. La
+ frecuencia de señales, el dispositivo y la ventana de respuesta deben fijarse antes de baremar.
+
+
+ Objetivo y alcance
+ Cuantificar la capacidad de responder a estímulos Go frecuentes y retener la respuesta ante No-Go.
+
+
+ Constructo y factores de confusión
+ Inhibición motora prepotente; requiere vigilancia, discriminación perceptiva y respuesta motora.
+
+
+ Procedimiento técnico ampliado
+ Fijar por versión proporción Go/No-Go, duración del estímulo, intervalo entre estímulos, ventana de respuesta y
+ número de ensayos. Practicar hasta demostrar comprensión. Registrar respuesta tardía y anticipada por separado.
+
+
+ Controles de calidad y sesgos
+ No cambiar probabilidad Go o intervalo entre estímulos dentro de un bloque normativo sin modelarlo; evitar No-Go
+ excesivamente infrecuentes con pocas oportunidades. Calibrar latencia motora y entradas táctiles.
+
+
+ Indicadores y fórmulas ampliadas
+ Aciertos Go/Go; omisiones Go/Go; comisiones No-Go/No-Go; inhibiciones No-Go/No-Go; mediana RT Go; dispersión
+ RT; respuestas anticipadas. Inhibición 100% sin respuestas Go = no interpretable.
+
+
+ Registro estructurado por ensayo (XML)
+ trial_id, go_nogo, stimulus_id, onset_ms, offset_ms, response_window_ms, response_timestamp_ms, correct,
+ anticipatory, late, device_latency_ms.
+
+
+ Integración con el resto de FAND
+ El Vigilante comparte omisiones y variabilidad, pero enfatiza mantenimiento temporal; Que no te engañen mide
+ conflicto de elección en lugar de supresión de una pulsación.
+
+
+ Interpretación permitida
+ Comisiones elevadas no equivalen a impulsividad clínica; interpretar junto con precisión Go, patrón temporal,
+ cuestionarios y condiciones de administración.
+
+
+ Base científica específica
+ Paradigma Go/No-Go, ampliamente investigado; los parámetros concretos de FAND deben validarse.
+
+
+ Baremos por edad: estado real
+ No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros
+ piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez
+ incremental.
+
+
+ Validación requerida
+ 1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con
+ ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas
+ por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación
+
+
+
+FAND · documento técnico preliminar · 2026                                                                              2
+
+ externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.
+
+
+ Orientación y recomendación, no diagnóstico
+ Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con
+ síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay
+ dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni
+ probabilidades clínicas sin validación.
+
+
+ Fuentes científicas verificadas
+ NICE NG87: https://www.nice.org.uk/guidance/ng87/chapter/recommendations — Guía clínica: la evaluación
+ requiere historia evolutiva, contextos y juicio profesional.
+
+ Arrondo et al., 2024: https://pubmed.ncbi.nlm.nih.gov/37004919/ — Metaanálisis: la utilidad diagnóstica aislada de
+ los CPT es modesta a moderada.
+
+ Van Mourik et al., 2005: https://pubmed.ncbi.nlm.nih.gov/15679524/ — Metaanálisis: el Stroop clásico no demuestra
+ una alteración específica robusta en TDAH.
+
+ Revisión CPT adultos, 2024: https://pubmed.ncbi.nlm.nih.gov/38424025/ — Revisión sistemática: utilidad
+ diagnóstica limitada de CPT aislados en adultos.
+
+ NICE HTG729: https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests — Describe tecnologías
+ concretas y sus normas; no transfiere sus baremos a FAND.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                            3
+
+</ficha>
+    <ficha juego="J04" formato="texto_extraido">
+ El Vigilante
+ Versión 2.0 · Protocolo de investigación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación y fundamento original
+ Continuous Performance Test (CPT) y estudios de omisiones, falsas alarmas y variabilidad de respuesta.
+
+
+ Funcionamiento del juego
+ Aparecen estímulos uno tras otro. La persona pulsa cuando aparece el objetivo y espera ante distractores. La regla
+ permanece constante durante cada bloque; se observa la evolución del rendimiento en el tiempo.
+
+
+ Niveles conservados de la ficha anterior
+
+  Nivel       Mecánica                                                                                   Tiempo / ensayos
+
+  0           Práctica: Objetivo claramente diferente                                                    8–12 ensayos
+
+  1           Detección: Objetivo frecuente                                                              15–20 ensayos
+
+  2           Selección: Más distractores                                                                20–30 ensayos
+
+  3           Similitud: Distractores visualmente cercanos                                               25–35 ensayos
+
+  4           Vigilancia: Objetivo ~20 %; regla constante                                                30–45 ensayos
+
+  5           Prolongación: Bloque más largo, sin nuevas reglas                                          45–75 ensayos
+
+  6           Avanzado: Objetivos 15–20 %, intervalos variables                                          60–100 ensayos
+
+
+
+ Adaptación por edad conservada
+
+  Edad                       Inicio                      Niveles                              Tiempo piloto
+
+  6–8 años                   0–1                         1–4                                  4–5 min
+
+  9–11 años                  0–2                         3–5                                  6–8 min
+
+  12–17 años                 0–2                         4–6                                  8–10 min
+
+  18–59 años                 0–2                         4–6                                  8–12 min
+
+  60+ años                   0–1                         Adaptación de bloques                6–10 min
+
+ ATENCIÓN: estas edades, niveles y duraciones son decisiones piloto de FAND; no equivalen a baremos de los
+ instrumentos publicados.
+
+
+ Tabla de medición original
+
+  Variable                                    Cálculo o registro                                   Dimensión
+
+  Detecciones                                 Objetivos respondidos / objetivos × 100              Atención a objetivos
+
+  Omisiones                                   Objetivos sin respuesta / objetivos × 100            Fallos de detección
+
+  Falsas alarmas                              Distractores respondidos / distractores × 100        Respuestas erróneas
+
+  Latencia mediana                            ms en objetivos correctos                            Velocidad
+
+  Variabilidad de latencia                    Desviación/medida robusta                            Consistencia
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                                  1
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Decremento de vigilancia                   Diferencia entre bloques comparables          Evolución temporal
+
+  Calidad del registro                       Interrupciones y eventos inválidos            Interpretabilidad
+
+
+
+ Limitaciones originales
+ Los bloques no deben sumarse mecánicamente hasta exceder la duración prevista. Para medir decremento hacen
+ falta segmentos equivalentes y suficientes ensayos. Las latencias web dependen del hardware.
+
+
+ Objetivo y alcance
+ Observar la estabilidad de detección de objetivos a lo largo del tiempo en una tarea repetitiva.
+
+
+ Constructo y factores de confusión
+ Atención sostenida/vigilancia tipo CPT, junto con criterio de respuesta, percepción y velocidad.
+
+
+ Procedimiento técnico ampliado
+ Presentar estímulos en sucesión; fijar objetivo, frecuencia, ISI, ventana de respuesta, duración y número de bloques.
+ El cambio de bloque se registra para analizar decremento sin cambiar inadvertidamente la dificultad.
+
+
+ Controles de calidad y sesgos
+ Separar fatiga de decremento vigilante; registrar interrupciones y latencia del dispositivo. Distintos tiempos por
+ edad constituyen versiones distintas y no admiten comparación directa sin equiparación.
+
+
+ Indicadores y fórmulas ampliadas
+ Omisiones/objetivos; falsas alarmas/no objetivos; mediana RT correcto; coeficiente de variación RT si es estable;
+ diferencia por bloque; d-prima opcional con corrección para tasas 0/1 y suficientes ensayos.
+
+
+ Registro estructurado por ensayo (XML)
+ trial_id, block_id, stimulus, is_target, target_frequency, ISI_ms, response_window_ms, hit, omission, false_alarm,
+ rt_ms, interruption_flag, device.
+
+
+ Integración con el resto de FAND
+ Pulsa o Espera permite comparar atención a la regla con supresión de respuesta; Encuentra al Robot compara
+ vigilancia temporal con búsqueda espacial; La Lista puede contextualizar fluctuaciones, sin establecer causalidad.
+
+
+ Interpretación permitida
+ La evidencia apoya utilidad complementaria para TDAH, pero el CPT aislado tiene sensibilidad y especificidad
+ insuficientes para diagnóstico.
+
+
+ Base científica específica
+ Arrondo et al. 2024, revisión sistemática y metaanálisis de CPT; revisión de CPT en adultos (2024).
+
+
+ Baremos por edad: estado real
+ No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros
+ piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez
+ incremental.
+
+
+ Validación requerida
+ 1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con
+ ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas
+
+
+FAND · documento técnico preliminar · 2026                                                                               2
+
+ por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación
+ externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.
+
+
+ Orientación y recomendación, no diagnóstico
+ Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con
+ síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay
+ dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni
+ probabilidades clínicas sin validación.
+
+
+ Fuentes científicas verificadas
+ NICE NG87: https://www.nice.org.uk/guidance/ng87/chapter/recommendations — Guía clínica: la evaluación
+ requiere historia evolutiva, contextos y juicio profesional.
+
+ Arrondo et al., 2024: https://pubmed.ncbi.nlm.nih.gov/37004919/ — Metaanálisis: la utilidad diagnóstica aislada de
+ los CPT es modesta a moderada.
+
+ Van Mourik et al., 2005: https://pubmed.ncbi.nlm.nih.gov/15679524/ — Metaanálisis: el Stroop clásico no demuestra
+ una alteración específica robusta en TDAH.
+
+ Revisión CPT adultos, 2024: https://pubmed.ncbi.nlm.nih.gov/38424025/ — Revisión sistemática: utilidad
+ diagnóstica limitada de CPT aislados en adultos.
+
+ NICE HTG729: https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests — Describe tecnologías
+ concretas y sus normas; no transfiere sus baremos a FAND.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                            3
+
+</ficha>
+    <ficha juego="J05" formato="texto_extraido">
+ La Torre
+ Versión 2.0 · Protocolo de investigación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación y fundamento original
+ Tower of London / Tower of London–Freiburg; estudios de profundidad de búsqueda y movimientos mínimos.
+
+
+ Funcionamiento del juego
+ Se presenta una configuración inicial de piezas y un objetivo. La persona mueve piezas respetando reglas hasta
+ reproducir el modelo con el menor número razonable de movimientos. La dificultad depende de movimientos
+ mínimos, profundidad de búsqueda y alternativas engañosas.
+
+
+ Niveles conservados de la ficha anterior
+
+  Nivel        Mecánica                                                                                Tiempo / ensayos
+
+  0            Tutorial: 2–3 ejercicios guiados                                                        Sin límite
+
+  1–2          Entrada: Problemas de 2–3 movimientos                                                   1–2 min/problema
+
+  3–4          Planificación: Problemas de 4 movimientos                                               1–2 min/problema
+
+  5–6          Intermedio: Problemas de 5 movimientos                                                  1–2 min/problema
+
+  7–8          Complejo: Problemas de 6 movimientos y profundidad alta                                 1–2 min/problema
+
+  9–10         Experimental: Complejidad superior solo tras pilotaje                                   Por validar
+
+
+
+ Adaptación por edad conservada
+
+  Edad                         Inicio                    Niveles                            Tiempo piloto
+
+  6–8 años                     0–1                       1–4                                5–7 min
+
+  9–11 años                    0–2                       3–6                                6–9 min
+
+  12–17 años                   0–2                       3–8                                8–12 min
+
+  18–59 años                   0–2                       3–8                                8–12 min
+
+  60+ años                     0–1                       Adaptativo tras práctica           8–12 min
+
+ ATENCIÓN: estas edades, niveles y duraciones son decisiones piloto de FAND; no equivalen a baremos de los
+ instrumentos publicados.
+
+
+ Tabla de medición original
+
+  Variable                                    Cálculo o registro                                 Dimensión
+
+  Problemas resueltos                         Conteo / problemas presentados                     Éxito
+
+  Movimientos adicionales                     Realizados − mínimos                               Ineficiencia
+
+  Eficiencia                                  Mínimos / realizados × 100 (solo resueltos)        Planificación eficiente
+
+  Latencia inicial                            Tiempo antes del primer movimiento                 Preparación
+
+  Tiempo de solución                          Segundos por problema                              Ejecución
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                                 1
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Violaciones de reglas                      Conteo                                        Seguimiento de instrucciones
+
+  Reinicios                                  Conteo                                        Correcciones/estrategia
+
+
+
+ Limitaciones originales
+ Las reglas definitivas del tablero FAND están pendientes de confirmación. No transferir normas de Tower of London
+ a una variante distinta. Problemas de 2–3 movimientos sirven sobre todo de entrada; los más complejos informan
+ mejor sobre planificación.
+
+
+ Objetivo y alcance
+ Describir planificación de varios pasos, eficiencia y cumplimiento de reglas en problemas graduados.
+
+
+ Constructo y factores de confusión
+ Planificación tipo Tower of London; no asumir equivalencia con Tower of Hanoi si las reglas son distintas.
+
+
+ Procedimiento técnico ampliado
+ Presentar estado inicial y objetivo, explicar reglas, permitir práctica. Para cada problema documentar algoritmo de
+ solución óptima, profundidad de búsqueda, ambigüedad de meta y movimientos subóptimos tentadores.
+ Cronometrar planificación previa y ejecución por separado.
+
+
+ Controles de calidad y sesgos
+ Las reglas definitivas del tablero FAND deben confirmarse. No asignar un baremo de Tower of London a otra
+ geometría, número de piezas o reglas. Registrar uso de deshacer y ayudas.
+
+
+ Indicadores y fórmulas ampliadas
+ Resolución correcta; movimientos extra=movimientos reales−mínimo; eficiencia=mínimo/reales para resueltos;
+ tiempo inicial; tiempo de ejecución; violaciones; reinicios; porcentaje óptimos por dificultad.
+
+
+ Registro estructurado por ensayo (XML)
+ problem_id, board_version, initial_state, target_state, min_moves, search_depth, goal_ambiguity, move_log,
+ planning_latency_ms, execution_ms, rule_violations, solved.
+
+
+ Integración con el resto de FAND
+ Recuerda la Secuencia ofrece memoria espacial de orden sin planificación; Pulsa o Espera ofrece inhibición
+ elemental; cuestionarios de organización cotidiana aportan validez ecológica.
+
+
+ Interpretación permitida
+ Un mayor tiempo inicial puede reflejar planificación cuidadosa, no necesariamente déficit. Interpretar eficiencia,
+ latencia y errores conjuntamente.
+
+
+ Base científica específica
+ Tower of London y literatura de planificación ejecutiva; equivalencia psicométrica depende del diseño exacto.
+
+
+ Baremos por edad: estado real
+ No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros
+ piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez
+ incremental.
+
+
+ Validación requerida
+
+
+FAND · documento técnico preliminar · 2026                                                                                2
+
+ 1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con
+ ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas
+ por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación
+ externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.
+
+
+ Orientación y recomendación, no diagnóstico
+ Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con
+ síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay
+ dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni
+ probabilidades clínicas sin validación.
+
+
+ Fuentes científicas verificadas
+ NICE NG87: https://www.nice.org.uk/guidance/ng87/chapter/recommendations — Guía clínica: la evaluación
+ requiere historia evolutiva, contextos y juicio profesional.
+
+ Arrondo et al., 2024: https://pubmed.ncbi.nlm.nih.gov/37004919/ — Metaanálisis: la utilidad diagnóstica aislada de
+ los CPT es modesta a moderada.
+
+ Van Mourik et al., 2005: https://pubmed.ncbi.nlm.nih.gov/15679524/ — Metaanálisis: el Stroop clásico no demuestra
+ una alteración específica robusta en TDAH.
+
+ Revisión CPT adultos, 2024: https://pubmed.ncbi.nlm.nih.gov/38424025/ — Revisión sistemática: utilidad
+ diagnóstica limitada de CPT aislados en adultos.
+
+ NICE HTG729: https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests — Describe tecnologías
+ concretas y sus normas; no transfiere sus baremos a FAND.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                              3
+
+</ficha>
+    <ficha juego="J06" formato="texto_extraido">
+ La Lista
+ Versión 2.0 · Protocolo de investigación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación y fundamento original
+ Rey Auditory Verbal Learning Test (RAVLT); adaptación FAND no equivalente al instrumento estandarizado.
+
+
+ Funcionamiento del juego
+ Se escuchan 15 palabras familiares. Después de cada presentación se recuerdan oralmente tantas como sea
+ posible, en cualquier orden. Se realizan cinco rondas R1–R5. Sigue un vídeo distractor de unos tres minutos y una
+ sexta recuperación R6 sin nueva presentación.
+
+
+ Niveles conservados de la ficha anterior
+
+  Nivel       Mecánica                                                                     Tiempo / ensayos
+
+  R1          Aprendizaje inicial: Primera presentación y recuerdo                         Según respuesta
+
+  R2          Segunda exposición: Misma lista y recuerdo                                   Según respuesta
+
+  R3          Tercera exposición: Misma lista y recuerdo                                   Según respuesta
+
+  R4          Cuarta exposición: Misma lista y recuerdo                                    Según respuesta
+
+  R5          Quinta exposición: Misma lista y recuerdo                                    Según respuesta
+
+  D           Distracción: Vídeo sin palabras objetivo                                     ~3 min
+
+  R6          Recuerdo diferido: Evocar lista sin oírla de nuevo                           Según respuesta
+
+
+
+ Adaptación por edad conservada
+
+  Edad                       Inicio                      Niveles                  Tiempo piloto
+
+  6–8 años                   Mismo protocolo;            R1–R6                    10–14 min
+                             vocabulario validado
+
+  9–11 años                  Mismo protocolo;            R1–R6                    10–14 min
+                             vocabulario validado
+
+  12–17 años                 Mismo protocolo             R1–R6                    10–14 min
+
+  18–59 años                 Mismo protocolo             R1–R6                    10–14 min
+
+  60+ años                   Audición y lenguaje         R1–R6                    10–15 min
+                             comprobados
+
+ ATENCIÓN: estas edades, niveles y duraciones son decisiones piloto de FAND; no equivalen a baremos de los
+ instrumentos publicados.
+
+
+ Tabla de medición original
+
+  Variable                                   Cálculo o registro                         Dimensión
+
+  R1–R6                                      0–15 aciertos por ronda                    Aprendizaje y recuerdo
+
+  Total de aprendizaje                       R1+R2+R3+R4+R5 (0–75)                      Adquisición acumulada
+
+  Ganancia                                   R5 − R1                                    Progresión
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                           1
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Retención relativa                         R6 / R5 × 100 si R5 &gt; 0                       Recuerdo tras distracción
+
+  Intrusiones                                Palabras no presentadas                       Errores de recuerdo
+
+  Repeticiones                               Palabras reiteradas por ronda                 Control del recuerdo
+
+  Curva                                      Puntuaciones por ronda                        Consistencia de adquisición
+
+
+
+ Limitaciones originales
+ No asignar niveles de dificultad crecientes a las rondas: deben ser la misma lista. Las listas por edad, la
+ grabación/trascripción de voz y el contenido del vídeo requieren validación. La distracción de 3 min difiere de
+ protocolos RAVLT y no hereda sus baremos.
+
+
+ Objetivo y alcance
+ Caracterizar aprendizaje verbal en cinco exposiciones y recuerdo tras un intervalo con distractor.
+
+
+ Constructo y factores de confusión
+ Aprendizaje verbal auditivo y recuerdo diferido inspirado en RAVLT; no es RAVLT por cambios de protocolo.
+
+
+ Procedimiento técnico ampliado
+ Presentar exactamente 15 palabras habladas en cada una de cinco rondas; recuerdo libre oral tras cada exposición.
+ Vídeo distractor de aproximadamente 3 minutos y recuerdo R6 sin nueva presentación. Registrar palabra por
+ palabra y orden espontáneo si se desea.
+
+
+ Controles de calidad y sesgos
+ Las palabras, pronunciación, velocidad de presentación, grabación, transcripción y distractor deben estandarizarse.
+ Vídeo personalizado puede alterar comparabilidad; fijar una versión estándar o estudiar su equivalencia. Controlar
+ audición, idioma, vocabulario y fatiga.
+
+
+ Indicadores y fórmulas ampliadas
+ R1...R6 entre 0 y 15; aprendizaje total=sum(R1..R5), máximo 75; ganancia R5−R1; retención R6/R5 si R5&gt;0;
+ intrusiones y perseveraciones por ronda. No calcular retención cuando R5=0.
+
+
+ Registro estructurado por ensayo (XML)
+ list_version, audio_version, word_ids, presentation_times, round_id, recall_transcript, correct_unique_words,
+ intrusions, repetitions, distractor_id, distractor_duration_ms, hearing_check.
+
+
+ Integración con el resto de FAND
+ Recuerda la Secuencia compara modalidad verbal y visoespacial; El Vigilante aporta datos de consistencia
+ atencional sin atribuir automáticamente fallos de recuerdo a inatención.
+
+
+ Interpretación permitida
+ Curva de aprendizaje y recuerdo diferido se interpretan separadamente. No diagnostica dislexia, TDAH, autismo ni
+ deterioro cognitivo.
+
+
+ Base científica específica
+ Rey Auditory Verbal Learning Test como paradigma de referencia; FAND requiere normas y listas propias.
+
+
+ Baremos por edad: estado real
+
+
+
+FAND · documento técnico preliminar · 2026                                                                               2
+
+ No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros
+ piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez
+ incremental.
+
+
+ Validación requerida
+ 1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con
+ ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas
+ por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación
+ externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.
+
+
+ Orientación y recomendación, no diagnóstico
+ Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con
+ síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay
+ dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni
+ probabilidades clínicas sin validación.
+
+
+ Fuentes científicas verificadas
+ NICE NG87: https://www.nice.org.uk/guidance/ng87/chapter/recommendations — Guía clínica: la evaluación
+ requiere historia evolutiva, contextos y juicio profesional.
+
+ Arrondo et al., 2024: https://pubmed.ncbi.nlm.nih.gov/37004919/ — Metaanálisis: la utilidad diagnóstica aislada de
+ los CPT es modesta a moderada.
+
+ Van Mourik et al., 2005: https://pubmed.ncbi.nlm.nih.gov/15679524/ — Metaanálisis: el Stroop clásico no demuestra
+ una alteración específica robusta en TDAH.
+
+ Revisión CPT adultos, 2024: https://pubmed.ncbi.nlm.nih.gov/38424025/ — Revisión sistemática: utilidad
+ diagnóstica limitada de CPT aislados en adultos.
+
+ NICE HTG729: https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests — Describe tecnologías
+ concretas y sus normas; no transfiere sus baremos a FAND.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                              3
+
+</ficha>
+    <ficha juego="J07" formato="texto_extraido">
+ Recuerda la Secuencia
+ Versión 2.0 · Protocolo de investigación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación y fundamento original
+ Corsi Block-Tapping y tareas de amplitud espacial directa.
+
+
+ Funcionamiento del juego
+ Una cuadrícula ilumina casillas una tras otra. Al terminar, la persona debe pulsarlas exactamente en el orden
+ presentado. Se incrementa la longitud de secuencia; cada longitud requiere varios intentos y secuencias no
+ previsibles.
+
+
+ Niveles conservados de la ficha anterior
+
+  Nivel         Mecánica                                                                     Tiempo / ensayos
+
+  0             Tutorial: 2 casillas con ayuda                                               Sin límite
+
+  1             2 posiciones: Secuencia de 2                                                 2–3 ensayos
+
+  2             3 posiciones: Secuencia de 3                                                 2–3 ensayos
+
+  3             4 posiciones: Secuencia de 4                                                 2–3 ensayos
+
+  4             5 posiciones: Secuencia de 5                                                 2–3 ensayos
+
+  5             6 posiciones: Secuencia de 6                                                 2–3 ensayos
+
+  6             7 posiciones: Secuencia de 7                                                 2–3 ensayos
+
+  7             8 posiciones: Secuencia de 8                                                 2–3 ensayos
+
+  8             9 posiciones: Secuencia de 9                                                 2–3 ensayos
+
+  9             10 posiciones: Secuencia de 10                                               2–3 ensayos
+
+  10            11 posiciones: Secuencia de 11                                               2–3 ensayos
+
+
+
+ Adaptación por edad conservada
+
+  Edad                          Inicio           Niveles                           Tiempo piloto
+
+  6–8 años                      0–1              1 en adelante                     4–6 min
+
+  9–11 años                     0–2              2 en adelante                     4–7 min
+
+  12–17 años                    0–2              2 en adelante                     5–8 min
+
+  18–59 años                    0–2              2 en adelante                     5–8 min
+
+  60+ años                      0–1              Según comprensión                 5–8 min
+
+ ATENCIÓN: estas edades, niveles y duraciones son decisiones piloto de FAND; no equivalen a baremos de los
+ instrumentos publicados.
+
+
+ Tabla de medición original
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                       1
+
+  Variable                                   Cálculo o registro                            Dimensión
+
+  Amplitud máxima                            Longitud más larga correcta bajo regla fija   Retención espacial
+
+  Aciertos por longitud                      Correctos / ensayos por longitud              Consistencia
+
+  Errores de posición                        Casillas incorrectas                          Memoria de ubicaciones
+
+  Errores de orden                           Posiciones correctas en orden incorrecto      Secuenciación
+
+  Omisiones/repeticiones                     Conteos                                       Errores de reproducción
+
+  Criterio de parada                         Fallos consecutivos según protocolo           Control de dificultad
+
+
+
+ Limitaciones originales
+ No equiparar amplitud directa con manipulación completa de memoria de trabajo. La disposición, velocidad de
+ iluminación, número de ensayos y criterio de parada afectan los resultados; deben fijarse antes de crear baremos.
+
+
+ Objetivo y alcance
+ Estimar amplitud de recuerdo inmediato de posiciones visuales en el mismo orden de presentación.
+
+
+ Constructo y factores de confusión
+ Amplitud espacial directa tipo Corsi; la versión directa no mide por sí sola manipulación compleja de memoria de
+ trabajo.
+
+
+ Procedimiento técnico ampliado
+ Casillas iluminadas secuencialmente; tras terminar, pulsar las mismas posiciones en el mismo orden. Mantener
+ tamaño y geometría de cuadrícula, duración de encendido y pausas constantes en cada versión. Repetir varios
+ ensayos por longitud.
+
+
+ Controles de calidad y sesgos
+ Aleatorizar evitando secuencias triviales y sesgos geométricos. Definir si se permite repetir casilla; mantener regla
+ constante. La longitud máxima 11 es propuesta, no norma de ninguna edad.
+
+
+ Indicadores y fórmulas ampliadas
+ Amplitud máxima con criterio de éxito predefinido; aciertos por longitud; error de posición, transposición de orden,
+ omisión y repetición; número de intentos. Velocidad secundaria.
+
+
+ Registro estructurado por ensayo (XML)
+ trial_id, grid_version, sequence_length, positions_ordered, illumination_ms, interflash_ms, response_order,
+ exact_match, position_errors, order_errors, latency_ms, device.
+
+
+ Integración con el resto de FAND
+ La Lista compara memoria verbal; La Torre requiere planificación espacial; Encuentra al Robot mide discriminación
+ visual simultánea.
+
+
+ Interpretación permitida
+ Fallos de secuencia pueden depender de percepción, atención al estímulo y memoria de orden. No convertir
+ amplitud en un diagnóstico ni usar baremos de Corsi sin equivalencia.
+
+
+ Base científica específica
+ Paradigma Corsi Block-Tapping, con estudios normativos propios de cada versión.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                               2
+
+ Baremos por edad: estado real
+ No existen baremos normativos FAND validados. Niveles, duraciones y edades de la ficha previa son parámetros
+ piloto y no percentiles clínicos. Se requieren muestras estratificadas por edad, fiabilidad, equivalencia y validez
+ incremental.
+
+
+ Validación requerida
+ 1. Cerrar reglas y versión de estímulos. 2. Evaluar comprensión, accesibilidad y tiempo por edad. 3. Piloto con
+ ensayos suficientes y análisis de techo/suelo. 4. Estudiar fiabilidad test-retest y precisión de medición. 5. Normas
+ por edad y covariables relevantes. 6. Comparación ciega con valoración profesional y cuestionarios. 7. Validación
+ externa de reglas de orientación, sensibilidad, especificidad, calibración y sesgos.
+
+
+ Orientación y recomendación, no diagnóstico
+ Describir por dominios; no sumar puntuaciones crudas entre juegos; verificar validez de sesión; contrastar con
+ síntomas, evolución e impacto en al menos dos contextos cuando corresponda; recomendar consulta si hay
+ dificultades persistentes o preocupación significativa, incluso con juegos normales; nunca asignar diagnóstico ni
+ probabilidades clínicas sin validación.
+
+
+ Fuentes científicas verificadas
+ NICE NG87: https://www.nice.org.uk/guidance/ng87/chapter/recommendations — Guía clínica: la evaluación
+ requiere historia evolutiva, contextos y juicio profesional.
+
+ Arrondo et al., 2024: https://pubmed.ncbi.nlm.nih.gov/37004919/ — Metaanálisis: la utilidad diagnóstica aislada de
+ los CPT es modesta a moderada.
+
+ Van Mourik et al., 2005: https://pubmed.ncbi.nlm.nih.gov/15679524/ — Metaanálisis: el Stroop clásico no demuestra
+ una alteración específica robusta en TDAH.
+
+ Revisión CPT adultos, 2024: https://pubmed.ncbi.nlm.nih.gov/38424025/ — Revisión sistemática: utilidad
+ diagnóstica limitada de CPT aislados en adultos.
+
+ NICE HTG729: https://www.nice.org.uk/guidance/htg729/chapter/2-The-diagnostic-tests — Describe tecnologías
+ concretas y sus normas; no transfiere sus baremos a FAND.
+
+
+
+
+FAND · documento técnico preliminar · 2026                                                                              3
+
+</ficha>
+    <ficha juego="J08" formato="texto_extraido"> FAND · J08 · El círculo mayor
+ Ficha técnica ampliada | Investigación y orientación · NO VALIDADO PARA DIAGNÓSTICO
+
+
+ Identificación, objetivo y estado
+ Código J08 · «El círculo mayor» (también descrito como explotar burbujas). FAND · ficha técnica ampliada,
+ versión preliminar 1.0, octubre de 2026.
+
+ Finalidad: explorar discriminación de tamaño relativo, atención selectiva ante distractores cromáticos,
+ selección de objetivos móviles y ejecución visomotora. Es una herramienta de investigación y orientación, NO
+ un test diagnóstico validado.
+
+ Regla confirmada por la descripción del juego: seleccionar/explotar el círculo de mayor tamaño; la dificultad
+ incorpora cambios de color y movimiento. Las especificaciones numéricas y reglas complementarias de esta
+ ficha son PROPUESTAS DE DISEÑO para pilotaje, no características previamente verificadas.
+
+
+ Justificación científica y aportación específica
+ La investigación sobre búsqueda visual, integración de características y captura atencional respalda estudiar
+ cómo tamaño, color y movimiento compiten por la selección de un objetivo. La literatura citada fundamenta
+ los procesos cognitivos, NO valida el juego FAND ni permite deducir un diagnóstico a partir de su puntuación.
+
+ Su posible valor incremental frente a «Encuentra al Robot» consiste en medir el cambio de rendimiento entre
+ escenas estáticas y dinámicas con un criterio único de tamaño. Frente a «El Vigilante» añade localización
+ espacial de un objetivo; frente a «Pulsa o Espera» no exige una regla Go/No-Go; frente a «Que no te engañen»
+ emplea distractores perceptivos y no conflicto semántico.
+
+ Hipótesis contrastable: el coste por movimiento o cambios cromáticos podría añadir información sobre
+ selección visual dinámica después de controlar precisión y velocidad en el resto de pruebas. No se presupone
+ que la hipótesis se confirme.
+
+
+ Mecánica y reglas que deben fijarse antes del piloto
+ En cada ensayo aparecen varios círculos simultáneos, con UN círculo inequívocamente mayor. La persona
+ debe tocar o pulsar ese círculo. Tras responder se registra el resultado y comienza otro ensayo. La instrucción
+ «elige siempre el más grande» permanece constante en todos los niveles.
+
+ Controlar diferencias mínimas de diámetro, separación entre círculos, número de elementos, solapamientos,
+ velocidad, trayectorias, duración de exposición, tamaño del objetivo en píxeles y relación con el tamaño de
+ pantalla. No permitir que un cambio de color altere cuál es el círculo mayor.
+
+ Registrar si la respuesta se realiza con ratón, dedo o dispositivo adaptado. Distinguir pulsación sobre un círculo
+ incorrecto de pulsación en fondo; fijar si hay reintentos y si el objetivo se mueve durante la pulsación. La
+ respuesta debe evaluarse respecto a la posición del círculo en el instante de la pulsación.
+
+
+ Niveles de dificultad: propuesta de protocolo
+ Nivel 0 — Tutorial, sin puntuación: pocos círculos estáticos, diferencia de tamaños amplia; practicar y verificar
+ comprensión.
+
+ Nivel 1 — Tamaño estático: círculos inmóviles y de un mismo color. Estimar discriminación de tamaño y
+ velocidad de respuesta basal.
+
+ Nivel 2 — Distracción cromática estática: círculos inmóviles de colores diferentes; el color NO predice el
+ objetivo. Comparar con nivel 1 mediante estímulos equivalentes.
+
+ Nivel 3 — Movimiento: círculos de tamaño estable con trayectorias controladas, inicialmente sin cambios de
+ color. Comparar con condición estática equiparada.
+
+ Nivel 4 — Movimiento y cambios de color: los círculos se desplazan y cambian de color sin que cambie la regla
+ de tamaño. Separar el efecto del movimiento del efecto cromático mediante condiciones contrabalanceadas.
+
+
+
+FAND · J08 · Protocolo preliminar · Octubre 2026                                                                      1
+
+ Nivel 5 — Opcional y solo tras piloto: mayor densidad o velocidad con cambios controlados de UNA variable
+ cada vez; no aumentar simultáneamente todos los parámetros si se desea interpretar qué causa el error.
+
+ Duración y ensayos: no hay tiempos científicamente validados para FAND J08. Propuesta inicial de
+ investigación: tutorial de 4–8 ensayos y 20–30 ensayos válidos por condición, con descansos; ajustar mediante
+ pilotos de fiabilidad, fatiga y efecto suelo/techo. No presentar esos números como baremos.
+
+
+ Edades, accesibilidad y selección de niveles
+ 3–6 años: valorar primero comprensión de «más grande», motricidad y atención; tamaños muy diferenciados,
+ pocos elementos, ritmo lento y tutorial ampliado. Las condiciones dinámicas solo si son comprensibles y
+ tolerables. La comparación clínica requiere validación específica de esta franja.
+
+ 7–12 años: ampliar gradualmente distractores y movimiento; conservar versiones ancla de igual dificultad
+ para poder estudiar diferencias por edad.
+
+ 13–17 años: evaluar todas las condiciones si se comprenden, con estímulos calibrados y sin convertir la
+ velocidad de clic en único indicador.
+
+ 18–59 años: batería completa bajo condiciones estandarizadas; controlar familiaridad digital y modalidad de
+ respuesta.
+
+ 60 años o más: controlar visión, sensibilidad al contraste, lentitud motora, fatiga y familiaridad tecnológica;
+ ampliar tamaño de objetivos y ofrecer descansos sin comparar directamente una versión adaptada con otra no
+ equivalente.
+
+ Los tramos son grupos de planificación del piloto, NO edades normativas demostradas. Las decisiones de
+ dificultad deben basarse en datos de comprensión y calibración; no establecer percentiles ni cortes por edad
+ sin muestras representativas.
+
+
+ Variables registradas y cálculo de puntuaciones
+ Por ensayo: identificador de condición y ensayo, edad/grupo, número de círculos, tamaños reales y relativos,
+ separación, color, cambios de color, velocidad y trayectoria, objetivo, posición y tiempo de pulsación,
+ acierto/error, clic fuera, latencia, dispositivo, incidencias.
+
+ Exactitud por condición = aciertos / ensayos válidos × 100. Error de selección = elecciones de círculos no
+ objetivo / ensayos válidos × 100. Pulsaciones fuera se informan aparte. Latencia: mediana de milisegundos en
+ ensayos correctos, acompañada de dispersión (IQR); no excluir errores silenciosamente.
+
+ Coste cromático estático = rendimiento del nivel 2 menos nivel 1, con estímulos equiparados. Coste de
+ movimiento = nivel 3 menos condición estática equiparada. Coste combinado = nivel 4 menos nivel 3;
+ interpretar con cautela porque puede existir interacción color × movimiento. Para exactitud, una diferencia
+ negativa indica descenso; para latencia, positiva indica enlentecimiento.
+
+ No crear un índice global arbitrario sumando aciertos, tiempo y errores. En la fase piloto pueden explorarse
+ indicadores estandarizados, modelos de velocidad-precisión y fiabilidad por condición, pero sus pesos solo se
+ fijarán con datos externos.
+
+
+ Interpretación y reglas de calidad
+ Un error en niveles dinámicos puede reflejar atención, discriminación visual, coordinación motora, seguimiento
+ de objetos, velocidad del dispositivo o dificultad de la tarea. No equivale a «impulsividad», «TDAH» ni «TEA».
+
+ Separar: (a) errores ya presentes en nivel 1, (b) descenso al introducir color, (c) descenso al introducir
+ movimiento, (d) descenso adicional al combinar ambos. La interpretación es descriptiva, no clínica, hasta
+ disponer de normas.
+
+ Marcar sesión no interpretable cuando falte comprensión, haya fallos técnicos, estímulos solapados que
+ impidan identificar el mayor, problemas visuales no compensados, abandono o precisión próxima al azar.
+ Informar adaptación, ayudas, pausas y fatiga.
+
+ Efectos de práctica: aleatorizar posiciones y contrabalancear bloques; si siempre se administra de fácil a difícil,
+ parte del cambio puede ser fatiga u orden. Usar versiones equivalentes y evaluar retest.
+
+
+
+FAND · J08 · Protocolo preliminar · Octubre 2026                                                                       2
+
+ Integración con los siete juegos y otros instrumentos
+ J01 Encuentra al Robot: comparar selección visual estática y discriminación perceptiva con el coste dinámico
+ J08. Si ambos fallan, explorar dificultad perceptiva general antes de atribuirla a distractibilidad.
+
+ J02 Que no te engañen: contrastar interferencia semántico-cromática con interferencia perceptiva por colores;
+ no son medidas intercambiables.
+
+ J03 Pulsa o Espera: contrastar errores de comisión ante prohibición de respuesta con selecciones erróneas en
+ J08; un clic incorrecto no prueba déficit de inhibición.
+
+ J04 El Vigilante: contrastar lapsos y variabilidad temporal sostenida con variabilidad en selección dinámica;
+ controlar diferencias de duración.
+
+ J05 La Torre: planificación multietapa, dominio distinto; J08 no debe cargar artificialmente sobre planificación.
+
+ J06 La Lista: aprendizaje y memoria verbal; dominio distinto, útil para describir fortalezas y dificultades
+ relativas.
+
+ J07 Recuerda la Secuencia: memoria secuencial visoespacial; separar dificultad de recordar posiciones de
+ dificultad para seleccionar objetos en movimiento.
+
+ Cuestionarios e entrevistas: recoger síntomas, inicio y curso, repercusión funcional, observaciones en distintos
+ contextos, antecedentes del desarrollo, aspectos sensoriales y motores. Para TEA son imprescindibles fuentes
+ que exploren comunicación social y patrones restrictivos/repetitivos; estos juegos no los miden
+ adecuadamente.
+
+
+ Cómo influye en el informe conjunto: algoritmo prudente
+ Paso 1. Comprobar validez de J08 y del resto de sesiones; consignar edad, adaptación, visión, motricidad,
+ dispositivo y comprensión.
+
+ Paso 2. Elaborar perfiles POR DOMINIO (búsqueda visual, selección dinámica, interferencia, vigilancia,
+ inhibición, planificación, memoria verbal y visoespacial). No sumar porcentajes brutos entre juegos ni construir
+ una puntuación de «neurodivergencia».
+
+ Paso 3. Comparar patrones convergentes y discrepantes: J08 bajo + J01 adecuado puede sugerir dificultad
+ específica de seguimiento/selección dinámica; J08 bajo + J01 bajo exige revisar discriminación/percepción; J08
+ bajo + J03 adecuado no autoriza inferir impulsividad. Son hipótesis para evaluación adicional, no diagnósticos.
+
+ Paso 4. Integrar con entrevistas y escalas validadas pertinentes a la edad y al motivo de consulta. Si existen
+ dificultades persistentes o impacto funcional, recomendar valoración profesional incluso con J08 y otros juegos
+ dentro del rango esperado.
+
+ Paso 5. Durante investigación, estimar validez incremental: comparar modelos predictivos con siete juegos
+ frente a siete + J08, mediante validación cruzada externa, ajuste por edad, dispositivo y confusores, e informar
+ intervalos de confianza y sesgos. Si J08 no mejora fiabilidad o utilidad, mantenerlo opcional o retirarlo.
+
+ Ponderación: peso clínico numérico de J08 = NO ESTABLECIDO. No asignar 5 %, 10 % o 20 % por criterio
+ subjetivo. Su «puntuación» es descriptiva por condición; solo tras validación se podrán fijar pesos y reglas de
+ decisión.
+
+
+ Plan mínimo de validación científica
+ 1. Revisión por especialistas en psicometría, neuropsicología, desarrollo y accesibilidad; 2. estudio cognitivo de
+ comprensión por edades; 3. piloto para calibrar tamaños, movimiento, color y dificultad; 4. fiabilidad
+ test–retest y consistencia por condición; 5. normas estratificadas y evaluación de equivalencia por dispositivo;
+ 6. comparación con medidas validadas de atención visual y coordinación visomotora; 7. análisis incremental
+ sobre J01–J07; 8. estudio ciego de validez y sesgos en grupos clínicos y no clínicos, sin inferir especificidad
+ diagnóstica a priori.
+
+
+ Bibliografía y alcance de la evidencia
+
+
+
+
+FAND · J08 · Protocolo preliminar · Octubre 2026                                                                      3
+
+ Treisman, A. M., y Gelade, G. (1980). A feature-integration theory of attention. Cognitive Psychology, 12(1),
+ 97–136. DOI: 10.1016/0010-0285(80)90005-5. Fundamento de selección de características y búsqueda visual.
+
+ Wolfe, J. M., y Horowitz, T. S. (2017). Five factors that guide attention in visual search. Nature Human
+ Behaviour, 1, 0058. DOI: 10.1038/s41562-017-0058. Fundamento de factores que guían búsqueda visual.
+
+ Theeuwes, J. (2025). Attentional Capture and Control. Annual Review of Psychology, 76, 251–273. DOI:
+ 10.1146/annurev-psych-011624-025340. Revisión sobre captura atencional y control.
+
+ NICE. NG87. Attention deficit hyperactivity disorder: diagnosis and management, recomendaciones
+ 1.3.1–1.3.4. La evaluación de TDAH requiere valoración clínica y fuentes múltiples.
+
+ NICE. CG128. Autism spectrum disorder in under 19s: recognition, referral and diagnosis, recomendaciones
+ 1.5.5–1.5.10. La evaluación del autismo incluye historia evolutiva y comunicación/comportamiento social.
+
+ NICE. HTG729. Digital technologies for assessing ADHD, sección 2. Las tecnologías estudiadas son específicas
+ y sus datos de validez no se transfieren a FAND.
+
+ Advertencia bibliográfica: estas fuentes justifican el paradigma y las limitaciones clínicas; ninguna demuestra
+ sensibilidad, especificidad, puntos de corte o baremos de «El círculo mayor».
+
+
+
+
+FAND · J08 · Protocolo preliminar · Octubre 2026                                                                   4
+
+</ficha>
+  </anexos_fichas_originales>
+</FAND_Protocolo_Integral>
