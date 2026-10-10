@@ -105,6 +105,7 @@ $games = [
     (function () {
       var report = document.getElementById("report");
       var QDEF = <?= json_encode(CuestionarioCatalog::definition()) ?>;
+      FANDProfile.setQuestionnaireDef(QDEF);
       function el(tag, cls, text) {
         var n = document.createElement(tag);
         if (cls) n.className = cls;
@@ -169,6 +170,21 @@ $games = [
           });
           var ql = el("a", "btn", "Completar o revisar cuestionarios"); ql.href = "FAND_Cuestionarios.html"; qsec.append(ql);
           report.append(qsec);
+          var inter = FANDProfile.integrate();
+          if (inter.length) {
+            var isec = section("Cuestionarios y juegos: contraste por objetivo");
+            isec.append(el("p", "meta", "Cada fila compara una dimensión de cuestionario con el juego que explora un objetivo equivalente (hipótesis de contraste, no relación diagnóstica). Las dos fuentes se mantienen separadas: no se suman. Un dato contradictorio no invalida ninguna fuente; indica que conviene valorarlo con un profesional."));
+            var it = el("table"), ih = el("tr");
+            ["Cuestionario · dimensión", "Media (0–4)", "Juego", "Lectura"].forEach(function (h) { ih.append(el("th", "", h)); });
+            it.append(ih);
+            inter.forEach(function (x) {
+              var r = el("tr");
+              r.append(el("td", "", x.code + " · " + x.dim), el("td", "", x.mean.toFixed(2) + (x.qLevel === "alta" ? " (frecuente)" : "")), el("td", "", x.game + " " + x.gameName), el("td", "", x.relation));
+              it.append(r);
+            });
+            isec.append(it);
+            report.append(isec);
+          }
         }
 
         if (!played.length) {

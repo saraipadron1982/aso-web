@@ -200,6 +200,60 @@
     J06: [["J07", "explorar otra modalidad (considera audición, idioma y fatiga)"]]
   };
   var MAX_GAMES = 5;
+  // Algoritmo A3/A5 del banco v3: dimensión de cuestionario → juego que explora el objetivo equivalente.
+  // Es una hipótesis operativa de contraste, no una relación diagnóstica demostrada.
+  var DIM_GAMES = [
+    ["C01", "Atención sostenida", "J04", "atención sostenida"],
+    ["C01", "Atención selectiva y distractibilidad", "J01", "atención selectiva"],
+    ["C01", "Atención selectiva y distractibilidad", "J08", "selección dinámica"],
+    ["C01", "Impulsividad y espera", "J03", "inhibición"],
+    ["C04", "Planificación y secuenciación", "J05", "planificación"],
+    ["C04", "Inicio y finalización", "J05", "planificación"],
+    ["C04", "Memoria cotidiana", "J06", "memoria verbal"],
+    ["C04", "Memoria cotidiana", "J07", "memoria visoespacial"],
+    ["C04", "Flexibilidad ejecutiva", "J02", "interferencia"]
+  ];
+  var Q_PRIORITY = 2; // media ≥ 2 («a veces» o más) con ≥ 3 respuestas válidas: solo prioriza qué explorar primero
+  var Q_MIN_VALID = 3;
+  var QDEF = null;
+  function setQDef(def) { QDEF = def; }
+  function qSignals() {
+    if (!QDEF) return [];
+    var byDim = {};
+    scoreQuestionnaires(QDEF).forEach(function (q) { q.dimensiones.forEach(function (d) { byDim[q.code + "|" + d.nombre] = d; }); });
+    var out = [];
+    DIM_GAMES.forEach(function (m) {
+      var d = byDim[m[0] + "|" + m[1]];
+      if (!d || d.valid < Q_MIN_VALID || d.mean === null) return;
+      out.push({ code: m[0], dim: m[1], mean: d.mean, valid: d.valid, game: m[2], objective: m[3], level: d.mean >= Q_PRIORITY ? "alta" : "baja" });
+    });
+    return out;
+  }
+  // Cruza cuestionarios y juegos por objetivo, sin sumarlos: informa de coincidencias y contradicciones (A8).
+  function integrate() {
+    var latest = evaluate().latest, rows = [];
+    qSignals().forEach(function (s) {
+      var res = latest[s.game], verdict = "pendiente";
+      if (res) {
+        var diff = 0, str = 0, n = 0;
+        (RULES[s.game] || []).forEach(function (rule) {
+          var v = judge(rule, res.metrics[rule[0]]);
+          if (v === "difficulty") diff++; else if (v === "strength") str++;
+          if (v) n++;
+        });
+        verdict = !n ? "sin_datos" : diff ? "dificultad" : "normal";
+      }
+      var rel;
+      if (verdict === "pendiente") rel = s.level === "alta" ? "Prioridad: aún falta jugar " + s.game + " para contrastar." : "Sin prioridad en cuestionarios; " + s.game + " opcional.";
+      else if (verdict === "sin_datos") rel = "El juego no aportó indicadores evaluables.";
+      else if (s.level === "alta" && verdict === "dificultad") rel = "Coinciden: cuestionario y juego señalan diferencias en este objetivo.";
+      else if (s.level === "alta") rel = "Dato contradictorio: el cuestionario indica frecuencia alta y el juego queda dentro de lo orientativo (puede deberse al contexto, a compensación o a que la tarea no refleja la vida diaria).";
+      else if (verdict === "dificultad") rel = "Dato contradictorio: el juego muestra diferencias y el cuestionario no (revisa fatiga, comprensión de la práctica o condiciones de la tarea).";
+      else rel = "Coinciden: sin señales en cuestionario ni en juego.";
+      rows.push({ code: s.code, dim: s.dim, mean: s.mean, qLevel: s.level, game: s.game, gameName: GAMES[s.game], objective: s.objective, verdict: verdict, relation: rel });
+    });
+    return rows;
+  }
   function getQ() { var q = (read().user || {}).q; return q || { concerns: [], access: [], impact: "none", persistent: false, screening: "none", stopped: false }; }
   function setQ(patch) {
     var data = read();
@@ -219,7 +273,12 @@
   }
   function route() {
     var q = getQ(), data = read(), ex = excluded();
-    var score = {};
+    var score = {}, qWhy = {};
+    qSignals().forEach(function (s) {
+      if (s.level !== "alta" || ex[s.game]) return;
+      score[s.game] = (score[s.game] || 0) + 12;
+      if (!qWhy[s.game]) qWhy[s.game] = "tus respuestas en " + s.code + " · " + s.dim + " (media " + s.mean.toFixed(1) + " de 4) piden contrastar " + s.objective;
+    });
     q.concerns.forEach(function (id, i) {
       ((CONCERNS[id] || {}).games || []).forEach(function (code, j) { score[code] = (score[code] || 0) + (10 - j * 3); });
     });
@@ -233,7 +292,7 @@
     var next = null, done = false;
     var pendingStarters = starters.filter(function (c) { return playedAll.indexOf(c) === -1; });
     if (q.stopped) { done = true; }
-    else if (pendingStarters.length) { next = { code: pendingStarters[0], why: hasPriority ? "responde a lo que has indicado en el cuestionario" : "juego de arranque general (sin prioridades indicadas)" }; }
+    else if (pendingStarters.length) { next = { code: pendingStarters[0], why: qWhy[pendingStarters[0]] || (hasPriority ? "responde a lo que has indicado en el cuestionario" : "juego de arranque general (sin prioridades indicadas)") }; }
     else if (playedAll.length >= MAX_GAMES) { done = true; }
     else {
       var lastCode = null;
@@ -249,7 +308,7 @@
       }
       if (!next) {
         var open = ranked.filter(function (c) { return score[c] && playedAll.indexOf(c) === -1; })[0];
-        if (open) next = { code: open, why: "aún no se ha explorado una prioridad que indicaste" };
+        if (open) next = { code: open, why: qWhy[open] || "aún no se ha explorado una prioridad que indicaste" };
       }
       if (!next) done = true;
     }
@@ -265,6 +324,10 @@
     if (q.persistent) reasons.push("dificultades persistentes");
     if (q.impact === "significant") reasons.push("impacto significativo en la vida diaria");
     if (q.screening === "positive") reasons.push("cribado reconocido positivo según su manual");
+    var qs2 = QDEF ? scoreQuestionnaires(QDEF) : [];
+    var freq = [];
+    qs2.forEach(function (c) { if (c.code === "C02" || c.code === "C03") c.dimensiones.forEach(function (d) { if (d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY) freq.push(d.nombre.toLowerCase()); }); });
+    if (freq.length) reasons.push("respuestas frecuentes en los cuestionarios sobre " + freq.join(", "));
     var diffs = [];
     ev.domains.forEach(function (d) { if (d.flagged) diffs.push(d.label.toLowerCase()); });
     var cog = diffs.length ? "con diferencias descriptivas en " + diffs.join(" y ") + " (provisionales, sin normas)" : validCount ? "sin patrones destacados" : "sin pruebas interpretables";
@@ -311,6 +374,7 @@
 
   window.FANDProfile = {
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
+    setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
     ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS,
     concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status
