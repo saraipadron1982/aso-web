@@ -141,6 +141,13 @@ $games = [
         if (u.notes) head.append(el("p", "", "Notas: " + u.notes));
         if (u.factors && u.factors.length) head.append(el("p", "difficulty", "Factores que pueden alterar los resultados: " + u.factors.join("; ") + "."));
         head.append(el("p", "", "Juegos con resultados válidos: " + (played.length ? played.map(function (c) { return c + " " + p.games[c]; }).join(", ") : "ninguno todavía") + "."));
+        var st = FANDProfile.status(), qn = FANDProfile.getQuestionnaire();
+        var stBox = el("div", "", ""); stBox.style.cssText = "border-left:5px solid #0f766e;background:#f0fdfa;padding:10px 14px;border-radius:8px;margin:10px 0";
+        stBox.append(el("strong", "", "Estado de la orientación: " + st.title + ". "), document.createTextNode(st.text));
+        head.append(stBox);
+        var concernNames = qn.concerns.map(function (id) { return (FANDProfile.concerns[id] || {}).label; }).filter(Boolean);
+        head.append(el("p", "", "Cuestionario inicial · Áreas a explorar: " + (concernNames.join(", ") || "no indicadas") + " · Persistencia: " + (qn.persistent ? "sí" : "no indicada") + " · Impacto: " + ({ none: "sin impacto / no sabe", some: "algo", significant: "significativo" }[qn.impact] || "—") + " · Cribado reconocido: " + ({ none: "no realizado", negative: "negativo", positive: "positivo" }[qn.screening] || "—") + "."));
+        head.append(el("p", "", "Los resultados de los juegos solo contextualizan la recomendación: una puntuación normal no excluye ninguna condición y una puntuación baja no la confirma."));
         report.append(head);
 
         if (!played.length) {

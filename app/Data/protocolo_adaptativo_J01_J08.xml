@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='utf-8'?>
+<protocoloFAND version="1.0" tipo="transcripcion_estructurada" idioma="es" caracter="orientativo_no_diagnostico">
+  <fuente>
+    <archivo>FAND_Protocolo_Adaptativo_Orientacion_J01_J08.pdf</archivo>
+    <paginas>6</paginas>
+    <nota>Transcripción íntegra del texto extraíble del PDF, organizada por páginas y bloques en orden de lectura. Conserva el contenido del original; las tablas se representan mediante bloques de texto.</nota>
+  </fuente>
+  <pagina numero="1">
+    <bloque orden="1" x="51.4" y="55.9">FAND | Protocolo adaptativo de orientación</bloque>
+    <bloque orden="2" x="51.4" y="91.5">Versión conceptual 1.0 · 10 de octubre de 2026 · J01–J08 · Documento de diseño para investigación</bloque>
+    <bloque orden="3" x="51.4" y="113.5">Finalidad: orientar sobre motivos para consultar a profesionales, nunca afirmar o descartar</bloque>
+    <bloque orden="4" x="51.4" y="127.5">neurodivergencias. Una puntuación normal no excluye TEA, TDAH ni otras condiciones. Los</bloque>
+    <bloque orden="5" x="51.4" y="141.5">umbrales clínicos y normas FAND todavía NO existen.</bloque>
+    <bloque orden="6" x="51.4" y="170.2">1. Recorrido simplificado: dos actividades y un informe</bloque>
+    <bloque orden="7" x="51.4" y="193.5">Actividad A: cuestionario inicial por edad y, cuando corresponda, cribado validado y autorizado. Actividad B:</bloque>
+    <bloque orden="8" x="51.4" y="207.5">juegos seleccionados de forma adaptativa (objetivo piloto: 2 de inicio y 1–3 adicionales, no una duración</bloque>
+    <bloque orden="9" x="51.4" y="221.5">validada). Salida: informe explicativo y orientación. La validación de sesión y la integración se realizan en</bloque>
+    <bloque orden="10" x="51.4" y="235.5">segundo plano.</bloque>
+    <bloque orden="11" x="51.4" y="256.5">Flujo: edad/accesibilidad → cuestionario → prioridades de exploración → práctica y control de calidad →</bloque>
+    <bloque orden="12" x="51.4" y="270.5">primer juego → métricas por condición → decisión transparente (continuar, cambiar dominio, detener por</bloque>
+    <bloque orden="13" x="51.4" y="284.5">suficiencia operativa, pausa o no interpretable) → cribado apropiado si no se completó → informe y</bloque>
+    <bloque orden="14" x="51.4" y="298.5">recomendación.</bloque>
+    <bloque orden="15" x="51.4" y="327.2">2. Restricción científica esencial: qué NO decide el algoritmo</bloque>
+    <bloque orden="16" x="51.4" y="350.5">No hay regla defendible de “si puntuación &gt; X, tiene TEA/TDAH” ni “si puntuación &lt; Y, queda descartado”.</bloque>
+    <bloque orden="17" x="51.4" y="364.5">Los juegos miden desempeños parciales con solapamiento entre perfiles y factores de confusión. El</bloque>
+    <bloque orden="18" x="51.4" y="378.5">algoritmo selecciona qué explorar, no diagnostica ni estima probabilidades clínicas. Una preocupación</bloque>
+    <bloque orden="19" x="51.4" y="392.5">persistente o impacto funcional puede justificar recomendación profesional aunque todos los juegos sean</bloque>
+    <bloque orden="20" x="51.4" y="406.5">adecuados. La ausencia de dificultades referidas tampoco permite descartar una condición.</bloque>
+    <bloque orden="21" x="51.4" y="435.2">3. Datos mínimos del cuestionario inicial</bloque>
+    <bloque orden="22" x="58.4" y="464.2">Bloque
+Contenido / uso en la ruta</bloque>
+    <bloque orden="23" x="58.4" y="487.2">Edad y accesibilidad
+Edad exacta; lectura/lenguaje; visión y audición; motricidad; dispositivo;
+familiaridad digital; apoyos requeridos.</bloque>
+    <bloque orden="24" x="58.4" y="521.2">Atención e impulsividad
+Frecuencia, duración y contextos de dificultades; preguntas comprensibles por
+edad; distinguir autorreporte e informante.</bloque>
+    <bloque orden="25" x="58.4" y="555.2">Organización y memoria
+Problemas cotidianos de secuenciación, recuerdo de instrucciones y planificación.</bloque>
+    <bloque orden="26" x="58.4" y="578.2">Comunicación social y
+patrones</bloque>
+    <bloque orden="27" x="174.6" y="578.2">Experiencias de reciprocidad/comunicación; intereses, rutinas, repetición y
+aspectos sensoriales. Nunca inferir TEA desde juegos.</bloque>
+    <bloque orden="28" x="58.4" y="612.2">Historia e impacto
+Inicio y persistencia, hogar/escuela/trabajo, apoyos, interferencia funcional, motivo
+de consulta y preferencias.</bloque>
+    <bloque orden="29" x="58.4" y="646.2">Cribado reconocido
+Solo versiones validadas, población indicada y permisos adecuados; registrar
+instrumento, idioma, versión y puntuación conforme a manual.</bloque>
+    <bloque orden="30" x="51.4" y="698.2">4. Catálogo operativo de juegos y medidas</bloque>
+    <bloque orden="31" x="58.4" y="727.2">ID
+Juego / dominio primario
+Indicadores descriptivos</bloque>
+    <bloque orden="32" x="236.9" y="750.2">Aciertos, falsas selecciones, omisiones, tiempo, efecto de similitud.</bloque>
+    <bloque orden="33" x="58.4" y="750.2">J01
+Encuentra al Robot · selección
+visual</bloque>
+    <bloque orden="34" x="45.4" y="802.6">FAND · Protocolo de investigación · No diagnóstico
+1</bloque>
+  </pagina>
+  <pagina numero="2">
+    <bloque orden="1" x="58.4" y="59.2">ID
+Juego / dominio primario
+Indicadores descriptivos</bloque>
+    <bloque orden="2" x="58.4" y="82.2">J02
+Que no te engañen · interferencia
+Acierto y tiempo por congruencia/conflicto; variabilidad. Cuatro
+colores confirmados; paleta exacta pendiente.</bloque>
+    <bloque orden="3" x="58.4" y="116.2">J03
+Pulsa o Espera · Go/No-Go
+Comisiones, omisiones, tiempo Go, variabilidad y balance
+velocidad-precisión.</bloque>
+    <bloque orden="4" x="58.4" y="150.2">J04
+El Vigilante · atención sostenida
+Omisiones, comisiones, tiempo y variabilidad, cambios durante la
+tarea.</bloque>
+    <bloque orden="5" x="58.4" y="184.2">J05
+La Torre · planificación
+Movimientos, exceso respecto al óptimo, tiempo previo, ejecución,
+violaciones de reglas.</bloque>
+    <bloque orden="6" x="58.4" y="218.2">J06
+La Lista · aprendizaje verbal
+Recuerdo oral en R1–R5, curva de aprendizaje y R6 tras distractor
+de 3 min.</bloque>
+    <bloque orden="7" x="58.4" y="252.2">J07
+Recuerda la Secuencia · memoria
+espacial</bloque>
+    <bloque orden="8" x="236.9" y="252.2">Longitud máxima reproducida, precisión por longitud, errores de
+orden.</bloque>
+    <bloque orden="9" x="58.4" y="286.2">J08
+El círculo mayor · selección
+dinámica</bloque>
+    <bloque orden="10" x="236.9" y="286.2">Acierto y tiempo en estático, color distractor, movimiento y
+cambio de color; posibles errores visomotores.</bloque>
+    <bloque orden="11" x="51.4" y="338.2">5. Algoritmo de decisión: versión piloto explicable</bloque>
+    <bloque orden="12" x="51.4" y="361.5">Regla 0 — seguridad y comprensión: si falta consentimiento apropiado, existe fatiga relevante, problemas</bloque>
+    <bloque orden="13" x="51.4" y="375.5">técnicos o no se comprende la tarea tras adaptaciones, no generar inferencias; ofrecer pausa, modalidad</bloque>
+    <bloque orden="14" x="51.4" y="389.5">alternativa o informe parcial.</bloque>
+    <bloque orden="15" x="51.4" y="410.5">Regla 1 — prioridades: el cuestionario marca dominios a explorar (atención, inhibición, interferencia,</bloque>
+    <bloque orden="16" x="51.4" y="424.5">planificación, memoria verbal, memoria espacial, selección dinámica). No asigna etiquetas clínicas.</bloque>
+    <bloque orden="17" x="51.4" y="445.5">Regla 2 — arranque: seleccionar dos tareas de dominios complementarios según motivo y edad; registrar</bloque>
+    <bloque orden="18" x="51.4" y="459.5">por qué se eligieron. En investigación, administrar además una subbatería común predefinida a una muestra</bloque>
+    <bloque orden="19" x="51.4" y="473.5">para estudiar comparabilidad y posibles omisiones.</bloque>
+    <bloque orden="20" x="51.4" y="494.5">Regla 3 — lectura de cada juego: primero comprobar validez; después analizar variables primarias y</bloque>
+    <bloque orden="21" x="51.4" y="508.5">diferencias entre condiciones. Mientras no existan normas FAND, solo patrones descriptivos, no percentiles</bloque>
+    <bloque orden="22" x="51.4" y="522.5">ni puntos de corte.</bloque>
+    <bloque orden="23" x="51.4" y="543.5">Regla 4 — siguiente juego: elegir el juego que mejor permita contrastar una hipótesis funcional concreta,</bloque>
+    <bloque orden="24" x="51.4" y="557.5">evitando repetir sin motivo el mismo dominio. La prioridad aumenta si hay discrepancia entre cuestionario y</bloque>
+    <bloque orden="25" x="51.4" y="571.5">juegos o si un cambio de condición requiere aclaración.</bloque>
+    <bloque orden="26" x="51.4" y="592.5">Regla 5 — parada: finalizar la exploración cognitiva cuando se completaron los dominios priorizados y el</bloque>
+    <bloque orden="27" x="51.4" y="606.5">máximo piloto de pruebas, o antes por fatiga/preferencia. La parada indica “exploración prevista</bloque>
+    <bloque orden="28" x="51.4" y="620.5">terminada”, nunca “neurodivergencia descartada”.</bloque>
+    <bloque orden="29" x="51.4" y="641.5">Regla 6 — derivación: si hay dificultades persistentes o impacto significativo, sospecha fundada</bloque>
+    <bloque orden="30" x="51.4" y="655.5">comunicada, cribado positivo según su manual, o inquietud clínica relevante, recomendar valoración</bloque>
+    <bloque orden="31" x="51.4" y="669.5">profesional con motivos. Los juegos solo contextualizan la recomendación.</bloque>
+    <bloque orden="32" x="51.4" y="698.2">6. Matriz de transición orientativa entre pruebas</bloque>
+    <bloque orden="33" x="58.4" y="727.2">Tras el juego
+Observación a aclarar
+Siguiente juego propuesto y justificación</bloque>
+    <bloque orden="34" x="58.4" y="750.2">J04 Vigilante
+Omisiones o deterioro a lo
+largo del tiempo</bloque>
+    <bloque orden="35" x="259.6" y="750.2">J01 para contrastar búsqueda visual estática; J03 si interesa
+distinguir omisión e inhibición.</bloque>
+    <bloque orden="36" x="45.4" y="802.6">FAND · Protocolo de investigación · No diagnóstico
+2</bloque>
+  </pagina>
+  <pagina numero="3">
+    <bloque orden="1" x="58.4" y="59.2">Tras el juego
+Observación a aclarar
+Siguiente juego propuesto y justificación</bloque>
+    <bloque orden="2" x="58.4" y="82.2">J01 Robot
+Mayor coste ante
+distractores similares</bloque>
+    <bloque orden="3" x="259.6" y="82.2">J08 para explorar movimiento/color, si la motricidad permite
+interpretación.</bloque>
+    <bloque orden="4" x="58.4" y="116.2">J08 Círculo
+Caída descriptiva solo con
+movimiento</bloque>
+    <bloque orden="5" x="259.6" y="116.2">J01 para contraste estático; revisar velocidad y precisión
+motora antes de interpretar.</bloque>
+    <bloque orden="6" x="58.4" y="150.2">J03 Pulsa
+Comisiones o respuestas
+precipitadas</bloque>
+    <bloque orden="7" x="259.6" y="150.2">J02 para contraste entre inhibición de respuesta e
+interferencia semántica.</bloque>
+    <bloque orden="8" x="58.4" y="184.2">J02 Engañen
+Interferencia elevada entre
+condiciones</bloque>
+    <bloque orden="9" x="259.6" y="184.2">J03 para contraste con inhibición motora; verificar lectura y
+visión del color.</bloque>
+    <bloque orden="10" x="58.4" y="218.2">J05 Torre
+Dificultad de secuenciación
+y planificación</bloque>
+    <bloque orden="11" x="259.6" y="218.2">J07 para explorar retención de orden espacial; no asumir
+causalidad.</bloque>
+    <bloque orden="12" x="58.4" y="252.2">J07 Secuencia
+Dificultad con secuencias
+largas</bloque>
+    <bloque orden="13" x="259.6" y="252.2">J06 para contrastar modalidad verbal y espacial, si
+edad/lenguaje apropiados.</bloque>
+    <bloque orden="14" x="58.4" y="286.2">J06 Lista
+Bajo recuerdo o aprendizaje
+limitado</bloque>
+    <bloque orden="15" x="259.6" y="286.2">J07 para explorar otra modalidad; considerar audición,
+idioma y fatiga.</bloque>
+    <bloque orden="16" x="51.4" y="323.5">Importante: las transiciones son hipótesis operativas para pilotaje. No se activan por porcentajes inventados.</bloque>
+    <bloque orden="17" x="51.4" y="337.5">Deben registrarse y someterse a comparación contra rutas no adaptativas antes de implantación clínica.</bloque>
+    <bloque orden="18" x="51.4" y="366.2">7. Modelo de prioridades y pseudocódigo</bloque>
+    <bloque orden="19" x="51.4" y="389.5">La puntuación del cuestionario inicial solo se interpreta con normas propias de instrumentos validados</bloque>
+    <bloque orden="20" x="51.4" y="403.5">cuando se utilicen. Para ítems FAND originales, usar indicadores descriptivos de frecuencia e impacto sin</bloque>
+    <bloque orden="21" x="51.4" y="417.5">umbral clínico.</bloque>
+    <bloque orden="22" x="51.4" y="438.3">INICIO → obtener edad, motivo, preferencias y accesibilidad.</bloque>
+    <bloque orden="23" x="51.4" y="452.3">SI hay preocupación funcional relevante → marcar recomendación profesional posible desde el inicio.</bloque>
+    <bloque orden="24" x="51.4" y="466.3">SELECCIONAR 2 juegos elegibles que cubran prioridades distintas.</bloque>
+    <bloque orden="25" x="51.4" y="480.3">PARA cada juego: práctica → verificar validez → medir por condición → guardar motivos y limitaciones.</bloque>
+    <bloque orden="26" x="51.4" y="494.3">SI inválido: adaptar/repetir opcionalmente; no tratar como bajo rendimiento.</bloque>
+    <bloque orden="27" x="51.4" y="508.3">SI existe pregunta funcional sin aclarar Y hay tiempo/tolerancia: elegir juego complementario con mayor valor informativo</bloque>
+    <bloque orden="28" x="51.4" y="522.3">previsto.</bloque>
+    <bloque orden="29" x="51.4" y="536.3">SI no: terminar módulo de juegos (no descartar ninguna condición).</bloque>
+    <bloque orden="30" x="51.4" y="550.3">ADMINISTRAR/INTEGRAR cribado apropiado cuando proceda, sin alterar sus reglas.</bloque>
+    <bloque orden="31" x="51.4" y="564.3">GENERAR informe de datos, concordancias, discrepancias, incertidumbre y motivos de orientación.</bloque>
+    <bloque orden="32" x="51.4" y="593.2">8. Reglas por edades: elegibilidad, no diagnósticos</bloque>
+    <bloque orden="33" x="58.4" y="622.2">Tramo
+Diseño preliminar
+Requisitos antes de usar</bloque>
+    <bloque orden="34" x="302.1" y="645.2">Piloto de comprensión y desarrollo; informantes y
+contexto prioritarios.</bloque>
+    <bloque orden="35" x="58.4" y="645.2">3–5
+Tareas breves con instrucciones orales,
+demostración y apoyo; no forzar lectura,
+memoria verbal o planificación compleja.</bloque>
+    <bloque orden="36" x="58.4" y="690.2">6–7
+Bloques cortos, práctica repetible, controles
+de motricidad y lectura.</bloque>
+    <bloque orden="37" x="302.1" y="690.2">Validar cada versión; no transferir baremos de
+mayores.</bloque>
+    <bloque orden="38" x="302.1" y="724.2">Normas finas por edad y control de escolaridad.</bloque>
+    <bloque orden="39" x="58.4" y="724.2">8–11
+Mayor diversidad de tareas y dificultad
+graduada.</bloque>
+    <bloque orden="40" x="58.4" y="758.2">12–16
+Más condiciones si son tolerables, con
+descansos.</bloque>
+    <bloque orden="41" x="302.1" y="758.2">Control de edad y contexto escolar; evitar efecto
+de techo.</bloque>
+    <bloque orden="42" x="45.4" y="802.6">FAND · Protocolo de investigación · No diagnóstico
+3</bloque>
+  </pagina>
+  <pagina numero="4">
+    <bloque orden="1" x="58.4" y="59.2">Tramo
+Diseño preliminar
+Requisitos antes de usar</bloque>
+    <bloque orden="2" x="58.4" y="82.2">17+
+Versiones adultas; considerar 17–24, 25–59,
+60+ en estudios normativos.</bloque>
+    <bloque orden="3" x="302.1" y="82.2">No extrapolar baremos infantiles; visión,
+motricidad y familiaridad digital.</bloque>
+    <bloque orden="4" x="51.4" y="119.5">No se fijan minutos, número de ensayos ni percentiles por edad como si estuvieran validados. Esos</bloque>
+    <bloque orden="5" x="51.4" y="133.5">parámetros deben derivarse de estudios de usabilidad, precisión, fatiga y muestras normativas.</bloque>
+    <bloque orden="6" x="51.4" y="162.2">9. Puntuación e integración: tres capas</bloque>
+    <bloque orden="7" x="51.4" y="185.5">Capa A: variables crudas por juego. Aciertos, errores, latencias y diferencias de condición con definición de</bloque>
+    <bloque orden="8" x="51.4" y="199.5">denominadores y calidad de sesión. Capa B: dominios. Resumen separado de atención, inhibición,</bloque>
+    <bloque orden="9" x="51.4" y="213.5">interferencia, planificación, aprendizaje verbal, memoria espacial y selección dinámica. No sumar unidades</bloque>
+    <bloque orden="10" x="51.4" y="227.5">heterogéneas. Capa C: contexto. Autorreporte, informantes, historia e impacto, cribados validados y</bloque>
+    <bloque orden="11" x="51.4" y="241.5">limitaciones. El informe destaca convergencias y discrepancias.</bloque>
+    <bloque orden="12" x="51.4" y="262.5">Si en el futuro existen normas: mostrar puntuaciones estandarizadas por versión/edad con intervalos de</bloque>
+    <bloque orden="13" x="51.4" y="276.5">incertidumbre cuando proceda; no equiparar z o percentiles entre instrumentos sin estudios de equivalencia.</bloque>
+    <bloque orden="14" x="51.4" y="290.5">La creación de una puntuación latente requerirá evidencia psicométrica independiente.</bloque>
+    <bloque orden="15" x="51.4" y="319.2">10. Cribados y valoración profesional</bloque>
+    <bloque orden="16" x="51.4" y="342.5">Para TDAH, pueden considerarse ASRS en adultos y escalas de informantes apropiadas en menores, según</bloque>
+    <bloque orden="17" x="51.4" y="356.5">versión, licencia y validación lingüística. Para autismo, NICE CG142 contempla AQ-10 en ciertos adultos; su</bloque>
+    <bloque orden="18" x="51.4" y="370.5">umbral publicado es específico del instrumento y no debe reutilizarse en FAND. ADOS/ADI-R son</bloque>
+    <bloque orden="19" x="51.4" y="384.5">procedimientos especializados, no formularios de libre autoadministración. Un cribado negativo no descarta</bloque>
+    <bloque orden="20" x="51.4" y="398.5">condiciones ante preocupación clínica o funcional persistente.</bloque>
+    <bloque orden="21" x="51.4" y="419.5">El informe puede orientar a atención primaria, pediatría, psicología clínica, psiquiatría u otros servicios</bloque>
+    <bloque orden="22" x="51.4" y="433.5">competentes según edad, contexto y sistema sanitario. Debe evitar asignar diagnósticos o “porcentajes de</bloque>
+    <bloque orden="23" x="51.4" y="447.5">TEA/TDAH”.</bloque>
+    <bloque orden="24" x="51.4" y="476.2">11. Estados finales permitidos y mensajes</bloque>
+    <bloque orden="25" x="58.4" y="505.2">Estado
+Mensaje del informe</bloque>
+    <bloque orden="26" x="58.4" y="528.2">Orientación profesional
+recomendada</bloque>
+    <bloque orden="27" x="202.9" y="528.2">Se recomienda explorar [áreas] por [síntomas/contextos/impacto/cribado],
+con resultados cognitivos [descripción]. No equivale a diagnóstico.</bloque>
+    <bloque orden="28" x="58.4" y="562.2">Exploración completada sin
+señales suficientes para
+recomendar por esta vía</bloque>
+    <bloque orden="29" x="202.9" y="562.2">No se han identificado motivos adicionales en esta exploración limitada. No
+excluye neurodivergencias; solicitar valoración si existen preocupaciones
+persistentes.</bloque>
+    <bloque orden="30" x="58.4" y="607.2">Información insuficiente
+No es posible interpretar adecuadamente [pruebas] por [motivo]. Ofrecer
+adaptaciones o evaluación profesional si la preocupación continúa.</bloque>
+    <bloque orden="31" x="58.4" y="641.2">Evaluación interrumpida
+Proceso incompleto a petición de la persona o por fatiga; no emitir
+conclusiones negativas.</bloque>
+    <bloque orden="32" x="51.4" y="693.2">12. Ejemplos de rutas (ficticios, no reglas diagnósticas)</bloque>
+    <bloque orden="33" x="51.4" y="716.5">Ruta A: adulto con dificultades de concentración e impulsividad → J04 → J03 → J02 si se requiere contraste de</bloque>
+    <bloque orden="34" x="51.4" y="730.5">interferencia → cribado apropiado → informe que razona una posible evaluación de TDAH por</bloque>
+    <bloque orden="35" x="51.4" y="744.5">historia/impacto, no por errores aislados.</bloque>
+    <bloque orden="36" x="45.4" y="802.6">FAND · Protocolo de investigación · No diagnóstico
+4</bloque>
+  </pagina>
+  <pagina numero="5">
+    <bloque orden="1" x="51.4" y="53.5">Ruta B: menor con dificultades de organización → J05 si la versión es comprensible → J07 → J06 si se desea</bloque>
+    <bloque orden="2" x="51.4" y="67.5">contraste verbal y es apropiado → informe de áreas de apoyo y consulta según impacto.</bloque>
+    <bloque orden="3" x="51.4" y="88.5">Ruta C: adulto con preocupación por autismo y buen desempeño cognitivo → cuestionario e historia</bloque>
+    <bloque orden="4" x="51.4" y="102.5">social/sensorial → juegos opcionales para fortalezas y necesidades → cribado adecuado → posible</bloque>
+    <bloque orden="5" x="51.4" y="116.5">recomendación de evaluación de autismo aunque los juegos sean normales.</bloque>
+    <bloque orden="6" x="51.4" y="137.5">Ruta D: dificultades en J08 con movimiento y normalidad en J01 → explorar percepción y control motor, no</bloque>
+    <bloque orden="7" x="51.4" y="151.5">atribuir automáticamente el resultado a TDAH o TEA.</bloque>
+    <bloque orden="8" x="51.4" y="180.2">13. Requisitos de investigación antes de desplegar recomendaciones
+automatizadas</bloque>
+    <bloque orden="9" x="51.4" y="220.5">Validar comprensión, accesibilidad, fiabilidad test-retest, normas por versión y edad,</bloque>
+    <bloque orden="10" x="51.4" y="234.5">convergencia/discriminación, efectos de dispositivo, y validez incremental de J08. Comparar algoritmo</bloque>
+    <bloque orden="11" x="51.4" y="248.5">adaptativo frente a batería completa en muestras independientes. Evaluar sensibilidad de las</bloque>
+    <bloque orden="12" x="51.4" y="262.5">recomendaciones, falsos negativos, calibración y equidad por edad, sexo cuando esté justificado, educación</bloque>
+    <bloque orden="13" x="51.4" y="276.5">y necesidades de apoyo. Las reglas y sus cambios deben versionarse, auditarse y supervisarse por</bloque>
+    <bloque orden="14" x="51.4" y="290.5">profesionales.</bloque>
+    <bloque orden="15" x="51.4" y="319.2">14. Privacidad y gobernanza</bloque>
+    <bloque orden="16" x="51.4" y="342.5">Recoger únicamente datos necesarios; consentimiento informado y asentimiento infantil cuando</bloque>
+    <bloque orden="17" x="51.4" y="356.5">corresponda; información específica para representantes legales; controles de acceso, plazos de</bloque>
+    <bloque orden="18" x="51.4" y="370.5">conservación, derechos y evaluación de impacto de protección de datos cuando proceda. No usar decisiones</bloque>
+    <bloque orden="19" x="51.4" y="384.5">exclusivamente automatizadas con efectos clínicos o equivalentes sin garantías jurídicas y revisión humana.</bloque>
+    <bloque orden="20" x="51.4" y="398.5">Revisar el marco normativo aplicable antes del despliegue en España/UE.</bloque>
+    <bloque orden="21" x="51.4" y="427.2">15. Bibliografía comprobada y alcance de la evidencia</bloque>
+    <bloque orden="22" x="51.4" y="450.5">1. NICE. NG87, Attention deficit hyperactivity disorder: diagnosis and management.</bloque>
+    <bloque orden="23" x="51.4" y="464.5">https://www.nice.org.uk/guidance/ng87/chapter/recommendations — evaluación integral y límites de</bloque>
+    <bloque orden="24" x="51.4" y="478.5">escalas.</bloque>
+    <bloque orden="25" x="51.4" y="499.5">2. NICE. CG142, Autism spectrum disorder in adults: diagnosis and management.</bloque>
+    <bloque orden="26" x="51.4" y="513.5">https://www.nice.org.uk/guidance/cg142/chapter/Recommendations — sospecha, cribado AQ-10 en</bloque>
+    <bloque orden="27" x="51.4" y="527.5">población definida y evaluación profesional.</bloque>
+    <bloque orden="28" x="51.4" y="548.5">3. NICE. CG128, Autism spectrum disorder in under 19s: recognition, referral and diagnosis.</bloque>
+    <bloque orden="29" x="51.4" y="562.5">https://www.nice.org.uk/guidance/cg128 — evaluación de menores.</bloque>
+    <bloque orden="30" x="51.4" y="583.5">4. Arrondo G. et al. (2024; publicación electrónica 2023). Systematic Review and Meta-Analysis: Clinical</bloque>
+    <bloque orden="31" x="51.4" y="597.5">Utility of Continuous Performance Tests for the Identification of ADHD. J Am Acad Child Adolesc Psychiatry</bloque>
+    <bloque orden="32" x="51.4" y="611.5">63(2):154–171. DOI 10.1016/j.jaac.2023.03.011 — utilidad limitada/moderada de CPT aislados.</bloque>
+    <bloque orden="33" x="51.4" y="632.5">5. A systematic review of the utility of continuous performance tests among adults with ADHD (2024). PMID</bloque>
+    <bloque orden="34" x="51.4" y="646.5">38424025 — utilidad diagnóstica limitada de CPT en adultos.</bloque>
+    <bloque orden="35" x="51.4" y="667.5">6. Treisman A., Gelade G. (1980). A feature-integration theory of attention. Cognitive Psychology 12:97–136</bloque>
+    <bloque orden="36" x="51.4" y="681.5">— base teórica de selección visual, no validación de J08.</bloque>
+    <bloque orden="37" x="51.4" y="702.5">7. Wolfe J. M. (1994). Guided Search 2.0. Psychonomic Bulletin &amp; Review 1:202–238 — búsqueda visual, no</bloque>
+    <bloque orden="38" x="51.4" y="716.5">baremos FAND.</bloque>
+    <bloque orden="39" x="51.4" y="737.5">Estado científico: bibliografía sustenta dominios y cautelas generales. Las rutas, la selección de juegos y las</bloque>
+    <bloque orden="40" x="51.4" y="751.5">condiciones de parada de este documento son propuestas originales para validación, no algoritmos</bloque>
+    <bloque orden="41" x="51.4" y="765.5">respaldados como diagnóstico.</bloque>
+    <bloque orden="42" x="45.4" y="802.6">FAND · Protocolo de investigación · No diagnóstico
+5</bloque>
+  </pagina>
+  <pagina numero="6">
+    <bloque orden="1" x="51.4" y="53.5">Decisiones pendientes: definir qué subbatería común se usará durante validación, elegibilidad</bloque>
+    <bloque orden="2" x="51.4" y="67.5">exacta de cada versión por edad, instrumentos de cribado y licencias, criterios de calidad de</bloque>
+    <bloque orden="3" x="51.4" y="81.5">sesión y política de recomendación profesional. Ninguna puntuación puede indicar que “ya está</bloque>
+    <bloque orden="4" x="51.4" y="95.5">claro que no tiene neurodivergencia”.</bloque>
+    <bloque orden="5" x="45.4" y="802.6">FAND · Protocolo de investigación · No diagnóstico
+6</bloque>
+  </pagina>
+</protocoloFAND>

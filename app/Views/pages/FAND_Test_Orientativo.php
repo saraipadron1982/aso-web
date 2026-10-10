@@ -36,6 +36,11 @@ $tests = [
     .card p { margin: 0; font-size: .92rem; color: #475569; }
     .card .row { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding-top: 8px; }
     .order { font-weight: 700; color: var(--teal); }
+    fieldset { flex-basis: 100%; border: 1px solid var(--line); border-radius: 10px; margin: 0; } legend { font-weight: 700; } .chk { display: block; font-weight: 400 !important; margin: 4px 0; } .chk input { width: auto; min-height: 0; margin-right: 6px; } select { min-height: 44px; display: block; margin: 4px 0 10px; padding: 6px; } fieldset small, .hint { color: #475569; }
+    .route { border: 2px solid var(--teal); border-radius: 14px; padding: 4px 20px 12px; margin: 20px 0; }
+    .route-list li.done { color: #475569; text-decoration: line-through; } .next { background: var(--soft); padding: 10px 14px; border-radius: 10px; }
+    .state { border-left: 5px solid #94a3b8; background: #f8fafc; padding: 10px 14px; border-radius: 8px; margin: 10px 0; } .state-recomendada { border-color: #d97706; background: #fffbeb; }
+    .btn.secondary { background: #fff; color: var(--teal); border: 2px solid var(--teal); } .badge { align-self: flex-start; background: #f59e0b; color: #1f2937; font-size: .8rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
     footer { padding: 24px 0 40px; font-size: .9rem; }
   </style>
 </head>
@@ -48,19 +53,55 @@ $tests = [
   <main>
     <div class="notice"><strong>Importante:</strong> este test es una guía orientativa. <strong>No es un diagnóstico</strong> ni sustituye la evaluación de un profesional. Sus rangos son provisionales y están en estudio. Tus datos se guardan solo en este navegador.</div>
 
-    <form class="age-box" id="age-form">
+    <form class="age-box" id="q-form">
+      <h2 style="flex-basis:100%;margin:0">1. Cuestionario inicial</h2>
+      <p class="hint" style="flex-basis:100%;margin:0">Sirve solo para elegir qué juegos te conviene hacer primero. No es una puntuación clínica y todas las preguntas son opcionales salvo la edad.</p>
       <div>
         <label for="age">¿Qué edad tienes?</label>
         <input id="age" type="number" min="3" max="110" inputmode="numeric" placeholder="Años">
       </div>
-      <button type="submit">Configurar los juegos para mi edad</button>
+      <fieldset>
+        <legend>¿Qué te gustaría explorar? (marca las que quieras)</legend>
+        <label class="chk"><input type="checkbox" name="concern" value="atencion"> Atención y concentración</label>
+        <label class="chk"><input type="checkbox" name="concern" value="impulsividad"> Impulsividad, actuar sin pensar</label>
+        <label class="chk"><input type="checkbox" name="concern" value="organizacion"> Organización y planificación</label>
+        <label class="chk"><input type="checkbox" name="concern" value="memoria"> Memoria e instrucciones</label>
+        <label class="chk"><input type="checkbox" name="concern" value="percepcion"> Percepción visual y coordinación ojo-mano</label>
+        <label class="chk"><input type="checkbox" name="concern" value="social"> Comunicación social y reciprocidad</label>
+        <label class="chk"><input type="checkbox" name="concern" value="sensorial"> Rutinas, intereses repetitivos o aspectos sensoriales</label>
+        <small>Los dos últimos no se miden con juegos: solo se usan como contexto para recomendar una consulta profesional.</small>
+      </fieldset>
+      <fieldset>
+        <legend>Accesibilidad (para evitar juegos que no se puedan interpretar bien)</legend>
+        <label class="chk"><input type="checkbox" name="access" value="reading"> Dificultades de lectura o lenguaje</label>
+        <label class="chk"><input type="checkbox" name="access" value="hearing"> Dificultades de audición</label>
+        <label class="chk"><input type="checkbox" name="access" value="color"> Dificultades para distinguir colores</label>
+        <label class="chk"><input type="checkbox" name="access" value="motor"> Dificultades motoras o de manejo del dispositivo</label>
+      </fieldset>
+      <fieldset>
+        <legend>Historia e impacto</legend>
+        <label class="chk"><input type="checkbox" id="persistent"> Estas dificultades son persistentes (desde hace tiempo)</label>
+        <label for="impact">Impacto en casa, escuela o trabajo</label>
+        <select id="impact"><option value="none">Sin impacto o no lo sé</option><option value="some">Algo de impacto</option><option value="significant">Impacto significativo</option></select>
+        <label for="screening">¿Has hecho un cribado reconocido (por ejemplo, con un profesional)?</label>
+        <select id="screening"><option value="none">No</option><option value="negative">Sí, resultado negativo</option><option value="positive">Sí, resultado positivo según su manual</option></select>
+      </fieldset>
+      <button type="submit">Guardar y ver mi ruta</button>
       <p id="age-status" aria-live="polite"></p>
     </form>
 
+    <section class="route" id="route" aria-labelledby="route-title">
+      <h2 id="route-title">2. Tu ruta recomendada</h2>
+      <div id="route-body"></div>
+      <p><button type="button" class="btn secondary" id="stop">Prefiero parar aquí (cansancio u otro motivo)</button> <button type="button" class="btn secondary" id="resume" hidden>Reanudar</button></p>
+    </section>
+
+    <h2>Todos los juegos</h2>
+    <p>Puedes hacer cualquiera cuando quieras; la ruta solo sugiere un orden. La exploración recomendada tiene como máximo 5 juegos.</p>
     <ol class="grid">
       <?php foreach ($tests as $code => [$name, $area, $time]): ?>
         <li>
-          <div class="card">
+          <div class="card" data-card="<?= $code ?>"><span class="badge" hidden></span>
             <img src="assets/img/juegos/<?= $code ?>.svg" alt="Ilustración del juego <?= htmlspecialchars($name) ?>" loading="lazy">
             <h2><span class="order"><?= (int) substr($code, 1) ?>.</span> <?= htmlspecialchars($name) ?></h2>
             <p><?= htmlspecialchars($area) ?> · <?= $time ?></p>
@@ -79,20 +120,61 @@ $tests = [
   <script src="assets/js/fand-perfil.js"></script>
   <script>
     (function () {
-      var input = document.getElementById("age"), status = document.getElementById("age-status");
-      function show() {
-        var c = FANDProfile.ageConfig();
-        if (c) input.value = FANDProfile.ageYears();
-        status.textContent = c
-          ? "Listo: los juegos se abrirán configurados para la franja " + c.label + ". Podrás cambiar cualquier opción."
-          : "Sin edad indicada: los juegos usan su configuración general.";
+      var F = FANDProfile;
+      var $ = function (id) { return document.getElementById(id); };
+      var names = F.games;
+      function load() {
+        var q = F.getQuestionnaire();
+        if (F.ageYears()) $("age").value = F.ageYears();
+        document.querySelectorAll("input[name=concern]").forEach(function (i) { i.checked = q.concerns.indexOf(i.value) !== -1; });
+        document.querySelectorAll("input[name=access]").forEach(function (i) { i.checked = q.access.indexOf(i.value) !== -1; });
+        $("persistent").checked = !!q.persistent; $("impact").value = q.impact; $("screening").value = q.screening;
       }
-      document.getElementById("age-form").addEventListener("submit", function (e) {
+      function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; }
+      function gameLink(code) { var a = el("a", "btn", "Empezar a jugar " + names[code]); a.href = "FAND_Juegos_Interactivos.html?jugar=" + code; return a; }
+      function renderRoute() {
+        var r = F.route(), s = F.status(), q = F.getQuestionnaire(), body = $("route-body");
+        body.replaceChildren();
+        var c = F.ageConfig();
+        $("age-status").textContent = c ? "Los juegos se abrirán configurados para la franja " + c.label + ". Podrás cambiar cualquier opción." : "Sin edad indicada: los juegos usan su configuración general.";
+        var state = el("div", "state state-" + s.id); state.append(el("strong", "", s.title + ". "), document.createTextNode(s.text)); 
+        var list = el("ol", "route-list");
+        r.starters.forEach(function (code, i) {
+          var li = el("li", r.played.indexOf(code) !== -1 ? "done" : "", "Arranque " + (i + 1) + ": " + names[code] + (r.played.indexOf(code) !== -1 ? " · hecho" : ""));
+          list.append(li);
+        });
+        r.played.filter(function (c) { return r.starters.indexOf(c) === -1; }).forEach(function (code) { list.append(el("li", "done", "Adicional: " + names[code] + " · hecho")); });
+        body.append(list);
+        if (r.next && !q.stopped) {
+          var n = el("p", "next"); n.append(el("strong", "", "Siguiente: " + names[r.next.code] + ". "), document.createTextNode("Por qué: " + r.next.why + "."), document.createElement("br"), gameLink(r.next.code));
+          body.append(n);
+        } else if (r.done) {
+          body.append(el("p", "next", "Exploración prevista terminada. Esto nunca significa que se descarte una neurodivergencia."));
+          var l = el("a", "btn", "Ver Mi ficha"); l.href = "FAND_Ficha_Usuario.html"; body.append(l);
+        }
+        if (r.excluded.length) body.append(el("p", "hint", "Juegos no recomendados por tus datos de accesibilidad o edad: " + r.excluded.map(function (x) { return names[x.code] + " (" + x.why + ")"; }).join("; ") + "."));
+        body.append(state);
+        $("stop").hidden = !!q.stopped; $("resume").hidden = !q.stopped;
+        document.querySelectorAll("[data-card]").forEach(function (card) {
+          var code = card.getAttribute("data-card"), badge = card.querySelector(".badge");
+          var tag = r.excluded.some(function (x) { return x.code === code; }) ? "No recomendado ahora" : r.starters.indexOf(code) !== -1 ? "Arranque recomendado" : r.next && r.next.code === code ? "Siguiente sugerido" : r.played.indexOf(code) !== -1 ? "Hecho" : "";
+          badge.textContent = tag; badge.hidden = !tag;
+        });
+      }
+      $("q-form").addEventListener("submit", function (e) {
         e.preventDefault();
-        FANDProfile.setAge(input.value);
-        show();
+        F.setAge($("age").value);
+        F.setQuestionnaire({
+          concerns: Array.prototype.map.call(document.querySelectorAll("input[name=concern]:checked"), function (i) { return i.value; }),
+          access: Array.prototype.map.call(document.querySelectorAll("input[name=access]:checked"), function (i) { return i.value; }),
+          persistent: $("persistent").checked, impact: $("impact").value, screening: $("screening").value, stopped: false
+        });
+        renderRoute();
+        $("route").scrollIntoView({ behavior: "smooth" });
       });
-      show();
+      $("stop").addEventListener("click", function () { F.setQuestionnaire({ stopped: true }); renderRoute(); });
+      $("resume").addEventListener("click", function () { F.setQuestionnaire({ stopped: false }); renderRoute(); });
+      load(); renderRoute();
     })();
   </script>
 </body>

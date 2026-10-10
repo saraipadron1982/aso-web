@@ -142,7 +142,7 @@
       games: GAMES, generatedAt: new Date().toISOString()
     };
   }
-  function setUser(user) { var data = read(); data.user = user || {}; return write(data); }
+  function setUser(user) { var data = read(); data.user = Object.assign({}, data.user, user || {}); return write(data); }
   function clear() { try { localStorage.removeItem(KEY); } catch (e) { /* sin acceso */ } }
 
   // Franjas de edad de las fichas técnicas (grupos de planificación del piloto, no normas).
@@ -178,9 +178,108 @@
     return write(data);
   }
 
+  // ---- Protocolo adaptativo (versión piloto, hipótesis operativas; no diagnostica) ----
+  var CONCERNS = {
+    atencion: { label: "atención y concentración", games: ["J04", "J01"] },
+    impulsividad: { label: "impulsividad e inhibición", games: ["J03", "J02"] },
+    organizacion: { label: "organización y planificación", games: ["J05", "J07"] },
+    memoria: { label: "memoria e instrucciones", games: ["J07", "J06"] },
+    percepcion: { label: "percepción visual y coordinación ojo-mano", games: ["J08", "J01"] },
+    social: { label: "comunicación social y reciprocidad", games: [] },
+    sensorial: { label: "rutinas, intereses y aspectos sensoriales", games: [] }
+  };
+  var ROUTE_ORDER = ["J04", "J03", "J01", "J05", "J07", "J02", "J06", "J08"];
+  var TRANSITIONS = {
+    J04: [["J01", "contrastar la búsqueda visual estática"], ["J03", "distinguir omisión e inhibición"]],
+    J01: [["J08", "explorar movimiento y color si la motricidad lo permite"]],
+    J08: [["J01", "contrastar con búsqueda estática (revisa velocidad y precisión motora antes de interpretar)"]],
+    J03: [["J02", "contrastar inhibición de respuesta con interferencia"]],
+    J02: [["J03", "contrastar con inhibición motora (verifica lectura y visión del color)"]],
+    J05: [["J07", "explorar la retención del orden espacial, sin asumir causalidad"]],
+    J07: [["J06", "contrastar modalidad verbal y espacial"]],
+    J06: [["J07", "explorar otra modalidad (considera audición, idioma y fatiga)"]]
+  };
+  var MAX_GAMES = 5;
+  function getQ() { var q = (read().user || {}).q; return q || { concerns: [], access: [], impact: "none", persistent: false, screening: "none", stopped: false }; }
+  function setQ(patch) {
+    var data = read();
+    data.user = data.user || {};
+    data.user.q = Object.assign(getQ(), patch);
+    return write(data);
+  }
+  function excluded() {
+    var q = getQ(), years = ageYears(), out = {};
+    function ex(code, why) { if (!out[code]) out[code] = why; }
+    if (years !== null && years < 6) { ex("J02", "requiere leer palabras"); ex("J05", "planificación compleja para esta edad"); ex("J06", "memoria verbal para esta edad"); }
+    if (q.access.indexOf("reading") !== -1) { ex("J02", "dificultades de lectura"); ex("J06", "lectura/lenguaje"); }
+    if (q.access.indexOf("hearing") !== -1) ex("J06", "audición");
+    if (q.access.indexOf("color") !== -1) ex("J02", "visión del color");
+    if (q.access.indexOf("motor") !== -1) ex("J08", "la motricidad puede limitar la interpretación");
+    return out;
+  }
+  function route() {
+    var q = getQ(), data = read(), ex = excluded();
+    var score = {};
+    q.concerns.forEach(function (id, i) {
+      ((CONCERNS[id] || {}).games || []).forEach(function (code, j) { score[code] = (score[code] || 0) + (10 - j * 3); });
+    });
+    var eligible = ROUTE_ORDER.filter(function (c) { return !ex[c]; });
+    var ranked = eligible.slice().sort(function (a, b) { return (score[b] || 0) - (score[a] || 0) || ROUTE_ORDER.indexOf(a) - ROUTE_ORDER.indexOf(b); });
+    var hasPriority = ranked.some(function (c) { return score[c]; });
+    var starters = (hasPriority ? ranked : ["J04", "J07"].filter(function (c) { return !ex[c]; }).concat(ranked)).filter(function (c, i, a) { return a.indexOf(c) === i; }).slice(0, 2);
+    var playedAll = [];
+    data.sessions.forEach(function (s) { if (playedAll.indexOf(s.code) === -1) playedAll.push(s.code); });
+    var latest = latestValid(data.sessions);
+    var next = null, done = false;
+    var pendingStarters = starters.filter(function (c) { return playedAll.indexOf(c) === -1; });
+    if (q.stopped) { done = true; }
+    else if (pendingStarters.length) { next = { code: pendingStarters[0], why: hasPriority ? "responde a lo que has indicado en el cuestionario" : "juego de arranque general (sin prioridades indicadas)" }; }
+    else if (playedAll.length >= MAX_GAMES) { done = true; }
+    else {
+      var lastCode = null;
+      data.sessions.forEach(function (s) { if (s.valid) lastCode = s.code; });
+      if (lastCode) {
+        var flagged = (RULES[lastCode] || []).some(function (rule) { return judge(rule, latest[lastCode].metrics[rule[0]]) === "difficulty"; });
+        if (flagged) {
+          (TRANSITIONS[lastCode] || []).some(function (t) {
+            if (!ex[t[0]] && playedAll.indexOf(t[0]) === -1) { next = { code: t[0], why: "tras " + GAMES[lastCode] + ": " + t[1] }; return true; }
+            return false;
+          });
+        }
+      }
+      if (!next) {
+        var open = ranked.filter(function (c) { return score[c] && playedAll.indexOf(c) === -1; })[0];
+        if (open) next = { code: open, why: "aún no se ha explorado una prioridad que indicaste" };
+      }
+      if (!next) done = true;
+    }
+    var excludedList = Object.keys(ex).map(function (c) { return { code: c, why: ex[c] }; });
+    return { starters: starters, next: next, done: done, played: playedAll, excluded: excludedList, maxGames: MAX_GAMES, hasPriority: hasPriority };
+  }
+  function status() {
+    var q = getQ(), data = read(), r = route(), ev = evaluate();
+    var validCount = Object.keys(ev.latest).length;
+    var areas = q.concerns.map(function (id) { return (CONCERNS[id] || {}).label; }).filter(Boolean);
+    var reasons = [];
+    if (q.concerns.indexOf("social") !== -1 || q.concerns.indexOf("sensorial") !== -1) reasons.push("preocupaciones sobre comunicación, rutinas o aspectos sensoriales");
+    if (q.persistent) reasons.push("dificultades persistentes");
+    if (q.impact === "significant") reasons.push("impacto significativo en la vida diaria");
+    if (q.screening === "positive") reasons.push("cribado reconocido positivo según su manual");
+    var diffs = [];
+    ev.domains.forEach(function (d) { if (d.flagged) diffs.push(d.label.toLowerCase()); });
+    var cog = diffs.length ? "con diferencias descriptivas en " + diffs.join(" y ") + " (provisionales, sin normas)" : validCount ? "sin patrones destacados" : "sin pruebas interpretables";
+    if (q.stopped) return { id: "interrumpida", title: "Evaluación interrumpida", text: "Proceso incompleto a petición de la persona o por fatiga. No se emiten conclusiones negativas." };
+    if (!data.sessions.length && !q.concerns.length && q.impact === "none" && !q.persistent) return { id: "inicio", title: "Aún sin datos", text: "Rellena el cuestionario inicial y juega las actividades recomendadas." };
+    if (reasons.length) return { id: "recomendada", title: "Orientación profesional recomendada", text: "Se recomienda explorar " + (areas.join(", ") || "las áreas indicadas") + " por " + reasons.join(", ") + ", con resultados cognitivos " + cog + ". No equivale a diagnóstico." };
+    if (data.sessions.length && !validCount) return { id: "insuficiente", title: "Información insuficiente", text: "No es posible interpretar adecuadamente las pruebas realizadas (sesiones no válidas o incompletas). Se pueden ofrecer adaptaciones, o evaluación profesional si la preocupación continúa." };
+    if (r.done && validCount >= 2) return { id: "sin_senales", title: "Exploración completada sin señales suficientes para recomendar por esta vía", text: "No se han identificado motivos adicionales en esta exploración limitada. No excluye neurodivergencias; solicita valoración si existen preocupaciones persistentes." };
+    return { id: "en_curso", title: "Exploración en curso", text: "Continúa con la siguiente actividad recomendada o detén la exploración cuando lo necesites." };
+  }
+
   window.FANDProfile = {
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
-    ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS
+    ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS,
+    concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status
   };
   window.saveProfile = function (code, session) {
     try { return save(code, session); } catch (e) { return false; }
