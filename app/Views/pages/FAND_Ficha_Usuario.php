@@ -104,6 +104,7 @@ $games = [
   <script>
     (function () {
       var report = document.getElementById("report");
+      var QDEF = <?= json_encode(CuestionarioCatalog::definition()) ?>;
       function el(tag, cls, text) {
         var n = document.createElement(tag);
         if (cls) n.className = cls;
@@ -149,6 +150,26 @@ $games = [
         head.append(el("p", "", "Cuestionario inicial · Áreas a explorar: " + (concernNames.join(", ") || "no indicadas") + " · Persistencia: " + (qn.persistent ? "sí" : "no indicada") + " · Impacto: " + ({ none: "sin impacto / no sabe", some: "algo", significant: "significativo" }[qn.impact] || "—") + " · Cribado reconocido: " + ({ none: "no realizado", negative: "negativo", positive: "positivo" }[qn.screening] || "—") + "."));
         head.append(el("p", "", "Los resultados de los juegos solo contextualizan la recomendación: una puntuación normal no excluye ninguna condición y una puntuación baja no la confirma."));
         report.append(head);
+
+        var qs = FANDProfile.scoreQuestionnaires(QDEF);
+        if (qs.length) {
+          var qsec = section("Cuestionarios (C01–C05) · resumen descriptivo");
+          qsec.append(el("p", "meta", "Media de frecuencia por dimensión (0 = nunca, 4 = casi siempre) sobre las respuestas válidas. «No sé / no aplica» es dato ausente, no cero. Banco no validado, sin cortes clínicos; no se suma con los juegos."));
+          qs.forEach(function (q) {
+            qsec.append(el("h3", "", q.code + " · " + q.nombre));
+            var qt = el("table"), qh = el("tr");
+            ["Dimensión", "Media (0–4)", "Válidas", "No sé / n.a.", "Ítems ampliados respondidos"].forEach(function (h) { qh.append(el("th", "", h)); });
+            qt.append(qh);
+            q.dimensiones.forEach(function (d) {
+              var r = el("tr");
+              r.append(el("td", "", d.nombre), el("td", "", d.mean === null ? "—" : d.mean.toFixed(2)), el("td", "", d.valid + " de " + d.total), el("td", "", String(d.na)), el("td", "", d.extraAnswered + " de " + d.extraTotal));
+              qt.append(r);
+            });
+            qsec.append(qt);
+          });
+          var ql = el("a", "btn", "Completar o revisar cuestionarios"); ql.href = "FAND_Cuestionarios.html"; qsec.append(ql);
+          report.append(qsec);
+        }
 
         if (!played.length) {
           var empty = section("Aún no hay resultados");

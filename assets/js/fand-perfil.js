@@ -276,7 +276,41 @@
     return { id: "en_curso", title: "Exploración en curso", text: "Continúa con la siguiente actividad recomendada o detén la exploración cuando lo necesites." };
   }
 
+  // ---- Cuestionarios C01–C15 (banco de investigación; sin umbrales clínicos) ----
+  function getAnswers(code) { var c = read().cuest || {}; return c[code] || {}; }
+  function setAnswer(code, item, value) {
+    var data = read();
+    data.cuest = data.cuest || {};
+    data.cuest[code] = data.cuest[code] || {};
+    if (value === "" || value === null || value === undefined) delete data.cuest[code][item]; else data.cuest[code][item] = value;
+    return write(data);
+  }
+  // Por dimensión: suma, nº de ítems válidos, faltantes y media (suma/válidos). «na» = dato ausente, no cero.
+  function scoreQuestionnaires(def) {
+    var out = [];
+    Object.keys(def || {}).forEach(function (code) {
+      var ans = getAnswers(code), answeredAny = false;
+      var dims = def[code].dimensiones.map(function (d) {
+        var sum = 0, valid = 0, na = 0;
+        d.scored.forEach(function (it) {
+          var v = ans[it];
+          if (v === "na") { na += 1; answeredAny = true; }
+          else if (v !== undefined && isFinite(Number(v))) { sum += Number(v); valid += 1; answeredAny = true; }
+        });
+        var extraAnswered = d.extra.filter(function (it) { return ans[it] !== undefined && ans[it] !== "na"; }).length;
+        return { nombre: d.nombre, sum: sum, valid: valid, na: na, total: d.scored.length, mean: valid ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
+      });
+      if (answeredAny) out.push({ code: code, nombre: def[code].nombre, dimensiones: dims });
+    });
+    return out;
+  }
+  function answeredModules() {
+    var c = read().cuest || {};
+    return Object.keys(c).filter(function (k) { return Object.keys(c[k]).length; });
+  }
+
   window.FANDProfile = {
+    getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
     ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS,
     concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status

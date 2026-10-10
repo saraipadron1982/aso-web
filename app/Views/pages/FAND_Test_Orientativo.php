@@ -46,7 +46,7 @@ $tests = [
 </head>
 <body>
   <header>
-    <a href="index.html">← Inicio</a> · <a href="FAND_Juegos_Interactivos.html">Todos los juegos</a> ·     <a href="FAND_Fichas_Tecnicas.html">Fichas técnicas</a> · <a href="FAND_Protocolo.html">Protocolo</a> · <a href="FAND_Ficha_Usuario.html">Mi ficha</a>
+    <a href="index.html">← Inicio</a> · <a href="FAND_Juegos_Interactivos.html">Todos los juegos</a> ·     <a href="FAND_Fichas_Tecnicas.html">Fichas técnicas</a> · <a href="FAND_Protocolo.html">Protocolo</a> · <a href="FAND_Cuestionarios.html">Cuestionarios</a> · <a href="FAND_Ficha_Usuario.html">Mi ficha</a>
     <h1>Test orientativo</h1>
     <p>Ocho actividades breves para explorar atención, control de impulsos, planificación y memoria. Puedes hacer solo las que quieras y en el orden que prefieras. Al terminar, <a href="FAND_Ficha_Usuario.html">Mi ficha</a> reúne los resultados.</p>
   </header>
