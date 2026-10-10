@@ -90,7 +90,7 @@ $games = [
       <h2 style="margin-top:0">Juegos incluidos y sus fichas técnicas</h2>
       <ul>
         <?php foreach ($games as $code => [$name, $area]): ?>
-          <li><a href="FAND_Fichas_Tecnicas.html#<?= $code ?>"><?= $code ?> · <?= htmlspecialchars($name) ?></a> — <?= htmlspecialchars($area) ?></li>
+          <li><a href="FAND_Fichas_Tecnicas.html?juego=<?= $code ?>"><?= $code ?> · <?= htmlspecialchars($name) ?></a> — <?= htmlspecialchars($area) ?></li>
         <?php endforeach; ?>
       </ul>
     </section>

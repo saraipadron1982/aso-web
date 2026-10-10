@@ -1,5 +1,7 @@
 <?php
 $fichas = FichaCatalog::all();
+$requested = strtoupper((string) ($_GET['juego'] ?? ''));
+$selected = isset($fichas[$requested]) ? $requested : null;
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,6 +27,13 @@ $fichas = FichaCatalog::all();
     .ficha-table { width: 100%; border-collapse: collapse; font-size: .92rem; margin: 8px 0; }
     .ficha-table th, .ficha-table td { border: 1px solid var(--line); padding: 5px 8px; text-align: left; vertical-align: top; }
     .ficha-table th { background: var(--soft); }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin: 18px 0; }
+    .tile { display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--line); border-radius: 14px; padding: 10px; text-decoration: none; color: var(--ink); background: #fff; }
+    .tile:hover, .tile:focus-visible { border-color: var(--teal); box-shadow: 0 2px 10px rgba(15,118,110,.18); }
+    .tile img, .hero { width: 100%; height: auto; border-radius: 10px; display: block; }
+    .tile span { font-size: .9rem; color: #475569; }
+    .hero { max-width: 520px; margin: 8px 0 12px; border: 1px solid var(--line); }
+    nav.index a[aria-current] { background: var(--teal); color: #fff; }
     .meta { font-size: .9rem; color: #475569; }
     footer { padding: 24px 0 40px; font-size: .9rem; }
     @media print { nav.index, details > summary { display: none; } details { display: block; } }
@@ -40,15 +49,29 @@ $fichas = FichaCatalog::all();
     <div class="notice"><strong>Importante:</strong> los juegos de FAND son protocolos de investigación no validados y no disponen de baremos propios. No diagnostican ni sustituyen una evaluación profesional.</div>
     <nav class="index" aria-label="Fichas">
       <?php foreach ($fichas as $code => $ficha): ?>
-        <a href="#<?= htmlspecialchars($code) ?>"><?= htmlspecialchars($code) ?> · <?= htmlspecialchars((string) $ficha->nombre) ?></a>
+        <a href="FAND_Fichas_Tecnicas.html?juego=<?= htmlspecialchars($code) ?>"<?= $code === $selected ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($code) ?> · <?= htmlspecialchars((string) $ficha->nombre) ?></a>
       <?php endforeach; ?>
     </nav>
+    <?php if ($selected === null): ?>
+      <div class="gallery">
+        <?php foreach ($fichas as $code => $ficha): ?>
+          <a class="tile" href="FAND_Fichas_Tecnicas.html?juego=<?= htmlspecialchars($code) ?>">
+            <img src="assets/img/juegos/<?= htmlspecialchars($code) ?>.svg" alt="Ilustración del juego <?= htmlspecialchars((string) $ficha->nombre) ?>" loading="lazy">
+            <strong><?= htmlspecialchars($code) ?> · <?= htmlspecialchars((string) $ficha->nombre) ?></strong>
+            <span><?= htmlspecialchars((string) $ficha->area_principal) ?></span>
+          </a>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
     <?php foreach ($fichas as $code => $ficha): ?>
+      <?php if ($code !== $selected) { continue; } ?>
       <article id="<?= htmlspecialchars($code) ?>">
         <h2><?= htmlspecialchars($code) ?> · <?= htmlspecialchars((string) $ficha->nombre) ?></h2>
+        <img class="hero" src="assets/img/juegos/<?= htmlspecialchars($code) ?>.svg" alt="Ilustración del juego <?= htmlspecialchars((string) $ficha->nombre) ?>">
         <p class="meta">Área principal: <?= htmlspecialchars((string) $ficha->area_principal) ?> · Versión: <?= htmlspecialchars((string) $ficha['version']) ?> · Estado: <?= htmlspecialchars(str_replace('_', ' ', (string) $ficha['estado'])) ?></p>
         <p><strong>Fundamento:</strong> <?= htmlspecialchars((string) $ficha->fundamento) ?></p>
         <p><strong>Mecánica:</strong> <?= htmlspecialchars((string) $ficha->mecanica) ?></p>
+        <p class="noprint"><a href="FAND_Juegos_Interactivos.html#juegos">Ir a jugar</a> · <a href="FAND_Fichas_Tecnicas.html">Ver todas las fichas</a></p>
         <details open>
           <summary>Ficha completa</summary>
           <?= FichaCatalog::render($ficha) ?>

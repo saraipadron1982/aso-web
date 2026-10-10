@@ -359,6 +359,7 @@
       .verbal-memory-setup, .verbal-memory-round, .verbal-memory-video { padding: 12px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    .game-art { width: 100%; height: auto; border-radius: 10px; margin: 4px 0 8px; display: block; }
   </style>
 </head>
 <body>
@@ -688,17 +689,25 @@
 
       games.forEach(game => {
         const card = element("article", "game-card");
+        const sheetCode = sheetByGame[game.id];
         card.append(element("div", "game-icon", game.icon), element("h3", "", game.title));
+        if (sheetCode) {
+          const art = document.createElement("img");
+          art.src = `assets/img/juegos/${sheetCode}.svg`;
+          art.alt = `Ilustración de ${game.title}`;
+          art.className = "game-art";
+          art.loading = "lazy";
+          card.append(art);
+        }
         card.append(element("p", "skills", game.skills), element("p", "description", game.description));
         const button = element("button", "secondary", "Jugar");
         button.type = "button";
         button.addEventListener("click", () => launchGame(game.id));
         card.append(button);
-        const sheetCode = sheetByGame[game.id];
         if (sheetCode) {
           const links = element("p", "meta");
           const sheetLink = element("a", "", `Ficha técnica ${sheetCode}`);
-          sheetLink.href = `FAND_Fichas_Tecnicas.html#${sheetCode}`;
+          sheetLink.href = `FAND_Fichas_Tecnicas.html?juego=${sheetCode}`;
           const profileLink = element("a", "", "Mi ficha");
           profileLink.href = "FAND_Ficha_Usuario.html";
           links.append(sheetLink, " · ", profileLink);

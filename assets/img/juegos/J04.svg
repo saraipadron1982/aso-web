@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-labelledby="t"><title id="t">Atención sostenida: detectar estímulos poco frecuentes durante varios minutos</title>
+<rect width="400" height="240" rx="16" fill="#f0fdfa"/>
+<circle cx="200" cy="92" r="58" fill="#fff" stroke="#99f6e4" stroke-width="2"/>
+<circle cx="200" cy="92" r="38" fill="none" stroke="#99f6e4" stroke-width="2"/><circle cx="200" cy="92" r="18" fill="none" stroke="#99f6e4" stroke-width="2"/>
+<path d="M200 92L246 58" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/><circle cx="200" cy="92" r="4" fill="#0f766e"/>
+<circle cx="236" cy="66" r="7" fill="#f59e0b"/>
+<line x1="40" y1="190" x2="360" y2="190" stroke="#cbd5e1" stroke-width="2"/>
+<g fill="#94a3b8"><circle cx="60" cy="190" r="6"/><circle cx="100" cy="190" r="6"/><circle cx="140" cy="190" r="6"/><circle cx="220" cy="190" r="6"/><circle cx="260" cy="190" r="6"/><circle cx="340" cy="190" r="6"/></g>
+<g fill="#f59e0b"><circle cx="180" cy="190" r="9"/><circle cx="300" cy="190" r="9"/></g>
+<text x="40" y="214" font-family="system-ui,Segoe UI,sans-serif" font-size="12" fill="#475569">tiempo →</text>
+<text x="360" y="214" text-anchor="end" font-family="system-ui,Segoe UI,sans-serif" font-size="12" fill="#115e59">● objetivo poco frecuente</text></svg>
