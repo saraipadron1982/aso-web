@@ -867,7 +867,55 @@
       animation: none;
     }
     .hero::before, .hero::after { display: none; animation: none; }
-    .hero-inner, main, footer { width: min(1000px, calc(100% - 40px)); }
+    .hero-inner, main, footer {
+      width: calc(100% - 64px);
+      max-width: none;
+    }
+    .home-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(290px, 350px);
+      align-items: start;
+      gap: 30px;
+    }
+    .main-column { min-width: 0; }
+    .article-sidebar {
+      position: sticky;
+      top: 24px;
+      min-width: 0;
+      padding: 20px;
+      border: 1px solid #dce4df;
+      border-radius: 15px;
+      background: #fff;
+    }
+    .article-sidebar-heading { margin-bottom: 16px; }
+    .article-sidebar-heading .section-kicker { margin-bottom: 5px; }
+    .article-sidebar-heading h2 { margin: 0; font-size: 24px; line-height: 1.2; }
+    .article-sidebar-heading p { margin: 7px 0 0; color: var(--muted); font-size: 14px; }
+    .article-list { display: grid; gap: 12px; }
+    .article-link {
+      display: block;
+      padding: 15px;
+      border: 1px solid #dce4df;
+      border-radius: 11px;
+      background: #f8faf8;
+      text-decoration: none;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+    .article-link:hover { transform: translateY(-2px); border-color: #87a99b; background: #f0f6f2; }
+    .article-link:nth-child(2) { border-color: #eadbb5; background: #fffaf0; }
+    .article-link:nth-child(3) { border-color: #d6e7dd; background: #f2f8f4; }
+    .article-link span { display: block; margin-bottom: 6px; color: #725019; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .article-link h3 { margin: 0 0 7px; color: #214b50; font-size: 17px; line-height: 1.3; }
+    .article-link p { margin: 0; color: #526568; font-size: 13px; line-height: 1.5; }
+    .article-link .article-read { margin-top: 10px; color: #175d62; font-size: 13px; font-weight: 750; }
+    @media (max-width: 1050px) {
+      .home-layout { grid-template-columns: 1fr; gap: 26px; }
+      .article-sidebar { position: static; }
+      .article-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 700px) {
+      .article-list { grid-template-columns: 1fr; }
+    }
     .hero-inner { padding: 18px 0 34px; }
     .hero-top {
       display: flex;
@@ -944,25 +992,6 @@
       text-decoration: none;
     }
     .hero-cta:hover { background: #edf5f0; }
-    .article-highlights {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin: 0 0 40px;
-    }
-    .highlight-card {
-      min-width: 0;
-      padding: 19px;
-      border: 1px solid #dbe6e2;
-      border-radius: 15px;
-      background: #fff;
-      box-shadow: 0 6px 18px rgb(23 57 58 / 5%);
-    }
-    .highlight-card:nth-child(3n+2) { background: #fff8e9; border-color: #eadbb5; }
-    .highlight-card:nth-child(3n+3) { background: #f0f7f4; border-color: #d6e7dd; }
-    .highlight-card .highlight-topic { margin: 0 0 10px; color: #725019; font-size: 12px; font-weight: 800; letter-spacing: .055em; text-transform: uppercase; }
-    .highlight-card blockquote { margin: 0; color: #2b484b; font-size: 16px; font-weight: 650; line-height: 1.55; }
-    .highlight-source { display: inline-flex; min-height: 42px; align-items: center; margin-top: 12px; color: #175d62; font-size: 13px; font-weight: 750; text-underline-offset: 3px; }
     main { padding: 30px 0 48px; }
     .welcome-media {
       margin-bottom: 38px;
@@ -1015,7 +1044,6 @@
       font-size: 14px;
     }
     .category-tab:hover { border-color: #6b9287; background: #eff5f1; }
-    .category-tab[data-category="articulos"][aria-pressed="true"] { border-color: #355f68; background: #355f68; }
     .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; perspective: none; }
     .card {
       padding: 0 18px 16px;
@@ -1024,10 +1052,6 @@
       box-shadow: none;
       animation: none;
     }
-    .card[data-category="articulos"] { --accent: #355f68; --accent-soft: #eaf1f1; --accent-glow: #cadede; }
-    .card[data-category="articulos"]:nth-of-type(3n+2) { --accent: #9a5a27; --accent-soft: #fff0dc; --accent-glow: #f2d0a2; }
-    .card[data-category="articulos"]:nth-of-type(3n+3) { --accent: #66518f; --accent-soft: #f0eafb; --accent-glow: #d4c4f0; }
-    .card[data-category="articulos"] > .article-excerpt { flex: none; margin: 13px -3px 0; padding: 12px; border-left: 4px solid var(--accent); border-radius: 0 9px 9px 0; background: var(--accent-soft); color: #344e51; font-size: 14px; font-weight: 650; line-height: 1.5; }
     .card:hover { transform: none; border-color: #7f9e93; box-shadow: 0 4px 14px rgb(23 57 58 / 7%); }
     .card-banner { min-height: 64px; margin: 0 -18px 14px; padding: 10px 18px; }
     .card-icon { width: 40px; height: 40px; border-radius: 10px; font-size: 17px; box-shadow: none; transform: none; }
@@ -1042,11 +1066,9 @@
     .viewer { margin-top: 28px; }
     footer { border-color: #dce4df; }
     @media (max-width: 700px) {
-      .hero-inner, main, footer { width: min(100% - 32px, 1000px); }
+      .hero-inner, main, footer { width: calc(100% - 32px); }
       .hero-top { align-items: start; flex-direction: column; gap: 9px; }
       .brand-logo { width: 64px; height: 64px; border-radius: 14px; }
-      .article-highlights { grid-template-columns: 1fr; gap: 9px; margin-bottom: 32px; }
-      .highlight-card { padding: 16px; }
       .hero-copy-block { display: block; padding-top: 26px; }
       .hero-feature-logo { display: none; }
       .site-nav { gap: 4px 18px; }
@@ -1074,34 +1096,79 @@
       .cards { display: block; }
       .card, .about-panel, .pillar-card { margin: 10px 0; break-inside: avoid; }
     }
+
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; background: #fff; border: 2px solid var(--teal); border-radius: 8px; }
+    .skip-link:focus { top: 12px; }
+    .site-header { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 4px 18px rgb(23 57 58 / 7%); }
+    .site-header-inner { display: flex; align-items: center; gap: 24px; width: calc(100% - 64px); margin: 0 auto; padding: 12px 0; }
+    .site-header .brand { display: flex; align-items: center; gap: 12px; flex: none; color: var(--ink); text-decoration: none; }
+    .site-header .brand-logo { width: 56px; height: 56px; object-fit: contain; }
+    .site-header .brand-name { display: grid; line-height: 1.2; color: var(--ink); }
+    .site-header .brand-name strong { font-size: 22px; }
+    .site-header .brand-name span { font-size: 13px; color: var(--muted); }
+    .global-search { position: relative; flex: 1; max-width: 720px; margin-left: auto; }
+    .global-search label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .global-search-box { position: relative; }
+    .global-search-box .search-mark { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--teal-dark); }
+    .global-search input { width: 100%; min-height: 52px; padding: 0 16px 0 46px; font-size: 18px; color: var(--ink); background: #fff; border: 2px solid #8fb5b3; border-radius: 12px; }
+    .global-search input:focus { border-color: var(--teal-dark); }
+    .global-results { position: absolute; left: 0; right: 0; top: calc(100% + 6px); max-height: 60vh; overflow: auto; padding: 8px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+    .global-results ul { margin: 0; padding: 0; list-style: none; }
+    .global-results a { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 12px; border-radius: 8px; text-decoration: none; font-size: 17px; }
+    .global-results a:hover, .global-results a:focus-visible { background: #e8f3f1; }
+    .global-type { flex: none; min-width: 84px; padding: 2px 8px; font-size: 13px; font-weight: 700; text-align: center; color: var(--teal-dark); background: #e1efec; border-radius: 999px; }
+    .global-count, .global-empty { margin: 4px 12px 8px; color: var(--muted); font-size: 15px; }
+    .resource-bar { border-top: 1px solid var(--line); background: #eef5f3; }
+    .resource-bar ul { display: flex; gap: 8px; width: calc(100% - 64px); margin: 0 auto; padding: 8px 0; list-style: none; overflow-x: auto; }
+    .resource-bar a { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; white-space: nowrap; font-weight: 600; text-decoration: none; color: var(--teal-dark); background: #fff; border: 1px solid #c8dcd8; border-radius: 999px; }
+    .resource-bar a span { font-size: 17px; }
+    .resource-bar a:hover { background: var(--teal-dark); color: #fff; }
+    #contenido:focus { outline: none; }
+    html { scroll-padding-top: 150px; }
+    .article-sidebar { top: 150px; max-height: calc(100vh - 170px); overflow: auto; }
+    @media (max-width: 1050px) { .article-sidebar { max-height: none; overflow: visible; } }
+    @media (max-width: 760px) {
+      .site-header-inner { flex-wrap: wrap; width: calc(100% - 32px); gap: 10px; }
+      .site-header .brand-name span { display: none; }
+      .global-search { flex: 1 1 100%; max-width: none; }
+      .resource-bar ul { width: calc(100% - 32px); }
+    }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-top">
-        <a class="brand" href="#inicio" aria-label="FAND, Alianza para la Neurodivergencia — inicio">
-          <img class="brand-logo" src="Logo%20FAND%20en%20turquesa%20con%20emblema%20multicolor%20(1).png" alt="Logotipo de FAND: Alianza para la Neurodivergencia">
-          <span class="brand-name"><strong>FAND</strong><span>Alianza para la Neurodivergencia</span></span>
-        </a>
-        <nav class="site-nav" aria-label="Navegación principal">
-          <a href="#sobre">Quiénes somos</a>
-          <a href="#catalogue-title">Artículos y recursos</a>
-          <a href="FAND_Juegos_Interactivos.html">Juegos interactivos</a>
-        </nav>
-      </div>
-      <div class="hero-copy-block" id="inicio">
-        <p class="hero-eyebrow">Información y recursos</p>
-        <h1>Encuentra lo que necesitas, a tu ritmo.</h1>
-        <p class="hero-copy">Artículos, herramientas y apoyos sobre neurodivergencia, derechos y vida cotidiana.</p>
-        <a class="hero-cta" href="#catalogue-title">Ver artículos y recursos <span aria-hidden="true">↓</span></a>
-        <img class="hero-feature-logo" src="Logo%20FAND%20en%20turquesa%20con%20emblema%20multicolor%20(1).png" alt="" aria-hidden="true">
-      </div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header" id="inicio">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html" aria-label="FAND, Alianza para la Neurodivergencia — inicio">
+        <img class="brand-logo" src="Logo%20FAND%20en%20turquesa%20con%20emblema%20multicolor%20(1).png" alt="Logotipo de FAND: Alianza para la Neurodivergencia">
+        <span class="brand-name"><strong>FAND</strong><span>Alianza para la Neurodivergencia</span></span>
+      </a>
+      <form class="global-search" role="search" id="global-search-form" autocomplete="off">
+        <label for="global-search">Buscar en toda la web</label>
+        <div class="global-search-box">
+          <span class="search-mark" aria-hidden="true">⌕</span>
+          <input id="global-search" type="search" placeholder="Prueba «autismo», «empleo» o «juegos»…" aria-controls="global-results" aria-expanded="false">
+        </div>
+        <div class="global-results" id="global-results" role="region" aria-label="Resultados de búsqueda" aria-live="polite" hidden></div>
+      </form>
     </div>
+    <nav class="resource-bar" aria-label="Recursos">
+      <ul>
+        <li><a href="#articulos"><span aria-hidden="true">▤</span>Artículos</a></li>
+        <li><a href="FAND_Diccionario_Neurodivergencia.html"><span aria-hidden="true">Aa</span>Diccionario</a></li>
+        <li><a href="FAND_Directorio.html"><span aria-hidden="true">⌖</span>Directorio</a></li>
+        <li><a href="FAND_Herramientas_Digitales.html"><span aria-hidden="true">⌘</span>Herramientas</a></li>
+        <li><a href="FAND_Juegos_Interactivos.html"><span aria-hidden="true">▶</span>Juegos</a></li>
+        <li><a href="FAND_Formaciones_Oficiales.html"><span aria-hidden="true">✎</span>Formación</a></li>
+        <li><a href="FAND_Historia_Neurodivergencia_Orden_Cronologico.html"><span aria-hidden="true">◷</span>Historia</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section class="welcome-media" id="sobre" aria-labelledby="welcome-title">
+  <main id="contenido" tabindex="-1">
+    <div class="home-layout">
+      <div class="main-column">
+      <section class="welcome-media" id="sobre" aria-labelledby="welcome-title">
       <div class="welcome-heading">
         <div>
           <span class="section-kicker">Quiénes somos</span>
@@ -1229,48 +1296,53 @@
       </details>
     </section>
 
-    <section class="article-highlights" aria-label="Ideas destacadas de los artículos">
-      <article class="highlight-card">
-        <p class="highlight-topic">Lo que indican las cifras</p>
-        <blockquote>«Los registros diagnósticos no equivalen a la prevalencia real.»</blockquote>
-        <a class="highlight-source" href="articulos/poblacion-neurodivergente.html">Leer sobre población y datos <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="highlight-card">
-        <p class="highlight-topic">Comunidad y redes</p>
-        <blockquote>«Las redes pueden acercar comunidad y apoyo; la calidad de la información también importa.»</blockquote>
-        <a class="highlight-source" href="articulos/neurodivergencia-redes-sociales.html">Leer sobre redes sociales <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="highlight-card">
-        <p class="highlight-topic">Trabajo e inclusión</p>
-        <blockquote>«La igualdad de oportunidades no debe depender de demostrar un rendimiento extraordinario.»</blockquote>
-        <a class="highlight-source" href="FAND_Neurodivergencia_Inclusion_Laboral_2026.html">Leer sobre inclusión laboral <span aria-hidden="true">→</span></a>
-      </article>
-    </section>
+      </div>
 
-    <section id="articulos" aria-labelledby="catalogue-title">
+      <aside class="article-sidebar" id="articulos" aria-labelledby="articles-title">
+        <div class="article-sidebar-heading">
+          <span class="section-kicker">Lecturas destacadas</span>
+          <h2 id="articles-title">Artículos</h2>
+          <p>Investigaciones y contenidos publicados en la web.</p>
+        </div>
+        <div class="article-list">
+          <a class="article-link" href="articulos/poblacion-neurodivergente.html">
+            <span>Investigación · Población</span>
+            <h3>¿Cuántas personas neurodivergentes somos?</h3>
+            <p>Cifras disponibles, cómo interpretarlas y qué grupos siguen poco representados.</p>
+            <span class="article-read">Leer artículo <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="article-link" href="articulos/neurodivergencia-redes-sociales.html">
+            <span>Investigación · Redes sociales</span>
+            <h3>Neurodivergencia y redes sociales</h3>
+            <p>Comunidad, accesibilidad, calidad de la información, beneficios y riesgos.</p>
+            <span class="article-read">Leer artículo <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="article-link" href="FAND_Neurodivergencia_Inclusion_Laboral_2026.html">
+            <span>Trabajo · Inclusión</span>
+            <h3>Neurodivergencia e inclusión laboral</h3>
+            <p>Barreras en el empleo y condiciones que pueden favorecer la inclusión y el bienestar.</p>
+            <span class="article-read">Leer artículo <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </aside>
+
+      <div class="main-column">
+    <section id="recursos" aria-labelledby="catalogue-title">
       <div class="section-heading">
         <div>
           <span class="section-kicker">Empieza por aquí</span>
-          <h2 id="catalogue-title">Artículos y recursos</h2>
+          <h2 id="catalogue-title">Guías y recursos</h2>
           <p>Elige una opción o usa la búsqueda. No hace falta seguir un orden.</p>
         </div>
         <span id="count" class="catalogue-count" role="status" aria-live="polite"></span>
       </div>
 
-      <div class="filters" aria-label="Buscar y filtrar recursos">
-        <div class="field">
-          <label for="search">Buscar en todos los recursos</label>
-          <div class="search-field">
-            <span class="search-mark" aria-hidden="true">⌕</span>
-            <input id="search" type="search" placeholder="Prueba «autismo», «formación» o «apoyos»…" autocomplete="off">
-          </div>
-        </div>
+      <div class="filters" aria-label="Filtrar recursos">
         <button class="reset-button" id="reset" type="button" hidden>Quitar filtros</button>
       </div>
 
       <nav class="category-tabs" aria-label="Filtrar recursos por tema">
         <button class="category-tab" type="button" data-category="" aria-pressed="true">Todo</button>
-        <button class="category-tab" type="button" data-category="articulos" aria-pressed="false">Artículos</button>
         <button class="category-tab" type="button" data-category="guia" aria-pressed="false">Guías y consulta</button>
         <button class="category-tab" type="button" data-category="apoyos" aria-pressed="false">Apoyos y recursos</button>
         <button class="category-tab" type="button" data-category="formacion" aria-pressed="false">Formación</button>
@@ -1278,41 +1350,6 @@
       </nav>
 
       <div class="cards" id="cards" aria-label="Páginas disponibles">
-        <article class="card" data-category="articulos" data-search="artículo investigación divulgación cuántas personas somos prevalencia población españa europa internacional infradiagnóstico coexistencia perfiles datos evidencia">
-          <div class="card-banner"><span class="card-icon" aria-hidden="true">01</span><span class="card-category">Artículo · Investigación</span></div>
-          <h3>¿Cuántas personas neurodivergentes somos?</h3>
-          <p>Qué cifras existen en España y otros países, cómo interpretarlas y qué grupos siguen poco representados.</p>
-          <div class="tags"><span class="tag">Población</span><span class="tag">Datos</span><span class="tag">Vacíos de investigación</span></div>
-          <div class="card-actions">
-            <a class="view-button" href="articulos/poblacion-neurodivergente.html">Leer artículo <span aria-hidden="true">→</span></a>
-            <span class="new-tab">Actualizado 2026</span>
-          </div>
-        </article>
-
-        <article class="card" data-category="articulos" data-search="artículo investigación divulgación redes sociales tiktok instagram comunidad amistad identidad accesibilidad información desinformación bienestar ciberacoso">
-          <div class="card-banner"><span class="card-icon" aria-hidden="true">02</span><span class="card-category">Artículo · Investigación</span></div>
-          <h3>Neurodivergencia y redes sociales</h3>
-          <p>Beneficios, riesgos, accesibilidad y calidad de la información para personas neurodivergentes.</p>
-          <div class="tags"><span class="tag">Redes sociales</span><span class="tag">Comunidad</span><span class="tag">Bienestar</span></div>
-          <p class="article-excerpt">Las redes pueden ofrecer comunidad y apoyo; la evidencia también pide atender a la desinformación, la accesibilidad y los riesgos.</p>
-          <div class="card-actions">
-            <a class="view-button" href="articulos/neurodivergencia-redes-sociales.html">Leer artículo <span aria-hidden="true">→</span></a>
-            <span class="new-tab">Actualizado 2026</span>
-          </div>
-        </article>
-
-        <article class="card" data-category="articulos" data-search="artículo investigación divulgación neurodivergencia inclusión laboral empleo trabajo barreras contratación flexibilidad seguridad psicológica productividad derechos">
-          <div class="card-banner"><span class="card-icon" aria-hidden="true">03</span><span class="card-category">Artículo · Trabajo e inclusión</span></div>
-          <h3>Neurodivergencia e inclusión laboral</h3>
-          <p>Barreras en el empleo y condiciones que pueden favorecer la inclusión, el bienestar y la permanencia.</p>
-          <div class="tags"><span class="tag">Empleo</span><span class="tag">Accesibilidad</span><span class="tag">Derechos</span></div>
-          <p class="article-excerpt">«La igualdad de oportunidades no debe depender de demostrar una ventaja económica o un rendimiento extraordinario.»</p>
-          <div class="card-actions">
-            <a class="view-button" href="FAND_Neurodivergencia_Inclusion_Laboral_2026.html">Leer artículo <span aria-hidden="true">→</span></a>
-            <span class="new-tab">Actualizado 2026</span>
-          </div>
-        </article>
-
         <article class="card" data-category="guia" data-search="diccionario conceptos palabras vocabulario neurodivergencia autismo tdah derechos aprendizaje comunicación">
           <div class="card-banner"><span class="card-icon" aria-hidden="true">Aa</span><span class="card-category">Guías y consulta</span></div>
           <h3>Diccionario de neurodivergencia</h3>
@@ -1406,6 +1443,8 @@
       </div>
       <iframe id="page-frame" title="Página consultada" loading="lazy"></iframe>
     </section>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -1415,7 +1454,70 @@
 
   <script>
     (() => {
-      const search = document.querySelector("#search");
+      const siteIndex = <?= json_encode(PageCatalog::searchIndex(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP) ?>;
+      const globalInput = document.querySelector("#global-search");
+      const globalResults = document.querySelector("#global-results");
+      const normalize = (text) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
+
+      function renderGlobalResults() {
+        const terms = normalize(globalInput.value.trim()).split(/\s+/).filter(Boolean);
+        globalResults.replaceChildren();
+        globalInput.setAttribute("aria-expanded", String(terms.length > 0));
+        globalResults.hidden = terms.length === 0;
+        if (!terms.length) return;
+
+        const matches = siteIndex.filter((item) => {
+          const haystack = normalize(`${item.title} ${item.type} ${item.keywords}`);
+          return terms.every((term) => haystack.includes(term));
+        });
+
+        if (!matches.length) {
+          const none = document.createElement("p");
+          none.className = "global-empty";
+          none.textContent = "No hemos encontrado nada. Prueba con otra palabra, por ejemplo «empleo» o «juegos».";
+          globalResults.append(none);
+          return;
+        }
+
+        const total = document.createElement("p");
+        total.className = "global-count";
+        total.textContent = `${matches.length} ${matches.length === 1 ? "resultado" : "resultados"}`;
+        const list = document.createElement("ul");
+        for (const item of matches) {
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = item.url;
+          const type = document.createElement("span");
+          type.className = "global-type";
+          type.textContent = item.type;
+          link.append(type, document.createTextNode(item.title));
+          li.append(link);
+          list.append(li);
+        }
+        globalResults.append(total, list);
+      }
+
+      globalInput.addEventListener("input", renderGlobalResults);
+      document.querySelector("#global-search-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const first = globalResults.querySelector("a");
+        if (first) first.click();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !globalResults.hidden) {
+          globalInput.value = "";
+          renderGlobalResults();
+          globalInput.focus();
+        }
+      });
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest("#global-search-form")) {
+          globalResults.hidden = true;
+          globalInput.setAttribute("aria-expanded", "false");
+        }
+      });
+      globalInput.addEventListener("focus", () => { if (globalInput.value.trim()) renderGlobalResults(); });
+
       const cards = [...document.querySelectorAll(".card")];
       const categoryTabs = [...document.querySelectorAll(".category-tab")];
       const shortcuts = [...document.querySelectorAll(".shortcut")];
@@ -1429,7 +1531,7 @@
       let selectedCategory = "";
 
       function filterCards() {
-        const query = search.value.trim().toLocaleLowerCase("es");
+        const query = "";
         let visible = 0;
 
         for (const card of cards) {
@@ -1447,7 +1549,6 @@
         resetButton.hidden = !query && !selectedCategory;
       }
 
-      search.addEventListener("input", filterCards);
       categoryTabs.forEach((tab) => {
         tab.addEventListener("click", () => {
           selectedCategory = tab.dataset.category;
@@ -1463,11 +1564,9 @@
         });
       });
       resetButton.addEventListener("click", () => {
-        search.value = "";
         selectedCategory = "";
         categoryTabs.forEach((item) => item.setAttribute("aria-pressed", String(!item.dataset.category)));
         filterCards();
-        search.focus();
       });
 
       document.querySelector("#cards").addEventListener("click", (event) => {
