@@ -452,6 +452,7 @@
   </footer>
 
   <script src="assets/js/fand-perfil.js"></script>
+  <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);</script>
   <script>
     (() => {
       const games = [

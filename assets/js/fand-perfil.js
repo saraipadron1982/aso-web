@@ -372,7 +372,46 @@
     return Object.keys(c).filter(function (k) { return Object.keys(c[k]).length; });
   }
 
+  // ---- Recorrido ordenado (A1–A3): C05 → C01 → C02 → C03 → [C04 si hay organización/memoria] → juegos de la ruta → Mi ficha ----
+  var Q_ORDER = ["C05", "C01", "C02", "C03", "C04"];
+  function qList() {
+    var c = getQ().concerns;
+    return Q_ORDER.filter(function (code) { return code !== "C04" || c.indexOf("organizacion") !== -1 || c.indexOf("memoria") !== -1; });
+  }
+  function qDone(code) { return !!((read().cuestDone || {})[code]); }
+  function markDone(code) {
+    var data = read();
+    data.cuestDone = data.cuestDone || {};
+    data.cuestDone[code] = true;
+    return write(data);
+  }
+  function flow() {
+    if (getQ().stopped) return { type: "fin" };
+    var pending = qList().filter(function (c) { return !qDone(c); })[0];
+    if (pending) return { type: "cuestionario", code: pending, url: "FAND_Cuestionarios.html?q=" + pending };
+    var r = route();
+    if (r.next) return { type: "juego", code: r.next.code, why: r.next.why, url: "FAND_Juegos_Interactivos.html?jugar=" + r.next.code };
+    return { type: "fin", url: "FAND_Ficha_Usuario.html" };
+  }
+  function showNextBanner() {
+    if (!document.body || document.getElementById("fand-next")) return;
+    var f = flow(), box = document.createElement("div");
+    box.id = "fand-next"; box.setAttribute("role", "status");
+    box.style.cssText = "position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;width:min(92vw,560px);background:#fff;border:2px solid #0f766e;border-radius:14px;padding:12px 16px;box-shadow:0 6px 24px rgba(0,0,0,.25);font:16px/1.5 system-ui,sans-serif;color:#1f2937";
+    var msg = document.createElement("p"); msg.style.margin = "0 0 8px";
+    var a = document.createElement("a");
+    a.style.cssText = "display:inline-block;min-height:44px;box-sizing:border-box;background:#0f766e;color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700";
+    if (f.type === "juego") { msg.textContent = "Prueba guardada. Siguiente: " + GAMES[f.code] + " (" + f.why + ")."; a.textContent = "Ir a la siguiente prueba"; a.href = f.url; }
+    else { msg.textContent = "Prueba guardada. Has completado el recorrido previsto: revisa tu ficha."; a.textContent = "Ver Mi ficha"; a.href = "FAND_Ficha_Usuario.html"; }
+    var close = document.createElement("button"); close.type = "button"; close.textContent = "Cerrar";
+    close.style.cssText = "margin-left:10px;min-height:44px;padding:8px 14px;border:1px solid #94a3b8;border-radius:10px;background:#fff;cursor:pointer";
+    close.addEventListener("click", function () { box.remove(); });
+    box.append(msg, a, close);
+    document.body.appendChild(box);
+  }
+
   window.FANDProfile = {
+    flow: flow, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
@@ -380,6 +419,10 @@
     concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status
   };
   window.saveProfile = function (code, session) {
-    try { return save(code, session); } catch (e) { return false; }
+    try {
+      var ok = save(code, session);
+      if (ok && /Juegos_Interactivos/.test(location.pathname)) { var old = document.getElementById("fand-next"); if (old) old.remove(); setTimeout(showNextBanner, 1200); }
+      return ok;
+    } catch (e) { return false; }
   };
 })();

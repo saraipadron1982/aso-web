@@ -42,13 +42,24 @@ $scale = [0 => 'Nunca', 1 => 'Rara vez', 2 => 'A veces', 3 => 'Con frecuencia', 
   <main>
     <div class="notice"><strong>Importante:</strong> banco original de investigación, <strong>no validado</strong> y sin cortes clínicos. Sirve para orientar qué explorar y preparar una consulta; no diagnostica ni descarta nada. Puedes omitir cualquier pregunta. Tus respuestas se guardan solo en este navegador.</div>
     <?php if (!$sel): ?>
-      <p>Elige un módulo. Los cinco primeros (C01–C05) usan una escala de frecuencia y se resumen por dimensión en <a href="FAND_Ficha_Usuario.html">Mi ficha</a>. Los módulos opcionales (C06–C15) recogen contexto con respuestas libres, sin puntuación.</p>
-      <ul class="grid">
-        <?php foreach ($all as $code => $q): ?>
-          <li><a href="FAND_Cuestionarios.html?q=<?= $code ?>"><strong><?= $code ?> · <?= htmlspecialchars($q['nombre']) ?></strong>
-            <small><span class="tag"><?= $q['opcional'] ? 'Módulo opcional · contexto' : 'Escala de frecuencia' ?></span> · <span data-progress="<?= $code ?>"></span></small></a></li>
-        <?php endforeach; ?>
-      </ul>
+      <p>Sigue este orden: al terminar cada cuestionario pasarás automáticamente al siguiente y, después, a los juegos del Test orientativo. Puedes omitir cualquier módulo con «Guardar y continuar». Los resultados de cuestionarios y juegos se mantienen separados.</p>
+      <p><button type="button" class="btn" id="start-flow" style="border:0;cursor:pointer">Empezar / continuar el recorrido</button></p>
+      <?php
+        $order = ['C05', 'C01', 'C02', 'C03', 'C04'];
+        $main = array_intersect_key(array_replace(array_flip($order), $all), array_flip($order));
+        $optional = array_diff_key($all, array_flip($order));
+        $groups = [['Recorrido ordenado', $main], ['Módulos opcionales de contexto (sin puntuación)', $optional]];
+        $step = 0;
+      ?>
+      <?php foreach ($groups as [$title, $list]): ?>
+        <h2><?= $title ?></h2>
+        <ul class="grid">
+          <?php foreach ($list as $code => $q): $step++; ?>
+            <li><a href="FAND_Cuestionarios.html?q=<?= $code ?>"><strong><?= $title === 'Recorrido ordenado' ? $step . '. ' : '' ?><?= $code ?> · <?= htmlspecialchars($q['nombre']) ?></strong>
+              <small><span class="tag"><?= $q['opcional'] ? 'Opcional · contexto' : ($code === 'C04' ? 'Si indicas organización o memoria' : 'Escala de frecuencia') ?></span> · <span data-progress="<?= $code ?>"></span> <span data-done="<?= $code ?>"></span></small></a></li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endforeach; ?>
     <?php else: ?>
       <?php if ($sel['puntua']): ?>
         <p>¿Con qué frecuencia te ocurre o describe tu caso cada frase? Elige «No sé / no aplica» si no puedes responder: no cuenta como cero.</p>
@@ -78,11 +89,13 @@ $scale = [0 => 'Nunca', 1 => 'Rara vez', 2 => 'A veces', 3 => 'Con frecuencia', 
         <?php endforeach; ?>
       </form>
       <p id="saved" aria-live="polite">Las respuestas se guardan automáticamente.</p>
-      <p><a class="btn" href="FAND_Ficha_Usuario.html">Ver Mi ficha</a> <a href="FAND_Cuestionarios.html">Otros módulos</a></p>
+      <p><button type="button" class="btn" id="next-step" style="border:0;cursor:pointer">Guardar y continuar</button> <a href="FAND_Cuestionarios.html">Ver todos los módulos</a></p>
+      <p id="next-hint" class="notice" hidden></p>
     <?php endif; ?>
   </main>
   <footer><p>FAND · Alianza para la Neurodivergencia. Material de investigación; no constituye diagnóstico.</p></footer>
   <script src="assets/js/fand-perfil.js"></script>
+  <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);</script>
   <script>
     (function () {
       var F = FANDProfile, form = document.getElementById("qform");
@@ -106,6 +119,14 @@ $scale = [0 => 'Nunca', 1 => 'Rara vez', 2 => 'A veces', 3 => 'Con frecuencia', 
         });
       }
       var totals = <?= json_encode(array_map(static fn (array $q): int => array_sum(array_map(static fn (array $d): int => count($d['items']), $q['dimensiones'])), $all)) ?>;
+      function goNext() { var f = F.flow(); location.href = f.url || "FAND_Ficha_Usuario.html"; }
+      var sf = document.getElementById("start-flow"); if (sf) sf.addEventListener("click", goNext);
+      var nb = document.getElementById("next-step");
+      if (nb) nb.addEventListener("click", function () {
+        F.markQuestionnaireDone(form.getAttribute("data-q"));
+        goNext();
+      });
+      document.querySelectorAll("[data-done]").forEach(function (n) { if (F.questionnaireDone(n.getAttribute("data-done"))) n.textContent = "✔ completado"; });
       document.querySelectorAll("[data-progress]").forEach(function (n) {
         var c = n.getAttribute("data-progress"), done = Object.keys(F.getAnswers(c)).length;
         n.textContent = done ? done + " de " + totals[c] + " respondidas" : totals[c] + " preguntas";

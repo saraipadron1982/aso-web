@@ -146,6 +146,12 @@ $tests = [
         });
         r.played.filter(function (c) { return r.starters.indexOf(c) === -1; }).forEach(function (code) { list.append(el("li", "done", "Adicional: " + names[code] + " · hecho")); });
         body.append(list);
+        var pendQ = F.questionnaireOrder().filter(function (c) { return !F.questionnaireDone(c); });
+        if (pendQ.length && !q.stopped) {
+          var pq = el("p", "next"); pq.append(el("strong", "", "Antes de jugar: cuestionarios pendientes (" + pendQ.join(" → ") + "). "), document.createElement("br"));
+          var pl = el("a", "btn", "Continuar con los cuestionarios"); pl.href = "FAND_Cuestionarios.html?q=" + pendQ[0]; pq.append(pl);
+          body.append(pq);
+        }
         if (r.next && !q.stopped) {
           var n = el("p", "next"); n.append(el("strong", "", "Siguiente: " + names[r.next.code] + ". "), document.createTextNode("Por qué: " + r.next.why + "."), document.createElement("br"), gameLink(r.next.code));
           body.append(n);
@@ -176,6 +182,8 @@ $tests = [
           persistent: $("persistent").checked, impact: $("impact").value, screening: $("screening").value, stopped: false
         });
         renderRoute();
+        var nf = F.flow();
+        if (nf.type === "cuestionario") { location.href = nf.url; return; }
         $("route").scrollIntoView({ behavior: "smooth" });
       });
       $("stop").addEventListener("click", function () { F.setQuestionnaire({ stopped: true }); renderRoute(); });
