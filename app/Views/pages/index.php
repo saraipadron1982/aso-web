@@ -1125,6 +1125,16 @@
     .resource-bar a:hover { background: var(--teal-dark); color: #fff; }
     #contenido:focus { outline: none; }
     html { scroll-padding-top: 150px; }
+    .presentation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 28px; align-items: center; margin-bottom: 16px; }
+    .presentation-text h2 { margin: 6px 0 12px; font-size: clamp(26px, 3vw, 36px); line-height: 1.2; }
+    .presentation-text p { margin: 0 0 18px; max-width: 60ch; font-size: 18px; line-height: 1.65; }
+    .presentation-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .presentation-actions .media-link { min-height: 48px; display: inline-flex; align-items: center; }
+    .presentation-video { margin: 0; }
+    .presentation-video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #123d45; border-radius: 14px; }
+    .presentation-video figcaption { margin-top: 8px; color: var(--muted); font-size: 15px; }
+    .welcome-grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px) { .presentation { grid-template-columns: 1fr; } }
     .article-sidebar { top: 150px; max-height: calc(100vh - 170px); overflow: auto; }
     @media (max-width: 1050px) { .article-sidebar { max-height: none; overflow: visible; } }
     @media (max-width: 760px) {
@@ -1169,15 +1179,27 @@
     <div class="home-layout">
       <div class="main-column">
       <section class="welcome-media" id="sobre" aria-labelledby="welcome-title">
-      <div class="welcome-heading">
-        <div>
+      <div class="presentation">
+        <div class="presentation-text">
           <span class="section-kicker">Quiénes somos</span>
           <h2 id="welcome-title">FAND promueve apoyo, derechos e inclusión.</h2>
+          <p>Somos una asociación sin ánimo de lucro. Defendemos los derechos de las personas neurodivergentes y favorecemos su inclusión, con información clara y apoyo entre personas.</p>
+          <div class="presentation-actions">
+            <a class="media-link" href="recursos/FAND_Proyecto_Inicial_Actualizado.pdf" target="_blank" rel="noopener">Leer la presentación (PDF) ↗</a>
+            <a class="media-link" href="#sobre-fand">Qué es FAND ↓</a>
+          </div>
         </div>
-        <p>Conoce la propuesta de la asociación si quieres saber más.</p>
+        <figure class="presentation-video">
+          <video class="welcome-video" controls playsinline preload="metadata" poster="recursos/fand-video-poster.svg" aria-label="Animación de presentación de FAND, con sonido">
+            <source src="recursos/fand_video_mejorado.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este vídeo.
+            <a href="recursos/fand_video_mejorado.mp4">Abrir la animación de presentación de FAND</a>.
+          </video>
+          <figcaption>Vídeo de 1 min 49 s, con movimiento y sonido. No se inicia solo. Si prefieres leer, usa la presentación en PDF.</figcaption>
+        </figure>
       </div>
 
-      <details class="info-disclosure">
+      <details class="info-disclosure" id="sobre-fand">
         <summary>Qué es FAND y cómo quiere trabajar</summary>
       <div class="about-content">
         <div class="about-intro">
@@ -1256,28 +1278,8 @@
       </details>
 
       <details class="info-disclosure media-disclosure">
-        <summary>Ver vídeo o consultar la presentación</summary>
-      <div class="media-heading">
-        <h3>Conoce también el proyecto en otros formatos</h3>
-        <p>El vídeo incluye movimiento y sonido. No se reproduce automáticamente.</p>
-      </div>
+        <summary>Ver la presentación en PDF aquí mismo</summary>
       <div class="welcome-grid">
-        <article class="welcome-card" aria-labelledby="video-title">
-          <div class="welcome-card-header">
-            <div>
-              <h3 id="video-title">Animación de presentación</h3>
-              <p>Vídeo con movimiento y audio · 1 min 49 s</p>
-            </div>
-            <span class="media-label">VÍDEO</span>
-          </div>
-          <video class="welcome-video" controls playsinline preload="metadata" poster="recursos/fand-video-poster.svg" aria-label="Animación de presentación de FAND, con sonido">
-            <source src="recursos/fand_video_mejorado.mp4" type="video/mp4">
-            Tu navegador no puede reproducir este vídeo.
-            <a href="recursos/fand_video_mejorado.mp4">Abrir la animación de presentación de FAND</a>.
-          </video>
-          <p class="media-note">Incluye movimiento y audio, pero no se inicia por sí solo. Si prefieres un formato estático, consulta el documento PDF del proyecto.</p>
-        </article>
-
         <article class="welcome-card" aria-labelledby="document-title">
           <div class="welcome-card-header">
             <div>
