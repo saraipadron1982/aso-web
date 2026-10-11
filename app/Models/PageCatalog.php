@@ -36,7 +36,6 @@ final class PageCatalog
         ],
         'FAND_Fichas_Tecnicas.html' => [
             'view' => 'FAND_Fichas_Tecnicas.php',
-            'guard' => 'pro',
         ],
         'FAND_Profesionales.html' => [
             'view' => 'FAND_Profesionales.php',
