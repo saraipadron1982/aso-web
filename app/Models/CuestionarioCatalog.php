@@ -9,6 +9,7 @@ final class CuestionarioCatalog
 {
     private const FILE = __DIR__ . '/../Data/protocolo_v7.xml';
     private const INFORMANTES = __DIR__ . '/../Data/informantes.php';
+    private const REGISTRO = __DIR__ . '/../Data/registro.php';
     /** Recorrido guiado en orden; el resto de módulos son opcionales. */
     private const FLOW = ['I01', 'C01', 'C04', 'C02', 'C03', 'C05'];
     public const SCALES = [
@@ -36,14 +37,21 @@ final class CuestionarioCatalog
         $familia = $extra['familia'] ?? [];
         $result = [];
         $reg = [];
+        $registro = is_file(self::REGISTRO) ? require self::REGISTRO : [];
         foreach ($xml->registro->campo ?? [] as $c) {
+            $code = (string) $c['codigo'];
+            $simple = $registro[$code] ?? null;
             $label = self::OBLIGATORIEDAD[(string) $c['obligatoriedad']] ?? '';
-            $reg[] = ['codigo' => (string) $c['codigo'], 'texto' => trim((string) $c) . ($label !== '' ? ' (' . $label . ')' : ''), 'dimension' => '', 'periodo' => '', 'familia' => ''];
+            $reg[] = [
+                'codigo' => $code, 'texto' => $simple['texto'] ?? (trim((string) $c) . ($label !== '' ? ' (' . $label . ')' : '')),
+                'dimension' => '', 'periodo' => '', 'familia' => '',
+                'opciones' => $simple['opciones'] ?? [], 'ayuda' => $simple['ayuda'] ?? '',
+            ];
         }
         if ($reg) {
             $result['I01'] = [
                 'codigo' => 'I01', 'nombre' => 'Registro inicial', 'escala' => 'H',
-                'objetivo' => 'Datos de identificación, informante, antecedentes, accesibilidad y consentimiento. Responde con tus palabras; deja en blanco lo que no sepas. No se puntúa.',
+                'objetivo' => 'Datos de identificación, informante, antecedentes, accesibilidad y consentimiento. Elige una opción en cada desplegable; puedes dejar sin responder lo que no sepas. No se puntúa.',
                 'flujo' => true, 'puntua' => false, 'items' => $reg,
             ];
         }

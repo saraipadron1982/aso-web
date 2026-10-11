@@ -28,6 +28,9 @@ $scales = CuestionarioCatalog::SCALES;
     .item p { margin: 0 0 6px; font-weight: 600; }
     .opts { display: flex; flex-wrap: wrap; gap: 6px 14px; }
     .opts label { display: inline-flex; align-items: center; gap: 4px; min-height: 36px; }
+    select.q { }
+    .item select { width: 100%; max-width: 520px; min-height: 44px; padding: 8px; border: 1px solid #94a3b8; border-radius: 8px; font: inherit; background: #fff; }
+    .hint { display: block; color: #475569; margin-bottom: 4px; }
     textarea { width: 100%; box-sizing: border-box; min-height: 60px; padding: 8px; border: 1px solid #94a3b8; border-radius: 8px; font: inherit; }
     .btn { display: inline-block; min-height: 44px; box-sizing: border-box; background: var(--teal); color: #fff; padding: 10px 18px; border-radius: 10px; text-decoration: none; font-weight: 700; }
     #saved { color: #475569; }
@@ -72,7 +75,7 @@ $scales = CuestionarioCatalog::SCALES;
       <?php if ($sel['puntua']): ?>
         <p>Indica tu grado de conformidad con cada afirmación (de «Nada conforme» a «Muy conforme»). Salvo que se indique otra cosa, piensa en los últimos seis meses. Elige «No lo sé / No aplicable» si no puedes responder: se registra como dato ausente y no cuenta como cero. Si responde otra persona, indícalo en el registro I01 (informante).</p>
       <?php else: ?>
-        <p>Responde con tus palabras; puedes dejar en blanco lo que no sepas. Estas respuestas dan contexto al informe y no se puntúan.</p>
+        <p>Elige una opción en cada desplegable; puedes dejar sin responder lo que no sepas. Estas respuestas dan contexto al informe y no se puntúan.</p>
       <?php endif; ?>
       <div id="guide"></div>
 <?php if ($sel['objetivo'] !== ''): ?><p class="notice"><?= htmlspecialchars($sel['objetivo']) ?></p><?php endif; ?>
@@ -90,6 +93,12 @@ $scales = CuestionarioCatalog::SCALES;
                   <?php endforeach; ?>
                   <label><input type="radio" name="<?= $n ?>" value="na"> No lo sé / No aplicable</label>
                 </div>
+              <?php elseif (!empty($item['opciones'])): ?>
+                <?php if (!empty($item['ayuda'])): ?><small class="hint"><?= htmlspecialchars($item['ayuda']) ?></small><?php endif; ?>
+                <select name="<?= $n ?>" aria-labelledby="t-<?= $n ?>">
+                  <option value="">— Elige una opción —</option>
+                  <?php foreach ($item['opciones'] as $o): ?><option value="<?= htmlspecialchars($o) ?>"><?= htmlspecialchars($o) ?></option><?php endforeach; ?>
+                </select>
               <?php else: ?>
                 <textarea name="<?= $n ?>" aria-labelledby="t-<?= $n ?>" maxlength="500"></textarea>
               <?php endif; ?>
@@ -117,6 +126,8 @@ $scales = CuestionarioCatalog::SCALES;
           if (radio) radio.checked = true;
           var ta = form.querySelector('textarea[name="' + k + '"]');
           if (ta) ta.value = ans[k];
+          var se = form.querySelector('select[name="' + k + '"]');
+          if (se) se.value = ans[k];
         });
         var timer;
         var texts = form.querySelectorAll("p[data-self]"), infNote = document.getElementById("informant-note");
@@ -141,19 +152,34 @@ $scales = CuestionarioCatalog::SCALES;
         }
         applyTexts();
         document.addEventListener("fand:informant", applyTexts);
-        if (code === "I01" && !ans["I01-01"] && F.ageYears()) { var ai = form.querySelector('[name="I01-01"]'); if (ai) ai.value = F.ageYears(); }
+        var STAGE_OPT = { preescolar: "Preescolar (hasta 5 años)", escolar: "Escolar (6 a 11 años)", adolescencia: "Adolescencia (12 a 17 años)", adultez: "Adultez (18 años o más)" };
+        function fillStage() {
+          var st = F.stage(), sel = form.querySelector('[name="I01-05"]');
+          if (st && sel) { sel.value = STAGE_OPT[st]; F.setAnswer("I01", "I01-05", STAGE_OPT[st]); }
+        }
+        if (code === "I01") {
+          if (!ans["I01-01"] && F.ageYears()) { var ai = form.querySelector('[name="I01-01"]'); if (ai) { ai.value = F.ageYears() + " años"; F.setAnswer("I01", "I01-01", ai.value); } }
+          if (!ans["I01-03"]) { var ip = form.querySelector('[name="I01-03"]'); if (ip) { var io = document.getElementById("informant"); ip.value = io.options[io.selectedIndex === -1 ? 0 : Array.prototype.map.call(io.options, function (o) { return o.value; }).indexOf(F.getInformant())].text.replace(/ \(.*$/, ""); F.setAnswer("I01", "I01-03", ip.value); } }
+          fillStage();
+        }
         function persist(target) {
           F.setAnswer(code, target.name, target.value.trim ? target.value.trim() : target.value);
           var age = target.name === "I01-01" ? F.syncAgeFromI01(target.value) : null;
           document.getElementById("saved").textContent = age ? "Guardado. Los juegos se configurarán para " + age + " años." : "Guardado.";
+          if (target.name === "I01-01") fillStage();
+          if (target.name === "I01-03") {
+            var key = Array.prototype.filter.call(document.getElementById("informant").options, function (o) { return o.text.replace(/ \(.*$/, "") === target.value; }).map(function (o) { return o.value; })[0];
+            if (key && key !== F.getInformant()) { F.setInformant(key); location.reload(); }
+          }
         }
-        form.addEventListener("change", function (e) { if (e.target.type === "radio") persist(e.target); });
+        form.addEventListener("change", function (e) { if (e.target.type === "radio" || e.target.tagName === "SELECT") persist(e.target); });
         form.addEventListener("input", function (e) {
           if (e.target.tagName !== "TEXTAREA") return;
           clearTimeout(timer); timer = setTimeout(function () { persist(e.target); }, 400);
         });
       }
       var infSel = document.getElementById("informant");
+      if (form && form.getAttribute("data-q") === "I01") infSel.closest(".notice").hidden = true;
       infSel.value = F.getInformant();
       var infText = function () { return infSel.options[infSel.selectedIndex].text.replace(/ \(.*$/, ""); };
       infSel.addEventListener("change", function () {
