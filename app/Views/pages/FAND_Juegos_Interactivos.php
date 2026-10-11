@@ -2681,7 +2681,7 @@
           tops.forEach((disk, from) => {
             if (disk === -1) return;
             for (let to = 0; to < columns; to++) {
-              if (to === from || (capacity && counts[to] >= capacity)) continue;
+              if (to === from || (capacity && counts[to] >= capacity) || (tops[to] !== -1 && tops[to] < disk)) continue;
               const next = [...state];
               next[disk] = to;
               moves.push({ state: next, disk, from, to });
@@ -2981,6 +2981,14 @@
             const from = run.selectedColumn;
             const disk = tops[from];
             const countInDestination = task.state.filter(value => value === column).length;
+            if (tops[column] !== -1 && tops[column] < disk) {
+              task.ruleErrors++;
+              run.ruleErrors++;
+              run.selectedColumn = null;
+              drawLevel(run);
+              status.textContent = `No se puede: la pieza ${disk + 1} es mayor que la pieza ${tops[column] + 1} que hay en la columna ${column + 1}. Una pieza mayor nunca va sobre una menor.`;
+              return;
+            }
             if (task.level.capacity && countInDestination >= task.level.capacity) {
               task.ruleErrors++;
               run.ruleErrors++;
