@@ -29,7 +29,7 @@ $scales = CuestionarioCatalog::SCALES;
     .opts { display: flex; flex-wrap: wrap; gap: 6px 14px; }
     .opts label { display: inline-flex; align-items: center; gap: 4px; min-height: 36px; }
     select.q { }
-    .item select { width: 100%; max-width: 520px; min-height: 44px; padding: 8px; border: 1px solid #94a3b8; border-radius: 8px; font: inherit; background: #fff; }
+    .item input[type="text"], .item select { width: 100%; max-width: 520px; min-height: 44px; padding: 8px; border: 1px solid #94a3b8; border-radius: 8px; font: inherit; background: #fff; }
     .hint { display: block; color: #475569; margin-bottom: 4px; }
     textarea { width: 100%; box-sizing: border-box; min-height: 60px; padding: 8px; border: 1px solid #94a3b8; border-radius: 8px; font: inherit; }
     .btn { display: inline-block; min-height: 44px; box-sizing: border-box; background: var(--teal); color: #fff; padding: 10px 18px; border-radius: 10px; text-decoration: none; font-weight: 700; }
@@ -99,6 +99,9 @@ $scales = CuestionarioCatalog::SCALES;
                   <option value="">— Elige una opción —</option>
                   <?php foreach ($item['opciones'] as $o): ?><option value="<?= htmlspecialchars($o) ?>"><?= htmlspecialchars($o) ?></option><?php endforeach; ?>
                 </select>
+              <?php elseif (($item['tipo'] ?? '') === 'texto'): ?>
+                <?php if (!empty($item['ayuda'])): ?><small class="hint"><?= htmlspecialchars($item['ayuda']) ?></small><?php endif; ?>
+                <input type="text" name="<?= $n ?>" aria-labelledby="t-<?= $n ?>" maxlength="40" autocomplete="off">
               <?php else: ?>
                 <textarea name="<?= $n ?>" aria-labelledby="t-<?= $n ?>" maxlength="500"></textarea>
               <?php endif; ?>
@@ -128,6 +131,8 @@ $scales = CuestionarioCatalog::SCALES;
           if (ta) ta.value = ans[k];
           var se = form.querySelector('select[name="' + k + '"]');
           if (se) se.value = ans[k];
+          var ti = form.querySelector('input[type="text"][name="' + k + '"]');
+          if (ti) ti.value = ans[k];
         });
         var timer;
         var texts = form.querySelectorAll("p[data-self]"), infNote = document.getElementById("informant-note");
@@ -153,15 +158,17 @@ $scales = CuestionarioCatalog::SCALES;
         var PREV = ["I01-08", "I01-09", "I01-10"];
         function applyConditions() {
           if (code !== "I01") return;
-          var sel = form.querySelector('[name="I01-07"]'), show = !!sel && sel.value === "Sí";
-          PREV.forEach(function (id) {
+          var val = function (id) { var el = form.querySelector('[name="' + id + '"]'); return el ? el.value : ""; };
+          var had = val("I01-07") === "Sí", doubt = val("I01-07") === "No" || val("I01-07") === "No lo sé";
+          var rules = { "I01-08": had, "I01-09": had, "I01-10": had, "I01-17": doubt };
+          rules["I01-18"] = doubt && val("I01-17") === "Sí";
+          Object.keys(rules).forEach(function (id) {
             var el = form.querySelector('[name="' + id + '"]');
             if (!el) return;
-            el.closest(".item").hidden = !show;
-            if (!show && el.value) { el.value = ""; F.setAnswer(code, id, ""); }
+            el.closest(".item").hidden = !rules[id];
+            if (!rules[id] && el.value) { el.value = ""; F.setAnswer(code, id, ""); }
           });
-        }
-        applyTexts();
+        }        applyTexts();
         applyConditions();
         document.addEventListener("fand:informant", applyTexts);
         var STAGE_OPT = { preescolar: "Preescolar (hasta 5 años)", escolar: "Escolar (6 a 11 años)", adolescencia: "Adolescencia (12 a 17 años)", adultez: "Adultez (18 años o más)" };
@@ -172,6 +179,8 @@ $scales = CuestionarioCatalog::SCALES;
         if (code === "I01") {
           if (!ans["I01-01"] && F.ageYears()) { var ai = form.querySelector('[name="I01-01"]'); if (ai) { ai.value = F.ageYears() + " años"; F.setAnswer("I01", "I01-01", ai.value); } }
           if (!ans["I01-03"]) { var ip = form.querySelector('[name="I01-03"]'); if (ip) { var io = document.getElementById("informant"); ip.value = io.options[io.selectedIndex === -1 ? 0 : Array.prototype.map.call(io.options, function (o) { return o.value; }).indexOf(F.getInformant())].text.replace(/ \(.*$/, ""); F.setAnswer("I01", "I01-03", ip.value); } }
+          var al = form.querySelector('[name="I01-00"]');
+          if (al) { var nm = (F.evaluate().user || {}).name || ""; if (nm) al.value = nm; }
           fillStage();
         }
         function persist(target) {
@@ -179,7 +188,8 @@ $scales = CuestionarioCatalog::SCALES;
           var age = target.name === "I01-01" ? F.syncAgeFromI01(target.value) : null;
           document.getElementById("saved").textContent = age ? "Guardado. Los juegos se configurarán para " + age + " años." : "Guardado.";
           if (target.name === "I01-01") fillStage();
-          if (target.name === "I01-07") applyConditions();
+          if (target.name === "I01-07" || target.name === "I01-17") applyConditions();
+          if (target.name === "I01-00") F.setUser({ name: target.value.trim() });
           if (target.name === "I01-03") {
             var key = Array.prototype.filter.call(document.getElementById("informant").options, function (o) { return o.text.replace(/ \(.*$/, "") === target.value; }).map(function (o) { return o.value; })[0];
             if (key && key !== F.getInformant()) { F.setInformant(key); location.reload(); }
@@ -187,7 +197,7 @@ $scales = CuestionarioCatalog::SCALES;
         }
         form.addEventListener("change", function (e) { if (e.target.type === "radio" || e.target.tagName === "SELECT") persist(e.target); });
         form.addEventListener("input", function (e) {
-          if (e.target.tagName !== "TEXTAREA") return;
+          if (e.target.tagName !== "TEXTAREA" && e.target.type !== "text") return;
           clearTimeout(timer); timer = setTimeout(function () { persist(e.target); }, 400);
         });
       }

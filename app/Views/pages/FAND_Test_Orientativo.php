@@ -16,6 +16,7 @@ $tests = [
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test orientativo · FAND</title>
   <style>
+    [hidden] { display: none !important; }
     :root { --teal: #0f766e; --ink: #1f2937; --soft: #f0fdfa; --line: #cbd5e1; }
     body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; color: var(--ink); line-height: 1.6; }
     header, main, footer { width: min(100% - 32px, 1100px); margin: 0 auto; }
@@ -53,10 +54,18 @@ $tests = [
   <main>
     <div class="notice"><strong>Importante:</strong> este test es una guía orientativa. <strong>No es un diagnóstico</strong> ni sustituye la evaluación de un profesional. Sus rangos son provisionales y están en estudio. Tus datos se guardan solo en este navegador.</div>
 
+    <section id="resume-box" class="route" hidden aria-labelledby="resume-title">
+      <h2 id="resume-title">¿Quieres continuar una prueba?</h2>
+      <div id="resume-body"></div>
+    </section>
     <div id="guide"></div>
     <form class="age-box" id="q-form">
       <h2 style="flex-basis:100%;margin:0">1. Cuestionario inicial</h2>
-      <p class="hint" style="flex-basis:100%;margin:0">Sirve solo para elegir qué juegos te conviene hacer primero. No es una puntuación clínica y todas las preguntas son opcionales salvo la edad.</p>
+      <p class="hint" style="flex-basis:100%;margin:0">Sirve solo para elegir qué juegos te conviene hacer primero. No es una puntuación clínica y todas las preguntas son opcionales salvo la edad y el alias.</p>
+      <div>
+        <label for="alias">Nombre o alias (no hace falta que sea real)</label>
+        <input id="alias" type="text" maxlength="40" autocomplete="off" placeholder="Para reconocer esta prueba">
+      </div>
       <div>
         <label for="age">¿Qué edad tiene la persona que hará las pruebas?</label>
         <input id="age" type="number" min="3" max="110" inputmode="numeric" placeholder="Años">
@@ -129,6 +138,7 @@ $tests = [
       function load() {
         var q = F.getQuestionnaire();
         if (F.ageYears()) $("age").value = F.ageYears();
+        $("alias").value = F.evaluate().user.name || "";
         $("informant").value = F.getInformant();
         document.querySelectorAll("input[name=concern]").forEach(function (i) { i.checked = q.concerns.indexOf(i.value) !== -1; });
         document.querySelectorAll("input[name=access]").forEach(function (i) { i.checked = q.access.indexOf(i.value) !== -1; });
@@ -147,9 +157,8 @@ F.mountGuide($("guide"));
         if (g.locked) {
           var lk = el("div", "next"); lk.append(el("strong", "", "Paso 2: responde primero a los cuestionarios (" + g.pending.join(" → ") + "). "), document.createTextNode("Según tus respuestas, FAND te asignará unos juegos u otros. Puedes parar cuando quieras."), document.createElement("br"));
           var go = el("a", "btn", "Empezar los cuestionarios"); go.href = "FAND_Cuestionarios.html?q=" + g.pending[0];
-          var sk = el("button", "btn secondary", "Saltar los cuestionarios y usar juegos generales"); sk.type = "button";
-          sk.addEventListener("click", function () { F.setQuestionnaire({ skipQ: true }); renderRoute(); });
-          lk.append(go, document.createTextNode(" "), sk);
+          lk.append(go);
+          document.querySelectorAll("[data-card] .row a.btn").forEach(function (a) { a.hidden = true; });
           body.append(lk);
           $("stop").hidden = true; $("resume").hidden = true;
           document.querySelectorAll("[data-card] .badge").forEach(function (b) { b.textContent = "Se asigna tras los cuestionarios"; b.hidden = false; });
@@ -193,6 +202,7 @@ F.mountGuide($("guide"));
       $("q-form").addEventListener("submit", function (e) {
         e.preventDefault();
         F.setAge($("age").value);
+        F.setUser({ name: $("alias").value.trim() });
         F.setInformant($("informant").value);
         F.setQuestionnaire({
           concerns: Array.prototype.map.call(document.querySelectorAll("input[name=concern]:checked"), function (i) { return i.value; }),
@@ -206,7 +216,31 @@ F.mountGuide($("guide"));
       });
       $("stop").addEventListener("click", function () { F.setQuestionnaire({ stopped: true }); renderRoute(); });
       $("resume").addEventListener("click", function () { F.setQuestionnaire({ stopped: false }); renderRoute(); });
-      load(); renderRoute();
+      function fmt(s) { return (s.alias || "Sin alias") + (s.ageYears ? " · " + s.ageYears + " años" : "") + " · " + s.modules + " cuestionario(s) y " + s.games + " juego(s)" + (s.at ? " · " + s.at.slice(0, 10) : ""); }
+      function entry() {
+        var box = $("resume-box"), body = $("resume-body"), saved = F.savedList(), cur = F.hasData() ? F.currentSummary() : null;
+        if ((!cur && !saved.length) || sessionStorage.getItem("fand.entry")) return false;
+        var hide = Array.prototype.filter.call(document.querySelectorAll("main > *"), function (n) { return n !== box && !n.classList.contains("notice"); });
+        hide.forEach(function (n) { n.hidden = true; });
+        function go() { sessionStorage.setItem("fand.entry", "1"); location.reload(); }
+        if (cur) {
+          var c = el("p", "next"); c.append(el("strong", "", "Prueba en curso: "), document.createTextNode(fmt(cur)), document.createElement("br"));
+          var b1 = el("button", "btn", "Continuar esta prueba"); b1.type = "button"; b1.addEventListener("click", go); c.append(b1); body.append(c);
+        }
+        saved.forEach(function (s) {
+          var row = el("p", "next"); row.append(el("strong", "", "Guardada: "), document.createTextNode(fmt(s)), document.createElement("br"));
+          var r1 = el("button", "btn secondary", "Recuperar"); r1.type = "button"; r1.addEventListener("click", function () { F.restore(s.id); go(); });
+          var r2 = el("button", "btn secondary", "Borrar"); r2.type = "button"; r2.addEventListener("click", function () { if (confirm("¿Borrar esta prueba guardada?")) { F.forget(s.id); location.reload(); } });
+          row.append(r1, document.createTextNode(" "), r2); body.append(row);
+        });
+        var nw = el("button", "btn", "Empezar una prueba nueva en blanco"); nw.type = "button";
+        nw.addEventListener("click", function () { F.startNew(); go(); });
+        body.append(nw);
+        if (cur) body.append(el("p", "hint", "La prueba en curso se guarda para poder recuperarla más tarde."));
+        box.hidden = false;
+        return true;
+      }
+      if (!entry()) { load(); renderRoute(); }
     })();
   </script>
 </body>

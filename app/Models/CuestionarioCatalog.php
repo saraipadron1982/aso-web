@@ -45,8 +45,24 @@ final class CuestionarioCatalog
             $reg[] = [
                 'codigo' => $code, 'texto' => $simple['texto'] ?? (trim((string) $c) . ($label !== '' ? ' (' . $label . ')' : '')),
                 'dimension' => '', 'periodo' => '', 'familia' => '',
-                'opciones' => $simple['opciones'] ?? [], 'ayuda' => $simple['ayuda'] ?? '',
+                'opciones' => $simple['opciones'] ?? [], 'ayuda' => $simple['ayuda'] ?? '', 'tipo' => $simple['tipo'] ?? '',
             ];
+        }
+        // Preguntas añadidas en FAND que no están en el XML v7: se colocan antes/después de otra.
+        foreach ($registro as $code => $def) {
+            if (!isset($def['antes']) && !isset($def['despues'])) {
+                continue;
+            }
+            $new = ['codigo' => $code, 'texto' => $def['texto'], 'dimension' => '', 'periodo' => '', 'familia' => '', 'opciones' => $def['opciones'] ?? [], 'ayuda' => $def['ayuda'] ?? '', 'tipo' => $def['tipo'] ?? ''];
+            $ref = $def['antes'] ?? $def['despues'];
+            $pos = count($reg);
+            foreach ($reg as $i => $r) {
+                if ($r['codigo'] === $ref) {
+                    $pos = isset($def['antes']) ? $i : $i + 1;
+                    break;
+                }
+            }
+            array_splice($reg, $pos, 0, [$new]);
         }
         if ($reg) {
             $result['I01'] = [

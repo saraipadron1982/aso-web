@@ -453,6 +453,10 @@
   </footer>
 
   <script src="assets/js/fand-perfil.js"></script>
+  <script>
+    // Los juegos solo se abren tras el registro y los cuestionarios; si no, se vuelve al recorrido.
+    if (FANDProfile.gate().locked || !FANDProfile.questionnaireDone("I01")) location.replace("FAND_Test_Orientativo.html");
+  </script>
   <script>FANDProfile.mountGuide(document.getElementById("guide"));</script>
   <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);</script>
   <script>

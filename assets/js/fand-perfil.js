@@ -168,6 +168,33 @@
   }
   function setUser(user) { var data = read(); data.user = Object.assign({}, data.user, user || {}); return write(data); }
   function clear() { try { localStorage.removeItem(KEY); } catch (e) { /* sin acceso */ } }
+  // Pruebas guardadas: al empezar una nueva, la actual se archiva en este navegador y se puede recuperar.
+  var ARCH = "fand.perfiles.v1";
+  function readArch() { try { var a = JSON.parse(localStorage.getItem(ARCH)); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+  function writeArch(a) { try { localStorage.setItem(ARCH, JSON.stringify(a.slice(-20))); return true; } catch (e) { return false; } }
+  function countModules(d) { var n = 0; Object.keys(d.doneBy || {}).forEach(function (b) { n += Object.keys(d.doneBy[b]).filter(function (c) { return c !== "I01"; }).length; }); return n; }
+  function hasData() {
+    var d = read(), u = d.user || {};
+    return !!(d.sessions.length || u.ageYears || u.name || Object.keys(d.cuestBy || {}).some(function (b) { return Object.keys(d.cuestBy[b]).length; }));
+  }
+  function summarize(d, id, at) { var u = d.user || {}; return { id: id, alias: u.name || "", ageYears: u.ageYears || null, at: at, games: d.sessions.length, modules: countModules(d) }; }
+  function currentSummary() { return summarize(read(), "", ""); }
+  function archiveCurrent() {
+    if (!hasData()) return;
+    var d = read(), a = readArch();
+    a.push({ id: Date.now().toString(36), at: new Date().toISOString(), data: d });
+    writeArch(a);
+  }
+  function startNew() { archiveCurrent(); clear(); }
+  function savedList() { return readArch().map(function (e) { return summarize(e.data, e.id, e.at); }).reverse(); }
+  function restore(id) {
+    var a = readArch(), e = a.filter(function (x) { return x.id === id; })[0];
+    if (!e) return false;
+    writeArch(a.filter(function (x) { return x !== e; }));
+    archiveCurrent();
+    return write(e.data);
+  }
+  function forget(id) { writeArch(readArch().filter(function (x) { return x.id !== id; })); }
 
   // Franjas de edad de las fichas técnicas (grupos de planificación del piloto, no normas).
   function bandOf(years) {
@@ -303,7 +330,7 @@
     });
     return rows;
   }
-  function getQ() { var q = (read().user || {}).q; return q || { concerns: [], access: [], impact: "none", persistent: false, screening: "none", stopped: false }; }
+  function getQ() { var q = (read().user || {}).q; if (q) { q.skipQ = false; return q; } return { concerns: [], access: [], impact: "none", persistent: false, screening: "none", stopped: false }; }
   function setQ(patch) {
     var data = read();
     data.user = data.user || {};
@@ -621,7 +648,7 @@
     flow: flow, gate: gate, steps: steps, mountGuide: mountGuide, recommendedInformant: recommendedInformant, informants: INFORMANTS, stage: stageOf, setStages: setStages, stageData: stageData, omitted: omitted, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, rawAnswers: function () { return read().cuestBy || {}; }, doneBy: doneBy, informantsWith: informantsWith, compareInformants: compareInformants, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
-    save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
+    save: save, hasData: hasData, currentSummary: currentSummary, startNew: startNew, savedList: savedList, restore: restore, forget: forget, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
     ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS,
     concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status
   };

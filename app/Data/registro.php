@@ -7,6 +7,7 @@ for ($i = 3; $i <= 99; $i++) {
 }
 
 return [
+    'I01-00' => ['texto' => 'Nombre o alias (no hace falta que sea real)', 'ayuda' => 'Sirve solo para reconocer esta prueba y poder recuperarla después en este navegador.', 'tipo' => 'texto', 'antes' => 'I01-01'],
     'I01-01' => ['texto' => '¿Qué edad tiene la persona?', 'opciones' => $edades],
     'I01-02' => ['texto' => 'Género (opcional)', 'opciones' => ['Mujer', 'Hombre', 'Otro', 'Prefiero no decirlo']],
     'I01-03' => ['texto' => '¿Quién responde?', 'opciones' => ['La propia persona', 'Un familiar o persona cercana', 'Un docente o el centro educativo']],
@@ -14,6 +15,8 @@ return [
     'I01-05' => ['texto' => 'Etapa (se rellena sola con la edad)', 'opciones' => ['Preescolar (hasta 5 años)', 'Escolar (6 a 11 años)', 'Adolescencia (12 a 17 años)', 'Adultez (18 años o más)']],
     'I01-06' => ['texto' => '¿Qué te preocupa más?', 'opciones' => ['Atención y concentración', 'Actuar sin pensar o esperar', 'Organización y memoria', 'Comunicación y relaciones con otras personas', 'Rutinas, intereses o sensibilidad a sonidos, luces o texturas', 'Varias cosas o no lo sé', 'Otro motivo']],
     'I01-07' => ['texto' => '¿Ha tenido antes una evaluación profesional?', 'opciones' => ['Sí', 'No', 'No lo sé']],
+    'I01-17' => ['texto' => '¿Sospechas que la persona puede ser neurodivergente?', 'ayuda' => 'Solo si no tiene una evaluación previa.', 'opciones' => ['Sí', 'No', 'No lo sé'], 'despues' => 'I01-07'],
+    'I01-18' => ['texto' => '¿Qué tipo de neurodivergencia crees que puede tener?', 'opciones' => ['TDAH (atención e impulsividad)', 'Autismo (TEA)', 'Dislexia u otras dificultades de lectura', 'Dispraxia o dificultades de coordinación', 'Altas capacidades', 'Otra', 'No lo sé'], 'despues' => 'I01-17'],
     'I01-08' => ['texto' => '¿Cuándo fue?', 'opciones' => ['Hace menos de 1 año', 'Hace entre 1 y 5 años', 'Hace más de 5 años', 'No aplica']],
     'I01-09' => ['texto' => '¿Qué resultado le dijeron?', 'opciones' => ['TDAH', 'Autismo (TEA)', 'TDAH y autismo', 'Otro resultado', 'No se encontró nada', 'Prefiero no decirlo', 'No aplica']],
     'I01-10' => ['texto' => '¿Recibe apoyos o tratamiento ahora? (opcional)', 'opciones' => ['Ninguno', 'Apoyo educativo', 'Terapia', 'Medicación', 'Varios de ellos', 'Prefiero no decirlo']],
