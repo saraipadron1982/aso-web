@@ -449,6 +449,36 @@
     return { id: "en_curso", title: "Exploración en curso", text: "Continúa con la siguiente actividad recomendada o detén la exploración cuando lo necesites." };
   }
 
+  // Conclusión directa: puntuaciones orientativas, aspectos a valorar, sospecha de perfil y aviso de que no es diagnóstico (criterios provisionales, sin validar).
+  function conclusion() {
+    var st = status(), ev = evaluate(), q = getQ();
+    var dims = [], flaggedDims = [];
+    if (QDEF) scoreQuestionnaires(QDEF).forEach(function (c) {
+      if (!/^C0[1-4]$/.test(c.code) && c.code !== "E01") return;
+      c.dimensiones.forEach(function (d) {
+        if (c.code === "E01" && E01_PRO.indexOf(d.nombre) === -1) return;
+        if (d.valid < Q_MIN_VALID || d.mean === null) return;
+        dims.push(d);
+        if (d.mean >= Q_PRIORITY) flaggedDims.push(d.nombre.toLowerCase());
+      });
+    });
+    var qScore = dims.length ? Math.round(flaggedDims.length / dims.length * 100) : null;
+    var gScore = ev.overall.index;
+    var gFlag = ev.domains.filter(function (d) { return d.flagged; }).map(function (d) { return d.label.toLowerCase(); });
+    var top = Math.max(qScore === null ? -1 : qScore, gScore === null ? -1 : gScore);
+    var level = top < 0 ? "sin datos" : top < 25 ? "bajo" : top < 50 ? "medio" : "alto";
+    var a = getAnswers("I01", "_"), own = a["I01-17"] === "Sí" ? (a["I01-18"] || "") : "";
+    var kinds = { a: "TDAH (atención, impulsividad y autorregulación)", b: "autismo (comunicación social, rutinas y aspectos sensoriales)", c: "TDAH y autismo a la vez", d: "una neurodivergencia sin tipo concreto" };
+    var suspect = st.cat ? kinds[st.cat] : null;
+    var review = [];
+    if (flaggedDims.length) review.push("Respuestas de los cuestionarios con conformidad alta en: " + flaggedDims.join(", ") + ".");
+    if (gFlag.length) review.push("Juegos con resultados fuera del rango orientativo en: " + gFlag.join(", ") + ".");
+    (q.concerns || []).forEach(function (id) { var l = (CONCERNS[id] || {}).label; if (l) review.push("Preocupación indicada al inicio: " + l + "."); });
+    var headline;
+    if (!st.cat) headline = st.id === "sin_senales" ? "En esta exploración no han salido señales suficientes para recomendar una valoración por esta vía." : "Todavía no hay datos suficientes para una conclusión. Completa los cuestionarios y los juegos asignados.";
+    else headline = "Los resultados sugieren consultar con un profesional por una posible orientación hacia " + suspect + ".";
+    return { available: !!st.cat || st.id === "sin_senales", headline: headline, level: level, qScore: qScore, gScore: gScore, qFlagged: flaggedDims.length, qTotal: dims.length, gFlagged: ev.overall.flagged, gTotal: ev.overall.evaluable, suspect: suspect, own: own, review: review, text: st.text };
+  }
   // ---- Cuestionarios C01–C15 (banco de investigación; sin umbrales clínicos) ----
   // Respuestas por informante: cuestBy[informante][módulo]. I01 (registro) es común y se guarda en «_».
   function bucket(code, inf) { return code === "I01" ? "_" : (inf || getInformant()); }
@@ -674,7 +704,7 @@
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, focus: focus, applyFocus: applyFocus, assigned: assigned, hasData: hasData, currentSummary: currentSummary, startNew: startNew, savedList: savedList, restore: restore, forget: forget, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
     ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS,
-    concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status
+    concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status, conclusion: conclusion
   };
   window.saveProfile = function (code, session) {
     try {

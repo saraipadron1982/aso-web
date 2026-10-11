@@ -155,6 +155,27 @@ FANDProfile.mountGuide(document.getElementById("guide"));
         report.textContent = "";
         var played = Object.keys(p.latest);
 
+        var cc = FANDProfile.conclusion();
+        var csec = el("section", "card"); csec.dataset.vista = "todas"; csec.id = "conclusion";
+        csec.style.cssText = "border:3px solid #0f766e";
+        csec.append(el("h2", "", "Conclusión de las pruebas"));
+        csec.firstChild.style.marginTop = "0";
+        csec.append(el("p", "", cc.headline));
+        csec.lastChild.style.cssText = "font-size:1.15em;font-weight:700";
+        var warn = el("p", "difficulty", "Esto NO es un diagnóstico. Solo un profesional puede evaluar y diagnosticar. Esta herramienta es una orientación de investigación, no validada.");
+        warn.style.fontWeight = "700"; csec.append(warn);
+        if (cc.available) {
+          csec.append(el("p", "", "Nivel de orientación: " + cc.level.toUpperCase() + "."));
+          csec.append(el("p", "", "Puntuación de los cuestionarios: " + (cc.qScore === null ? "sin datos suficientes" : cc.qScore + "/100 (" + cc.qFlagged + " de " + cc.qTotal + " áreas con respuestas de conformidad alta)") + "."));
+          csec.append(el("p", "", "Puntuación de los juegos: " + (cc.gScore === null ? "sin datos suficientes (faltan juegos)" : cc.gScore + "/100 (" + cc.gFlagged + " de " + cc.gTotal + " indicadores fuera del rango orientativo)") + "."));
+          csec.append(el("p", "", "Tipo de neurodivergencia sobre el que se sospecha: " + (cc.suspect || "ninguno concreto") + ". Es una sospecha orientativa, no un resultado." + (cc.own ? " La persona que respondió indicó al inicio que sospechaba: " + cc.own + "." : "")));
+          if (cc.review.length) {
+            csec.append(el("h3", "", "Qué conviene valorar con un profesional"));
+            var ul = el("ul"); cc.review.forEach(function (r) { ul.append(el("li", "", r)); }); csec.append(ul);
+          }
+          csec.append(el("p", "meta", "Cómo leer las puntuaciones: 0–24 baja, 25–49 media, 50 o más alta (criterios provisionales sin validar). Una puntuación baja no descarta nada y una alta no confirma nada."));
+        }
+        report.append(csec);
         var head = section("Resumen del perfil");
         var u = p.user || {};
         head.append(el("p", "", "Cuestionarios respondidos por: " + FANDProfile.informants[FANDProfile.getInformant()] + "."));

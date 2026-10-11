@@ -169,7 +169,8 @@
     .bubble-result th { color: var(--teal-dark); }
     .bubble-result .secondary { margin-top: 8px; }
     .stroop-stimulus { display: grid; justify-items: center; gap: 12px; max-width: 650px; margin: 16px auto; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: #f5f8f5; }
-    .stroop-prompt { margin: 0; text-align: center; font-size: 18px; font-weight: 750; }
+    .stroop-stimulus .status { min-height: 3.2em; }
+    .stroop-prompt { min-height: 3.4em; display: grid; align-items: center; margin: 0; text-align: center; font-size: 18px; font-weight: 750; }
     .stroop-word { min-width: 210px; padding: 12px 22px; border: 2px solid #dce7e2; border-radius: 12px; background: #fff; text-align: center; font-size: clamp(34px, 8vw, 58px); font-weight: 850; line-height: 1.15; letter-spacing: .04em; }
     .stroop-choices { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .stroop-choice { min-height: 82px; border: 2px solid #b9d4c2; border-radius: 12px; background: #fff; font-size: clamp(24px, 5vw, 36px); font-weight: 850; touch-action: manipulation; }
@@ -185,6 +186,9 @@
     .attention-setup { max-width: 700px; margin: 14px auto; padding: 17px; border: 1px solid var(--line); border-radius: 13px; background: #f8fbf8; }
     .attention-setup label { display: grid; gap: 4px; margin: 10px 0; font-weight: 700; }
     .attention-setup select { width: 100%; min-height: 44px; padding: 8px 10px; border: 1px solid #aabcb8; border-radius: 9px; background: #fff; color: var(--ink); font-weight: 400; }
+    .attention-stage.attention-fixed { height: 360px; min-height: 360px; align-content: center; overflow: hidden; }
+    .attention-stage.attention-fixed .attention-go-no-go-state { min-height: 3.4em; display: grid; align-items: center; }
+    .attention-stage.attention-fixed .attention-stimulus { width: 200px; height: 150px; box-sizing: border-box; display: grid; place-items: center; }
     .attention-stage { display: grid; min-height: 230px; place-items: center; margin: 14px 0; padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: #f5f8f5; text-align: center; }
     .attention-stimulus { min-width: 150px; min-height: 120px; padding: 16px; border: 2px solid #cbd9cf; border-radius: 16px; background: #fff; color: var(--ink); font-size: clamp(38px, 8vw, 68px); font-weight: 800; }
     .attention-stimulus-active { animation: attention-stimulus-arrive 220ms ease-out; }
@@ -1817,14 +1821,9 @@
           instruction.textContent = correct
             ? `Has repetido correctamente ${sequence.length} posiciones.`
             : `Primera diferencia en la posición ${firstErrorIndex + 1} de la respuesta (${firstErrorType.toLowerCase()}).`;
-          const continueButton = element("button", "primary", errors >= 3 || sequenceLength === 11 && correct ? "Ver resultados" : "Mostrar siguiente secuencia");
-          continueButton.type = "button";
-          continueButton.addEventListener("click", () => {
-            continueButton.remove();
-            if (errors >= 3 || sequenceLength === 11 && correct) finishGame();
-            else startTrial();
-          });
-          board.insertBefore(continueButton, replay);
+          const lastTrial = errors >= 3 || sequenceLength === 11 && correct;
+          status.textContent += lastTrial ? " Preparando los resultados…" : " La siguiente secuencia empieza sola.";
+          schedule(() => { if (lastTrial) finishGame(); else startTrial(); }, 2200);
         }
 
         function finishGame() {
@@ -4107,6 +4106,7 @@
         const instructions = element("p", "bubble-score-note");
         const practicePrompt = element("h4", "", "Práctica obligatoria · no se registra en los resultados");
         const stage = element("div", "attention-stage");
+        if (kind !== "robots") stage.classList.add("attention-fixed");
         stage.setAttribute("aria-live", "polite");
         const stimulus = element("div", "attention-stimulus", "Ejemplo");
         const controls = element("div", "attention-controls");

@@ -42,3 +42,7 @@ Cada página principal muestra el recorrido de 4 pasos (datos, cuestionarios, ju
 Varios informantes: las respuestas se guardan por informante (`cuestBy`) y los datos antiguos se migran solos. Mi ficha muestra cada informante por separado y una comparación sin promediar (discrepancia desde 1 punto, umbral provisional). Los umbrales y edades requieren validación por profesionales y un estudio piloto antes de cualquier uso.
 
 - El registro inicial (I01) usa desplegables con lenguaje sencillo; edad, informante y etapa se enlazan solos (pp/Data/registro.php).
+
+## Conclusión de las pruebas
+
+Mi ficha abre con un bloque «Conclusión de las pruebas»: nivel y puntuaciones (cuestionarios y juegos, por separado), tipo de neurodivergencia sobre el que se sospecha, aspectos a valorar con un profesional y aviso explícito de que no es un diagnóstico. Los criterios son provisionales y sin validar. «Recuerda la secuencia» avanza de nivel automáticamente y los controles de los juegos de pulsar tienen posición fija.
