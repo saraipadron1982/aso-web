@@ -477,7 +477,13 @@
     var headline;
     if (!st.cat) headline = st.id === "sin_senales" ? "En esta exploración no han salido señales suficientes para recomendar una valoración por esta vía." : "Todavía no hay datos suficientes para una conclusión. Completa los cuestionarios y los juegos asignados.";
     else headline = "Los resultados sugieren consultar con un profesional por una posible orientación hacia " + suspect + ".";
-    return { available: !!st.cat || st.id === "sin_senales", headline: headline, level: level, qScore: qScore, gScore: gScore, qFlagged: flaggedDims.length, qTotal: dims.length, gFlagged: ev.overall.flagged, gTotal: ev.overall.evaluable, suspect: suspect, own: own, review: review, text: st.text };
+    var gameRows = Object.keys(ev.latest).sort().map(function (code) {
+      var s = ev.latest[code], items = [];
+      ev.domains.forEach(function (d) { d.items.forEach(function (i) { if (i.code === code) items.push(i); }); });
+      var nd = items.filter(function (i) { return i.verdict === "difficulty"; }).length;
+      return { code: code, name: GAMES[code], date: s.at.slice(0, 10), level: s.level || s.ageGroup || "", items: items, flagged: nd, total: items.length, state: !items.length ? "sin indicadores evaluables" : nd ? "fuera del rango orientativo en " + nd + " de " + items.length + " indicadores" : "dentro del rango orientativo" };
+    });
+    return { available: !!st.cat || st.id === "sin_senales", headline: headline, level: level, qScore: qScore, gScore: gScore, qFlagged: flaggedDims.length, qTotal: dims.length, gFlagged: ev.overall.flagged, gTotal: ev.overall.evaluable, suspect: suspect, own: own, review: review, games: gameRows, text: st.text };
   }
   // ---- Cuestionarios C01–C15 (banco de investigación; sin umbrales clínicos) ----
   // Respuestas por informante: cuestBy[informante][módulo]. I01 (registro) es común y se guarda en «_».

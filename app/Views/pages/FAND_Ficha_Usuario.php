@@ -175,6 +175,24 @@ FANDProfile.mountGuide(document.getElementById("guide"));
           }
           csec.append(el("p", "meta", "Cómo leer las puntuaciones: 0–24 baja, 25–49 media, 50 o más alta (criterios provisionales sin validar). Una puntuación baja no descarta nada y una alta no confirma nada."));
         }
+csec.append(el("h3", "", "Resultados de los juegos"));
+        if (!cc.games.length) csec.append(el("p", "", "Todavía no hay juegos completados con resultados válidos."));
+        else {
+          var gt = el("table"), gh = el("tr");
+          ["Juego", "Fecha", "Indicador", "Resultado", "Lectura"].forEach(function (h) { gh.append(el("th", "", h)); });
+          gt.append(gh);
+          var vtxt = { difficulty: "fuera del rango orientativo", typical: "dentro del rango", strength: "punto fuerte" };
+          cc.games.forEach(function (g) {
+            if (!g.items.length) { var r0 = el("tr"); r0.append(el("td", "", g.code + " " + g.name), el("td", "", g.date), el("td", "", "-"), el("td", "", "-"), el("td", "", g.state)); gt.append(r0); return; }
+            g.items.forEach(function (i, k) {
+              var r = el("tr");
+              r.append(el("td", "", k ? "" : g.code + " " + g.name), el("td", "", k ? "" : g.date), el("td", "", i.label), el("td", "", String(Math.round(i.value * 100) / 100)), el("td", "", vtxt[i.verdict]));
+              gt.append(r);
+            });
+          });
+          csec.append(gt);
+          csec.append(el("p", "meta", "Se muestra el último intento válido de cada juego. Los rangos son orientativos y sin baremos validados."));
+        }
         report.append(csec);
         var head = section("Resumen del perfil");
         var u = p.user || {};
