@@ -710,6 +710,7 @@
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, focus: focus, applyFocus: applyFocus, assigned: assigned, hasData: hasData, currentSummary: currentSummary, startNew: startNew, savedList: savedList, restore: restore, forget: forget, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
     ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS,
+    params: { Q_PRIORITY: Q_PRIORITY, Q_MIN_VALID: Q_MIN_VALID, Q_MIN_SHARE: Q_MIN_SHARE, Q_DISC: Q_DISC, Q_MAX: Q_MAX, MAX_GAMES: MAX_GAMES, DIM_GAMES: DIM_GAMES, E01_PRO: E01_PRO, ROUTE_ORDER: ROUTE_ORDER, TRANSITIONS: TRANSITIONS, AGE_CONFIG: AGE_CONFIG, CROSS_DIMS: CROSS_DIMS },
     concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status, conclusion: conclusion
   };
   window.saveProfile = function (code, session) {

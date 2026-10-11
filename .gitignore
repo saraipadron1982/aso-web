@@ -426,3 +426,6 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+# Accesos de la zona profesional (códigos y contraseña de administración)
+storage/*.json

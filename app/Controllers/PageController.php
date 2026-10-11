@@ -18,6 +18,11 @@ final class PageController
             return;
         }
 
+        $pro = ProController::prepare($route, $page);
+        if ($pro === null) {
+            return;
+        }
+
         $viewPath = dirname(__DIR__) . '/Views/pages/' . $page['view'];
         if (!is_file($viewPath)) {
             error_log('MVC page view not found: ' . $page['view']);

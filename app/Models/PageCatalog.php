@@ -36,6 +36,19 @@ final class PageCatalog
         ],
         'FAND_Fichas_Tecnicas.html' => [
             'view' => 'FAND_Fichas_Tecnicas.php',
+            'guard' => 'pro',
+        ],
+        'FAND_Profesionales.html' => [
+            'view' => 'FAND_Profesionales.php',
+            'guard' => 'open',
+        ],
+        'FAND_Metodologia.html' => [
+            'view' => 'FAND_Metodologia.php',
+            'guard' => 'pro',
+        ],
+        'FAND_Admin_Profesionales.html' => [
+            'view' => 'FAND_Admin_Profesionales.php',
+            'guard' => 'admin',
         ],
         'FAND_Ficha_Usuario.html' => [
             'view' => 'FAND_Ficha_Usuario.php',
@@ -63,7 +76,7 @@ final class PageCatalog
         ['Cuestionarios C01–C15 (atención, comunicación, sensorialidad, funciones ejecutivas)', 'FAND_Cuestionarios.html', 'Apoyos', 'cuestionarios preguntas atención comunicación social sensorial flexibilidad planificación memoria impacto sueño lenguaje aprendizaje'],
         ['Protocolo: cómo funcionan los juegos', 'FAND_Protocolo.html', 'Apoyos', 'protocolo funcionamiento juegos cuestionarios algoritmo adaptativo métricas informe edad investigación'],
         ['Test orientativo (8 juegos)', 'FAND_Test_Orientativo.html', 'Apoyos', 'test orientativo juegos evaluación orientación edad cribado atención memoria planificación'],
-        ['Fichas técnicas de los juegos (profesionales)', 'FAND_Fichas_Tecnicas.html', 'Apoyos', 'fichas técnicas J01 J02 J03 J04 J05 J06 J07 J08 profesionales indicadores protocolo'],
+        ['Zona profesional: fichas técnicas y metodología de puntuación', 'FAND_Profesionales.html', 'Apoyos', 'profesionales fichas técnicas metodología puntuación cuestionarios juegos indicadores acceso'],
         ['Mi ficha de orientación', 'FAND_Ficha_Usuario.html', 'Apoyos', 'ficha usuario perfil resultados orientación informe profesional neurodivergencia'],
         ['Formaciones oficiales', 'FAND_Formaciones_Oficiales.html', 'Formación', 'estudios máster universidades idiomas becas europa'],
         ['Cuestionarios por edades y perfiles', 'FAND_Cuestionarios_Edades_Perfiles.html', 'Experiencias', 'cuestionarios edades perfiles experiencias'],

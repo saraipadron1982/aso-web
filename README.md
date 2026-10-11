@@ -46,3 +46,10 @@ Varios informantes: las respuestas se guardan por informante (`cuestBy`) y los d
 ## Conclusión de las pruebas
 
 Mi ficha abre con un bloque «Conclusión de las pruebas»: nivel y puntuaciones (cuestionarios y juegos, por separado), tipo de neurodivergencia sobre el que se sospecha, aspectos a valorar con un profesional y aviso explícito de que no es un diagnóstico. Los criterios son provisionales y sin validar. «Recuerda la secuencia» avanza de nivel automáticamente y los controles de los juegos de pulsar tienen posición fija.
+
+## Zona profesional
+
+- `FAND_Profesionales.html`: acceso con código personal. Da acceso a `FAND_Metodologia.html` (cómo se puntúa todo, leído del motor `fand-perfil.js`) y a `FAND_Fichas_Tecnicas.html`.
+- `FAND_Admin_Profesionales.html`: solo la administradora. La **primera vez** pide crear la contraseña de administración (hazlo antes de publicar). Desde ahí emite, revoca o borra códigos; cada código se muestra una sola vez.
+- Los datos viven en `storage/acceso.json` (no versionado; el servidor debe poder escribir en `storage/`). Los códigos se guardan con hash; hay bloqueo tras 5 intentos fallidos.
+- Nº de colegiado: se guarda de forma opcional pero aún no se verifica. `ProAccess::COLEGIADO_REQUERIDO` deja preparado el requisito futuro.

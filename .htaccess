@@ -6,6 +6,6 @@ DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule ^(?:app|views)(?:/|$) - [F,L,NC]
+    RewriteRule ^(?:app|views|storage)(?:/|$) - [F,L,NC]
     RewriteRule ^(?:.+/)?[^/]+\.html?$ index.php [QSA,L,NC]
 </IfModule>
