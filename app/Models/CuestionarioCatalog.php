@@ -100,6 +100,13 @@ final class CuestionarioCatalog
         return $out;
     }
 
+    /** Ajustes por etapa vital (omitir, texto, modulo_desde) para informante familiar o docente. */
+    public static function etapas(): array
+    {
+        $extra = is_file(self::INFORMANTES) ? require self::INFORMANTES : [];
+        return $extra['etapas'] ?? [];
+    }
+
     /** Códigos del recorrido guiado, en orden. */
     public static function flow(): array
     {

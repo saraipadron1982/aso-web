@@ -103,7 +103,9 @@ $scales = CuestionarioCatalog::SCALES;
   </main>
   <footer><p>FAND · Alianza para la Neurodivergencia. Material de investigación; no constituye diagnóstico.</p></footer>
   <script src="assets/js/fand-perfil.js"></script>
-  <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);</script>
+  <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);
+  var ETAPAS = <?= json_encode(CuestionarioCatalog::etapas()) ?>;
+  FANDProfile.setStages(ETAPAS);</script>
   <script>
     (function () {
       var F = FANDProfile, form = document.getElementById("qform");
@@ -118,13 +120,22 @@ $scales = CuestionarioCatalog::SCALES;
         var timer;
         var texts = form.querySelectorAll("p[data-self]"), infNote = document.getElementById("informant-note");
         function applyTexts() {
-          var inf = F.getInformant(), missing = 0;
+          var inf = F.getInformant(), missing = 0, hidden = 0, sd = F.stageData(), notes = [];
           texts.forEach(function (p) {
-            var alt = p.getAttribute("data-familia");
+            var id = p.id.replace(/^t-/, ""), alt = p.getAttribute("data-familia"), item = p.closest(".item");
             if (inf !== "self" && !alt) missing += 1;
-            p.textContent = inf !== "self" && alt ? alt : p.getAttribute("data-self");
+            var txt = inf !== "self" ? (sd.texto[id] || alt) : "";
+            p.textContent = txt || p.getAttribute("data-self");
+            var hide = F.omitted(id);
+            item.hidden = hide;
+            if (hide) hidden += 1;
           });
-          if (missing) infNote.textContent = "Este módulo está redactado en primera persona: responde pensando en la persona evaluada, no en ti.";
+          if (missing) notes.push("Este módulo está redactado en primera persona: responde pensando en la persona evaluada, no en ti.");
+          if (hidden) notes.push("Se han ocultado " + hidden + " afirmaciones que no se pueden observar a esta edad (" + F.stage() + "); no cuentan como ausentes.");
+          var from = ETAPAS.modulo_desde && ETAPAS.modulo_desde[code], y = F.ageYears();
+          if (from && y !== null && y < from) notes.push("Este módulo está pensado para personas desde los " + from + " años; úsalo solo si un profesional lo considera útil.");
+          if (inf === "self" && y !== null && y < 12) notes.push("Por la edad indicada, lo recomendable es que responda un familiar o un docente.");
+          infNote.textContent = notes.join(" ");
         }
         applyTexts();
         document.addEventListener("fand:informant", applyTexts);

@@ -120,6 +120,7 @@ $games = [
       var report = document.getElementById("report");
       var QDEF = <?= json_encode(CuestionarioCatalog::definition()) ?>;
       FANDProfile.setQuestionnaireDef(QDEF);
+      FANDProfile.setStages(<?= json_encode(CuestionarioCatalog::etapas()) ?>);
       function el(tag, cls, text) {
         var n = document.createElement(tag);
         if (cls) n.className = cls;

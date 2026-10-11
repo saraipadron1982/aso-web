@@ -132,6 +132,7 @@ $tests = [
       var $ = function (id) { return document.getElementById(id); };
       var names = F.games;
       F.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);
+      F.setStages(<?= json_encode(CuestionarioCatalog::etapas()) ?>);
       function load() {
         var q = F.getQuestionnaire();
         if (F.ageYears()) $("age").value = F.ageYears();

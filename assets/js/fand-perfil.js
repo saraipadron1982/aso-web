@@ -380,14 +380,15 @@
       var ans = getAnswers(code), answeredAny = false;
       var dims = def[code].dimensiones.map(function (d) {
         var sum = 0, valid = 0, na = 0, dist = [0, 0, 0, 0, 0];
-        d.scored.forEach(function (it) {
+        var scored = d.scored.filter(function (it) { return !omitted(it); });
+        scored.forEach(function (it) {
           var v = ans[it];
           if (v === "na") { na += 1; answeredAny = true; }
           else if (v !== undefined && isFinite(Number(v))) { sum += Number(v); valid += 1; answeredAny = true; if (dist[Number(v)] !== undefined) dist[Number(v)] += 1; }
         });
         var extraAnswered = d.extra.filter(function (it) { return ans[it] !== undefined && ans[it] !== "na"; }).length;
-        var reliable = valid >= Math.ceil(d.scored.length * Q_MIN_SHARE);
-        return { nombre: d.nombre, reliable: reliable, dist: dist, sum: sum, valid: valid, na: na, total: d.scored.length, mean: reliable ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
+        var reliable = scored.length > 0 && valid >= Math.ceil(scored.length * Q_MIN_SHARE);
+        return { nombre: d.nombre, reliable: reliable, dist: dist, sum: sum, valid: valid, na: na, total: scored.length, mean: reliable ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
       });
       if (answeredAny) out.push({ code: code, nombre: def[code].nombre, dimensiones: dims });
     });
@@ -402,6 +403,16 @@
   var Q_ORDER = ["I01", "C01", "C04", "C02", "C03", "C05"];
   // Quién responde: self (la propia persona), familia (familiar o persona cercana), docente (centro educativo).
   var INFORMANTS = { self: "La propia persona", familia: "Familiar o persona cercana", docente: "Docente o centro educativo" };
+  // Etapa vital según la edad: preescolar (<6), escolar (6–11), adolescencia (12–17), adultez (18+).
+  var STAGES = null;
+  function stageOf() {
+    var y = ageYears();
+    return y === null ? null : y < 6 ? "preescolar" : y < 12 ? "escolar" : y < 18 ? "adolescencia" : "adultez";
+  }
+  function setStages(d) { STAGES = d; }
+  function stageData() { var s = stageOf(); return (STAGES && s && STAGES[s]) || { omitir: [], texto: {} }; }
+  // Las afirmaciones omitidas por etapa solo se aplican si responde otra persona (la versión base es adolescente/adulto).
+  function omitted(id) { return getInformant() !== "self" && stageData().omitir.indexOf(id) !== -1; }
   function getInformant() { var v = (read().user || {}).informant; return INFORMANTS[v] ? v : "self"; }
   function setInformant(v) { if (!INFORMANTS[v]) return false; return setUser({ informant: v }); }
   // Lee años o una fecha de nacimiento (dd/mm/aaaa o aaaa-mm-dd) escrita en el registro I01 y la guarda como edad de la persona.
@@ -471,7 +482,7 @@
   }
 
   window.FANDProfile = {
-    flow: flow, gate: gate, informants: INFORMANTS, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
+    flow: flow, gate: gate, informants: INFORMANTS, stage: stageOf, setStages: setStages, stageData: stageData, omitted: omitted, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
