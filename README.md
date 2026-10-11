@@ -33,3 +33,8 @@ Los PDF y demás recursos estáticos permanecen en sus ubicaciones originales. E
 ## Etapas e informantes
 
 Los módulos C01–C09 tienen versión en tercera persona (familia). Según la edad (preescolar <6, escolar 6–11, adolescencia 12–17, adultez 18+) y cuando responde familia o docente, se ocultan las afirmaciones no observables a esa edad (no cuentan como ausentes) y se ajustan algunos textos. Definido en `app/Data/informantes.php` (clave `etapas`). Borrador no validado: requiere revisión profesional.
+
+
+## Recorrido guiado y revisión de versiones
+
+Cada página principal muestra el recorrido de 4 pasos (datos, cuestionarios, juegos, informe) con un único botón «Continuar» (`FANDProfile.mountGuide`). Mi ficha indica una categoría de salida (a–e) y los cuestionarios avisan de quién debería responder según la edad. La comparación entre versiones del protocolo está en `docs/REVISION_VERSIONES.md`.

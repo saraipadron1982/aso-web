@@ -53,6 +53,7 @@ $tests = [
   <main>
     <div class="notice"><strong>Importante:</strong> este test es una guía orientativa. <strong>No es un diagnóstico</strong> ni sustituye la evaluación de un profesional. Sus rangos son provisionales y están en estudio. Tus datos se guardan solo en este navegador.</div>
 
+    <div id="guide"></div>
     <form class="age-box" id="q-form">
       <h2 style="flex-basis:100%;margin:0">1. Cuestionario inicial</h2>
       <p class="hint" style="flex-basis:100%;margin:0">Sirve solo para elegir qué juegos te conviene hacer primero. No es una puntuación clínica y todas las preguntas son opcionales salvo la edad.</p>
@@ -144,6 +145,7 @@ $tests = [
       function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; }
       function gameLink(code) { var a = el("a", "btn", "Empezar a jugar " + names[code]); a.href = "FAND_Juegos_Interactivos.html?jugar=" + code; return a; }
       function renderRoute() {
+F.mountGuide($("guide"));
         var r = F.route(), s = F.status(), q = F.getQuestionnaire(), body = $("route-body");
         body.replaceChildren();
         var c = F.ageConfig();

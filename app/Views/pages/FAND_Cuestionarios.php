@@ -74,7 +74,8 @@ $scales = CuestionarioCatalog::SCALES;
       <?php else: ?>
         <p>Responde con tus palabras; puedes dejar en blanco lo que no sepas. Estas respuestas dan contexto al informe y no se puntúan.</p>
       <?php endif; ?>
-      <?php if ($sel['objetivo'] !== ''): ?><p class="notice"><?= htmlspecialchars($sel['objetivo']) ?></p><?php endif; ?>
+      <div id="guide"></div>
+<?php if ($sel['objetivo'] !== ''): ?><p class="notice"><?= htmlspecialchars($sel['objetivo']) ?></p><?php endif; ?>
       <form id="qform" data-q="<?= $sel['codigo'] ?>" onsubmit="return false">
         <fieldset>
           <legend><?= htmlspecialchars($sel['nombre']) ?></legend>
@@ -134,7 +135,8 @@ $scales = CuestionarioCatalog::SCALES;
           if (hidden) notes.push("Se han ocultado " + hidden + " afirmaciones que no se pueden observar a esta edad (" + F.stage() + "); no cuentan como ausentes.");
           var from = ETAPAS.modulo_desde && ETAPAS.modulo_desde[code], y = F.ageYears();
           if (from && y !== null && y < from) notes.push("Este módulo está pensado para personas desde los " + from + " años; úsalo solo si un profesional lo considera útil.");
-          if (inf === "self" && y !== null && y < 12) notes.push("Por la edad indicada, lo recomendable es que responda un familiar o un docente.");
+          var ri = F.recommendedInformant();
+          if (ri && ri.allowed.indexOf(inf) === -1) notes.push("Por la edad indicada: " + ri.text);
           infNote.textContent = notes.join(" ");
         }
         applyTexts();
@@ -162,7 +164,8 @@ $scales = CuestionarioCatalog::SCALES;
         else if (infSel.value === "docente" && form.getAttribute("data-q") !== "E01" && form.getAttribute("data-q") !== "I01") location.href = "FAND_Cuestionarios.html?q=E01";
       });
       var totals = <?= json_encode(array_map(static fn (array $q): int => count($q['items']), $all)) ?>;
-      function goNext() { var f = F.flow(); location.href = f.url || "FAND_Ficha_Usuario.html"; }
+      F.mountGuide(document.getElementById("guide"));
+function goNext() { var f = F.flow(); location.href = f.url || "FAND_Ficha_Usuario.html"; }
       var sf = document.getElementById("start-flow"); if (sf) sf.addEventListener("click", goNext);
       var nb = document.getElementById("next-step");
       if (nb) nb.addEventListener("click", function () {

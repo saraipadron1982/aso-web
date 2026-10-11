@@ -61,6 +61,7 @@ $games = [
       Tus datos se guardan únicamente en este navegador; no se envían a ningún servidor.
     </div>
 
+    <div id="guide" class="noprint"></div>
     <nav class="tabs noprint" aria-label="Apartados de la ficha">
       <a href="FAND_Ficha_Usuario.html?vista=persona" id="tab-persona">Ficha de la persona</a>
       <a href="FAND_Ficha_Usuario.html?vista=juegos" id="tab-juegos">Resultados de los juegos</a>
@@ -149,6 +150,7 @@ $games = [
       function section(title) { var s = el("section", "card"); s.dataset.vista = curView; s.append(el("h2", "", title)); s.firstChild.style.marginTop = "0"; return s; }
 
       function render() {
+FANDProfile.mountGuide(document.getElementById("guide"));
         var p = FANDProfile.evaluate();
         report.textContent = "";
         var played = Object.keys(p.latest);

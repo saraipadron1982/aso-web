@@ -388,6 +388,7 @@
   </header>
 
   <main>
+    <div id="guide"></div>
     <div class="notice"><strong>Importante:</strong> estos minijuegos no sustituyen una evaluación profesional. «Burbujas en movimiento» ofrece observaciones provisionales en ocho tareas de atención, percepción visual, velocidad, inhibición, coordinación y flexibilidad. Sus puntuaciones de 1 a 10 no tienen baremos validados, no clasifican a la persona y no diagnostican.</div>
 
     <section class="section" aria-labelledby="text-title">
@@ -452,6 +453,7 @@
   </footer>
 
   <script src="assets/js/fand-perfil.js"></script>
+  <script>FANDProfile.mountGuide(document.getElementById("guide"));</script>
   <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);</script>
   <script>
     (() => {

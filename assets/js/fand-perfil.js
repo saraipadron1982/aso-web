@@ -358,7 +358,14 @@
     var cog = diffs.length ? "con diferencias descriptivas en " + diffs.join(" y ") + " (provisionales, sin normas)" : validCount ? "sin patrones destacados" : "sin pruebas interpretables";
     if (q.stopped) return { id: "interrumpida", title: "Evaluación interrumpida", text: "Proceso incompleto a petición de la persona o por fatiga. No se emiten conclusiones negativas." };
     if (!data.sessions.length && !q.concerns.length && q.impact === "none" && !q.persistent) return { id: "inicio", title: "Aún sin datos", text: "Rellena el cuestionario inicial y juega las actividades recomendadas." };
-    if (reasons.length) return { id: "recomendada", title: "Orientación profesional recomendada", text: "Se recomienda explorar " + (areas.join(", ") || "las áreas indicadas") + " por " + reasons.join(", ") + ", con resultados cognitivos " + cog + ". No equivale a diagnóstico." };
+    if (reasons.length) {
+      // Categorías de salida del informe (protocolo integral §11); ninguna excluye condiciones.
+      var attnFlag = ["atencion", "impulsividad", "organizacion", "memoria", "percepcion"].some(function (k) { return q.concerns.indexOf(k) !== -1; }) || qSignals().some(function (s) { return s.level === "alta"; }) || diffs.length > 0;
+      var socFlag = q.concerns.indexOf("social") !== -1 || q.concerns.indexOf("sensorial") !== -1 || freq.length > 0;
+      var cat = attnFlag && socFlag ? "c" : attnFlag ? "a" : socFlag ? "b" : "d";
+      var catText = { a: "explorar dificultades de atención y autorregulación (posible TDAH)", b: "explorar comunicación social, patrones y desarrollo (posible TEA)", c: "explorar ambas vías (atención/autorregulación y comunicación social)", d: "una evaluación más amplia de las dificultades comunicadas" }[cat];
+      return { id: "recomendada", cat: cat, title: "Orientación profesional recomendada", text: "Se recomienda valoración profesional para " + catText + ", por " + reasons.join(", ") + ", con resultados cognitivos " + cog + ". Áreas indicadas: " + (areas.join(", ") || "no indicadas") + ". No equivale a diagnóstico ni excluye otras condiciones." };
+    }
     if (data.sessions.length && !validCount) return { id: "insuficiente", title: "Información insuficiente", text: "No es posible interpretar adecuadamente las pruebas realizadas (sesiones no válidas o incompletas). Se pueden ofrecer adaptaciones, o evaluación profesional si la preocupación continúa." };
     if (r.done && validCount >= 2) return { id: "sin_senales", title: "Exploración completada sin señales suficientes para recomendar por esta vía", text: "No se han identificado motivos adicionales en esta exploración limitada. No excluye neurodivergencias; solicita valoración si existen preocupaciones persistentes." };
     return { id: "en_curso", title: "Exploración en curso", text: "Continúa con la siguiente actividad recomendada o detén la exploración cuando lo necesites." };
@@ -449,6 +456,8 @@
     var data = read();
     data.cuestDone = data.cuestDone || {};
     data.cuestDone[code] = true;
+    data.cuestInf = data.cuestInf || {};
+    data.cuestInf[code] = getInformant();
     return write(data);
   }
   // Los juegos se asignan al terminar los cuestionarios, salvo que la persona decida saltárselos.
@@ -463,6 +472,57 @@
     var r = route();
     if (r.next) return { type: "juego", code: r.next.code, why: r.next.why, url: "FAND_Juegos_Interactivos.html?jugar=" + r.next.code };
     return { type: "fin", url: "FAND_Ficha_Usuario.html" };
+  }
+  // Quién debería responder según la edad (propuesta de diseño v2/v3, no norma): menores de 6 solo cuidador.
+  function recommendedInformant() {
+    var y = ageYears();
+    if (y === null) return null;
+    if (y < 6) return { allowed: ["familia"], text: "Hasta los 5 años responde un familiar o cuidador; no se usa el autoinforme." };
+    if (y < 12) return { allowed: ["familia", "docente"], text: "De 6 a 11 años responde un familiar y, si es posible, el docente (con consentimiento)." };
+    if (y < 17) return { allowed: ["self", "familia", "docente"], text: "De 12 a 16 años puede responder la propia persona; un observador (familia o docente) complementa si es posible, respetando su privacidad." };
+    return { allowed: ["self", "familia"], text: "A partir de 17 años responde la propia persona; un observador cercano es opcional." };
+  }
+  // Recorrido en 4 pasos: Datos → Cuestionarios → Juegos → Informe. Siempre hay un único paso actual.
+  function steps() {
+    var q = getQ(), list = qList().filter(function (c) { return c !== "I01"; }), pend = list.filter(function (c) { return !qDone(c); });
+    var hasData = ageYears() !== null && qDone("I01");
+    var r = route(), played = r.played.length, g = gate();
+    var qState = !hasData ? "pendiente" : q.skipQ && pend.length ? "omitido" : pend.length ? "pendiente" : "hecho";
+    var gState = g.locked || !hasData && !q.skipQ ? "pendiente" : (r.done || q.stopped) ? "hecho" : "pendiente";
+    var out = [
+      { id: "datos", n: 1, title: "Datos iniciales", detail: hasData ? "Edad y registro I01 completados" : "Edad, quién responde y registro I01", state: hasData ? "hecho" : "pendiente", url: "FAND_Test_Orientativo.html#q-form" },
+      { id: "cuestionarios", n: 2, title: "Cuestionarios", detail: !list.length ? "Se asignan al guardar los datos" : qState === "hecho" ? list.length + " de " + list.length + " completados" : (list.length - pend.length) + " de " + list.length + " completados", state: qState, url: "FAND_Cuestionarios.html" + (pend.length ? "?q=" + pend[0] : "") },
+      { id: "juegos", n: 3, title: "Juegos asignados", detail: g.locked || !hasData && !q.skipQ ? "Se asignan al terminar los cuestionarios" : played + " de " + MAX_GAMES + " como máximo" + (r.next ? " · siguiente: " + GAMES[r.next.code] : ""), state: gState, url: r.next ? "FAND_Juegos_Interactivos.html?jugar=" + r.next.code : "FAND_Test_Orientativo.html" },
+      { id: "informe", n: 4, title: "Informe en Mi ficha", detail: "Resumen descriptivo para llevar a un profesional", state: "pendiente", url: "FAND_Ficha_Usuario.html" }
+    ];
+    var cur = out.filter(function (s) { return s.state === "pendiente"; })[0];
+    if (!cur) cur = out[3];
+    out.forEach(function (s) { s.current = s === cur; });
+    return out;
+  }
+  function mountGuide(host) {
+    if (!host) return;
+    var list = steps(), cur = list.filter(function (s) { return s.current; })[0];
+    host.textContent = "";
+    host.setAttribute("role", "region"); host.setAttribute("aria-label", "Tu recorrido en FAND");
+    host.style.cssText = "border:2px solid #0f766e;background:#f0fdfa;border-radius:14px;padding:14px 18px;margin:16px 0";
+    var title = document.createElement("strong"); title.textContent = "Tu recorrido: cuatro pasos sencillos"; host.appendChild(title);
+    var ol = document.createElement("ol"); ol.style.cssText = "list-style:none;margin:10px 0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))";
+    list.forEach(function (s) {
+      var li = document.createElement("li"); if (s.current) li.setAttribute("aria-current", "step");
+      li.style.cssText = "border:2px solid " + (s.current ? "#0f766e" : "#cbd5e1") + ";background:" + (s.current ? "#fff" : "transparent") + ";border-radius:10px;padding:8px 10px";
+      var mark = s.state === "hecho" ? "✔ " : s.state === "omitido" ? "↷ " : s.current ? "▶ " : "";
+      var h = document.createElement("div"); h.style.fontWeight = "700"; h.textContent = mark + s.n + ". " + s.title;
+      var d = document.createElement("div"); d.style.cssText = "font-size:.9rem;color:#475569"; d.textContent = s.state === "omitido" ? "Omitido por decisión de la persona" : s.detail;
+      li.append(h, d); ol.appendChild(li);
+    });
+    host.appendChild(ol);
+    var a = document.createElement("a"); a.href = cur.url;
+    a.style.cssText = "display:inline-block;min-height:44px;box-sizing:border-box;background:#0f766e;color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700";
+    a.textContent = cur.n === 4 ? "Ver Mi ficha" : "Continuar: " + cur.title.toLowerCase();
+    host.appendChild(a);
+    var ri = recommendedInformant();
+    if (ri) { var p = document.createElement("p"); p.style.cssText = "margin:8px 0 0;font-size:.9rem;color:#475569"; p.textContent = ri.text; host.appendChild(p); }
   }
   function showNextBanner() {
     if (!document.body || document.getElementById("fand-next")) return;
@@ -482,7 +542,7 @@
   }
 
   window.FANDProfile = {
-    flow: flow, gate: gate, informants: INFORMANTS, stage: stageOf, setStages: setStages, stageData: stageData, omitted: omitted, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
+    flow: flow, gate: gate, steps: steps, mountGuide: mountGuide, recommendedInformant: recommendedInformant, informants: INFORMANTS, stage: stageOf, setStages: setStages, stageData: stageData, omitted: omitted, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
