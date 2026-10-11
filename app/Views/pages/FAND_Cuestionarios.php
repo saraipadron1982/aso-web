@@ -161,7 +161,9 @@ $scales = CuestionarioCatalog::SCALES;
         F.setAnswer("I01", "I01-03", infText());
         document.dispatchEvent(new Event("fand:informant"));
         if (!form || form.getAttribute("data-q") === "I01") location.reload();
-        else if (infSel.value === "docente" && form.getAttribute("data-q") !== "E01" && form.getAttribute("data-q") !== "I01") location.href = "FAND_Cuestionarios.html?q=E01";
+        else if (infSel.value !== "docente" && form.getAttribute("data-q") === "E01") location.href = "FAND_Cuestionarios.html?q=C01";
+        else if (infSel.value === "docente") location.href = "FAND_Cuestionarios.html?q=E01";
+        else location.reload();
       });
       var totals = <?= json_encode(array_map(static fn (array $q): int => count($q['items']), $all)) ?>;
       F.mountGuide(document.getElementById("guide"));
@@ -172,9 +174,14 @@ function goNext() { var f = F.flow(); location.href = f.url || "FAND_Ficha_Usuar
         F.markQuestionnaireDone(form.getAttribute("data-q"));
         goNext();
       });
-      document.querySelectorAll("[data-done]").forEach(function (n) { if (F.questionnaireDone(n.getAttribute("data-done"))) n.textContent = "✔ completado"; });
+      document.querySelectorAll("[data-done]").forEach(function (n) {
+        var who = F.doneBy(n.getAttribute("data-done")).map(function (i) { return F.informants[i]; });
+        if (who.length) n.textContent = "✔ completado por: " + who.join(" y ");
+        else if (F.questionnaireDone(n.getAttribute("data-done"))) n.textContent = "✔ completado";
+      });
       document.querySelectorAll("[data-progress]").forEach(function (n) {
         var c = n.getAttribute("data-progress"), done = Object.keys(F.getAnswers(c)).length;
+        if (!done && F.informantsWith(c).length) { n.textContent = "respondido por otro informante · " + totals[c] + " preguntas"; return; }
         n.textContent = done ? done + " de " + totals[c] + " respondidas" : totals[c] + " preguntas";
       });
     })();

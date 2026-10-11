@@ -74,8 +74,32 @@
   };
 
   function read() {
-    try { return JSON.parse(localStorage.getItem(KEY)) || { sessions: [], user: {} }; }
-    catch (e) { return { sessions: [], user: {} }; }
+    var d;
+    try { d = JSON.parse(localStorage.getItem(KEY)) || { sessions: [], user: {} }; }
+    catch (e) { d = { sessions: [], user: {} }; }
+    return migrate(d);
+  }
+  // Datos anteriores (cuest/cuestDone sin informante) pasan a cuestBy/doneBy, asignados al informante que los marcó o a «self».
+  function migrate(d) {
+    if (d.cuest) {
+      d.cuestBy = d.cuestBy || {};
+      Object.keys(d.cuest).forEach(function (code) {
+        var b = code === "I01" ? "_" : ((d.cuestInf || {})[code] || "self");
+        d.cuestBy[b] = d.cuestBy[b] || {};
+        d.cuestBy[b][code] = Object.assign({}, d.cuest[code], d.cuestBy[b][code]);
+      });
+      delete d.cuest;
+    }
+    if (d.cuestDone) {
+      d.doneBy = d.doneBy || {};
+      Object.keys(d.cuestDone).forEach(function (code) {
+        var b = code === "I01" ? "_" : ((d.cuestInf || {})[code] || "self");
+        d.doneBy[b] = d.doneBy[b] || {};
+        d.doneBy[b][code] = true;
+      });
+      delete d.cuestDone; delete d.cuestInf;
+    }
+    return d;
   }
   function write(data) {
     try { localStorage.setItem(KEY, JSON.stringify(data)); return true; } catch (e) { return false; }
@@ -246,12 +270,12 @@
   function qSignals() {
     if (!QDEF) return [];
     var byDim = {};
-    scoreQuestionnaires(QDEF).forEach(function (q) { q.dimensiones.forEach(function (d) { byDim[q.code + "|" + d.nombre] = d; }); });
+    scoreQuestionnaires(QDEF).forEach(function (q) { q.dimensiones.forEach(function (d) { var k = q.code + "|" + d.nombre, o = byDim[k]; if (!o || (d.mean !== null && (o.mean === null || d.mean > o.mean))) byDim[k] = Object.assign({ informant: q.informant }, d); }); });
     var out = [];
     DIM_GAMES.forEach(function (m) {
       var d = byDim[m[0] + "|" + m[1]];
       if (!d || d.valid < Q_MIN_VALID || d.mean === null) return;
-      out.push({ code: m[0], dim: d.nombre, mean: d.mean, valid: d.valid, game: m[2], objective: m[3], level: d.mean >= Q_PRIORITY ? "alta" : "baja" });
+      out.push({ informant: d.informant, code: m[0], dim: d.nombre, mean: d.mean, valid: d.valid, game: m[2], objective: m[3], level: d.mean >= Q_PRIORITY ? "alta" : "baja" });
     });
     return out;
   }  // Cruza cuestionarios y juegos por objetivo, sin sumarlos: informa de coincidencias y contradicciones (A8).
@@ -372,40 +396,86 @@
   }
 
   // ---- Cuestionarios C01–C15 (banco de investigación; sin umbrales clínicos) ----
-  function getAnswers(code) { var c = read().cuest || {}; return c[code] || {}; }
+  // Respuestas por informante: cuestBy[informante][módulo]. I01 (registro) es común y se guarda en «_».
+  function bucket(code, inf) { return code === "I01" ? "_" : (inf || getInformant()); }
+  function getAnswers(code, inf) { var c = read().cuestBy || {}; return (c[bucket(code, inf)] || {})[code] || {}; }
   function setAnswer(code, item, value) {
-    var data = read();
-    data.cuest = data.cuest || {};
-    data.cuest[code] = data.cuest[code] || {};
-    if (value === "" || value === null || value === undefined) delete data.cuest[code][item]; else data.cuest[code][item] = value;
+    var data = read(), b = bucket(code);
+    data.cuestBy = data.cuestBy || {};
+    data.cuestBy[b] = data.cuestBy[b] || {};
+    data.cuestBy[b][code] = data.cuestBy[b][code] || {};
+    if (value === "" || value === null || value === undefined) delete data.cuestBy[b][code][item]; else data.cuestBy[b][code][item] = value;
     return write(data);
   }
+  function informantsWith(code) {
+    var c = read().cuestBy || {};
+    return Object.keys(INFORMANTS).filter(function (k) { return c[k] && c[k][code] && Object.keys(c[k][code]).length; });
+  }
   // Por dimensión: suma, nº de ítems válidos, faltantes y media (suma/válidos). «na» = dato ausente, no cero.
+  // Devuelve una entrada por módulo e informante: las respuestas de distintos informantes no se promedian.
   function scoreQuestionnaires(def) {
     var out = [];
     Object.keys(def || {}).forEach(function (code) {
-      var ans = getAnswers(code), answeredAny = false;
-      var dims = def[code].dimensiones.map(function (d) {
-        var sum = 0, valid = 0, na = 0, dist = [0, 0, 0, 0, 0];
-        var scored = d.scored.filter(function (it) { return !omitted(it); });
-        scored.forEach(function (it) {
-          var v = ans[it];
-          if (v === "na") { na += 1; answeredAny = true; }
-          else if (v !== undefined && isFinite(Number(v))) { sum += Number(v); valid += 1; answeredAny = true; if (dist[Number(v)] !== undefined) dist[Number(v)] += 1; }
+      var infs = code === "I01" ? [] : informantsWith(code);
+      infs.forEach(function (inf) {
+        var ans = getAnswers(code, inf), answeredAny = false;
+        var dims = def[code].dimensiones.map(function (d) {
+          var sum = 0, valid = 0, na = 0, dist = [0, 0, 0, 0, 0];
+          var scored = d.scored.filter(function (it) { return !omitted(it, inf); });
+          scored.forEach(function (it) {
+            var v = ans[it];
+            if (v === "na") { na += 1; answeredAny = true; }
+            else if (v !== undefined && isFinite(Number(v))) { sum += Number(v); valid += 1; answeredAny = true; if (dist[Number(v)] !== undefined) dist[Number(v)] += 1; }
+          });
+          var extraAnswered = d.extra.filter(function (it) { return ans[it] !== undefined && ans[it] !== "na"; }).length;
+          var reliable = scored.length > 0 && valid >= Math.ceil(scored.length * Q_MIN_SHARE);
+          return { nombre: d.nombre, reliable: reliable, dist: dist, sum: sum, valid: valid, na: na, total: scored.length, mean: reliable ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
         });
-        var extraAnswered = d.extra.filter(function (it) { return ans[it] !== undefined && ans[it] !== "na"; }).length;
-        var reliable = scored.length > 0 && valid >= Math.ceil(scored.length * Q_MIN_SHARE);
-        return { nombre: d.nombre, reliable: reliable, dist: dist, sum: sum, valid: valid, na: na, total: scored.length, mean: reliable ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
+        if (answeredAny) out.push({ code: code, nombre: def[code].nombre, informant: inf, dimensiones: dims });
       });
-      if (answeredAny) out.push({ code: code, nombre: def[code].nombre, dimensiones: dims });
     });
     return out;
   }
-  function answeredModules() {
-    var c = read().cuest || {};
-    return Object.keys(c).filter(function (k) { return Object.keys(c[k]).length; });
+  // Diferencia mínima entre informantes (en puntos de la escala 0–4) para señalar una discrepancia: umbral operativo provisional.
+  var Q_DISC = 1;
+  // Pares de dimensiones equivalentes entre módulos de familia y centro educativo.
+  var CROSS_DIMS = [["E01", "Atención en el aula", "C01", "Atención sostenida"], ["E01", "Autorregulación y control", "C01", "Impulsividad"], ["E01", "Organización y aprendizaje", "C04", "Planificación"]];
+  // Compara informantes sin promediarlos (se documentan las discrepancias): mismo módulo con 2+ informantes y pares equivalentes familia/docente.
+  function compareInformants(def) {
+    var all = scoreQuestionnaires(def), rows = [];
+    function dimOf(e, n) { return e.dimensiones.filter(function (d) { return d.nombre === n; })[0]; }
+    var codes = {};
+    all.forEach(function (e) { codes[e.code] = true; });
+    Object.keys(codes).forEach(function (code) {
+      var es = all.filter(function (e) { return e.code === code; });
+      if (es.length < 2) return;
+      es[0].dimensiones.forEach(function (d0) {
+        var vals = es.map(function (e) { var d = dimOf(e, d0.nombre); return { informant: e.informant, mean: d ? d.mean : null, valid: d ? d.valid : 0 }; });
+        rows.push(mkRow(code + " · " + d0.nombre, vals));
+      });
+    });
+    CROSS_DIMS.forEach(function (c) {
+      var a = all.filter(function (e) { return e.code === c[0]; })[0], b = all.filter(function (e) { return e.code === c[2] && e.informant === "familia"; })[0];
+      if (!a || !b) return;
+      var da = dimOf(a, c[1]), db = dimOf(b, c[3]);
+      if (da && db) rows.push(mkRow(c[0] + " " + c[1] + " ↔ " + c[2] + " " + c[3], [{ informant: "docente", mean: da.mean, valid: da.valid }, { informant: "familia", mean: db.mean, valid: db.valid }]));
+    });
+    function mkRow(label, vals) {
+      var ok = vals.filter(function (v) { return v.mean !== null; }), diff = null, state = "sin_datos";
+      if (ok.length >= 2) {
+        var ms = ok.map(function (v) { return v.mean; });
+        diff = Math.max.apply(null, ms) - Math.min.apply(null, ms);
+        state = diff >= Q_DISC ? "discrepancia" : "coinciden";
+      }
+      return { label: label, values: vals, diff: diff, state: state };
+    }
+    return rows;
   }
-
+  function answeredModules() {
+    var c = read().cuestBy || {}, seen = {};
+    Object.keys(c).forEach(function (b) { Object.keys(c[b]).forEach(function (k) { if (Object.keys(c[b][k]).length) seen[k] = true; }); });
+    return Object.keys(seen);
+  }
   // ---- Recorrido ordenado (protocolo v7): I01 → C01/C04 (atención y ejecutivas) y C02/C03 (social y sensorial) según motivo → C05 → juegos → Mi ficha ----
   var Q_ORDER = ["I01", "C01", "C04", "C02", "C03", "C05"];
   // Quién responde: self (la propia persona), familia (familiar o persona cercana), docente (centro educativo).
@@ -419,7 +489,7 @@
   function setStages(d) { STAGES = d; }
   function stageData() { var s = stageOf(); return (STAGES && s && STAGES[s]) || { omitir: [], texto: {} }; }
   // Las afirmaciones omitidas por etapa solo se aplican si responde otra persona (la versión base es adolescente/adulto).
-  function omitted(id) { return getInformant() !== "self" && stageData().omitir.indexOf(id) !== -1; }
+  function omitted(id, inf) { return (inf || getInformant()) !== "self" && stageData().omitir.indexOf(id) !== -1; }
   function getInformant() { var v = (read().user || {}).informant; return INFORMANTS[v] ? v : "self"; }
   function setInformant(v) { if (!INFORMANTS[v]) return false; return setUser({ informant: v }); }
   // Lee años o una fecha de nacimiento (dd/mm/aaaa o aaaa-mm-dd) escrita en el registro I01 y la guarda como edad de la persona.
@@ -451,13 +521,14 @@
       if (code === "C02" || code === "C03") return soc || mixed;
       return true;
     });
-  }  function qDone(code) { return !!((read().cuestDone || {})[code]); }
+  }  // Un módulo cuenta como hecho para el recorrido si lo completó cualquier informante; una segunda perspectiva es opcional.
+  function doneBy(code) { var c = read().doneBy || {}; return Object.keys(c).filter(function (b) { return c[b][code]; }).filter(function (b) { return b !== "_"; }); }
+  function qDone(code) { var c = read().doneBy || {}; return Object.keys(c).some(function (b) { return c[b][code]; }); }
   function markDone(code) {
-    var data = read();
-    data.cuestDone = data.cuestDone || {};
-    data.cuestDone[code] = true;
-    data.cuestInf = data.cuestInf || {};
-    data.cuestInf[code] = getInformant();
+    var data = read(), b = bucket(code);
+    data.doneBy = data.doneBy || {};
+    data.doneBy[b] = data.doneBy[b] || {};
+    data.doneBy[b][code] = true;
     return write(data);
   }
   // Los juegos se asignan al terminar los cuestionarios, salvo que la persona decida saltárselos.
@@ -522,6 +593,8 @@
     a.textContent = cur.n === 4 ? "Ver Mi ficha" : "Continuar: " + cur.title.toLowerCase();
     host.appendChild(a);
     var ri = recommendedInformant();
+    var multi = ["C01", "C02", "C03", "C04", "C05"].some(function (c) { return informantsWith(c).length > 1; }), single = ["C01", "C02", "C03", "C04", "C05"].some(function (c) { return informantsWith(c).length === 1; });
+    if (single && !multi) { var o = document.createElement("p"); o.style.cssText = "margin:8px 0 0;font-size:.9rem;color:#475569"; o.textContent = "Opcional: una segunda perspectiva (familia, docente o la propia persona) permite contrastar respuestas. En Cuestionarios, cambia «¿Quién responde?»."; host.appendChild(o); }
     if (ri) { var p = document.createElement("p"); p.style.cssText = "margin:8px 0 0;font-size:.9rem;color:#475569"; p.textContent = ri.text; host.appendChild(p); }
   }
   function showNextBanner() {
@@ -542,7 +615,7 @@
   }
 
   window.FANDProfile = {
-    flow: flow, gate: gate, steps: steps, mountGuide: mountGuide, recommendedInformant: recommendedInformant, informants: INFORMANTS, stage: stageOf, setStages: setStages, stageData: stageData, omitted: omitted, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
+    flow: flow, gate: gate, steps: steps, mountGuide: mountGuide, recommendedInformant: recommendedInformant, informants: INFORMANTS, stage: stageOf, setStages: setStages, stageData: stageData, omitted: omitted, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, rawAnswers: function () { return read().cuestBy || {}; }, doneBy: doneBy, informantsWith: informantsWith, compareInformants: compareInformants, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,

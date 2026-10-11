@@ -38,3 +38,5 @@ Los módulos C01–C09 tienen versión en tercera persona (familia). Según la e
 ## Recorrido guiado y revisión de versiones
 
 Cada página principal muestra el recorrido de 4 pasos (datos, cuestionarios, juegos, informe) con un único botón «Continuar» (`FANDProfile.mountGuide`). Mi ficha indica una categoría de salida (a–e) y los cuestionarios avisan de quién debería responder según la edad. La comparación entre versiones del protocolo está en `docs/REVISION_VERSIONES.md`.
+
+Varios informantes: las respuestas se guardan por informante (`cuestBy`) y los datos antiguos se migran solos. Mi ficha muestra cada informante por separado y una comparación sin promediar (discrepancia desde 1 punto, umbral provisional). Los umbrales y edades requieren validación por profesionales y un estudio piloto antes de cualquier uso.

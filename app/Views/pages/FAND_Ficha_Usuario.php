@@ -177,6 +177,7 @@ FANDProfile.mountGuide(document.getElementById("guide"));
           qsec.append(el("p", "meta", "Por dimensión: respuestas válidas, distribución 0–4 y media de las afirmaciones respondidas (0 nada conforme … 4 muy conforme), con su equivalente descriptivo sobre 100. «No lo sé / No aplicable» es dato ausente, no cero; con menos del 75 % de respuestas válidas la dimensión no se interpreta (umbral provisional). Es el grado de conformidad con afirmaciones, no una probabilidad ni un diagnóstico. Sin umbrales clínicos; las dimensiones no se suman entre sí ni con los juegos. El registro I01 no se puntúa. Banco no validado."));
           qs.forEach(function (q) {
             
+            qsec.append(el("h3", "", q.code + " · " + q.nombre + " — responde: " + (FANDProfile.informants[q.informant] || q.informant)));
             var qt = el("table"), qh = el("tr");
             ["Dimensión", "Media (0–4) · sobre 100", "Distribución 0 / 1 / 2 / 3 / 4", "Válidas", "N/O"].forEach(function (h) { qh.append(el("th", "", h)); });
             qt.append(qh);
@@ -187,6 +188,24 @@ FANDProfile.mountGuide(document.getElementById("guide"));
             });
             qsec.append(qt);
           });
+          var cmp = FANDProfile.compareInformants(QDEF);
+          qsec.append(el("h3", "", "Comparación entre informantes"));
+          if (!cmp.length) {
+            qsec.append(el("p", "meta", "Aún no hay dos perspectivas sobre el mismo aspecto. Si el recorrido lo permite, un segundo informante (familia, docente o la propia persona) aporta contraste: en los Cuestionarios, cambia «¿Quién responde?» y completa de nuevo el módulo."));
+          } else {
+            qsec.append(el("p", "meta", "Las respuestas de cada informante se muestran por separado y no se promedian. Una diferencia de 1 punto o más en la escala 0–4 se marca como discrepancia (umbral provisional): puede reflejar contextos distintos, no un error de nadie."));
+            var ct = el("table"), ch = el("tr");
+            ["Dimensión", "Medias por informante (0–4)", "Lectura"].forEach(function (h) { ch.append(el("th", "", h)); });
+            ct.append(ch);
+            cmp.forEach(function (x) {
+              var r = el("tr");
+              var vals = x.values.map(function (v) { return (FANDProfile.informants[v.informant] || v.informant) + ": " + (v.mean === null ? "no interpretable" : v.mean.toFixed(2)); }).join(" · ");
+              var lec = { discrepancia: "Discrepancia (" + (x.diff === null ? "" : x.diff.toFixed(1)) + " puntos): documentar y comentar con el profesional.", coinciden: "Perspectivas coincidentes.", sin_datos: "Datos insuficientes para comparar." }[x.state];
+              r.append(el("td", "", x.label), el("td", "", vals), el("td", "", lec));
+              ct.append(r);
+            });
+            qsec.append(ct);
+          }
           var ql = el("a", "btn", "Completar o revisar cuestionarios"); ql.href = "FAND_Cuestionarios.html"; qsec.append(ql);
           report.append(qsec);
           var inter = FANDProfile.integrate();
@@ -301,14 +320,14 @@ FANDProfile.mountGuide(document.getElementById("guide"));
           mt.append(r);
         });
         if (p.sessions.length) raw.append(el("h3", "", "Métricas por sesión"), mt);
-        var cu = exportData().cuest;
-        var cuKeys = Object.keys(cu).filter(function (k) { return Object.keys(cu[k]).length; });
-        if (cuKeys.length) {
-          raw.append(el("h3", "", "Respuestas de cuestionarios (escala 0–4; na = no lo sé / no aplicable)"));
-          cuKeys.forEach(function (k) {
-            raw.append(el("p", "", k + ": " + Object.keys(cu[k]).sort().map(function (i) { return i + "=" + cu[k][i]; }).join(", ")));
+        var cu = exportData().cuestBy;
+        var cuBuckets = Object.keys(cu);
+        if (cuBuckets.length) raw.append(el("h3", "", "Respuestas de cuestionarios (escala 0–4; na = no lo sé / no aplicable)"));
+        cuBuckets.forEach(function (b) {
+          Object.keys(cu[b]).filter(function (k) { return Object.keys(cu[b][k]).length; }).forEach(function (k) {
+            raw.append(el("p", "", k + " (" + (b === "_" ? "registro" : FANDProfile.informants[b] || b) + "): " + Object.keys(cu[b][k]).sort().map(function (i) { return i + "=" + cu[b][k][i]; }).join(", ")));
           });
-        }
+        });
         var det = el("details"); det.id = "raw-json"; det.append(el("summary", "", "Datos completos en formato JSON"));
         var pre = el("pre", "", JSON.stringify(exportData(), null, 2)); pre.style.cssText = "white-space:pre-wrap;word-break:break-all;font-size:.75rem";
         det.append(pre); raw.append(det);
@@ -316,7 +335,8 @@ FANDProfile.mountGuide(document.getElementById("guide"));
       }
       function exportData() {
         var d = FANDProfile.evaluate();
-        d.cuest = JSON.parse(localStorage.getItem("fand.perfil.v1") || "{}").cuest || {};
+        d.cuestBy = FANDProfile.rawAnswers();
+        d.comparacionInformantes = FANDProfile.compareInformants(QDEF);
         d.cuestionarios = FANDProfile.scoreQuestionnaires(QDEF);
         d.contraste = FANDProfile.integrate();
         d.ruta = FANDProfile.route();
