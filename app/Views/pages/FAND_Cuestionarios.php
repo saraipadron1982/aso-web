@@ -142,7 +142,8 @@ $scales = CuestionarioCatalog::SCALES;
             var id = p.id.replace(/^t-/, ""), alt = p.getAttribute("data-familia"), item = p.closest(".item");
             if (inf !== "self" && !alt) missing += 1;
             var txt = inf !== "self" ? (sd.texto[id] || alt) : "";
-            p.textContent = txt || p.getAttribute("data-self");
+            var shown = txt || p.getAttribute("data-self");
+            p.textContent = code === "C05" ? F.applyFocus(shown) : shown;
             var hide = F.omitted(id);
             item.hidden = hide;
             if (hide) hidden += 1;
@@ -168,7 +169,15 @@ $scales = CuestionarioCatalog::SCALES;
             el.closest(".item").hidden = !rules[id];
             if (!rules[id] && el.value) { el.value = ""; F.setAnswer(code, id, ""); }
           });
-        }        applyTexts();
+        }        if (code === "C05") {
+          var fn = document.createElement("p"); fn.className = "notice"; fn.id = "focus-note";
+          var fd = F.focus().dims;
+          fn.textContent = fd.length
+            ? "En este cuestionario, «las características» se refiere a lo que señalaste antes: " + fd.join(", ") + "."
+            : "En este cuestionario, «las características» son las dificultades que has descrito antes. Piensa en las que más te preocupan.";
+          form.parentNode.insertBefore(fn, form);
+        }
+        applyTexts();
         applyConditions();
         document.addEventListener("fand:informant", applyTexts);
         var STAGE_OPT = { preescolar: "Preescolar (hasta 5 años)", escolar: "Escolar (6 a 11 años)", adolescencia: "Adolescencia (12 a 17 años)", adultez: "Adultez (18 años o más)" };

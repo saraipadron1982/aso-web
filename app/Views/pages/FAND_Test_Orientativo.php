@@ -49,7 +49,7 @@ $tests = [
   <header>
     <a href="index.html">← Inicio</a> · <a href="FAND_Juegos_Interactivos.html">Todos los juegos</a> ·     <a href="FAND_Fichas_Tecnicas.html">Fichas técnicas</a> · <a href="FAND_Protocolo.html">Protocolo</a> · <a href="FAND_Cuestionarios.html">Cuestionarios</a> · <a href="FAND_Ficha_Usuario.html">Mi ficha</a>
     <h1>Test orientativo</h1>
-    <p>Ocho actividades breves para explorar atención, control de impulsos, planificación y memoria. Puedes hacer solo las que quieras y en el orden que prefieras. Al terminar, <a href="FAND_Ficha_Usuario.html">Mi ficha</a> reúne los resultados.</p>
+    <p>Ocho actividades breves para explorar atención, control de impulsos, planificación y memoria. Primero se responde a los cuestionarios y, según los resultados, FAND asigna los juegos que corresponden a la edad de la persona. Al terminar, <a href="FAND_Ficha_Usuario.html">Mi ficha</a> reúne los resultados.</p>
   </header>
   <main>
     <div class="notice"><strong>Importante:</strong> este test es una guía orientativa. <strong>No es un diagnóstico</strong> ni sustituye la evaluación de un profesional. Sus rangos son provisionales y están en estudio. Tus datos se guardan solo en este navegador.</div>
@@ -106,9 +106,9 @@ $tests = [
       <p><button type="button" class="btn secondary" id="stop">Prefiero parar aquí (cansancio u otro motivo)</button> <button type="button" class="btn secondary" id="resume" hidden>Reanudar</button></p>
     </section>
 
-    <h2>Todos los juegos</h2>
-    <p>Puedes hacer cualquiera cuando quieras; la ruta solo sugiere un orden. La exploración recomendada tiene como máximo 5 juegos.</p>
-    <ol class="grid">
+    <h2 id="games-h">Juegos asignados</h2>
+    <p id="games-p">Estos son los juegos que FAND te ha asignado según tus cuestionarios. No se pueden cambiar por otros.</p>
+    <ol class="grid" id="games-grid">
       <?php foreach ($tests as $code => [$name, $area, $time]): ?>
         <li>
           <div class="card" data-card="<?= $code ?>"><span class="badge" hidden></span>
@@ -153,7 +153,13 @@ F.mountGuide($("guide"));
         var c = F.ageConfig();
         $("age-status").textContent = c ? "Los juegos se abrirán configurados para la franja " + c.label + ". Podrás cambiar cualquier opción." : "Sin edad indicada: los juegos usan su configuración general.";
         var g = F.gate();
-        document.querySelectorAll("[data-card]").forEach(function (card) { card.style.opacity = g.locked ? ".6" : ""; });
+        var asg = g.locked ? null : F.assigned();
+        $("games-h").hidden = $("games-p").hidden = $("games-grid").hidden = g.locked;
+        if (asg) $("games-p").textContent = asg.text;
+        document.querySelectorAll("[data-card] .row a.btn").forEach(function (a) { a.hidden = g.locked; });
+        document.querySelectorAll("[data-card]").forEach(function (card) {
+          card.parentElement.hidden = !asg || asg.codes.indexOf(card.getAttribute("data-card")) === -1;
+        });
         if (g.locked) {
           var lk = el("div", "next"); lk.append(el("strong", "", "Paso 2: responde primero a los cuestionarios (" + g.pending.join(" → ") + "). "), document.createTextNode("Según tus respuestas, FAND te asignará unos juegos u otros. Puedes parar cuando quieras."), document.createElement("br"));
           var go = el("a", "btn", "Empezar los cuestionarios"); go.href = "FAND_Cuestionarios.html?q=" + g.pending[0];

@@ -330,6 +330,30 @@
     });
     return rows;
   }
+  // Dimensiones señaladas en los cuestionarios anteriores: sirven para que las preguntas de historia e impacto digan de qué características hablan.
+  function focus() {
+    var best = {}, dims, concerns = (getQ().concerns || []).map(function (c) { return (CONCERNS[c] || {}).label; }).filter(Boolean);
+    if (QDEF) scoreQuestionnaires(QDEF).forEach(function (q) {
+      if (!/^(C0[1-4]|E01)$/.test(q.code)) return;
+      q.dimensiones.forEach(function (d) { if (d.valid >= Q_MIN_VALID && d.mean !== null && d.mean >= Q_PRIORITY && (!best[d.nombre] || d.mean > best[d.nombre])) best[d.nombre] = d.mean; });
+    });
+    dims = Object.keys(best).sort(function (a, b) { return best[b] - best[a]; }).slice(0, 3).map(function (n) { return n.charAt(0).toLowerCase() + n.slice(1); });
+    if (!dims.length) dims = concerns.slice(0, 3);
+    var list = dims.length > 1 ? dims.slice(0, -1).join(", ") + " y " + dims[dims.length - 1] : dims[0];
+    return { dims: dims, text: dims.length ? "las características señaladas antes (" + list + ")" : "las características que has descrito en los cuestionarios anteriores" };
+  }
+  function applyFocus(t) {
+    var f = focus().text;
+    return String(t).replace(/Estas características/g, f.charAt(0).toUpperCase() + f.slice(1)).replace(/estas características/g, f);
+  }
+  // Juegos asignados por los cuestionarios: arranque + ya jugados + el siguiente propuesto. Nada más está disponible.
+  function assigned() {
+    var r = route(), codes = r.starters.slice();
+    r.played.forEach(function (c) { if (codes.indexOf(c) === -1) codes.push(c); });
+    if (r.next && !getQ().stopped && codes.indexOf(r.next.code) === -1) codes.push(r.next.code);
+    var cfg = ageConfig();
+    return { codes: codes, route: r, text: "Según los resultados de los cuestionarios, FAND te ha asignado " + codes.map(function (c) { return GAMES[c]; }).join(", ") + " para continuar la evaluación. " + (cfg ? "Cada juego se abre ya configurado para la franja " + cfg.label + " y esa configuración no se puede cambiar: la prueba solo es válida si se hace con la versión de la edad de la persona. " : "") + "Si hace falta otro juego, FAND lo añadirá según cómo vayas." };
+  }
   function getQ() { var q = (read().user || {}).q; if (q) { q.skipQ = false; return q; } return { concerns: [], access: [], impact: "none", persistent: false, screening: "none", stopped: false }; }
   function setQ(patch) {
     var data = read();
@@ -648,7 +672,7 @@
     flow: flow, gate: gate, steps: steps, mountGuide: mountGuide, recommendedInformant: recommendedInformant, informants: INFORMANTS, stage: stageOf, setStages: setStages, stageData: stageData, omitted: omitted, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, rawAnswers: function () { return read().cuestBy || {}; }, doneBy: doneBy, informantsWith: informantsWith, compareInformants: compareInformants, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
-    save: save, hasData: hasData, currentSummary: currentSummary, startNew: startNew, savedList: savedList, restore: restore, forget: forget, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
+    save: save, focus: focus, applyFocus: applyFocus, assigned: assigned, hasData: hasData, currentSummary: currentSummary, startNew: startNew, savedList: savedList, restore: restore, forget: forget, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,
     ageYears: ageYears, band: band, ageConfig: ageConfig, setAge: setAge, bandLabels: BAND_LABELS,
     concerns: CONCERNS, getQuestionnaire: getQ, setQuestionnaire: setQ, route: route, status: status
   };

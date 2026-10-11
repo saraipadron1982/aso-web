@@ -453,12 +453,19 @@
   </footer>
 
   <script src="assets/js/fand-perfil.js"></script>
+  <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);</script>
   <script>
-    // Los juegos solo se abren tras el registro y los cuestionarios; si no, se vuelve al recorrido.
-    if (FANDProfile.gate().locked || !FANDProfile.questionnaireDone("I01")) location.replace("FAND_Test_Orientativo.html");
+    // Solo se abren los juegos asignados por los cuestionarios; si no, se vuelve al recorrido.
+    var ASSIGNED = null;
+    (function () {
+      var F = FANDProfile;
+      if (F.gate().locked || !F.questionnaireDone("I01")) { location.replace("FAND_Test_Orientativo.html"); return; }
+      ASSIGNED = F.assigned();
+      var req = (new URLSearchParams(location.search).get("jugar") || "").toUpperCase();
+      if (req && ASSIGNED.codes.indexOf(req) === -1) location.replace("FAND_Test_Orientativo.html");
+    })();
   </script>
   <script>FANDProfile.mountGuide(document.getElementById("guide"));</script>
-  <script>FANDProfile.setQuestionnaireDef(<?= json_encode(CuestionarioCatalog::definition()) ?>);</script>
   <script>
     (() => {
       const games = [
@@ -697,7 +704,14 @@
         node.style.color = good ? "var(--teal-dark)" : "var(--danger)";
       }
 
+      const assignedCodes = ASSIGNED ? ASSIGNED.codes : [];
+      document.querySelector("#text-title").closest("section").hidden = true;
+      document.querySelector("#directorio").hidden = true;
+      document.querySelector("#games-title").textContent = "Tus juegos asignados";
+      const gamesIntro = document.querySelector("#games-title").parentElement.querySelector("p");
+      gamesIntro.textContent = ASSIGNED ? ASSIGNED.text : "";
       games.forEach(game => {
+        if (!assignedCodes.includes(sheetByGame[game.id])) return;
         const card = element("article", "game-card");
         const sheetCode = sheetByGame[game.id];
         card.append(element("div", "game-icon", game.icon), element("h3", "", game.title));
@@ -2103,7 +2117,10 @@
           perLevelSelect.value = String(circleAge.circle.seconds);
           totalControls.classList.add("hidden");
           autoControls.classList.remove("hidden");
-          panel.prepend(element("p", "age-config-note", `Configurado para tu edad (${circleAge.label}): ${circleAge.circle.levels} niveles de ${circleAge.circle.seconds} s. Puedes cambiarlo.`));
+          levelSelect.disabled = true;
+          perLevelSelect.disabled = true;
+          panel.querySelectorAll("input[type=radio]").forEach(radio => { radio.disabled = true; });
+          panel.prepend(element("p", "age-config-note", `Configurado para tu edad (${circleAge.label}): ${circleAge.circle.levels} niveles de ${circleAge.circle.seconds} s. Esta configuración no se puede cambiar para que la prueba sea válida.`));
         }
         refreshTotalOptions();
         board.append(panel);
@@ -2646,7 +2663,8 @@
         const towerAge = window.FANDProfile && window.FANDProfile.ageConfig();
         if (towerAge) {
           modeSelect.value = "guided";
-          setup.prepend(element("p", "age-config-note", `Configurado para tu edad (${towerAge.label}): se recomienda recorrer los niveles 1 a ${towerAge.towerLevels}. Puedes parar cuando quieras.`));
+          modeSelect.disabled = true;
+          setup.prepend(element("p", "age-config-note", `Configurado para tu edad (${towerAge.label}): recorrido principal, niveles 1 a ${towerAge.towerLevels}. Esta configuración no se puede cambiar para que la prueba sea válida. Puedes parar cuando quieras.`));
         }
         start.addEventListener("click", () => startRun(modeSelect.value, Number(practiceSelect.value)));
 
@@ -4151,7 +4169,9 @@
           ageSelect.value = attentionAge.group;
           if (kind === "go-no-go") levelSelect.value = String(attentionAge.gng);
           else if (kind === "watcher") levelSelect.value = String(attentionAge.watcher);
-          setup.prepend(element("p", "age-config-note", `Configurado para tu edad (${attentionAge.label}). Puedes cambiarlo.`));
+          ageSelect.disabled = true;
+          levelSelect.disabled = true;
+          setup.prepend(element("p", "age-config-note", `Configurado para tu edad (${attentionAge.label}). Esta configuración no se puede cambiar para que la prueba sea válida.`));
         }
         updateInstructions();
         const randomItem = list => list[Math.floor(Math.random() * list.length)];
