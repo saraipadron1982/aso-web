@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='utf-8'?>
+<fand_protocolo version="7.0" estado="prototipo_no_validado" fecha="2026-10-11">
+  <seccion titulo="1. Alcance, evidencia y límites" />
+  <seccion titulo="2. Arquitectura: dos actividades y un informe" />
+  <seccion titulo="3. Registro I01: campos obligatorios y opcionales" />
+  <registro>
+    <campo codigo="I01-01" obligatoriedad="obligatorio">Edad exacta/fecha de nacimiento</campo>
+    <campo codigo="I01-02" obligatoriedad="opcional">Género (opcional; no modifica riesgo automáticamente)</campo>
+    <campo codigo="I01-03" obligatoriedad="obligatorio">Informante: autoinforme, familiar, docente, cuidador, profesional</campo>
+    <campo codigo="I01-04" obligatoriedad="condicional">Relación y tiempo de conocimiento del informante</campo>
+    <campo codigo="I01-05" obligatoriedad="obligatorio">Etapa: preescolar, escolar, adolescencia, adultez</campo>
+    <campo codigo="I01-06" obligatoriedad="obligatorio">Motivo de consulta (categorías y otro)</campo>
+    <campo codigo="I01-07" obligatoriedad="obligatorio">Evaluación previa: sí/no/no sabe</campo>
+    <campo codigo="I01-08" obligatoriedad="condicional">Profesional/servicio y fecha de evaluación</campo>
+    <campo codigo="I01-09" obligatoriedad="condicional">Resultado o diagnóstico comunicado</campo>
+    <campo codigo="I01-10" obligatoriedad="opcional">Apoyos y tratamientos actuales; medicación que pueda afectar tareas</campo>
+    <campo codigo="I01-11" obligatoriedad="obligatorio">Lengua principal y comprensión lectora/oral</campo>
+    <campo codigo="I01-12" obligatoriedad="obligatorio">Perfil comunicativo: oral, CAA, otras formas</campo>
+    <campo codigo="I01-13" obligatoriedad="obligatorio">Necesidades visuales, auditivas, motoras o tecnológicas</campo>
+    <campo codigo="I01-14" obligatoriedad="obligatorio">Contextos disponibles: hogar, educación, trabajo, comunidad</campo>
+    <campo codigo="I01-15" obligatoriedad="obligatorio">Consentimiento/representación legal y privacidad</campo>
+    <campo codigo="I01-16" obligatoriedad="obligatorio">Deseo de contactar con profesional y urgencias no diagnósticas</campo>
+  </registro>
+  <seccion titulo="4. Escala única de barra y reglas de redacción" />
+  <seccion titulo="5. Banco de afirmaciones originales (versión base adolescente/adulto)" />
+  <banco_items escala="0-4" estado="original_no_validado">
+    <modulo codigo="C01" nombre="C01 Atención e impulsividad">
+      <dimension codigo="AT" nombre="AT Atención sostenida">
+        <item codigo="F01-AT-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Pierdo el hilo de una actividad aunque quiera concentrarme.</item>
+        <item codigo="F01-AT-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito volver a leer o escuchar instrucciones porque dejo de seguirlas.</item>
+        <item codigo="F01-AT-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta mantener la atención en actividades largas que no puedo dividir.</item>
+        <item codigo="F01-AT-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Dejo sin terminar tareas porque mi atención cambia antes de completarlas.</item>
+        <item codigo="F01-AT-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Paso por alto detalles importantes al realizar tareas conocidas.</item>
+        <item codigo="F01-AT-06" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Mi concentración cambia mucho entre momentos del mismo día.</item>
+      </dimension>
+      <dimension codigo="DI" nombre="DI Distractibilidad">
+        <item codigo="F01-DI-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Los sonidos del entorno interrumpen lo que estoy haciendo.</item>
+        <item codigo="F01-DI-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Los movimientos cercanos desvían mi atención de una tarea.</item>
+        <item codigo="F01-DI-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta retomar una actividad después de una interrupción.</item>
+        <item codigo="F01-DI-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me resulta difícil seguir una conversación cuando hay otras voces cerca.</item>
+      </dimension>
+      <dimension codigo="HI" nombre="HI Hiperactividad e inquietud">
+        <item codigo="F01-HI-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Siento necesidad de moverme cuando debo permanecer quieto/a.</item>
+        <item codigo="F01-HI-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta permanecer sentado/a el tiempo que requiere una actividad.</item>
+        <item codigo="F01-HI-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Experimento inquietud interna incluso cuando no me muevo visiblemente.</item>
+        <item codigo="F01-HI-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Cambio de actividad para aliviar la sensación de inquietud.</item>
+      </dimension>
+      <dimension codigo="IP" nombre="IP Impulsividad">
+        <item codigo="F01-IP-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Respondo antes de haber escuchado toda una pregunta.</item>
+        <item codigo="F01-IP-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Interrumpo una actividad de otra persona sin haberlo previsto.</item>
+        <item codigo="F01-IP-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta esperar cuando debo respetar un turno.</item>
+        <item codigo="F01-IP-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Empiezo una acción antes de revisar sus instrucciones.</item>
+        <item codigo="F01-IP-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Tomo decisiones rápidas que después necesito corregir.</item>
+        <item codigo="F01-IP-06" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta detener una respuesta cuando ya he empezado a actuar.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C02" nombre="C02 Reciprocidad y comunicación social">
+      <dimension codigo="RS" nombre="RS Reciprocidad">
+        <item codigo="F02-RS-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta identificar cuándo otra persona quiere que participe en una conversación.</item>
+        <item codigo="F02-RS-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta mantener un intercambio equilibrado de preguntas y respuestas.</item>
+        <item codigo="F02-RS-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito pensar conscientemente cómo mostrar interés durante una conversación.</item>
+        <item codigo="F02-RS-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta ajustar cuánto hablo cuando cambia el interés de la otra persona.</item>
+        <item codigo="F02-RS-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta iniciar una interacción para compartir algo que me ha gustado.</item>
+        <item codigo="F02-RS-06" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta identificar cuándo otra persona desea terminar una conversación.</item>
+      </dimension>
+      <dimension codigo="NV" nombre="NV Comunicación no verbal">
+        <item codigo="F02-NV-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta interpretar el significado de algunos gestos en una conversación.</item>
+        <item codigo="F02-NV-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta coordinar gestos y palabras cuando explico algo.</item>
+        <item codigo="F02-NV-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta interpretar cambios sutiles de expresión facial.</item>
+        <item codigo="F02-NV-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">El contacto visual durante una conversación requiere un esfuerzo consciente.</item>
+        <item codigo="F02-NV-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta utilizar la mirada para indicar qué quiero compartir.</item>
+        <item codigo="F02-NV-06" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta reconocer cuándo alguien dirige mi atención hacia un objeto o acontecimiento.</item>
+      </dimension>
+      <dimension codigo="PR" nombre="PR Comunicación pragmática">
+        <item codigo="F02-PR-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta entender mensajes cuando el significado no se expresa directamente.</item>
+        <item codigo="F02-PR-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta identificar cuándo una expresión es irónica.</item>
+        <item codigo="F02-PR-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta adaptar mis explicaciones a lo que otra persona ya sabe.</item>
+        <item codigo="F02-PR-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta comprender las reglas sociales que nadie explica de forma explícita.</item>
+        <item codigo="F02-PR-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito preparar con antelación algunas conversaciones habituales.</item>
+        <item codigo="F02-PR-06" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Después de una interacción social necesito tiempo para recuperarme del esfuerzo realizado.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C03" nombre="C03 Repetición, flexibilidad y sensorialidad">
+      <dimension codigo="RU" nombre="RU Rutinas y cambio">
+        <item codigo="F03-RU-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Los cambios inesperados en mis planes me generan malestar.</item>
+        <item codigo="F03-RU-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito anticipar el orden de una actividad para sentirme preparado/a.</item>
+        <item codigo="F03-RU-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta pasar de una tarea a otra sin un aviso previo.</item>
+        <item codigo="F03-RU-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me resulta difícil cambiar una manera de hacer las cosas que ya conozco.</item>
+        <item codigo="F03-RU-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me afecta que una actividad cotidiana se realice en un orden distinto al habitual.</item>
+      </dimension>
+      <dimension codigo="IN" nombre="IN Intereses intensos">
+        <item codigo="F03-IN-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Dedico mucho tiempo a profundizar en temas de interés muy específicos.</item>
+        <item codigo="F03-IN-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta interrumpir una actividad relacionada con uno de mis intereses.</item>
+        <item codigo="F03-IN-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me resulta difícil cambiar de tema cuando estoy hablando de algo que me interesa mucho.</item>
+        <item codigo="F03-IN-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Organizo parte importante de mi tiempo alrededor de intereses concretos.</item>
+      </dimension>
+      <dimension codigo="RE" nombre="RE Repetición y autorregulación">
+        <item codigo="F03-RE-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Repito movimientos que me ayudan a regular mi nivel de activación.</item>
+        <item codigo="F03-RE-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Repito palabras o sonidos para concentrarme o tranquilizarme.</item>
+        <item codigo="F03-RE-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Sigo secuencias de acciones muy concretas para sentirme preparado/a.</item>
+        <item codigo="F03-RE-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me resulta difícil interrumpir determinados movimientos repetitivos cuando el entorno lo exige.</item>
+      </dimension>
+      <dimension codigo="SE" nombre="SE Sensibilidad y búsqueda sensorial">
+        <item codigo="F03-SE-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Determinados sonidos me producen un malestar intenso.</item>
+        <item codigo="F03-SE-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Algunas luces o estímulos visuales me resultan difíciles de tolerar.</item>
+        <item codigo="F03-SE-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Ciertas texturas de ropa u objetos interfieren con mi bienestar.</item>
+        <item codigo="F03-SE-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Evito lugares debido a la cantidad de estímulos sensoriales que presentan.</item>
+        <item codigo="F03-SE-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Busco movimientos o estímulos sensoriales para regularme.</item>
+        <item codigo="F03-SE-06" formato="afirmacion_likert_0_4" periodo="actual_6_meses">La combinación de varios estímulos sensoriales me provoca sobrecarga.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C04" nombre="C04 Funciones ejecutivas y memoria">
+      <dimension codigo="PL" nombre="PL Planificación">
+        <item codigo="F04-PL-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta decidir el primer paso de una tarea compleja.</item>
+        <item codigo="F04-PL-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta organizar las acciones necesarias para completar un objetivo.</item>
+        <item codigo="F04-PL-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta calcular cuánto tiempo necesitaré para una actividad.</item>
+        <item codigo="F04-PL-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta cambiar de estrategia cuando una solución no funciona.</item>
+        <item codigo="F04-PL-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta priorizar tareas cuando tengo varias pendientes.</item>
+      </dimension>
+      <dimension codigo="ME" nombre="ME Memoria cotidiana">
+        <item codigo="F04-ME-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Olvido instrucciones poco después de escucharlas.</item>
+        <item codigo="F04-ME-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Pierdo el orden de los pasos cuando debo seguir una secuencia.</item>
+        <item codigo="F04-ME-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Olvido tareas previstas si no utilizo recordatorios.</item>
+        <item codigo="F04-ME-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta recordar información verbal que necesito utilizar más tarde.</item>
+        <item codigo="F04-ME-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta recordar el orden de información presentada visualmente.</item>
+      </dimension>
+      <dimension codigo="AP" nombre="AP Aprendizaje y organización">
+        <item codigo="F04-AP-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta mantener organizados los materiales que necesito.</item>
+        <item codigo="F04-AP-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito apoyos adicionales para comprender instrucciones extensas.</item>
+        <item codigo="F04-AP-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta seguir una explicación que combina varios pasos.</item>
+        <item codigo="F04-AP-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Mis dificultades de lectura o escritura interfieren en actividades cotidianas.</item>
+        <item codigo="F04-AP-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las tareas con números o cálculos me generan dificultades persistentes.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C05" nombre="C05 Historia, contextos e impacto">
+      <dimension codigo="EV" nombre="EV Historia evolutiva">
+        <item codigo="F05-EV-01" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">En mi infancia ya se observaban diferencias en mi forma de relacionarme.</item>
+        <item codigo="F05-EV-02" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">En mi infancia ya se observaban dificultades persistentes de atención.</item>
+        <item codigo="F05-EV-03" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">En mi infancia me costaba adaptarme a cambios de rutina.</item>
+        <item codigo="F05-EV-04" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">En mi infancia necesitaba apoyos para organizar actividades.</item>
+        <item codigo="F05-EV-05" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Personas que me conocieron de pequeño/a recuerdan estas características.</item>
+      </dimension>
+      <dimension codigo="CX" nombre="CX Contextos">
+        <item codigo="F05-CX-01" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Estas características aparecen en más de un entorno de mi vida.</item>
+        <item codigo="F05-CX-02" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Estas características continúan presentes incluso cuando estoy descansado/a.</item>
+        <item codigo="F05-CX-03" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Estas características cambian mucho según el nivel de ruido o distracción.</item>
+        <item codigo="F05-CX-04" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Mis dificultades disminuyen cuando dispongo de apoyos o adaptaciones.</item>
+        <item codigo="F05-CX-05" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Las personas que me conocen en distintos contextos describen experiencias parecidas.</item>
+      </dimension>
+      <dimension codigo="IF" nombre="IF Impacto funcional">
+        <item codigo="F05-IF-01" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Estas características dificultan tareas importantes para mí.</item>
+        <item codigo="F05-IF-02" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Estas características afectan a mis estudios o trabajo.</item>
+        <item codigo="F05-IF-03" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Estas características afectan a mis relaciones o participación social.</item>
+        <item codigo="F05-IF-04" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Necesito dedicar un esfuerzo considerable para realizar actividades cotidianas.</item>
+        <item codigo="F05-IF-05" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Estas características han provocado que renuncie a actividades que deseaba realizar.</item>
+      </dimension>
+      <dimension codigo="FO" nombre="FO Fortalezas y apoyos">
+        <item codigo="F05-FO-01" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Dispongo de estrategias que me ayudan a organizar mis actividades.</item>
+        <item codigo="F05-FO-02" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Hay entornos en los que mis capacidades se manifiestan con mayor facilidad.</item>
+        <item codigo="F05-FO-03" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Sé qué adaptaciones me ayudan a participar en actividades.</item>
+        <item codigo="F05-FO-04" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Puedo identificar habilidades que considero fortalezas personales.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C06" nombre="C06 Lenguaje y desarrollo temprano (informante familiar)">
+      <dimension codigo="DE" nombre="DE Desarrollo y juego">
+        <item codigo="F06-DE-01" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Durante la primera infancia observé dificultades para compartir interés mostrando objetos.</item>
+        <item codigo="F06-DE-02" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Durante la primera infancia observé dificultades para seguir gestos o indicaciones de otras personas.</item>
+        <item codigo="F06-DE-03" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Durante la primera infancia observé diferencias en el juego de simulación respecto a lo esperado para su etapa.</item>
+        <item codigo="F06-DE-04" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Durante la primera infancia observé dificultades para imitar acciones durante el juego.</item>
+        <item codigo="F06-DE-05" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Durante la primera infancia observé diferencias persistentes en el uso comunicativo del lenguaje.</item>
+        <item codigo="F06-DE-06" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Durante la primera infancia observé pérdida de habilidades que ya había adquirido.</item>
+      </dimension>
+      <dimension codigo="CO" nombre="CO Comunicación funcional">
+        <item codigo="F06-CO-01" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Necesita apoyos para expresar necesidades mediante su forma habitual de comunicación.</item>
+        <item codigo="F06-CO-02" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Necesita apoyos para comprender indicaciones apropiadas para su desarrollo.</item>
+        <item codigo="F06-CO-03" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Le cuesta compartir una experiencia con otra persona utilizando sus medios de comunicación.</item>
+        <item codigo="F06-CO-04" formato="afirmacion_likert_0_4" periodo="historia_o_contexto">Le cuesta participar en intercambios comunicativos adecuados para su nivel de lenguaje.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C07" nombre="C07 Diferenciales y condiciones concurrentes">
+      <dimension codigo="SU" nombre="SU Sueño y energía">
+        <item codigo="F07-SU-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">La falta de sueño afecta a mi atención durante el día.</item>
+        <item codigo="F07-SU-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Mi nivel de energía cambia de forma que interfiere en mis actividades.</item>
+        <item codigo="F07-SU-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Mi descanso nocturno suele ser insuficiente para sentirme recuperado/a.</item>
+      </dimension>
+      <dimension codigo="EM" nombre="EM Bienestar emocional">
+        <item codigo="F07-EM-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">La ansiedad interfiere con mi concentración.</item>
+        <item codigo="F07-EM-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Mi estado de ánimo influye de forma importante en mi actividad cotidiana.</item>
+        <item codigo="F07-EM-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las situaciones de sobrecarga emocional afectan a mi capacidad para comunicarme.</item>
+        <item codigo="F07-EM-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las preocupaciones repetidas dificultan que termine actividades.</item>
+      </dimension>
+      <dimension codigo="MO" nombre="MO Motricidad y accesibilidad">
+        <item codigo="F07-MO-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las dificultades de coordinación afectan a tareas cotidianas.</item>
+        <item codigo="F07-MO-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las dificultades motoras pueden influir en mi velocidad al usar pantallas o botones.</item>
+        <item codigo="F07-MO-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las dificultades visuales o auditivas pueden influir en mi rendimiento en juegos digitales.</item>
+      </dimension>
+      <dimension codigo="OT" nombre="OT Contexto y salud">
+        <item codigo="F07-OT-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Mis dificultades comenzaron o cambiaron claramente después de un acontecimiento vital importante.</item>
+        <item codigo="F07-OT-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Mis dificultades varían de forma notable según mi estado de salud.</item>
+        <item codigo="F07-OT-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las exigencias de mi entorno explican parte de las dificultades que experimento.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C08" nombre="C08 Camuflaje y compensación (adolescencia/adultez)">
+      <dimension codigo="CA" nombre="CA Compensación social">
+        <item codigo="F08-CA-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Observo a otras personas para decidir cómo comportarme en situaciones sociales.</item>
+        <item codigo="F08-CA-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Ensayo respuestas antes de participar en determinadas conversaciones.</item>
+        <item codigo="F08-CA-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Modifico conscientemente mis gestos o expresiones para ajustarme al entorno.</item>
+        <item codigo="F08-CA-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Oculto determinadas necesidades de apoyo para evitar valoraciones negativas.</item>
+        <item codigo="F08-CA-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Después de esforzarme por adaptarme socialmente experimento agotamiento.</item>
+      </dimension>
+      <dimension codigo="CE" nombre="CE Compensación ejecutiva">
+        <item codigo="F08-CE-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Utilizo múltiples recordatorios para completar actividades cotidianas.</item>
+        <item codigo="F08-CE-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito planificar con mucho detalle para evitar olvidos.</item>
+        <item codigo="F08-CE-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Dedico más tiempo del esperado a revisar tareas para evitar errores.</item>
+        <item codigo="F08-CE-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las estrategias que utilizo ocultan dificultades que otras personas no perciben.</item>
+      </dimension>
+    </modulo>
+    <modulo codigo="C09" nombre="C09 Funcionamiento educativo/laboral">
+      <dimension codigo="ED" nombre="ED Educación y trabajo">
+        <item codigo="F09-ED-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta completar tareas cuando las instrucciones son poco claras.</item>
+        <item codigo="F09-ED-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las interrupciones del entorno reducen mi rendimiento.</item>
+        <item codigo="F09-ED-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta gestionar varias fechas límite simultáneamente.</item>
+        <item codigo="F09-ED-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las interacciones grupales requieren un esfuerzo importante.</item>
+        <item codigo="F09-ED-05" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito adaptaciones del entorno para realizar mis actividades en condiciones adecuadas.</item>
+      </dimension>
+      <dimension codigo="RE" nombre="RE Relaciones y autonomía">
+        <item codigo="F09-RE-01" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta mantener rutinas de autocuidado sin apoyos.</item>
+        <item codigo="F09-RE-02" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Me cuesta gestionar citas o compromisos sin recordatorios.</item>
+        <item codigo="F09-RE-03" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Las dificultades de comunicación afectan a algunas relaciones importantes.</item>
+        <item codigo="F09-RE-04" formato="afirmacion_likert_0_4" periodo="actual_6_meses">Necesito ayuda para organizar actividades domésticas o trámites.</item>
+      </dimension>
+    </modulo>
+  </banco_items>
+  <seccion titulo="6. Adaptaciones por etapa vital e informante" />
+  <seccion titulo="7. Puntuación: descriptiva, no diagnóstica" />
+  <puntuacion estado="descriptiva_no_clinica">
+    <escala>0 nada conforme; 1 poco; 2 neutro; 3 bastante; 4 muy conforme</escala>
+    <formula>100 * suma_puntos_validos / (4 * numero_items_validos)</formula>
+    <ausentes>No aplicable y no sé no puntúan</ausentes>
+    <regla_calidad>Si menos de 75% de ítems válidos, dimensión no interpretable; umbral operativo provisional</regla_calidad>
+  </puntuacion>
+  <seccion titulo="8. Matriz J01–J08: mecánica, variables y complementariedad" />
+  <juegos>
+    <juego codigo="J01" nombre="Encuentra al Robot" mecanica="Seleccionar robot idéntico al modelo entre distractores" variables="Precisión, errores, tiempo, efecto de distractores" complementa="J04 (sostenida), J08 (dinámica)" />
+    <juego codigo="J02" nombre="Que no te engañen" mecanica="Stroop de cuatro colores: seleccionar la PALABRA inferior que nombra el COLOR DE TINTA del estímulo superior; ignorar palabra superior y tinta de opciones inferiores" variables="Precisión, latencia, coste de interferencia y errores por condición" complementa="J03 (inhibición motora)" />
+    <juego codigo="J03" nombre="Pulsa o Espera" mecanica="Go/No-Go: responder ante señal Go y abstenerse ante No-Go" variables="Aciertos Go, omisiones, comisiones No-Go, latencias" complementa="J02 (interferencia), J04 (vigilancia)" />
+    <juego codigo="J04" nombre="El Vigilante" mecanica="CPT de atención sostenida" variables="Omisiones, comisiones, tiempo y variabilidad temporal" complementa="J01 (selectiva), J03 (inhibición)" />
+    <juego codigo="J05" nombre="La Torre" mecanica="Planificación tipo Torre de Londres con reglas y objetivo" variables="Movimientos, latencia inicial, errores de regla, eficiencia" complementa="J07 (secuencia), J06 (memoria verbal)" />
+    <juego codigo="J06" nombre="La Lista" mecanica="15 palabras familiares orales; cinco ensayos de recuerdo inmediato R1–R5; distractor audiovisual de 3 min; recuerdo diferido R6" variables="Recuerdo por ensayo, aprendizaje, intrusiones, recuerdo diferido" complementa="J07 (modalidad visoespacial)" />
+    <juego codigo="J07" nombre="Recuerda la Secuencia" mecanica="Reproducción de secuencias visoespaciales tipo Corsi/Simon" variables="Longitud máxima, precisión por longitud, errores de orden" complementa="J05 (planificación), J06 (memoria verbal)" />
+    <juego codigo="J08" nombre="El círculo mayor" mecanica="Seleccionar círculo más grande; niveles estático monocromo, estático multicolor, móvil y móvil con cambios de color" variables="Precisión por nivel, tiempo, errores por distractor" complementa="J01 (estático), J04 (sostenida)" />
+  </juegos>
+  <seccion titulo="9. Algoritmo adaptativo programable: reglas operativas" />
+  <algoritmo estado="reglas_operativas_no_clinicas">
+    <regla codigo="R00" condicion="Consentimiento, edad, idioma, accesibilidad y situación de crisis" accion="Si no se garantiza comprensión/accesibilidad, ofrecer alternativa o finalizar sin clasificación." />
+    <regla codigo="R01" condicion="Registro I01 y núcleo común breve" accion="Administrar ítems de AT, HI/IP, RS/NV/PR, RU/RE, IF y CX apropiados por edad." />
+    <regla codigo="R02" condicion="Calidad de datos" accion="Si hay demasiados ausentes, ofrecer versión de informante o aclaración; no asignar puntuación 0." />
+    <regla codigo="R03" condicion="Prioridad de módulos" accion="Ordenar dimensiones por información pendiente, motivo de consulta e impacto; las medias solo priorizan preguntas, nunca etiquetan riesgo clínico." />
+    <regla codigo="R04" condicion="Ruta social/comunicación" accion="Si hay motivo de consulta o respuestas relevantes en RS/NV/PR, ampliar C02, C03, C05 y C06 cuando proceda. No esperar a un juego para abrir esta ruta." />
+    <regla codigo="R05" condicion="Ruta atención/impulsividad" accion="Si hay motivo o respuestas relevantes AT/DI/HI/IP, ampliar C01 y C05; pedir segundo informante cuando sea viable." />
+    <regla codigo="R06" condicion="Ruta mixta" accion="Si ambas rutas son relevantes, conservar ambas; no elegir una sola por mayor suma." />
+    <regla codigo="R07" condicion="Selección de juego" accion="Escoger J04 para atención sostenida, J03 para inhibición, J01 para selectiva, J02 para interferencia, J05 para planificación, J06/J07 para memoria, J08 para selección dinámica. Priorizar accesibilidad." />
+    <regla codigo="R08" condicion="Tras cada juego" accion="Comprobar práctica, comprensión, validez y fatiga; registrar datos crudos y dominio pendiente. Si es inválido, no interpretar y ofrecer repetición opcional o alternativa." />
+    <regla codigo="R09" condicion="Comparación complementaria" accion="J04→J01 si se necesita comparar atención; J03↔J02 si interesa control de respuesta/interferencia; J05→J07 o J06 si hay pregunta sobre memoria; J01→J08 si interesa componente dinámico." />
+    <regla codigo="R10" condicion="Cierre de juegos" accion="Finalizar si los dominios priorizados están cubiertos, el usuario decide parar, hay fatiga o no hay pruebas accesibles. No finalizar por supuesto descarte." />
+    <regla codigo="R11" condicion="Derivación" accion="Si existen preocupaciones persistentes, impacto, trayectoria compatible, solicitud de valoración o señales relevantes comunicadas, ofrecer recomendación razonada independientemente del rendimiento en juegos." />
+    <regla codigo="R12" condicion="Informe" accion="Describir datos por fuente, áreas, limitaciones, discordancias, apoyos y motivos concretos de valoración TEA, TDAH, dual u otras necesidades." />
+  </algoritmo>
+  <seccion titulo="10. Escenarios operativos y condiciones de derivación" />
+  <seccion titulo="11. Estructura del informe individual" />
+  <seccion titulo="12. Validación científica y seguridad antes de uso público" />
+  <seccion titulo="13. Referencias y trazabilidad" />
+  <referencias>
+    <referencia clave="FUENTE USUARIA">Texto pegado(6).txt, 1.160 líneas; síntesis de literatura sobre ADI-R, ADOS-2, SCQ, SRS, AQ, GARS, ASRS, DIVA, TEA/TDAH y rutas adaptativas. Muchas citas aparecen solo como apellido y año: comprobación bibliográfica pendiente.</referencia>
+    <referencia clave="NICE NG87">Attention deficit hyperactivity disorder: diagnosis and management. https://www.nice.org.uk/guidance/ng87</referencia>
+    <referencia clave="NICE CG128">Autism spectrum disorder in under 19s: recognition, referral and diagnosis. https://www.nice.org.uk/guidance/cg128</referencia>
+    <referencia clave="NICE CG142">Autism spectrum disorder in adults: diagnosis and management. https://www.nice.org.uk/guidance/cg142</referencia>
+    <referencia clave="COSMIN">COSMIN methodology for evaluating measurement properties of patient-reported outcome measures. https://www.cosmin.nl/</referencia>
+    <referencia clave="DSM-5-TR">American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Text Revision (2022). Referencia conceptual de dominios; no se reproducen criterios ni ítems protegidos.</referencia>
+    <referencia clave="Kessler et al. (2005)">The World Health Organization Adult ADHD Self-Report Scale (ASRS): a short screening scale for use in the general population. Psychological Medicine. Referencia de contexto; FAND no hereda su validez.</referencia>
+    <referencia clave="Treisman &amp; Gelade (1980)">A feature-integration theory of attention. Cognitive Psychology 12(1), 97–136. Fundamento general para tareas de selección visual; no valida J01/J08.</referencia>
+    <referencia clave="Stroop (1935)">Studies of interference in serial verbal reactions. Journal of Experimental Psychology 18, 643–662. Fundamento general de interferencia; no valida J02.</referencia>
+    <referencia clave="COSMIN / STARD">Aplicar directrices metodológicas de calidad de medidas y reporte de precisión diagnóstica durante la investigación.</referencia>
+  </referencias>
+</fand_protocolo>

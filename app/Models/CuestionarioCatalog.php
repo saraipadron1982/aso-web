@@ -1,19 +1,22 @@
 <?php
 declare(strict_types=1);
 
-/** Banco FAND v5 (no validado): bloques con escala F (frecuencia 0–3), I (intensidad 0–3) o H (respuesta abierta, sin puntuar). */
+/**
+ * Protocolo FAND v7 (prototipo no validado): registro I01 (respuestas abiertas, sin puntuar) y
+ * módulos C01–C09 con afirmaciones en escala 0–4 de conformidad, agrupadas por dimensión.
+ */
 final class CuestionarioCatalog
 {
-    private const FILE = __DIR__ . '/../Data/bateria_v5.xml';
-    /** Bloques que forman el recorrido guiado; el resto son opcionales. */
-    private const FLOW = ['I01', 'F01', 'D01', 'A01', 'A02', 'A03', 'S01', 'S02', 'R01', 'R02'];
+    private const FILE = __DIR__ . '/../Data/protocolo_v7.xml';
+    /** Recorrido guiado en orden; el resto de módulos son opcionales. */
+    private const FLOW = ['I01', 'C01', 'C04', 'C02', 'C03', 'C05'];
     public const SCALES = [
-        'F' => [0 => 'Nunca o casi nunca', 1 => 'Algunas veces', 2 => 'A menudo', 3 => 'Muy a menudo'],
-        'I' => [0 => 'Sin dificultad', 1 => 'Leve', 2 => 'Moderada', 3 => 'Intensa'],
+        'L' => [0 => 'Nada conforme', 1 => 'Poco conforme', 2 => 'Ni conforme ni disconforme', 3 => 'Bastante conforme', 4 => 'Muy conforme'],
     ];
+    private const OBLIGATORIEDAD = ['obligatorio' => 'obligatorio', 'opcional' => 'opcional', 'condicional' => 'si procede'];
 
     /**
-     * @return array<string, array{codigo:string,nombre:string,escala:string,objetivo:string,flujo:bool,puntua:bool,items:list<array{codigo:string,texto:string}>}>
+     * @return array<string, array{codigo:string,nombre:string,escala:string,objetivo:string,flujo:bool,puntua:bool,items:list<array{codigo:string,texto:string,dimension:string,periodo:string}>}>
      */
     public static function all(): array
     {
@@ -29,27 +32,38 @@ final class CuestionarioCatalog
         }
 
         $result = [];
-        foreach ($xml->bloque as $b) {
-            [$code, $name] = array_pad(explode(' ', (string) $b['nombre'], 2), 2, '');
+        $reg = [];
+        foreach ($xml->registro->campo ?? [] as $c) {
+            $label = self::OBLIGATORIEDAD[(string) $c['obligatoriedad']] ?? '';
+            $reg[] = ['codigo' => (string) $c['codigo'], 'texto' => trim((string) $c) . ($label !== '' ? ' (' . $label . ')' : ''), 'dimension' => '', 'periodo' => ''];
+        }
+        if ($reg) {
+            $result['I01'] = [
+                'codigo' => 'I01', 'nombre' => 'Registro inicial', 'escala' => 'H',
+                'objetivo' => 'Datos de identificación, informante, antecedentes, accesibilidad y consentimiento. Responde con tus palabras; deja en blanco lo que no sepas. No se puntúa.',
+                'flujo' => true, 'puntua' => false, 'items' => $reg,
+            ];
+        }
+
+        foreach ($xml->banco_items->modulo ?? [] as $m) {
+            $code = (string) $m['codigo'];
+            $name = trim(preg_replace('/^' . preg_quote($code, '/') . '\s+/', '', (string) $m['nombre']));
             $items = [];
-            foreach ($b->item as $item) {
-                $items[] = ['codigo' => (string) $item['id'], 'texto' => trim((string) $item)];
+            foreach ($m->dimension as $d) {
+                $dim = trim(preg_replace('/^\S+\s+/', '', (string) $d['nombre']));
+                foreach ($d->item as $it) {
+                    $items[] = ['codigo' => (string) $it['codigo'], 'texto' => trim((string) $it), 'dimension' => $dim, 'periodo' => (string) $it['periodo']];
+                }
             }
-            $scale = (string) $b['escala'];
             $result[$code] = [
-                'codigo' => $code,
-                'nombre' => $name,
-                'escala' => $scale,
-                'objetivo' => trim((string) $b->objetivo),
-                'flujo' => in_array($code, self::FLOW, true),
-                'puntua' => isset(self::SCALES[$scale]),
-                'items' => $items,
+                'codigo' => $code, 'nombre' => $name, 'escala' => 'L', 'objetivo' => '',
+                'flujo' => in_array($code, self::FLOW, true), 'puntua' => true, 'items' => $items,
             ];
         }
         return $result;
     }
 
-    /** Estructura mínima para puntuar en el navegador (solo bloques con escala). */
+    /** Estructura mínima para puntuar en el navegador: una entrada por dimensión de cada módulo. */
     public static function definition(): array
     {
         $out = [];
@@ -57,11 +71,15 @@ final class CuestionarioCatalog
             if (!$q['puntua']) {
                 continue;
             }
-            $out[$code] = [
-                'nombre' => $q['nombre'],
-                'max' => 3,
-                'dimensiones' => [['nombre' => $q['nombre'], 'scored' => array_column($q['items'], 'codigo'), 'extra' => []]],
-            ];
+            $dims = [];
+            foreach ($q['items'] as $item) {
+                $dims[$item['dimension']][] = $item['codigo'];
+            }
+            $list = [];
+            foreach ($dims as $name => $ids) {
+                $list[] = ['nombre' => $name, 'scored' => $ids, 'extra' => []];
+            }
+            $out[$code] = ['nombre' => $q['nombre'], 'max' => 4, 'dimensiones' => $list];
         }
         return $out;
     }

@@ -214,31 +214,35 @@
     J06: [["J07", "explorar otra modalidad (considera audición, idioma y fatiga)"]]
   };
   var MAX_GAMES = 5;
-  // Algoritmo FAND v5: bloque de cuestionario → juegos que exploran un objetivo relacionado.
+  // Algoritmo FAND v7: dimensión de cuestionario → juegos que exploran un objetivo relacionado (regla R07).
   // Es una hipótesis operativa de contraste, no una relación diagnóstica demostrada.
   var DIM_GAMES = [
-    ["A01", "J04", "atención sostenida"],
-    ["A01", "J01", "atención selectiva"],
-    ["A01", "J08", "selección visual dinámica"],
-    ["A02", "J05", "planificación"],
-    ["A02", "J07", "memoria visoespacial"],
-    ["A02", "J06", "memoria verbal"],
-    ["A03", "J03", "inhibición"],
-    ["A03", "J02", "control de interferencia"]
+    ["C01", "Atención sostenida", "J04", "atención sostenida"],
+    ["C01", "Atención sostenida", "J01", "atención selectiva"],
+    ["C01", "Distractibilidad", "J01", "atención selectiva"],
+    ["C01", "Distractibilidad", "J08", "selección visual dinámica"],
+    ["C01", "Impulsividad", "J03", "inhibición"],
+    ["C01", "Impulsividad", "J02", "control de interferencia"],
+    ["C04", "Planificación", "J05", "planificación"],
+    ["C04", "Memoria cotidiana", "J07", "memoria visoespacial"],
+    ["C04", "Memoria cotidiana", "J06", "memoria verbal"]
   ];
-  var Q_PRIORITY = 2; // media ≥ 2 («a menudo» o más, escala 0–3) con ≥ 3 respuestas válidas: solo prioriza qué explorar primero
+  // Escala 0–4 (0 nada conforme … 4 muy conforme). Media ≥ 2,5 con ≥ 3 respuestas válidas: solo prioriza qué explorar primero.
+  var Q_PRIORITY = 2.5;
   var Q_MIN_VALID = 3;
+  var Q_MAX = 4;
+  var Q_MIN_SHARE = 0.75; // por debajo de este porcentaje de ítems válidos la dimensión no es interpretable (umbral operativo provisional)
   var QDEF = null;
   function setQDef(def) { QDEF = def; }
   function qSignals() {
     if (!QDEF) return [];
-    var byCode = {};
-    scoreQuestionnaires(QDEF).forEach(function (q) { byCode[q.code] = q.dimensiones[0]; });
+    var byDim = {};
+    scoreQuestionnaires(QDEF).forEach(function (q) { q.dimensiones.forEach(function (d) { byDim[q.code + "|" + d.nombre] = d; }); });
     var out = [];
     DIM_GAMES.forEach(function (m) {
-      var d = byCode[m[0]];
+      var d = byDim[m[0] + "|" + m[1]];
       if (!d || d.valid < Q_MIN_VALID || d.mean === null) return;
-      out.push({ code: m[0], dim: d.nombre, mean: d.mean, valid: d.valid, game: m[1], objective: m[2], level: d.mean >= Q_PRIORITY ? "alta" : "baja" });
+      out.push({ code: m[0], dim: d.nombre, mean: d.mean, valid: d.valid, game: m[2], objective: m[3], level: d.mean >= Q_PRIORITY ? "alta" : "baja" });
     });
     return out;
   }  // Cruza cuestionarios y juegos por objetivo, sin sumarlos: informa de coincidencias y contradicciones (A8).
@@ -259,7 +263,7 @@
       if (verdict === "pendiente") rel = s.level === "alta" ? "Prioridad: aún falta jugar " + s.game + " para contrastar." : "Sin prioridad en cuestionarios; " + s.game + " opcional.";
       else if (verdict === "sin_datos") rel = "El juego no aportó indicadores evaluables.";
       else if (s.level === "alta" && verdict === "dificultad") rel = "Coinciden: cuestionario y juego señalan diferencias en este objetivo.";
-      else if (s.level === "alta") rel = "Dato contradictorio: el cuestionario muestra frecuencia alta («a menudo» o más) y el juego queda dentro de lo orientativo (puede deberse al contexto, a compensación o a que la tarea no refleja la vida diaria).";
+      else if (s.level === "alta") rel = "Dato contradictorio: el cuestionario muestra conformidad alta (media ≥ 2,5 de 4) y el juego queda dentro de lo orientativo (puede deberse al contexto, a compensación o a que la tarea no refleja la vida diaria).";
       else if (verdict === "dificultad") rel = "Dato contradictorio: el juego muestra diferencias y el cuestionario no (revisa fatiga, comprensión de la práctica o condiciones de la tarea).";
       else rel = "Coinciden: sin señales en cuestionario ni en juego.";
       rows.push({ code: s.code, dim: s.dim, mean: s.mean, qLevel: s.level, game: s.game, gameName: GAMES[s.game], objective: s.objective, verdict: verdict, relation: rel });
@@ -289,7 +293,7 @@
     qSignals().forEach(function (s) {
       if (s.level !== "alta" || ex[s.game]) return;
       score[s.game] = (score[s.game] || 0) + 12;
-      if (!qWhy[s.game]) qWhy[s.game] = "tus respuestas en " + s.code + " · " + s.dim + " (media " + s.mean.toFixed(1) + " de 4) piden contrastar " + s.objective;
+      if (!qWhy[s.game]) qWhy[s.game] = "tus respuestas en " + s.code + " · " + s.dim + " (media " + s.mean.toFixed(1) + " de " + Q_MAX + ") piden contrastar " + s.objective;
     });
     q.concerns.forEach(function (id, i) {
       ((CONCERNS[id] || {}).games || []).forEach(function (code, j) { score[code] = (score[code] || 0) + (10 - j * 3); });
@@ -338,8 +342,8 @@
     if (q.screening === "positive") reasons.push("cribado reconocido positivo según su manual");
     var qs2 = QDEF ? scoreQuestionnaires(QDEF) : [];
     var freq = [];
-    qs2.forEach(function (c) { if (/^[SR]0/.test(c.code)) c.dimensiones.forEach(function (d) { if (d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY) freq.push(c.code + " " + d.nombre.toLowerCase()); }); });
-    if (freq.length) reasons.push("respuestas «a menudo» o más en los cuestionarios sobre " + freq.join(", "));
+    qs2.forEach(function (c) { if (/^C0[236]$/.test(c.code)) c.dimensiones.forEach(function (d) { if (d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY) freq.push(c.code + " " + d.nombre.toLowerCase()); }); });
+    if (freq.length) reasons.push("respuestas de conformidad alta en los cuestionarios sobre " + freq.join(", "));
     var diffs = [];
     ev.domains.forEach(function (d) { if (d.flagged) diffs.push(d.label.toLowerCase()); });
     var cog = diffs.length ? "con diferencias descriptivas en " + diffs.join(" y ") + " (provisionales, sin normas)" : validCount ? "sin patrones destacados" : "sin pruebas interpretables";
@@ -366,14 +370,14 @@
     Object.keys(def || {}).forEach(function (code) {
       var ans = getAnswers(code), answeredAny = false;
       var dims = def[code].dimensiones.map(function (d) {
-        var sum = 0, valid = 0, na = 0, dist = [0, 0, 0, 0];
+        var sum = 0, valid = 0, na = 0, dist = [0, 0, 0, 0, 0];
         d.scored.forEach(function (it) {
           var v = ans[it];
           if (v === "na") { na += 1; answeredAny = true; }
           else if (v !== undefined && isFinite(Number(v))) { sum += Number(v); valid += 1; answeredAny = true; if (dist[Number(v)] !== undefined) dist[Number(v)] += 1; }
         });
         var extraAnswered = d.extra.filter(function (it) { return ans[it] !== undefined && ans[it] !== "na"; }).length;
-        var reliable = valid >= Math.ceil(d.scored.length * 0.6);
+        var reliable = valid >= Math.ceil(d.scored.length * Q_MIN_SHARE);
         return { nombre: d.nombre, reliable: reliable, dist: dist, sum: sum, valid: valid, na: na, total: d.scored.length, mean: reliable ? sum / valid : null, extraAnswered: extraAnswered, extraTotal: d.extra.length };
       });
       if (answeredAny) out.push({ code: code, nombre: def[code].nombre, dimensiones: dims });
@@ -385,20 +389,19 @@
     return Object.keys(c).filter(function (k) { return Object.keys(c[k]).length; });
   }
 
-  // ---- Recorrido ordenado (algoritmo v5): I01 → F01 → D01 → módulos A/S/R según motivo → juegos de la ruta → Mi ficha ----
-  var Q_ORDER = ["I01", "F01", "D01", "A01", "A02", "A03", "S01", "S02", "R01", "R02"];
+  // ---- Recorrido ordenado (protocolo v7): I01 → C01/C04 (atención y ejecutivas) y C02/C03 (social y sensorial) según motivo → C05 → juegos → Mi ficha ----
+  var Q_ORDER = ["I01", "C01", "C04", "C02", "C03", "C05"];
   function qList() {
     var c = getQ().concerns;
     var has = function () { return Array.prototype.some.call(arguments, function (k) { return c.indexOf(k) !== -1; }); };
     var attn = has("atencion", "impulsividad", "organizacion", "memoria", "percepcion"), soc = has("social", "sensorial");
-    var mixed = !attn && !soc; // sin motivo indicado: explorar ambos grupos de dominios
+    var mixed = !attn && !soc; // sin motivo indicado: conservar ambas rutas (R06)
     return Q_ORDER.filter(function (code) {
-      if (/^A0/.test(code)) return attn || mixed;
-      if (/^[SR]0/.test(code)) return soc || mixed;
+      if (code === "C01" || code === "C04") return attn || mixed;
+      if (code === "C02" || code === "C03") return soc || mixed;
       return true;
     });
-  }
-  function qDone(code) { return !!((read().cuestDone || {})[code]); }
+  }  function qDone(code) { return !!((read().cuestDone || {})[code]); }
   function markDone(code) {
     var data = read();
     data.cuestDone = data.cuestDone || {};

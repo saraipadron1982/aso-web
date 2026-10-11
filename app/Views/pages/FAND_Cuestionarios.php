@@ -47,9 +47,9 @@ $scales = CuestionarioCatalog::SCALES;
       <?php
         $main = array_filter($all, static fn (array $q): bool => $q['flujo']);
         $optional = array_filter($all, static fn (array $q): bool => !$q['flujo']);
-        $groups = [['Recorrido ordenado', $main], ['Módulos opcionales (diferenciales y fortalezas)', $optional]];
+        $groups = [['Recorrido ordenado', $main], ['Módulos opcionales (lenguaje temprano, diferenciales, camuflaje, funcionamiento)', $optional]];
         $step = 0;
-        $kind = ['F' => 'Frecuencia 0–3', 'I' => 'Intensidad 0–3', 'H' => 'Respuesta abierta, sin puntuar'];
+        $kind = ['L' => 'Conformidad 0–4', 'H' => 'Registro, sin puntuar'];
       ?>
       <?php foreach ($groups as [$title, $list]): ?>
         <h2><?= $title ?></h2>
@@ -62,7 +62,7 @@ $scales = CuestionarioCatalog::SCALES;
       <?php endforeach; ?>
     <?php else: ?>
       <?php if ($sel['puntua']): ?>
-        <p><?= $sel['escala'] === 'I' ? 'Indica cuánta dificultad supone cada situación.' : 'Indica con qué frecuencia ocurre cada situación.' ?> Salvo que se indique otra cosa, piensa en los últimos seis meses. Elige «No observado / No aplicable» si no puedes responder: se registra como dato ausente y no cuenta como cero. Si responde otra persona, indícalo en el registro I01.</p>
+        <p>Indica tu grado de conformidad con cada afirmación (de «Nada conforme» a «Muy conforme»). Salvo que se indique otra cosa, piensa en los últimos seis meses. Elige «No lo sé / No aplicable» si no puedes responder: se registra como dato ausente y no cuenta como cero. Si responde otra persona, indícalo en el registro I01 (informante).</p>
       <?php else: ?>
         <p>Responde con tus palabras; puedes dejar en blanco lo que no sepas. Estas respuestas dan contexto al informe y no se puntúan.</p>
       <?php endif; ?>
@@ -70,7 +70,8 @@ $scales = CuestionarioCatalog::SCALES;
       <form id="qform" data-q="<?= $sel['codigo'] ?>" onsubmit="return false">
         <fieldset>
           <legend><?= htmlspecialchars($sel['nombre']) ?></legend>
-          <?php foreach ($sel['items'] as $item): $n = htmlspecialchars($item['codigo']); ?>
+          <?php $lastDim = null; foreach ($sel['items'] as $item): $n = htmlspecialchars($item['codigo']); ?>
+            <?php if ($item['dimension'] !== '' && $item['dimension'] !== $lastDim): $lastDim = $item['dimension']; ?><h3><?= htmlspecialchars($lastDim) ?></h3><?php endif; ?>
             <div class="item">
               <p id="t-<?= $n ?>"><?= htmlspecialchars($item['texto']) ?></p>
               <?php if ($sel['puntua']): ?>
@@ -78,7 +79,7 @@ $scales = CuestionarioCatalog::SCALES;
                   <?php foreach ($scales[$sel['escala']] as $v => $label): ?>
                     <label><input type="radio" name="<?= $n ?>" value="<?= $v ?>"> <?= $label ?></label>
                   <?php endforeach; ?>
-                  <label><input type="radio" name="<?= $n ?>" value="na"> No observado / No aplicable</label>
+                  <label><input type="radio" name="<?= $n ?>" value="na"> No lo sé / No aplicable</label>
                 </div>
               <?php else: ?>
                 <textarea name="<?= $n ?>" aria-labelledby="t-<?= $n ?>" maxlength="500"></textarea>
