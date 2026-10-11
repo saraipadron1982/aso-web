@@ -370,9 +370,12 @@
     var areas = q.concerns.map(function (id) { return (CONCERNS[id] || {}).label; }).filter(Boolean);
     var reasons = [];
     if (q.concerns.indexOf("social") !== -1 || q.concerns.indexOf("sensorial") !== -1) reasons.push("preocupaciones sobre comunicación, rutinas o aspectos sensoriales");
-    if (q.persistent) reasons.push("dificultades persistentes");
-    if (q.impact === "significant") reasons.push("impacto significativo en la vida diaria");
-    if (q.screening === "positive") reasons.push("cribado reconocido positivo según su manual");
+    // Historia e impacto proceden del cuestionario C05 (historia evolutiva e impacto funcional), no de preguntas sueltas.
+    var c5 = QDEF ? scoreQuestionnaires(QDEF).filter(function (e) { return e.code === "C05"; }) : [];
+    ["Historia evolutiva", "Impacto funcional"].forEach(function (n) {
+      var hit = c5.some(function (e) { return e.dimensiones.some(function (d) { return d.nombre === n && d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY; }); });
+      if (hit) reasons.push(n === "Historia evolutiva" ? "historia de dificultades desde la infancia (C05)" : "impacto funcional relevante (C05)");
+    });
     var qs2 = QDEF ? scoreQuestionnaires(QDEF) : [];
     var freq = [];
     qs2.forEach(function (c) { if (/^C0[236]$/.test(c.code) || c.code === "E01") c.dimensiones.forEach(function (d) { if (c.code === "E01" && E01_PRO.indexOf(d.nombre) === -1) return; if (d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY) freq.push(c.code + " " + d.nombre.toLowerCase()); }); });
@@ -381,7 +384,7 @@
     ev.domains.forEach(function (d) { if (d.flagged) diffs.push(d.label.toLowerCase()); });
     var cog = diffs.length ? "con diferencias descriptivas en " + diffs.join(" y ") + " (provisionales, sin normas)" : validCount ? "sin patrones destacados" : "sin pruebas interpretables";
     if (q.stopped) return { id: "interrumpida", title: "Evaluación interrumpida", text: "Proceso incompleto a petición de la persona o por fatiga. No se emiten conclusiones negativas." };
-    if (!data.sessions.length && !q.concerns.length && q.impact === "none" && !q.persistent) return { id: "inicio", title: "Aún sin datos", text: "Rellena el cuestionario inicial y juega las actividades recomendadas." };
+    if (!data.sessions.length && !q.concerns.length && c5.length === 0) return { id: "inicio", title: "Aún sin datos", text: "Rellena el cuestionario inicial y juega las actividades recomendadas." };
     if (reasons.length) {
       // Categorías de salida del informe (protocolo integral §11); ninguna excluye condiciones.
       var attnFlag = ["atencion", "impulsividad", "organizacion", "memoria", "percepcion"].some(function (k) { return q.concerns.indexOf(k) !== -1; }) || qSignals().some(function (s) { return s.level === "alta"; }) || diffs.length > 0;

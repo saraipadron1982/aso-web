@@ -87,14 +87,6 @@ $tests = [
         <label class="chk"><input type="checkbox" name="access" value="color"> Dificultades para distinguir colores</label>
         <label class="chk"><input type="checkbox" name="access" value="motor"> Dificultades motoras o de manejo del dispositivo</label>
       </fieldset>
-      <fieldset>
-        <legend>Historia e impacto</legend>
-        <label class="chk"><input type="checkbox" id="persistent"> Estas dificultades son persistentes (desde hace tiempo)</label>
-        <label for="impact">Impacto en casa, escuela o trabajo</label>
-        <select id="impact"><option value="none">Sin impacto o no lo sé</option><option value="some">Algo de impacto</option><option value="significant">Impacto significativo</option></select>
-        <label for="screening">¿Has hecho un cribado reconocido (por ejemplo, con un profesional)?</label>
-        <select id="screening"><option value="none">No</option><option value="negative">Sí, resultado negativo</option><option value="positive">Sí, resultado positivo según su manual</option></select>
-      </fieldset>
       <button type="submit">Guardar y ver mi ruta</button>
       <p id="age-status" aria-live="polite"></p>
     </form>
@@ -140,7 +132,7 @@ $tests = [
         $("informant").value = F.getInformant();
         document.querySelectorAll("input[name=concern]").forEach(function (i) { i.checked = q.concerns.indexOf(i.value) !== -1; });
         document.querySelectorAll("input[name=access]").forEach(function (i) { i.checked = q.access.indexOf(i.value) !== -1; });
-        $("persistent").checked = !!q.persistent; $("impact").value = q.impact; $("screening").value = q.screening;
+        
       }
       function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; }
       function gameLink(code) { var a = el("a", "btn", "Empezar a jugar " + names[code]); a.href = "FAND_Juegos_Interactivos.html?jugar=" + code; return a; }
@@ -205,7 +197,7 @@ F.mountGuide($("guide"));
         F.setQuestionnaire({
           concerns: Array.prototype.map.call(document.querySelectorAll("input[name=concern]:checked"), function (i) { return i.value; }),
           access: Array.prototype.map.call(document.querySelectorAll("input[name=access]:checked"), function (i) { return i.value; }),
-          persistent: $("persistent").checked, impact: $("impact").value, screening: $("screening").value, stopped: false, skipQ: false
+          stopped: false, skipQ: false
         });
         renderRoute();
         var nf = F.flow();

@@ -167,7 +167,7 @@ FANDProfile.mountGuide(document.getElementById("guide"));
         stBox.append(el("strong", "", "Estado de la orientación: " + st.title + ". "), document.createTextNode(st.text));
         head.append(stBox);
         var concernNames = qn.concerns.map(function (id) { return (FANDProfile.concerns[id] || {}).label; }).filter(Boolean);
-        head.append(el("p", "", "Cuestionario inicial · Áreas a explorar: " + (concernNames.join(", ") || "no indicadas") + " · Persistencia: " + (qn.persistent ? "sí" : "no indicada") + " · Impacto: " + ({ none: "sin impacto / no sabe", some: "algo", significant: "significativo" }[qn.impact] || "—") + " · Cribado reconocido: " + ({ none: "no realizado", negative: "negativo", positive: "positivo" }[qn.screening] || "—") + "."));
+        head.append(el("p", "", "Cuestionario inicial · Áreas a explorar: " + (concernNames.join(", ") || "no indicadas") + "."));
         head.append(el("p", "", "Los resultados de los juegos solo contextualizan la recomendación: una puntuación normal no excluye ninguna condición y una puntuación baja no la confirma."));
         report.append(head);
 
