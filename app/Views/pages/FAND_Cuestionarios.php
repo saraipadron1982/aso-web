@@ -150,7 +150,19 @@ $scales = CuestionarioCatalog::SCALES;
           if (ri && ri.allowed.indexOf(inf) === -1) notes.push("Por la edad indicada: " + ri.text);
           infNote.textContent = notes.join(" ");
         }
+        var PREV = ["I01-08", "I01-09", "I01-10"];
+        function applyConditions() {
+          if (code !== "I01") return;
+          var sel = form.querySelector('[name="I01-07"]'), show = !!sel && sel.value === "Sí";
+          PREV.forEach(function (id) {
+            var el = form.querySelector('[name="' + id + '"]');
+            if (!el) return;
+            el.closest(".item").hidden = !show;
+            if (!show && el.value) { el.value = ""; F.setAnswer(code, id, ""); }
+          });
+        }
         applyTexts();
+        applyConditions();
         document.addEventListener("fand:informant", applyTexts);
         var STAGE_OPT = { preescolar: "Preescolar (hasta 5 años)", escolar: "Escolar (6 a 11 años)", adolescencia: "Adolescencia (12 a 17 años)", adultez: "Adultez (18 años o más)" };
         function fillStage() {
@@ -167,6 +179,7 @@ $scales = CuestionarioCatalog::SCALES;
           var age = target.name === "I01-01" ? F.syncAgeFromI01(target.value) : null;
           document.getElementById("saved").textContent = age ? "Guardado. Los juegos se configurarán para " + age + " años." : "Guardado.";
           if (target.name === "I01-01") fillStage();
+          if (target.name === "I01-07") applyConditions();
           if (target.name === "I01-03") {
             var key = Array.prototype.filter.call(document.getElementById("informant").options, function (o) { return o.text.replace(/ \(.*$/, "") === target.value; }).map(function (o) { return o.value; })[0];
             if (key && key !== F.getInformant()) { F.setInformant(key); location.reload(); }
