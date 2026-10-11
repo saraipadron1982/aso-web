@@ -8,6 +8,7 @@ declare(strict_types=1);
 final class CuestionarioCatalog
 {
     private const FILE = __DIR__ . '/../Data/protocolo_v7.xml';
+    private const INFORMANTES = __DIR__ . '/../Data/informantes.php';
     /** Recorrido guiado en orden; el resto de módulos son opcionales. */
     private const FLOW = ['I01', 'C01', 'C04', 'C02', 'C03', 'C05'];
     public const SCALES = [
@@ -31,11 +32,13 @@ final class CuestionarioCatalog
             return [];
         }
 
+        $extra = is_file(self::INFORMANTES) ? require self::INFORMANTES : [];
+        $familia = $extra['familia'] ?? [];
         $result = [];
         $reg = [];
         foreach ($xml->registro->campo ?? [] as $c) {
             $label = self::OBLIGATORIEDAD[(string) $c['obligatoriedad']] ?? '';
-            $reg[] = ['codigo' => (string) $c['codigo'], 'texto' => trim((string) $c) . ($label !== '' ? ' (' . $label . ')' : ''), 'dimension' => '', 'periodo' => ''];
+            $reg[] = ['codigo' => (string) $c['codigo'], 'texto' => trim((string) $c) . ($label !== '' ? ' (' . $label . ')' : ''), 'dimension' => '', 'periodo' => '', 'familia' => ''];
         }
         if ($reg) {
             $result['I01'] = [
@@ -52,12 +55,25 @@ final class CuestionarioCatalog
             foreach ($m->dimension as $d) {
                 $dim = trim(preg_replace('/^\S+\s+/', '', (string) $d['nombre']));
                 foreach ($d->item as $it) {
-                    $items[] = ['codigo' => (string) $it['codigo'], 'texto' => trim((string) $it), 'dimension' => $dim, 'periodo' => (string) $it['periodo']];
+                    $items[] = ['codigo' => (string) $it['codigo'], 'texto' => trim((string) $it), 'dimension' => $dim, 'periodo' => (string) $it['periodo'], 'familia' => $familia[(string) $it['codigo']] ?? ''];
                 }
             }
             $result[$code] = [
                 'codigo' => $code, 'nombre' => $name, 'escala' => 'L', 'objetivo' => '',
                 'flujo' => in_array($code, self::FLOW, true), 'puntua' => true, 'items' => $items,
+            ];
+        }
+        $school = $extra['escuela'] ?? null;
+        if ($school) {
+            $items = [];
+            foreach ($school['dimensiones'] as $dim => $list) {
+                foreach ($list as [$id, $text]) {
+                    $items[] = ['codigo' => $id, 'texto' => $text, 'dimension' => $dim, 'periodo' => 'ultimo_trimestre', 'familia' => $text];
+                }
+            }
+            $result['E01'] = [
+                'codigo' => 'E01', 'nombre' => $school['nombre'], 'escala' => 'L', 'objetivo' => $school['objetivo'],
+                'flujo' => false, 'puntua' => true, 'items' => $items, 'solo' => 'docente',
             ];
         }
         return $result;

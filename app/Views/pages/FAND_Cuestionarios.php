@@ -41,7 +41,15 @@ $scales = CuestionarioCatalog::SCALES;
   </header>
   <main>
     <div class="notice"><strong>Importante:</strong> banco original de investigación, <strong>no validado</strong> y sin cortes clínicos. Sirve para orientar qué explorar y preparar una consulta; no diagnostica ni descarta nada. Puedes omitir cualquier pregunta. Tus respuestas se guardan solo en este navegador.</div>
-    <?php if (!$sel): ?>
+    <div class="notice" style="border-left-color:#0f766e;background:#f0fdfa">
+      <label for="informant"><strong>¿Quién responde?</strong></label>
+      <select id="informant" style="display:block;min-height:40px;margin:6px 0;padding:6px;border:1px solid #94a3b8;border-radius:8px;font:inherit">
+        <option value="self">La propia persona</option>
+        <option value="familia">Un familiar o persona cercana (responde sobre la persona)</option>
+        <option value="docente">Un docente o el centro educativo (responde sobre el alumno/a)</option>
+      </select>
+      <span id="informant-note"></span>
+    </div>    <?php if (!$sel): ?>
       <p>Sigue este orden: al terminar cada cuestionario pasarás automáticamente al siguiente y, después, a los juegos del Test orientativo. Puedes omitir cualquier módulo con «Guardar y continuar». Los resultados de cuestionarios y juegos se mantienen separados.</p>
       <p><button type="button" class="btn" id="start-flow" style="border:0;cursor:pointer">Empezar / continuar el recorrido</button></p>
       <?php
@@ -55,7 +63,7 @@ $scales = CuestionarioCatalog::SCALES;
         <h2><?= $title ?></h2>
         <ul class="grid">
           <?php foreach ($list as $code => $q): $step++; ?>
-            <li><a href="FAND_Cuestionarios.html?q=<?= $code ?>"><strong><?= $title === 'Recorrido ordenado' ? $step . '. ' : '' ?><?= $code ?> · <?= htmlspecialchars($q['nombre']) ?></strong>
+            <li><a href="FAND_Cuestionarios.html?q=<?= $code ?>"><strong><?= $title === 'Recorrido ordenado' ? $step . '. ' : '' ?><?= $code ?> · <?= htmlspecialchars($q['nombre']) ?></strong><?= isset($q['solo']) ? ' <span class="tag">para docentes</span>' : '' ?>
               <small><span class="tag"><?= $kind[$q['escala']] ?? '' ?></span> · <span data-progress="<?= $code ?>"></span> <span data-done="<?= $code ?>"></span></small></a></li>
           <?php endforeach; ?>
         </ul>
@@ -73,7 +81,7 @@ $scales = CuestionarioCatalog::SCALES;
           <?php $lastDim = null; foreach ($sel['items'] as $item): $n = htmlspecialchars($item['codigo']); ?>
             <?php if ($item['dimension'] !== '' && $item['dimension'] !== $lastDim): $lastDim = $item['dimension']; ?><h3><?= htmlspecialchars($lastDim) ?></h3><?php endif; ?>
             <div class="item">
-              <p id="t-<?= $n ?>"><?= htmlspecialchars($item['texto']) ?></p>
+              <p id="t-<?= $n ?>" data-self="<?= htmlspecialchars($item['texto']) ?>" data-familia="<?= htmlspecialchars($item['familia']) ?>"><?= htmlspecialchars($item['texto']) ?></p>
               <?php if ($sel['puntua']): ?>
                 <div class="opts" role="radiogroup" aria-labelledby="t-<?= $n ?>">
                   <?php foreach ($scales[$sel['escala']] as $v => $label): ?>
@@ -108,9 +116,23 @@ $scales = CuestionarioCatalog::SCALES;
           if (ta) ta.value = ans[k];
         });
         var timer;
+        var texts = form.querySelectorAll("p[data-self]"), infNote = document.getElementById("informant-note");
+        function applyTexts() {
+          var inf = F.getInformant(), missing = 0;
+          texts.forEach(function (p) {
+            var alt = p.getAttribute("data-familia");
+            if (inf !== "self" && !alt) missing += 1;
+            p.textContent = inf !== "self" && alt ? alt : p.getAttribute("data-self");
+          });
+          if (missing) infNote.textContent = "Este módulo está redactado en primera persona: responde pensando en la persona evaluada, no en ti.";
+        }
+        applyTexts();
+        document.addEventListener("fand:informant", applyTexts);
+        if (code === "I01" && !ans["I01-01"] && F.ageYears()) { var ai = form.querySelector('[name="I01-01"]'); if (ai) ai.value = F.ageYears(); }
         function persist(target) {
           F.setAnswer(code, target.name, target.value.trim ? target.value.trim() : target.value);
-          document.getElementById("saved").textContent = "Guardado.";
+          var age = target.name === "I01-01" ? F.syncAgeFromI01(target.value) : null;
+          document.getElementById("saved").textContent = age ? "Guardado. Los juegos se configurarán para " + age + " años." : "Guardado.";
         }
         form.addEventListener("change", function (e) { if (e.target.type === "radio") persist(e.target); });
         form.addEventListener("input", function (e) {
@@ -118,6 +140,16 @@ $scales = CuestionarioCatalog::SCALES;
           clearTimeout(timer); timer = setTimeout(function () { persist(e.target); }, 400);
         });
       }
+      var infSel = document.getElementById("informant");
+      infSel.value = F.getInformant();
+      var infText = function () { return infSel.options[infSel.selectedIndex].text.replace(/ \(.*$/, ""); };
+      infSel.addEventListener("change", function () {
+        F.setInformant(infSel.value);
+        F.setAnswer("I01", "I01-03", infText());
+        document.dispatchEvent(new Event("fand:informant"));
+        if (!form || form.getAttribute("data-q") === "I01") location.reload();
+        else if (infSel.value === "docente" && form.getAttribute("data-q") !== "E01" && form.getAttribute("data-q") !== "I01") location.href = "FAND_Cuestionarios.html?q=E01";
+      });
       var totals = <?= json_encode(array_map(static fn (array $q): int => count($q['items']), $all)) ?>;
       function goNext() { var f = F.flow(); location.href = f.url || "FAND_Ficha_Usuario.html"; }
       var sf = document.getElementById("start-flow"); if (sf) sf.addEventListener("click", goNext);

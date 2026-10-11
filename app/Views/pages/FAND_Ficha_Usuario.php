@@ -154,6 +154,7 @@ $games = [
 
         var head = section("Resumen del perfil");
         var u = p.user || {};
+        head.append(el("p", "", "Cuestionarios respondidos por: " + FANDProfile.informants[FANDProfile.getInformant()] + "."));
         head.append(el("p", "", "Persona: " + (u.name || "sin indicar") + " · Edad: " + (u.ageYears ? u.ageYears + " años" : "sin indicar") + " · Fecha del informe: " + p.generatedAt.slice(0, 10)));
         if (u.notes) head.append(el("p", "", "Notas: " + u.notes));
         if (u.factors && u.factors.length) head.append(el("p", "difficulty", "Factores que pueden alterar los resultados: " + u.factors.join("; ") + "."));

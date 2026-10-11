@@ -225,8 +225,17 @@
     ["C01", "Impulsividad", "J02", "control de interferencia"],
     ["C04", "Planificación", "J05", "planificación"],
     ["C04", "Memoria cotidiana", "J07", "memoria visoespacial"],
-    ["C04", "Memoria cotidiana", "J06", "memoria verbal"]
+    ["C04", "Memoria cotidiana", "J06", "memoria verbal"],
+    ["E01", "Atención en el aula", "J04", "atención sostenida"],
+    ["E01", "Atención en el aula", "J01", "atención selectiva"],
+    ["E01", "Autorregulación y control", "J03", "inhibición"],
+    ["E01", "Autorregulación y control", "J02", "control de interferencia"],
+    ["E01", "Organización y aprendizaje", "J05", "planificación"],
+    ["E01", "Organización y aprendizaje", "J07", "memoria visoespacial"],
+    ["E01", "Organización y aprendizaje", "J06", "memoria verbal"]
   ];
+  // Dimensiones del centro educativo sin juego equivalente: cuentan como motivo para orientar a un profesional.
+  var E01_PRO = ["Interacción social", "Comunicación y lenguaje", "Flexibilidad y sensorialidad"];
   // Escala 0–4 (0 nada conforme … 4 muy conforme). Media ≥ 2,5 con ≥ 3 respuestas válidas: solo prioriza qué explorar primero.
   var Q_PRIORITY = 2.5;
   var Q_MIN_VALID = 3;
@@ -342,7 +351,7 @@
     if (q.screening === "positive") reasons.push("cribado reconocido positivo según su manual");
     var qs2 = QDEF ? scoreQuestionnaires(QDEF) : [];
     var freq = [];
-    qs2.forEach(function (c) { if (/^C0[236]$/.test(c.code)) c.dimensiones.forEach(function (d) { if (d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY) freq.push(c.code + " " + d.nombre.toLowerCase()); }); });
+    qs2.forEach(function (c) { if (/^C0[236]$/.test(c.code) || c.code === "E01") c.dimensiones.forEach(function (d) { if (c.code === "E01" && E01_PRO.indexOf(d.nombre) === -1) return; if (d.valid >= Q_MIN_VALID && d.mean >= Q_PRIORITY) freq.push(c.code + " " + d.nombre.toLowerCase()); }); });
     if (freq.length) reasons.push("respuestas de conformidad alta en los cuestionarios sobre " + freq.join(", "));
     var diffs = [];
     ev.domains.forEach(function (d) { if (d.flagged) diffs.push(d.label.toLowerCase()); });
@@ -391,7 +400,30 @@
 
   // ---- Recorrido ordenado (protocolo v7): I01 → C01/C04 (atención y ejecutivas) y C02/C03 (social y sensorial) según motivo → C05 → juegos → Mi ficha ----
   var Q_ORDER = ["I01", "C01", "C04", "C02", "C03", "C05"];
+  // Quién responde: self (la propia persona), familia (familiar o persona cercana), docente (centro educativo).
+  var INFORMANTS = { self: "La propia persona", familia: "Familiar o persona cercana", docente: "Docente o centro educativo" };
+  function getInformant() { var v = (read().user || {}).informant; return INFORMANTS[v] ? v : "self"; }
+  function setInformant(v) { if (!INFORMANTS[v]) return false; return setUser({ informant: v }); }
+  // Lee años o una fecha de nacimiento (dd/mm/aaaa o aaaa-mm-dd) escrita en el registro I01 y la guarda como edad de la persona.
+  function ageFromText(text) {
+    var s = String(text || "").trim(), m;
+    if ((m = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})$/))) return yearsSince(+m[3], +m[2], +m[1]);
+    if ((m = s.match(/^(\d{4})[\/\-.](\d{1,2})[\/\-.](\d{1,2})$/))) return yearsSince(+m[1], +m[2], +m[3]);
+    if ((m = s.match(/^(\d{1,3})(?:\s*(?:años?|a))?$/i))) return +m[1];
+    return null;
+  }
+  function yearsSince(y, mo, d) {
+    var now = new Date(), age = now.getFullYear() - y;
+    if (now.getMonth() + 1 < mo || (now.getMonth() + 1 === mo && now.getDate() < d)) age -= 1;
+    return age;
+  }
+  function syncAgeFromI01(text) {
+    var n = ageFromText(text);
+    if (n !== null && n >= 3 && n <= 110) { setAge(n); return n; }
+    return null;
+  }
   function qList() {
+    if (getInformant() === "docente") return ["I01", "E01"];
     var c = getQ().concerns;
     var has = function () { return Array.prototype.some.call(arguments, function (k) { return c.indexOf(k) !== -1; }); };
     var attn = has("atencion", "impulsividad", "organizacion", "memoria", "percepcion"), soc = has("social", "sensorial");
@@ -439,7 +471,7 @@
   }
 
   window.FANDProfile = {
-    flow: flow, gate: gate, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
+    flow: flow, gate: gate, informants: INFORMANTS, getInformant: getInformant, setInformant: setInformant, syncAgeFromI01: syncAgeFromI01, markQuestionnaireDone: markDone, questionnaireDone: qDone, questionnaireOrder: qList,
     getAnswers: getAnswers, setAnswer: setAnswer, scoreQuestionnaires: scoreQuestionnaires, answeredModules: answeredModules,
     setQuestionnaireDef: setQDef, integrate: integrate, qSignals: qSignals,
     save: save, evaluate: evaluate, setUser: setUser, clear: clear, games: GAMES, domains: DOMAINS, rules: RULES,

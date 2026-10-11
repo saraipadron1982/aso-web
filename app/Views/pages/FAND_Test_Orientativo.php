@@ -57,8 +57,16 @@ $tests = [
       <h2 style="flex-basis:100%;margin:0">1. Cuestionario inicial</h2>
       <p class="hint" style="flex-basis:100%;margin:0">Sirve solo para elegir qué juegos te conviene hacer primero. No es una puntuación clínica y todas las preguntas son opcionales salvo la edad.</p>
       <div>
-        <label for="age">¿Qué edad tienes?</label>
+        <label for="age">¿Qué edad tiene la persona que hará las pruebas?</label>
         <input id="age" type="number" min="3" max="110" inputmode="numeric" placeholder="Años">
+      </div>
+      <div>
+        <label for="informant">¿Quién responde los cuestionarios?</label>
+        <select id="informant">
+          <option value="self">La propia persona</option>
+          <option value="familia">Un familiar o persona cercana</option>
+          <option value="docente">Un docente o el centro educativo</option>
+        </select>
       </div>
       <fieldset>
         <legend>¿Qué te gustaría explorar? (marca las que quieras)</legend>
@@ -127,6 +135,7 @@ $tests = [
       function load() {
         var q = F.getQuestionnaire();
         if (F.ageYears()) $("age").value = F.ageYears();
+        $("informant").value = F.getInformant();
         document.querySelectorAll("input[name=concern]").forEach(function (i) { i.checked = q.concerns.indexOf(i.value) !== -1; });
         document.querySelectorAll("input[name=access]").forEach(function (i) { i.checked = q.access.indexOf(i.value) !== -1; });
         $("persistent").checked = !!q.persistent; $("impact").value = q.impact; $("screening").value = q.screening;
@@ -189,6 +198,7 @@ $tests = [
       $("q-form").addEventListener("submit", function (e) {
         e.preventDefault();
         F.setAge($("age").value);
+        F.setInformant($("informant").value);
         F.setQuestionnaire({
           concerns: Array.prototype.map.call(document.querySelectorAll("input[name=concern]:checked"), function (i) { return i.value; }),
           access: Array.prototype.map.call(document.querySelectorAll("input[name=access]:checked"), function (i) { return i.value; }),
